@@ -1,10 +1,9 @@
-package com.entertainment.event.ssearch.ar155.ui.battery
+package com.entertainment.event.ssearch.ar155.function.battery
 
 import androidx.lifecycle.viewModelScope
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.NORMAL
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.ULTRA
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
 import com.entertainment.event.ssearch.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,11 +16,7 @@ class BatteryViewModel @Inject constructor(
     private val batteryUseCase: BatteryUseCase,
 ) : BaseViewModel<BatteryStateScreen>(BatteryStateScreen()) {
 
-    init {
-        getBatteryParams()
-    }
-
-    private fun getBatteryParams() {
+    fun getBatteryParams() {
         viewModelScope.launch(Dispatchers.Default) {
             batteryUseCase.getBatteryPercent().collect { percent ->
                 calculateRemainingBatteryLife(percent)

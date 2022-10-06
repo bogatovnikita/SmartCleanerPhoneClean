@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.ui.custom
+package com.entertainment.event.ssearch.ar155.function.custom
 
 import android.content.Context
 import android.util.AttributeSet

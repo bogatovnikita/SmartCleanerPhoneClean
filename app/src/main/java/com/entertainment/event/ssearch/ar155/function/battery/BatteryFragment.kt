@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.ui.battery
+package com.entertainment.event.ssearch.ar155.function.battery
 
 import android.os.Bundle
 import android.view.View
@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryBinding
-import com.entertainment.event.ssearch.ar155.ui.adapters.BatterySaveFunctionRecyclerViewAdapter
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.NORMAL
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar.Companion.ULTRA
+import com.entertainment.event.ssearch.ar155.adapters.BatterySaveFunctionRecyclerViewAdapter
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,6 +29,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObserverStateScreen()
+        viewModel.getBatteryParams()
         initAdapter()
         setTypeBoostBattery()
         goToBoostingBatteryListener()
@@ -72,17 +73,17 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     private fun renderState(batteryStateScreen: BatteryStateScreen) {
         with(batteryStateScreen) {
             with(binding) {
-                tvBatteryPercents.text = getString(R.string.battery_percents, batteryPercents)
+                tvBatteryPercents.text = getString(R.string.value_percents, batteryPercents)
                 tvWorkingTime.text =
                     getString(R.string.working_time, batteryWorkingTime[0], batteryWorkingTime[1])
                 choosingTypeBar.setSaveTypeBattery(batterySaveType)
                 if (isBoostedBattery) {
-                    groupDangerOff.isVisible = true
-                    groupDangerOn.isVisible = false
+                    tvDangerDescriptionOff.isVisible = true
+                    tvDangerDescription.isVisible = false
                     tvDangerDescriptionOff.text = getString(R.string.improve_working_time_by_percent, viewModel.modePercentBoost())
                 } else {
-                    groupDangerOff.isVisible = false
-                    groupDangerOn.isVisible = true
+                    tvDangerDescriptionOff.isVisible = false
+                    tvDangerDescription.isVisible = true
                 }
             }
             renderBtnBoostingBattery(isBoostedBattery)

@@ -1,7 +1,6 @@
-package com.entertainment.event.ssearch.ar155.ui.battery
+package com.entertainment.event.ssearch.ar155.function.battery
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -11,10 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryOptimizingBinding
-import com.entertainment.event.ssearch.ar155.ui.adapters.BatterySaveFunctionRecyclerViewAdapter
-import com.entertainment.event.ssearch.ar155.ui.adapters.HintDecoration
-import com.entertainment.event.ssearch.ar155.ui.adapters.OptimizingRecyclerAdapter
-import com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar
+import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
+import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
+import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar
 import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -44,11 +42,11 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
     }
 
     private fun startOptimization() {
-        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_battery_progress))
+        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_battery))
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)
-                binding.tvProgressPercents.text = getString(R.string.battery_percents, percent)
+                binding.tvProgressPercents.text = getString(R.string.value_percents, percent)
                 binding.linearProgressIndicator.progress = percent
                 withContext(Dispatchers.Main) {
                     updateList(progress = percent)

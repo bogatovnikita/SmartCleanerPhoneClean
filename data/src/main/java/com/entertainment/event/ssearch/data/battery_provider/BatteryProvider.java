@@ -3,6 +3,7 @@ package com.entertainment.event.ssearch.data.battery_provider;
 import android.content.Context;
 import android.provider.Settings;
 import androidx.annotation.Keep;
+import com.entertainment.event.ssearch.data.shared_pref.UtilsProviderForCLibrary;
 
 @Keep
 public class BatteryProvider {
@@ -24,15 +25,6 @@ public class BatteryProvider {
     public static native void savePowerMediumType(Context context);
 
     public static native void savePowerHighType(Context context);
-
-    //Применяется для сохранения времени в сишной библиотеке
-    public static void saveToPreferences(String fieldName, long time) {
-        UtilsProviderForCLibrary.INSTANCE
-                .getSharedPreferencesProvider()
-                .edit()
-                .putLong(fieldName, time)
-                .apply();
-    }
 
     public static void setScreenBrightness(Integer value){
         try{

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/batteryFragment"
-        android:name="com.entertainment.event.ssearch.ar155.ui.battery.BatteryFragment"
+        android:name="com.entertainment.event.ssearch.ar155.function.battery.BatteryFragment"
         android:label="fragment_battery"
         tools:layout="@layout/fragment_battery" >
         <action
@@ -16,7 +16,20 @@
     </fragment>
     <fragment
         android:id="@+id/batteryOptimizingFragment"
-        android:name="com.entertainment.event.ssearch.ar155.ui.battery.BatteryOptimizingFragment"
+        android:name="com.entertainment.event.ssearch.ar155.function.battery.BatteryOptimizingFragment"
         android:label="fragment_battery_optimizing"
         tools:layout="@layout/fragment_battery_optimizing" />
+    <fragment
+        android:id="@+id/boostFragment"
+        android:name="com.entertainment.event.ssearch.ar155.function.boost.BoostFragment"
+        android:label="fragment_boost"
+        tools:layout="@layout/fragment_boost" >
+        <action
+            android:id="@+id/action_boostFragment_to_boostOptimizingFragment"
+            app:destination="@id/boostOptimizingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/boostOptimizingFragment"
+        android:name="com.entertainment.event.ssearch.ar155.function.boost.BoostOptimizingFragment"
+        android:label="BoostOptimizingFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.data.battery_provider
+package com.entertainment.event.ssearch.data.shared_pref
 
 import android.app.Application
 import android.content.ContentResolver

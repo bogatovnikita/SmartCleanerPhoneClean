@@ -53,7 +53,7 @@ jobject getPreferences(JNIEnv *env, jobject context) {
 
     jint modePrivate = env->GetStaticIntField(contextClass, modePrivateFieldId);
     return env->CallObjectMethod(context, getSharedPreferences,
-                                 env->NewStringUTF("preferences"), modePrivate);
+                                 env->NewStringUTF("APP_PREFERENCES"), modePrivate);
 }
 
 jlong getLongFromPreferences(JNIEnv *env, jobject context, jstring fieldName, jlong defaultValue) {
@@ -78,7 +78,6 @@ jboolean checkTimeExpired(JNIEnv *env, jobject context, jstring field) {
     jlong doneTime = getLongFromPreferences(env, context, field, def);
     return (currentTime - doneTime) > 1000 * 60 * 60 * 2;
 }
-
 
 extern "C"
 JNIEXPORT jobjectArray JNICALL
@@ -189,7 +188,7 @@ Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_calc
 
 void putLongToPreferences(JNIEnv *env, jobject context, jstring fieldName, jlong value) {
     jclass providerClass = env->FindClass(
-            "com/entertainment/event/ssearch/data/battery_provider/BatteryProvider");
+            "com/entertainment/event/ssearch/data/shared_pref/SharedPrefProvider");
     jmethodID putStringMethodId = env->GetStaticMethodID(providerClass, "saveToPreferences",
                                                          "(Ljava/lang/String;J)V");
     env->CallStaticVoidMethod(providerClass, putStringMethodId, fieldName, value);
@@ -198,7 +197,7 @@ void putLongToPreferences(JNIEnv *env, jobject context, jstring fieldName, jlong
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_boost(JNIEnv *env,
+Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_boost(JNIEnv *env,
                                                     jclass clazz,
                                                     jobject context) {
     putLongToPreferences(env, context, BOOST(env), getCurrentTime(env));
@@ -222,7 +221,7 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_cpu(JNIEnv *env,
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getRamUsage(JNIEnv *env,
+Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getRamUsage(JNIEnv *env,
                                                           jclass clazz,
                                                           jobject context,
                                                           jlong ram_total,
@@ -239,7 +238,7 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getRamUsage(JNIEnv *env,
 }
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_checkRamOverload(
+Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_checkRamOverload(
         JNIEnv *env, jclass clazz, jobject instance) {
     return checkTimeExpired(env, instance, BOOST(env));
 }
@@ -289,7 +288,7 @@ Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_chec
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getOverloadedPercents(JNIEnv *env, jclass clazz,
+Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getOverloadedPercents(JNIEnv *env, jclass clazz,
                                                                     jobject context) {
     overloadedPercens = (rand() % 10) + 2;
     return overloadedPercens;

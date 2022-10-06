@@ -1,7 +1,7 @@
 package com.entertainment.event.ssearch.ar155
 
 import android.app.Application
-import com.entertainment.event.ssearch.data.battery_provider.UtilsProviderForCLibrary
+import com.entertainment.event.ssearch.data.shared_pref.UtilsProviderForCLibrary
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

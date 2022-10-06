@@ -10,10 +10,14 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_main_for_params.xml" value="0.223" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/ic__danger.xml" value="0.223" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/ic_ellipse_black.xml" value="0.121" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/ic_rocket_danger.xml" value="0.1665" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/choosing_type_battery_bar_view.xml" value="0.536" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery.xml" value="0.2" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_progres.xml" value="0.4" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost.xml" value="0.34421052631578947" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_battery_save_fun.xml" value="0.7085427135678392" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_optimizing.xml" value="0.25" />
       </map>

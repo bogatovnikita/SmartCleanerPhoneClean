@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.ui.adapters
+package com.entertainment.event.ssearch.ar155.adapters
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Rect

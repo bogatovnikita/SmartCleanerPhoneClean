@@ -13,8 +13,12 @@
     <string name="improve_working_time_by_percent">Время работы телефона\nувеличено на %d</string>
     <string name="normal_mode">В нормальном режиме:</string>
     <string name="working_time">%d часов %d минут</string>
-    <string name="battery_percents">%d %%</string>
+    <string name="value_percents">%d %%</string>
     <string name="ready">Готово</string>
+    <string name="gb">%.2f Гб</string>
+    <string name="gb_fraction">/%.2f Гб</string>
+    <string name="boost">Ускорить</string>
+    <string name="boosting">Ускорение</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>
@@ -34,5 +38,13 @@
         <item>Отключим wi-fi</item>
         <item>Заморозим фоновые приложения</item>
         <item>Отключим bluetooth</item>
+    </array>
+
+    <array name="optimization">
+        <item>Deleting background processes</item>
+        <item>Clearing system paths</item>
+        <item>Adjusting system processes</item>
+        <item>Checking unused components</item>
+        <item>Disconnect from unnecessary GPS towers</item>
     </array>
 </resources>

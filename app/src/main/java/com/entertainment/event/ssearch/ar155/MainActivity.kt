@@ -2,8 +2,6 @@ package com.entertainment.event.ssearch.ar155
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.entertainment.event.ssearch.ar155.ui.battery.BatteryFragment
-import com.entertainment.event.ssearch.ar155.ui.battery.BatteryOptimizingFragment
 import com.entertainment.event.ssearch.data.battery_provider.BatteryChargeReceiver
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
