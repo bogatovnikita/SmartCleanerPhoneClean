@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/choosing_type_battery_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/tv_type_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/type_normal"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintBottom_toTopOf="@id/bg_choosing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/tv_type_ultra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/type_ultra"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_type_normal" />
+
+    <TextView
+        android:id="@+id/tv_type_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/type_extra"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_9ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_type_ultra" />
+
+    <View
+        android:id="@+id/bg_choosing"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_9sdp"
+        android:background="@drawable/bg_battery_type_choosing"
+        app:layout_constraintBottom_toBottomOf="@id/btn_normal_off"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_extra"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_normal"
+        app:layout_constraintTop_toTopOf="@id/btn_normal_off" />
+
+    <ImageView
+        android:id="@+id/btn_normal_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/ic_ellipse_black"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_normal"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_normal" />
+
+    <ImageView
+        android:id="@+id/btn_normal_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ellipse_switch_on"
+        app:layout_constraintBottom_toBottomOf="@id/btn_normal_off"
+        app:layout_constraintEnd_toEndOf="@id/btn_normal_off"
+        app:layout_constraintStart_toStartOf="@+id/btn_normal_off"
+        app:layout_constraintTop_toTopOf="@id/btn_normal_off" />
+
+    <ImageView
+        android:id="@+id/btn_ultra_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ellipse_black"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_normal_off"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_ultra"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_ultra"
+        app:layout_constraintTop_toTopOf="@+id/btn_normal_off" />
+
+    <ImageView
+        android:id="@+id/btn_ultra_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ellipse_switch_on"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/btn_ultra_off"
+        app:layout_constraintEnd_toEndOf="@id/btn_ultra_off"
+        app:layout_constraintStart_toStartOf="@+id/btn_ultra_off"
+        app:layout_constraintTop_toTopOf="@id/btn_ultra_off" />
+
+    <ImageView
+        android:id="@+id/btn_extra_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ellipse_black"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_normal_off"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_extra"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_extra"
+        app:layout_constraintTop_toTopOf="@+id/btn_normal_off" />
+
+    <ImageView
+        android:id="@+id/btn_extra_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ellipse_switch_on"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/btn_extra_off"
+        app:layout_constraintEnd_toEndOf="@id/btn_extra_off"
+        app:layout_constraintStart_toStartOf="@+id/btn_extra_off"
+        app:layout_constraintTop_toTopOf="@id/btn_extra_off" />
+
+</merge>

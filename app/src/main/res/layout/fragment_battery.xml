@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgraund_main"
+    tools:context=".ui.battery.BatteryFragment">
+
+    <ImageButton
+        android:id="@+id/btn_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_26sdp"
+        android:background="@color/black"
+        android:src="@drawable/ic_arrow_go_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_battery_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/golos_regular"
+        android:gravity="center_horizontal"
+        android:text="@string/battery_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_go_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_go_back" />
+
+    <LinearLayout
+        android:id="@+id/container_working_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_37sdp"
+        android:background="@drawable/bg_main_for_params"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_19sdp"
+        android:paddingStart="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/container_circle_progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/btn_go_back"
+        app:layout_constraintTop_toBottomOf="@id/tv_battery_title">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/golos_regular"
+            android:text="@string/remaining_working_time"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/tv_working_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/golos_regular"
+            android:text="@string/working_time"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_8ssp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/container_circle_progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_main_for_params"
+        android:padding="@dimen/_11sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/container_working_time"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/container_working_time">
+
+        <TextView
+            android:id="@+id/tv_battery_percents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/golos_regular"
+            android:text="@string/battery_percents"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp" />
+
+        <yinkio.android.customView.progressBar.ArcCircleProgressBar
+            android:id="@+id/circular_progress_battery_percent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:canalColor="@color/black"
+            app:canalHasShadow="false"
+            app:canalWidth="@dimen/_6sdp"
+            app:indicatorColor="@color/blue"
+            app:indicatorEndAngle="270"
+            app:indicatorStartAngle="-90"
+            app:indicatorWidth="@dimen/_6sdp"
+            app:progress="65" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_danger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:background="@drawable/ic__danger"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_danger_description"
+        app:layout_constraintStart_toStartOf="@id/tv_danger_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_danger_description" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_danger_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@drawable/bg_main_for_params"
+        android:fontFamily="@font/golos_regular"
+        android:paddingStart="@dimen/_29sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="@string/increase_time_working"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_arrow_go_back"
+        app:layout_constraintEnd_toEndOf="@+id/container_circle_progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/container_working_time"
+        app:layout_constraintTop_toBottomOf="@+id/container_working_time" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_danger_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="iv_danger, tv_danger_description" />
+
+    <ImageView
+        android:id="@+id/iv_danger_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:background="@drawable/ic_danger_off"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_danger_description"
+        app:layout_constraintStart_toStartOf="@id/tv_danger_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_danger_description" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_danger_description_off"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@drawable/bg_main_for_params"
+        android:fontFamily="@font/golos_regular"
+        android:paddingStart="@dimen/_29sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="@string/improve_working_time_by_percent"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_arrow_go_back"
+        app:layout_constraintEnd_toEndOf="@+id/container_circle_progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/container_working_time"
+        app:layout_constraintTop_toBottomOf="@+id/container_working_time" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_danger_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="iv_danger_off, tv_danger_description_off" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tv_danger_description_off,tv_danger_description" />
+
+    <View
+        android:id="@+id/bottom_sheet_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_19sdp"
+        android:background="@drawable/bg_bottom_sheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+
+    <TextView
+        android:id="@+id/tv_type_save_battery_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_19sdp"
+        android:fontFamily="@font/golos_medium"
+        android:text="@string/type_save_battery_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_sheet_container" />
+
+    <com.entertainment.event.ssearch.ar155.ui.custom.ChoosingTypeBatteryBar
+        android:id="@+id/choosing_type_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_save_battery_title" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_19sdp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choosing_type_bar" />
+
+    <TextView
+        android:id="@+id/title_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:alpha="0.5"
+        android:text="@string/normal_mode"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
+        app:layout_constraintTop_toBottomOf="@+id/title_list"
+        tools:listitem="@layout/item_battery_save_fun" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_boost_battery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_19sdp"
+        android:background="@color/black"
+        android:drawableEnd="@drawable/ic_arrow_go_head"
+        android:fontFamily="@font/golos_regular"
+        android:gravity="start|center_vertical"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:text="@string/boost_battery"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

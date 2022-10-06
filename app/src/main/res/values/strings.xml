@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">AR155</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="battery_title">Питание</string>
+    <string name="remaining_working_time">Оставшееся время \nработы</string>
+    <string name="increase_time_working">Вы можете продлить\nвремя работы телефона</string>
+    <string name="type_save_battery_title">Режимы продления работы:</string>
+    <string name="type_extra">Экстра\n+60%</string>
+    <string name="type_ultra">Ультра\n+30%</string>
+    <string name="type_normal">Нормальный\n+10%</string>
+    <string name="boost_battery">Продлить работу телефона</string>
+    <string name="improve_working_time_by_percent">Время работы телефона\nувеличено на %d</string>
+    <string name="normal_mode">В нормальном режиме:</string>
+    <string name="working_time">%d часов %d минут</string>
+    <string name="battery_percents">%d %%</string>
+    <string name="ready">Готово</string>
+
+    <array name="battery_normal">
+        <item>Уменьшим яркость</item>
+        <item>Отключим автояркость</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Уменьшим яркость</item>
+        <item>Отключим автояркость</item>
+        <item>Отключим wi-fi</item>
+        <item>Заморозим фоновые приложения</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Уменьшим яркость</item>
+        <item>Отключим автояркость</item>
+        <item>Отключим wi-fi</item>
+        <item>Заморозим фоновые приложения</item>
+        <item>Отключим bluetooth</item>
+    </array>
 </resources>
