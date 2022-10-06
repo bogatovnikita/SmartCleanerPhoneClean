@@ -76,7 +76,7 @@ jboolean checkTimeExpired(JNIEnv *env, jobject context, jstring field) {
     jlong currentTime = getCurrentTime(env);
     jlong def = 0;
     jlong doneTime = getLongFromPreferences(env, context, field, def);
-    return (currentTime - doneTime) > 1000 * 60 * 60 * 2;
+    return (currentTime - doneTime) < 1000 * 60 * 60 * 2;
 }
 
 extern "C"

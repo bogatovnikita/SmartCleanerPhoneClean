@@ -1,6 +1,7 @@
 package com.entertainment.event.ssearch.ar155.function.battery
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.entertainment.event.ssearch.ar155.adapters.BatterySaveFunctionRecycle
 import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
 import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
 import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.ULTRA
+import com.entertainment.event.ssearch.data.battery_provider.BatteryProvider
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +31,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObserverStateScreen()
-        viewModel.getBatteryParams()
+        viewModel.getParams()
         initAdapter()
         setTypeBoostBattery()
         goToBoostingBatteryListener()
@@ -78,6 +80,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                     getString(R.string.working_time, batteryWorkingTime[0], batteryWorkingTime[1])
                 choosingTypeBar.setSaveTypeBattery(batterySaveType)
                 if (isBoostedBattery) {
+                    viewModel.getBatterySaveType()
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
                     tvDangerDescriptionOff.text = getString(R.string.improve_working_time_by_percent, viewModel.modePercentBoost())

@@ -5,6 +5,7 @@
     android:id="@+id/choosing_type_battery_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:soundEffectsEnabled="false"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView
@@ -53,13 +54,30 @@
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_9sdp"
         android:background="@drawable/bg_battery_type_choosing"
-        app:layout_constraintBottom_toBottomOf="@id/btn_normal_off"
+        app:layout_constraintBottom_toBottomOf="@id/dot_base"
         app:layout_constraintEnd_toEndOf="@+id/tv_type_extra"
         app:layout_constraintStart_toStartOf="@+id/tv_type_normal"
-        app:layout_constraintTop_toTopOf="@id/btn_normal_off" />
+        app:layout_constraintTop_toTopOf="@id/dot_base" />
+
+    <FrameLayout
+        android:id="@+id/btn_normal_off"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="@id/dot_base"
+        app:layout_constraintEnd_toEndOf="@id/dot_base"
+        app:layout_constraintStart_toStartOf="@+id/dot_base"
+        app:layout_constraintTop_toTopOf="@id/dot_base">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_ellipse_black" />
+
+    </FrameLayout>
 
     <ImageView
-        android:id="@+id/btn_normal_off"
+        android:id="@+id/dot_base"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
@@ -73,20 +91,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_ellipse_switch_on"
-        app:layout_constraintBottom_toBottomOf="@id/btn_normal_off"
-        app:layout_constraintEnd_toEndOf="@id/btn_normal_off"
-        app:layout_constraintStart_toStartOf="@+id/btn_normal_off"
-        app:layout_constraintTop_toTopOf="@id/btn_normal_off" />
+        app:layout_constraintBottom_toBottomOf="@id/dot_base"
+        app:layout_constraintEnd_toEndOf="@id/dot_base"
+        app:layout_constraintStart_toStartOf="@+id/dot_base"
+        app:layout_constraintTop_toTopOf="@id/dot_base" />
 
-    <ImageView
+    <FrameLayout
         android:id="@+id/btn_ultra_off"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_ellipse_black"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_normal_off"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/dot_base"
         app:layout_constraintEnd_toEndOf="@+id/tv_type_ultra"
         app:layout_constraintStart_toStartOf="@+id/tv_type_ultra"
-        app:layout_constraintTop_toTopOf="@+id/btn_normal_off" />
+        app:layout_constraintTop_toTopOf="@+id/dot_base">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_ellipse_black" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/btn_ultra_on"
@@ -99,15 +124,22 @@
         app:layout_constraintStart_toStartOf="@+id/btn_ultra_off"
         app:layout_constraintTop_toTopOf="@id/btn_ultra_off" />
 
-    <ImageView
+    <FrameLayout
         android:id="@+id/btn_extra_off"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_ellipse_black"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_normal_off"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/dot_base"
         app:layout_constraintEnd_toEndOf="@+id/tv_type_extra"
         app:layout_constraintStart_toStartOf="@+id/tv_type_extra"
-        app:layout_constraintTop_toTopOf="@+id/btn_normal_off" />
+        app:layout_constraintTop_toTopOf="@+id/dot_base">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_ellipse_black" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/btn_extra_on"

@@ -48,9 +48,19 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
     fun setSaveTypeBattery(type: String) {
         with(_binding) {
             when (type) {
-                NORMAL -> renderSaveTypeBattery(btnNormalOn)
-                ULTRA -> renderSaveTypeBattery(btnUltraOn)
-                EXTRA -> renderSaveTypeBattery(btnExtraOn)
+                NORMAL -> {
+                    renderSaveTypeBattery(btnNormalOn)
+                    btnNormalOff.performClick()
+                }
+                ULTRA -> {
+                    renderSaveTypeBattery(btnUltraOn)
+                    btnUltraOff.performClick()
+                }
+                EXTRA -> {
+                    renderSaveTypeBattery(btnExtraOn)
+                    btnExtraOff.performClick()
+                }
+                else -> {}
             }
         }
     }

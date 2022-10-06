@@ -1,5 +1,6 @@
 package com.entertainment.event.ssearch.ar155.function.battery
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
 import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
@@ -16,7 +17,12 @@ class BatteryViewModel @Inject constructor(
     private val batteryUseCase: BatteryUseCase,
 ) : BaseViewModel<BatteryStateScreen>(BatteryStateScreen()) {
 
-    fun getBatteryParams() {
+    fun getParams() {
+        getBatteryCharge()
+        getIsBoostedBattery()
+    }
+
+    private fun getBatteryCharge() {
         viewModelScope.launch(Dispatchers.Default) {
             batteryUseCase.getBatteryPercent().collect { percent ->
                 calculateRemainingBatteryLife(percent)
@@ -26,12 +32,26 @@ class BatteryViewModel @Inject constructor(
                     )
                 }
             }
-                updateState {
-                    it.copy(
-                        batterySaveType = batteryUseCase.getBatteryType(),
-                        isBoostedBattery = batteryUseCase.checkBatteryDecrease()
-                    )
-                }
+        }
+    }
+
+    private fun getIsBoostedBattery() {
+        viewModelScope.launch {
+            updateState {
+                it.copy(
+                    isBoostedBattery = batteryUseCase.checkBatteryDecrease()
+                )
+            }
+        }
+    }
+
+    fun getBatterySaveType() {
+        viewModelScope.launch {
+            updateState {
+                it.copy(
+                    batterySaveType = batteryUseCase.getBatteryType()
+                )
+            }
         }
     }
 
@@ -62,7 +82,9 @@ class BatteryViewModel @Inject constructor(
             NORMAL -> 10
             ULTRA -> 30
             EXTRA -> 60
-            else -> {10}
+            else -> {
+                10
+            }
         }
     }
 

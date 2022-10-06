@@ -10,7 +10,7 @@
     <string name="type_ultra">Ультра\n+30%</string>
     <string name="type_normal">Нормальный\n+10%</string>
     <string name="boost_battery">Продлить работу телефона</string>
-    <string name="improve_working_time_by_percent">Время работы телефона\nувеличено на %d</string>
+    <string name="improve_working_time_by_percent">Время работы телефона\nувеличено на %d%%</string>
     <string name="normal_mode">В нормальном режиме:</string>
     <string name="working_time">%d часов %d минут</string>
     <string name="value_percents">%d %%</string>
