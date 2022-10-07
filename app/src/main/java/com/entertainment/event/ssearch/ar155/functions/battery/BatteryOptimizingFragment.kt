@@ -21,7 +21,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-@AndroidEntryPoint
 class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing) {
 
     private val binding: FragmentBatteryOptimizingBinding by viewBinding()
@@ -64,6 +63,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false
+            tvBatteryTitle.isVisible = false
             ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_done))
         }
     }

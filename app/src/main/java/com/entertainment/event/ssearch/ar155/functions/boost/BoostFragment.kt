@@ -1,7 +1,6 @@
 package com.entertainment.event.ssearch.ar155.functions.boost
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostBinding
-import com.entertainment.event.ssearch.data.boost_provider.BoostProvider
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -33,8 +31,6 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         lifecycleScope.launch {
             viewModel.screenState.collect { state ->
                 renderState(state)
-                Log.e("!!!", state.toString())
-                Log.e("!!!", BoostProvider.checkRamOverload(requireContext()).toString())
             }
         }
     }

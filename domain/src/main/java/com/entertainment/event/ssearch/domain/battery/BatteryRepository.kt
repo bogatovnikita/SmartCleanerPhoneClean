@@ -6,8 +6,6 @@ interface BatteryRepository {
 
     fun checkBatteryDecrease(): Boolean
 
-    fun calculateTemperature(temperature: Int): Int
-
     fun calculateWorkingTime(percent: Int): Int
 
     fun savePowerLowType()

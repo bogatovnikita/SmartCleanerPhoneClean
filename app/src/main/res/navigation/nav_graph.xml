@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/boostFragment">
+    app:startDestination="@id/coolingFragment">
 
     <fragment
         android:id="@+id/batteryFragment"
@@ -32,4 +32,16 @@
         android:id="@+id/boostOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.boost.BoostOptimizingFragment"
         android:label="BoostOptimizingFragment" />
+    <fragment
+        android:id="@+id/coolingFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingFragment"
+        android:label="CoolingFragment" >
+        <action
+            android:id="@+id/action_coolingFragment_to_coolingOptimizingFragment"
+            app:destination="@id/coolingOptimizingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coolingOptimizingFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingOptimizingFragment"
+        android:label="CoolingOptimizingFragment" />
 </navigation>

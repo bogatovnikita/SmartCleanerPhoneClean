@@ -149,9 +149,9 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getFolders(JNIEnv *env,
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getOverheatedApps(
+Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_getOverheatedApps(
         JNIEnv *env, jclass clazz, jobject context) {
-    if (!checkTimeExpired(env, context, CPU(env))) {
+    if (checkTimeExpired(env, context, CPU(env))) {
         return 0;
     } else if (appsCausing == 0) {
         appsCausing = (jint) (rand() % 30) + 10;
@@ -212,7 +212,7 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_junk(JNIEnv *env,
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_cpu(JNIEnv *env,
+Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_cpu(JNIEnv *env,
                                                   jclass clazz,
                                                   jobject context) {
     putLongToPreferences(env, context, CPU(env), getCurrentTime(env));
@@ -244,9 +244,9 @@ Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_checkRam
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_calculateTemperature(
+Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_calculateTemperature(
         JNIEnv *env, jclass clazz, jobject context, jint temp) {
-    if (checkTimeExpired(env, context, CPU(env))) {
+    if (!checkTimeExpired(env, context, CPU(env))) {
         if(temperature == 0){
             temperature = ((rand() % 3) + 3);
         }

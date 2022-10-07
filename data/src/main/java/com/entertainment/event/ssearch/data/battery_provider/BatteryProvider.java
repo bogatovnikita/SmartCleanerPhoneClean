@@ -18,8 +18,6 @@ public class BatteryProvider {
 
     public static native int calculateWorkingMinutes(Context context, int percent);
 
-    public static native int calculateTemperature(Context context, int temp);
-
     public static native void savePowerLowType(Context context);
 
     public static native void savePowerMediumType(Context context);

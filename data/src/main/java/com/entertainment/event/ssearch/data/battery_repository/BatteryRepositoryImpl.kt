@@ -14,8 +14,6 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun checkBatteryDecrease(): Boolean = BatteryProvider.checkBatteryDecrease(application)
 
-    override fun calculateTemperature(temperature: Int): Int = BatteryProvider.calculateTemperature(application, temperature)
-
     override fun calculateWorkingTime(percent: Int): Int = BatteryProvider.calculateWorkingMinutes(application, percent)
 
     override fun savePowerLowType() = BatteryProvider.savePowerLowType(application)

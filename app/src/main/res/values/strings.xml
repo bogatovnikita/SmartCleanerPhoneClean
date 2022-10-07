@@ -29,10 +29,12 @@
     <string name="cooling_danger_reason">Прямо сейчас фоновые процессы и приложения\nперегревают процессор вашего телефона</string>
     <string name="cooling_danger_title">Процессор перегрелся!\nТребуется охлаждение!</string>
     <string name="coolling_done">Процессор охлажден,\nтемпература нормализована</string>
+    <string name="cooling_done_description">Сейчас ваш телефон охлажден и готов к работе</string>
     <string name="degree">%d ℃</string>
     <string name="temperature_cpu">Температура\nпроцессора</string>
     <string name="normal_temperature">Нормальная температура\nпроцессора 25-30℃</string>
     <string name="cooling_advice">Регулярно охлаждайте телефон,\nчтобы снизить нагрузку на\nпроцессор, продлить срок его\nслужбы и ускорить работу\nвашего устройства</string>
+    <string name="cooling_process">Охлаждение</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

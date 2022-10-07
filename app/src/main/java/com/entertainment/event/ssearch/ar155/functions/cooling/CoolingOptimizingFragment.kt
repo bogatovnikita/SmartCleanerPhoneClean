@@ -1,26 +1,29 @@
-package com.entertainment.event.ssearch.ar155.functions.boost
+package com.entertainment.event.ssearch.ar155.functions.cooling
 
 import android.os.Bundle
-import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
-import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import dagger.hilt.android.AndroidEntryPoint
+import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostOptimizingBinding
+import com.entertainment.event.ssearch.ar155.databinding.FragmentCoolingOptimizingBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
 
-    private val binding: FragmentBoostOptimizingBinding by viewBinding()
+class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing) {
+
+    private val binding: FragmentCoolingOptimizingBinding by viewBinding()
 
     private lateinit var adapter: OptimizingRecyclerAdapter
 
@@ -35,7 +38,7 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
     }
 
     private fun startOptimization() {
-        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_boost))
+        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_optimization))
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)
@@ -56,8 +59,8 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
     private fun optimizationIsDone() {
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
-            recyclerView.isVisible = false
             tvOptimizationTitle.isVisible = false
+            recyclerView.isVisible = false
             ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_done))
         }
     }

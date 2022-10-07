@@ -18,8 +18,6 @@ class BatteryUseCase @Inject constructor(
 
     fun saveBatteryType(type: String) = batteryRepository.saveBatteryType(type)
 
-    fun calculateTemperature(temperature: Int) = batteryRepository.calculateTemperature(temperature)
-
     fun calculateWorkingTime(percent: Int): Int = batteryRepository.calculateWorkingTime(percent)
 
     fun getBatteryTemperature(): Flow<Int> = batteryRepository.getBatteryTemperature()
