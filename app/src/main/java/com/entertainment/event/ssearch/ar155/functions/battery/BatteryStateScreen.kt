@@ -1,6 +1,6 @@
-package com.entertainment.event.ssearch.ar155.function.battery
+package com.entertainment.event.ssearch.ar155.functions.battery
 
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.NORMAL
 
 data class BatteryStateScreen(
     val batteryPercents: Int = 80,

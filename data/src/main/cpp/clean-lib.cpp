@@ -228,12 +228,12 @@ Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getRamUs
                                                           jlong ram_part) {
     jlong ramFree = ram_part * 0.7;
     if (checkTimeExpired(env, context, BOOST(env))) {
+        return ram_total - ram_part;
+    } else {
         if (usedRam == 0) {
             usedRam = ram_total - ram_part + (rand() % ramFree);
         }
         return usedRam;
-    } else {
-        return ram_total - ram_part;
     }
 }
 extern "C"

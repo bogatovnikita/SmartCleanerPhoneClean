@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.function.battery
+package com.entertainment.event.ssearch.ar155.functions.battery
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar
 import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

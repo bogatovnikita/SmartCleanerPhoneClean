@@ -1,10 +1,9 @@
-package com.entertainment.event.ssearch.ar155.function.battery
+package com.entertainment.event.ssearch.ar155.functions.battery
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.ULTRA
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.EXTRA
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.NORMAL
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
 import com.entertainment.event.ssearch.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

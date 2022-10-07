@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.function.boost
+package com.entertainment.event.ssearch.ar155.functions.boost
 
 import android.os.Bundle
 import android.view.View

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgraund_main"
-    tools:context=".function.boost.BoostFragment">
+    tools:context=".functions.boost.BoostFragment">
 
     <ImageButton
         android:id="@+id/btn_go_back"
@@ -98,7 +98,7 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_14sdp"
-            android:background="@color/orange"
+            android:background="@color/orange_light"
             app:layout_constraintEnd_toEndOf="@+id/tv_total_ram"
             app:layout_constraintStart_toStartOf="@+id/tv_used"
             app:layout_constraintTop_toBottomOf="@id/tv_used" />
@@ -181,7 +181,7 @@
         android:paddingStart="@dimen/_12sdp"
         android:paddingTop="@dimen/_6sdp"
         android:paddingBottom="@dimen/_8sdp"
-        android:text="Память перегружена!\nТребуется ускорение!"
+        android:text="@string/boost_danger_title"
         android:textColor="@color/red"
         android:textSize="@dimen/_12ssp"
         android:drawablePadding="@dimen/_8sdp"
@@ -200,7 +200,7 @@
         android:paddingStart="@dimen/_12sdp"
         android:paddingTop="@dimen/_6sdp"
         android:paddingBottom="@dimen/_8sdp"
-        android:text="Освобождено %d Гб\nТелефон ускорен на %d%%"
+        android:text="@string/danger_boost_off"
         android:textColor="@color/green"
         android:textSize="@dimen/_12ssp"
         android:visibility="gone"
@@ -231,7 +231,6 @@
         android:id="@+id/iv_rocket_danger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_rocket_danger"
         android:layout_marginTop="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_15sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -242,7 +241,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_regular"
-        android:text="Прямо сейчас фоновые процессы и приложения\nпрегружают оперативную память"
+        android:text="@string/boost_reason_danger"
         android:textColor="@color/white"
         android:textSize="@dimen/_11ssp"
         android:layout_marginStart="@dimen/_3sdp"
@@ -271,7 +270,7 @@
         android:layout_marginTop="@dimen/_19sdp"
         android:layout_marginBottom="@dimen/_24sdp"
         android:fontFamily="@font/golos_medium"
-        android:text="Снижайте нагрузку\nна оперативную память\nи ускоряйте работу вашего\nтелефона"
+        android:text="@string/boost_danger_description"
         android:textColor="@color/black"
         android:textSize="@dimen/_18ssp"
         app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"

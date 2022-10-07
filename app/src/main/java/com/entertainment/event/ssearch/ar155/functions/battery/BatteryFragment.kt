@@ -1,7 +1,6 @@
-package com.entertainment.event.ssearch.ar155.function.battery
+package com.entertainment.event.ssearch.ar155.functions.battery
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -13,10 +12,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryBinding
 import com.entertainment.event.ssearch.ar155.adapters.BatterySaveFunctionRecyclerViewAdapter
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.NORMAL
-import com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar.Companion.ULTRA
-import com.entertainment.event.ssearch.data.battery_provider.BatteryProvider
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.EXTRA
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.NORMAL
+import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

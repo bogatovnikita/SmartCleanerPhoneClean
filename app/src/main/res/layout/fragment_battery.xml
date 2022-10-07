@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgraund_main"
-    tools:context=".function.battery.BatteryFragment">
+    tools:context=".functions.battery.BatteryFragment">
 
     <ImageButton
         android:id="@+id/btn_go_back"
@@ -173,7 +173,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_sheet_container" />
 
-    <com.entertainment.event.ssearch.ar155.function.custom.ChoosingTypeBatteryBar
+    <com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar
         android:id="@+id/choosing_type_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

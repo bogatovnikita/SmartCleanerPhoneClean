@@ -10,7 +10,7 @@ import androidx.annotation.Keep;
 public class BoostProvider {
 
     static{
-        System.loadLibrary("clean");
+        System.loadLibrary("clean-lib");
     }
 
     public static native long getRamUsage(Context context, long ramTotal, long ramPart);

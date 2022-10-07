@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.function.boost
+package com.entertainment.event.ssearch.ar155.functions.boost
 
 import androidx.lifecycle.viewModelScope
 import com.entertainment.event.ssearch.domain.boost.BoostUseCase
@@ -13,19 +13,19 @@ class BoostViewModel @Inject constructor(
     private val boostUseCase: BoostUseCase
 ): BaseViewModel<BoostStateScreen>(BoostStateScreen()) {
 
-    init {
-        getParams()
-    }
-
-    private fun getParams() {
+    fun getParams() {
         viewModelScope.launch(Dispatchers.Default) {
+            val totalRam = boostUseCase.getTotalRam() / 1024.0 / 1024.0 / 1024.0
+            val usedRam = boostUseCase.getRamUsage() / 1024.0 / 1024.0 / 1024.0
+            val overloadedPercents = boostUseCase.getOverloadedPercents()
             updateState {
                 it.copy(
-                    totalRam = boostUseCase.getTotalRam() / 1024.0 / 1024.0 / 1024.0,
-                    usedRam = boostUseCase.getRamUsage() / 1024.0 / 1024.0 / 1024.0,
-                    boostPercent = boostUseCase.calculatePercentAvail(),
+                    totalRam = totalRam,
+                    usedRam = usedRam,
+                    boostPercent = 100 - ((totalRam - usedRam) * 100 / totalRam).toInt(),
                     isBoosted = boostUseCase.checkRamOverload(),
-                    boostingPercent = boostUseCase.getOverloadedPercents()
+                    overloadPercents = overloadedPercents,
+                    freedRam = totalRam * overloadedPercents / 100.0
                 )
             }
         }

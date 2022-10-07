@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.function.boost
+package com.entertainment.event.ssearch.ar155.functions.boost
 
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostBinding
+import com.entertainment.event.ssearch.data.boost_provider.BoostProvider
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initScreenStateObserver()
+        viewModel.getParams()
         goToBoostingListener()
     }
 
@@ -32,6 +34,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
             viewModel.screenState.collect { state ->
                 renderState(state)
                 Log.e("!!!", state.toString())
+                Log.e("!!!", BoostProvider.checkRamOverload(requireContext()).toString())
             }
         }
     }
@@ -47,13 +50,30 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 if (isBoosted) {
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
+                    tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freedRam, overloadPercents)
+                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_rocket_danger_off))
+                    tvDangerReason.text = getString(R.string.boost_reason_danger_off)
+                    tvTypeSaveBatteryTitle.text = getString(R.string.boost_danger_description_off)
                 } else {
                     tvDangerDescriptionOff.isVisible = false
                     tvDangerDescription.isVisible = true
+                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_rocket_danger))
                 }
+                renderBtnBoostingBattery(isBoosted)
             }
         }
     }
+
+    private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {
+        if (isBoostedBattery) {
+            binding.btnBoostBattery.isClickable = false
+            binding.btnBoostBattery.background = resources.getDrawable(R.drawable.bg_button_boost_off)
+        } else {
+            binding.btnBoostBattery.isClickable = true
+            binding.btnBoostBattery.background = resources.getDrawable(R.drawable.bg_button_boost_on)
+        }
+    }
+
     private fun goToBoostingListener() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boost()
