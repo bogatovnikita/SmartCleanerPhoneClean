@@ -25,6 +25,14 @@
     <string name="boost_danger_title">Память перегружена!\nТребуется ускорение!</string>
     <string name="boost_danger_description">Снижайте нагрузку\nна оперативную память\nи ускоряйте работу вашего\nтелефона</string>
     <string name="boost_danger_description_off">Не забывайте снижать нагрузку\nна оперативную память\nи ускорять работу вашего телефона</string>
+    <string name="cooling">Охладить</string>
+    <string name="cooling_danger_reason">Прямо сейчас фоновые процессы и приложения\nперегревают процессор вашего телефона</string>
+    <string name="cooling_danger_title">Процессор перегрелся!\nТребуется охлаждение!</string>
+    <string name="coolling_done">Процессор охлажден,\nтемпература нормализована</string>
+    <string name="degree">%d ℃</string>
+    <string name="temperature_cpu">Температура\nпроцессора</string>
+    <string name="normal_temperature">Нормальная температура\nпроцессора 25-30℃</string>
+    <string name="cooling_advice">Регулярно охлаждайте телефон,\nчтобы снизить нагрузку на\nпроцессор, продлить срок его\nслужбы и ускорить работу\nвашего устройства</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

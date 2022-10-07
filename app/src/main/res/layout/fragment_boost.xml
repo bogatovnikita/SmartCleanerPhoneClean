@@ -289,6 +289,7 @@
         android:gravity="start|center_vertical"
         android:paddingHorizontal="@dimen/_15sdp"
         android:text="@string/boost"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintBottom_toBottomOf="parent"
