@@ -1,10 +1,12 @@
 package com.entertainment.event.ssearch.ar155.di
 
-import com.entertainment.event.ssearch.data.battery_repository.BatteryRepositoryImpl
+import com.entertainment.event.ssearch.data.battery_provider.BatteryRepositoryImpl
 import com.entertainment.event.ssearch.data.boost_provider.BoostRepositoryImpl
+import com.entertainment.event.ssearch.data.clean_provider.CleanRepositoryImpl
 import com.entertainment.event.ssearch.data.cooling_provider.CoolingRepositoryImpl
 import com.entertainment.event.ssearch.domain.battery.BatteryRepository
 import com.entertainment.event.ssearch.domain.boost.BoostRepository
+import com.entertainment.event.ssearch.domain.clean.CleanRepository
 import com.entertainment.event.ssearch.domain.cooling.CoolingRepository
 import dagger.Binds
 import dagger.Module
@@ -23,5 +25,8 @@ interface RepositoriesModuleDependencies {
 
     @Binds
     fun bindCoolingRepositoryToCoolingRepositoryImpl(coolingRepositoryImpl: CoolingRepositoryImpl): CoolingRepository
+
+    @Binds
+    fun bindCleanRepositoryToCleanRepositoryImpl(coolingRepositoryImpl: CleanRepositoryImpl): CleanRepository
 
 }

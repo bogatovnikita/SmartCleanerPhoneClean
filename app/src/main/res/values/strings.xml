@@ -14,7 +14,7 @@
     <string name="normal_mode">В нормальном режиме:</string>
     <string name="working_time">%d часов %d минут</string>
     <string name="value_percents">%d %%</string>
-    <string name="ready">Готово</string>
+    <string name="ready">Готово!</string>
     <string name="gb">%.2f Гб</string>
     <string name="gb_fraction">/%.2f Гб</string>
     <string name="boost">Ускорить</string>
@@ -31,10 +31,18 @@
     <string name="coolling_done">Процессор охлажден,\nтемпература нормализована</string>
     <string name="cooling_done_description">Сейчас ваш телефон охлажден и готов к работе</string>
     <string name="degree">%d ℃</string>
+    <string name="mb">%d Mb</string>
     <string name="temperature_cpu">Температура\nпроцессора</string>
     <string name="normal_temperature">Нормальная температура\nпроцессора 25-30℃</string>
     <string name="cooling_advice">Регулярно охлаждайте телефон,\nчтобы снизить нагрузку на\nпроцессор, продлить срок его\nслужбы и ускорить работу\nвашего устройства</string>
     <string name="cooling_process">Охлаждение</string>
+    <string name="clean">Очистить</string>
+    <string name="clean_done">Мусорные файлы удалены</string>
+    <string name="clean_danger_title">Требуется очистка!</string>
+    <string name="cleaning">Очистка</string>
+    <string name="finded_junk_file">Обнаружены\nмусорные файлы</string>
+    <string name="clean_junks_safely">Удаление мусорных файлов\nабсолютно безопасно</string>
+    <string name="cleared">Очищено</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>
@@ -62,5 +70,12 @@
         <item>Adjusting system processes</item>
         <item>Checking unused components</item>
         <item>Disconnect from unnecessary GPS towers</item>
+    </array>
+
+    <array name="clean">
+        <item>Кэш</item>
+        <item>Временные файлы</item>
+        <item>Остаточные файлы</item>
+        <item>Системный мусор</item>
     </array>
 </resources>

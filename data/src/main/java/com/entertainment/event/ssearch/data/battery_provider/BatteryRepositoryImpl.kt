@@ -1,10 +1,12 @@
-package com.entertainment.event.ssearch.data.battery_repository
+package com.entertainment.event.ssearch.data.battery_provider
 
 import android.app.Application
+import android.content.Context
 import com.entertainment.event.ssearch.data.battery_provider.BatteryChargeReceiver
 import com.entertainment.event.ssearch.data.battery_provider.BatteryProvider
 import com.entertainment.event.ssearch.domain.battery.BatteryRepository
 import kotlinx.coroutines.flow.Flow
+import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 class BatteryRepositoryImpl @Inject constructor(
@@ -12,15 +14,19 @@ class BatteryRepositoryImpl @Inject constructor(
     private val batteryChargeReceiver: BatteryChargeReceiver,
 ): BatteryRepository {
 
-    override fun checkBatteryDecrease(): Boolean = BatteryProvider.checkBatteryDecrease(application)
+    private val contextWeakRef = WeakReference(application.applicationContext)
+    private val context: Context
+        get() = contextWeakRef.get()!!
 
-    override fun calculateWorkingTime(percent: Int): Int = BatteryProvider.calculateWorkingMinutes(application, percent)
+    override fun checkBatteryDecrease(): Boolean = BatteryProvider.checkBatteryDecrease(context)
 
-    override fun savePowerLowType() = BatteryProvider.savePowerLowType(application)
+    override fun calculateWorkingTime(percent: Int): Int = BatteryProvider.calculateWorkingMinutes(context, percent)
 
-    override fun savePowerMediumType() = BatteryProvider.savePowerMediumType(application)
+    override fun savePowerLowType() = BatteryProvider.savePowerLowType(context)
 
-    override fun savePowerHighType() = BatteryProvider.savePowerHighType(application)
+    override fun savePowerMediumType() = BatteryProvider.savePowerMediumType(context)
+
+    override fun savePowerHighType() = BatteryProvider.savePowerHighType(context)
 
     override fun getBatteryType(): String = BatteryProvider.getBatteryType()
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_clean_item"
+    android:layout_gravity="center_vertical"
+    android:paddingVertical="@dimen/_15sdp"
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:layout_marginVertical="@dimen/_4sdp"
+    android:layout_marginHorizontal="@dimen/_20sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_type_junk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Кэш"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/golos_regular"/>
+
+    <TextView
+        android:id="@+id/tv_junk_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mb"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/golos_regular"
+        android:layout_gravity="end"/>
+
+    <TextView
+        android:id="@+id/tv_junk_cleared"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cleared"
+        android:visibility="invisible"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/green"
+        android:fontFamily="@font/golos_regular"
+        android:layout_gravity="end"/>
+
+</FrameLayout>

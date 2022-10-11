@@ -1,7 +1,9 @@
 package com.entertainment.event.ssearch.data.boost_provider
 
 import android.app.Application
+import android.content.Context
 import com.entertainment.event.ssearch.domain.boost.BoostRepository
+import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 
@@ -9,21 +11,25 @@ class BoostRepositoryImpl @Inject constructor(
     private val application: Application
 ) : BoostRepository {
 
-    override fun getTotalRam(): Long = BoostProvider.getRamTotal(application)
+    private val contextWeakRef = WeakReference(application.applicationContext)
+    private val context: Context
+        get() = contextWeakRef.get()!!
+
+    override fun getTotalRam(): Long = BoostProvider.getRamTotal(context)
 
     override fun getRamUsage(): Long =
         BoostProvider.getRamUsage(
-            application,
-            BoostProvider.getRamTotal(application),
-            BoostProvider.getRamPart(application)
+            context,
+            BoostProvider.getRamTotal(context),
+            BoostProvider.getRamPart(context)
         )
 
-    override fun calculatePercentAvail(): Int = BoostProvider.calculatePercentAvail(application)
+    override fun calculatePercentAvail(): Int = BoostProvider.calculatePercentAvail(context)
 
-    override fun getOverloadedPercents(): Int = BoostProvider.getOverloadedPercents(application)
+    override fun getOverloadedPercents(): Int = BoostProvider.getOverloadedPercents(context)
 
-    override fun boost() = BoostProvider.boost(application)
+    override fun boost() = BoostProvider.boost(context)
 
-    override fun checkRamOverload(): Boolean = BoostProvider.checkRamOverload(application)
+    override fun checkRamOverload(): Boolean = BoostProvider.checkRamOverload(context)
 
 }

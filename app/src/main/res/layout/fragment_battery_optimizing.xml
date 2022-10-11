@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_battery_title"
+        android:id="@+id/tv_optimization_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_medium"
@@ -39,8 +39,9 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_52ssp"
         android:layout_marginTop="@dimen/_11sdp"
-        app:layout_constraintStart_toStartOf="@+id/tv_battery_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_battery_title" />
+        android:layout_marginStart="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_optimization_title" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/linearProgressIndicator"

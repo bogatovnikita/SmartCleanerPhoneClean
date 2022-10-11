@@ -81,7 +81,7 @@ jboolean checkTimeExpired(JNIEnv *env, jobject context, jstring field) {
 
 extern "C"
 JNIEXPORT jobjectArray JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getFolders(JNIEnv *env,
+Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getFolders(JNIEnv *env,
                                                          jclass clazz) {
     jobjectArray ret;
     int i;
@@ -205,7 +205,7 @@ Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_boost(JN
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_junk(JNIEnv *env,
+Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_clean(JNIEnv *env,
                                                    jclass clazz,
                                                    jobject context) {
     putLongToPreferences(env, context, JUNK(env), getCurrentTime(env));
@@ -320,7 +320,7 @@ jintArray createJunkFilesArray(JNIEnv *env) {
 
 extern "C"
 JNIEXPORT jintArray JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getGarbageFilesCount(JNIEnv *env, jclass clazz,
+Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getGarbageFilesCount(JNIEnv *env, jclass clazz,
                                                                    jobject context) {
     if (!checkTimeExpired(env, context, JUNK(env))) {
         files_junk_one = 0;
@@ -342,9 +342,9 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getGarbageFilesCount(JNIEnv
 
 extern "C"
 JNIEXPORT jintArray JNICALL
-Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getGarbageSizeArray(JNIEnv *env, jclass clazz,
+Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getGarbageSizeArray(JNIEnv *env, jclass clazz,
                                                                   jobject context) {
-    if (!checkTimeExpired(env, context, JUNK(env))) {
+    if (checkTimeExpired(env, context, JUNK(env))) {
         junk_one = 0;
         junk_two = 0;
         junk_three = 0;

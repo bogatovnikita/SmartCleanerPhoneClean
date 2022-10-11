@@ -36,4 +36,5 @@ class OptimizingRecyclerAdapter : ListAdapter<String, OptimizingRecyclerAdapter.
     override fun onBindViewHolder(holder: OptimizerItemViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
 }

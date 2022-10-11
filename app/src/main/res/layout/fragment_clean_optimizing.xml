@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main_light"
-    tools:context=".functions.battery.BatteryOptimizingFragment">
+    tools:context=".functions.clean.CleanOptimizingFragment">
 
     <ImageView
         android:id="@+id/iv_boosting"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_medium"
-        android:text="@string/cooling_process"
+        android:text="@string/cleaning"
         android:textColor="@color/black"
         android:textSize="@dimen/_20ssp"
         android:layout_marginStart="@dimen/_20sdp"
@@ -60,7 +60,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         tools:listitem="@layout/item_optimizing"
         android:layout_marginTop="@dimen/_12sdp"

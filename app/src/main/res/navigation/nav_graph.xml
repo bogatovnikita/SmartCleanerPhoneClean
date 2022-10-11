@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/coolingFragment">
+    app:startDestination="@id/cleanFragment">
 
     <fragment
         android:id="@+id/batteryFragment"
@@ -44,4 +44,17 @@
         android:id="@+id/coolingOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingOptimizingFragment"
         android:label="CoolingOptimizingFragment" />
+    <fragment
+        android:id="@+id/cleanFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanFragment"
+        android:label="CleanFragment" >
+        <action
+            android:id="@+id/action_cleanFragment_to_cleanOptimizingFragment"
+            app:destination="@id/cleanOptimizingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cleanOptimizingFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanOptimizingFragment"
+        android:label="fragment_clean_optimizing"
+        tools:layout="@layout/fragment_clean_optimizing" />
 </navigation>

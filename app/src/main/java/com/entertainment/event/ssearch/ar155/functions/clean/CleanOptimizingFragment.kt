@@ -1,51 +1,54 @@
-package com.entertainment.event.ssearch.ar155.functions.battery
+package com.entertainment.event.ssearch.ar155.functions.clean
 
 import android.os.Bundle
-import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
-import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar
-import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
+import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostOptimizingBinding
+import com.entertainment.event.ssearch.ar155.databinding.FragmentCleanOptimizingBinding
+import com.entertainment.event.ssearch.domain.clean.CleanUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.random.Random
 
 @AndroidEntryPoint
-class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing) {
+class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
 
-    private val binding: FragmentBatteryOptimizingBinding by viewBinding()
+    private val binding: FragmentCleanOptimizingBinding by viewBinding()
 
     private lateinit var adapter: OptimizingRecyclerAdapter
+
+    @Inject
+    lateinit var cleanUseCase: CleanUseCase
 
     private var listSize = 0
     private var listOptions = mutableListOf<String>()
 
-    @Inject
-    lateinit var batteryUseCase: BatteryUseCase
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        setArrayOptionBoosting()
         startOptimization()
     }
 
     private fun startOptimization() {
-        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_battery))
+        setArrayOptionBoosting()
+        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_clean))
         lifecycleScope.launch {
             repeat(101) { percent ->
-                delay(80)
+                delay(160)
                 binding.tvProgressPercents.text = getString(R.string.value_percents, percent)
                 binding.linearProgressIndicator.progress = percent
                 withContext(Dispatchers.Main) {
@@ -70,26 +73,18 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
     }
 
     private fun setArrayOptionBoosting() {
-        when (batteryUseCase.getBatteryType()) {
-            ChoosingTypeBatteryBar.NORMAL ->  {
-                val list = resources.getStringArray(R.array.battery_normal).toList()
-                adapter.submitList(list)
-                listSize = list.size
-                listOptions = list.toMutableList()
-            }
-            ChoosingTypeBatteryBar.ULTRA -> {
-                val list = resources.getStringArray(R.array.battery_ultra).toList()
-                adapter.submitList(list)
-                listSize = list.size
-                listOptions = list.toMutableList()
-            }
-            ChoosingTypeBatteryBar.EXTRA -> {
-                val list = resources.getStringArray(R.array.battery_extra).toList()
-                adapter.submitList(list)
-                listSize = list.size
-                listOptions = list.toMutableList()
+        val randomType = Random.nextInt(1, 3)
+        val list = cleanUseCase.getFolders().toList().filter { path ->
+            when (randomType) {
+                1 -> path.length % 2 == 0
+                2 -> path.length % 2 != 0
+                3 -> path.length % 4 == 0
+                else -> path.length % 3 == 0
             }
         }
+        adapter.submitList(list)
+        listSize = list.size
+        listOptions = list.toMutableList()
     }
 
     private fun initAdapter() {
