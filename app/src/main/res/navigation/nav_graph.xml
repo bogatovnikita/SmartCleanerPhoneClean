@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/cleanFragment">
+    app:startDestination="@id/scanningFragment">
 
     <fragment
         android:id="@+id/batteryFragment"
@@ -57,4 +57,8 @@
         android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanOptimizingFragment"
         android:label="fragment_clean_optimizing"
         tools:layout="@layout/fragment_clean_optimizing" />
+    <fragment
+        android:id="@+id/scanningFragment"
+        android:name="com.entertainment.event.ssearch.ar155.splash.ScanningFragment"
+        android:label="ScanningFragment" />
 </navigation>

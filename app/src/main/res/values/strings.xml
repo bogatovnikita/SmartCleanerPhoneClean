@@ -33,7 +33,7 @@
     <string name="degree">%d ℃</string>
     <string name="mb">%d Mb</string>
     <string name="temperature_cpu">Температура\nпроцессора</string>
-    <string name="normal_temperature">Нормальная температура\nпроцессора 25-30℃</string>
+    <string name="normal_temperature">Нормальная температура\nпроцессора 25–30℃</string>
     <string name="cooling_advice">Регулярно охлаждайте телефон,\nчтобы снизить нагрузку на\nпроцессор, продлить срок его\nслужбы и ускорить работу\nвашего устройства</string>
     <string name="cooling_process">Охлаждение</string>
     <string name="clean">Очистить</string>
@@ -43,6 +43,9 @@
     <string name="finded_junk_file">Обнаружены\nмусорные файлы</string>
     <string name="clean_junks_safely">Удаление мусорных файлов\nабсолютно безопасно</string>
     <string name="cleared">Очищено</string>
+    <string name="scanning_system">Сканируем систему…</string>
+    <string name="collect_data">Собираем данные…</string>
+    <string name="check_device">Проверяем состояние устройства…</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>
