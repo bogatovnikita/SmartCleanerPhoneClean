@@ -14,7 +14,6 @@ import com.entertainment.event.ssearch.ar155.adapters.CleanAdapter
 import com.entertainment.event.ssearch.ar155.databinding.FragmentCleanBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import yinkio.android.customView.progressBar.ArcCircleProgressBar
 
 @AndroidEntryPoint
 class CleanFragment : Fragment(R.layout.fragment_clean) {

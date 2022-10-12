@@ -1,18 +1,11 @@
 package com.entertainment.event.ssearch.ar155.functions.boost
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostResultBinding
-import com.entertainment.event.ssearch.ar155.databinding.FragmentCoolingResultBinding
-import com.entertainment.event.ssearch.ar155.functions.cooling.CoolingScreenState
-import com.entertainment.event.ssearch.ar155.functions.cooling.CoolingViewModel
 import com.entertainment.event.ssearch.ar155.functions.result.BaseResultFragment
 import com.entertainment.event.ssearch.ar155.functions.result.ResultList
 import com.entertainment.event.ssearch.ar155.utils.OptimizingType

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "581461380861",
+    "project_id": "fast-cleaner-6275d",
+    "storage_bucket": "fast-cleaner-6275d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581461380861:android:3fc24c558950c123e97894",
+        "android_client_info": {
+          "package_name": "com.softcleean.fastcleaner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581461380861-6froumdmcegf404tru4tr6j256k7n009.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVDf3Coq5l1Dl9133KVVrR92U4LXosTiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581461380861-6froumdmcegf404tru4tr6j256k7n009.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

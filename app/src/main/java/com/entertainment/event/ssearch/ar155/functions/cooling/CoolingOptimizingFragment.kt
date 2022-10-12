@@ -2,9 +2,7 @@ package com.entertainment.event.ssearch.ar155.functions.cooling
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +12,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostOptimizingBinding
 import com.entertainment.event.ssearch.ar155.databinding.FragmentCoolingOptimizingBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

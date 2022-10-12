@@ -1,7 +1,6 @@
 package com.entertainment.event.ssearch.ar155.functions.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -43,7 +42,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun renderState(state: HomeScreenState) {
-        Log.e("!!!", state.toString())
         with(state) {
             adapter.submitList(funList)
             with(binding) {

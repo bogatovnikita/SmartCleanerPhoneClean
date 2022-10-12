@@ -13,7 +13,6 @@ import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
