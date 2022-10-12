@@ -17,13 +17,18 @@ class CleanViewModel @Inject constructor(
 
     fun getGarbageInfo() {
         viewModelScope.launch(Dispatchers.Default) {
+            val usedMemory = toGb(cleanUseCase.getUsedSizeMemory())
+            val totalMemory = toGb(cleanUseCase.getTotalSizeMemory())
+            val freeMemory = totalMemory - usedMemory
             updateState {
                 it.copy(
                     isCleared = cleanUseCase.isGarbageCleared(),
                     garbageList = getGarbageList(),
                     totalGarbageSize = cleanUseCase.getTotalGarbageSize(),
-                    totalSizeMemory = cleanUseCase.getTotalSizeMemory(),
-                    usedSizeMemory = cleanUseCase.getUsedSizeMemory(),
+                    totalMemory = totalMemory,
+                    usedMemory = usedMemory,
+                    freeMemory = freeMemory,
+                    memoryPercent = (100 - (freeMemory * 100 / totalMemory)).toInt(),
                 )
             }
         }
@@ -41,5 +46,7 @@ class CleanViewModel @Inject constructor(
     }
 
     fun cleanGarbage() = cleanUseCase.cleanGarbage()
+
+    private fun toGb(size: Long): Double = size / 1024.0 / 1024.0 / 1024
 
 }
