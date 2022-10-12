@@ -13,7 +13,7 @@ import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
-import com.entertainment.event.ssearch.ar155.functions.custom.ChoosingTypeBatteryBar
+import com.entertainment.event.ssearch.ar155.custom.ChoosingTypeBatteryBar
 import com.entertainment.event.ssearch.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

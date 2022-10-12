@@ -38,6 +38,7 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
 
     private fun renderState(stateScreen: CoolingScreenState) {
         with(stateScreen) {
+            renderBtnBoostingBattery(isCoolingDone)
             with(binding) {
                 tvDegree.text = getString(R.string.degree, temperature)
                 if (isCoolingDone) {
@@ -52,7 +53,6 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
                     ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_danger))
                     ivDegree.setImageDrawable(resources.getDrawable(R.drawable.ic_thermometer_red))
                 }
-                renderBtnBoostingBattery(isCoolingDone)
             }
         }
     }

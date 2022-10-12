@@ -51,7 +51,7 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_coolingOptimizingFragment_to_coolingResultFragment)
                 }
             }
         }

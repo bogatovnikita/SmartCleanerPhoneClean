@@ -43,7 +43,11 @@
     <fragment
         android:id="@+id/coolingOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingOptimizingFragment"
-        android:label="CoolingOptimizingFragment" />
+        android:label="CoolingOptimizingFragment" >
+        <action
+            android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
+            app:destination="@id/coolingResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cleanFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanFragment"
@@ -91,4 +95,8 @@
         android:id="@+id/cleanResultFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanResultFragment"
         android:label="CleanResultFragment" />
+    <fragment
+        android:id="@+id/coolingResultFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingResultFragment"
+        android:label="CoolingResultFragment" />
 </navigation>

@@ -212,13 +212,13 @@
         android:layout_marginBottom="@dimen/_6sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_16sdp"
-        app:layout_constraintBottom_toTopOf="@id/btn_clean"
+        app:layout_constraintBottom_toTopOf="@id/btn_go_main"
         app:layout_constraintTop_toTopOf="@id/bottom_sheet_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_clean"
+        android:id="@+id/btn_go_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_12sdp"
