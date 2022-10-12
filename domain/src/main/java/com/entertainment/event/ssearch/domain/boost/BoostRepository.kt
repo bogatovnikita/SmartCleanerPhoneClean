@@ -6,8 +6,6 @@ interface BoostRepository {
 
     fun getRamUsage(): Long
 
-    fun calculatePercentAvail(): Int
-
     fun getOverloadedPercents(): Int
 
     fun boost()

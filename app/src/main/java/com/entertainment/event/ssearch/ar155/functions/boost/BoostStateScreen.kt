@@ -6,5 +6,5 @@ data class BoostStateScreen(
     val boostPercent: Int = 60,
     val isBoosted: Boolean = false,
     val overloadPercents: Int = 0,
-    val freedRam: Double = 0.0,
+    val freeRam: Double = 0.0,
 )

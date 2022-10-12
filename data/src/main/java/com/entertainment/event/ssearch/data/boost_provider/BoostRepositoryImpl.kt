@@ -24,8 +24,6 @@ class BoostRepositoryImpl @Inject constructor(
             BoostProvider.getRamPart(context)
         )
 
-    override fun calculatePercentAvail(): Int = BoostProvider.calculatePercentAvail(context)
-
     override fun getOverloadedPercents(): Int = BoostProvider.getOverloadedPercents(context)
 
     override fun boost() = BoostProvider.boost(context)

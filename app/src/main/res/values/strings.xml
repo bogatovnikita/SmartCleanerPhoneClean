@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">AR155</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Fast Cleaner</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="battery_title">Питание</string>
     <string name="remaining_working_time">Оставшееся время \nработы</string>
@@ -46,6 +45,16 @@
     <string name="scanning_system">Сканируем систему…</string>
     <string name="collect_data">Собираем данные…</string>
     <string name="check_device">Проверяем состояние устройства…</string>
+    <string name="used">Занято</string>
+    <string name="storage">Хранилище</string>
+    <string name="free">Свободно</string>
+    <string name="ram">Оперативная память</string>
+    <string name="done">Выполнено</string>
+    <string name="battery_boost">Продлить</string>
+    <string name="boost_danger_desc">Оптимизируйте\nработу телефона</string>
+    <string name="battery_danger_desc">Продлите работу\nустройства</string>
+    <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
+    <string name="clean_danger_desc">Освободите память\nот мусора</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

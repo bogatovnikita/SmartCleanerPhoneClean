@@ -1,7 +1,6 @@
 package com.entertainment.event.ssearch.ar155.functions.cooling
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -44,13 +43,13 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
                 if (isCoolingDone) {
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_fire_blue))
+                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_danger_off))
                     ivDegree.setImageDrawable(resources.getDrawable(R.drawable.ic_thermometer_blue))
                     tvDangerReason.text = getString(R.string.cooling_done_description)
                 } else {
                     tvDangerDescriptionOff.isVisible = false
                     tvDangerDescription.isVisible = true
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_fire_red))
+                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_danger))
                     ivDegree.setImageDrawable(resources.getDrawable(R.drawable.ic_thermometer_red))
                 }
                 renderBtnBoostingBattery(isCoolingDone)

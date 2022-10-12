@@ -21,12 +21,6 @@ public class BoostProvider {
 
     public static native int getOverloadedPercents(Context context);
 
-    public static int calculatePercentAvail(Context context) {
-        Long freeRam = getRamTotal(context);
-        Long usedRam = getRamPart(context);
-        return (int) (100 - (freeRam * 100.0 / usedRam));
-    }
-
     public static long getRamTotal(Context context) {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);

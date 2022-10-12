@@ -10,8 +10,6 @@ class BoostUseCase @Inject constructor(
 
     fun getRamUsage(): Long = boostRepository.getRamUsage()
 
-    fun calculatePercentAvail(): Int = boostRepository.calculatePercentAvail()
-
     fun getOverloadedPercents(): Int = boostRepository.getOverloadedPercents()
 
     fun boost() = boostRepository.boost()

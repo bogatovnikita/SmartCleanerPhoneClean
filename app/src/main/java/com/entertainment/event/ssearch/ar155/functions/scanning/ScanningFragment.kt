@@ -1,4 +1,4 @@
-package com.entertainment.event.ssearch.ar155.splash
+package com.entertainment.event.ssearch.ar155.functions.scanning
 
 import android.os.Bundle
 import android.view.View
@@ -30,7 +30,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-//                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
                 }
             }
         }

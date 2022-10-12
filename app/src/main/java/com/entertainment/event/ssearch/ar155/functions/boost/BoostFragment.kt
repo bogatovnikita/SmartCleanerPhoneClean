@@ -46,7 +46,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 if (isBoosted) {
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
-                    tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freedRam, overloadPercents)
+                    tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freeRam, overloadPercents)
                     ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_rocket_danger_off))
                     tvDangerReason.text = getString(R.string.boost_reason_danger_off)
                     tvTypeSaveBatteryTitle.text = getString(R.string.boost_danger_description_off)
