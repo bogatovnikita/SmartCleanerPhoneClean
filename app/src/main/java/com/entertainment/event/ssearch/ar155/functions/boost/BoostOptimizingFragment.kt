@@ -2,6 +2,7 @@ package com.entertainment.event.ssearch.ar155.functions.boost
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -50,6 +51,10 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
                     findNavController().popBackStack()
                 }
             }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner, true
+        ) {
         }
     }
 

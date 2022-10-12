@@ -32,7 +32,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         viewModel.getParams()
         initAdapter()
         setTypeBoostBattery()
-        goToOptimizingFragment()
+        setBtnListeners()
     }
 
     private fun initObserverStateScreen() {
@@ -92,10 +92,13 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         }
     }
 
-    private fun goToOptimizingFragment() {
+    private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boostBattery()
             findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
+        }
+        binding.btnGoBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

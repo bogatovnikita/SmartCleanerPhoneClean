@@ -28,7 +28,7 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
         viewModel.getGarbageInfo()
         initAdapter()
         initScreenStateObserver()
-        goToOptimizingFragment()
+        setBtnListeners()
     }
 
     private fun initScreenStateObserver() {
@@ -59,10 +59,13 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
         }
     }
 
-    private fun goToOptimizingFragment() {
+    private fun setBtnListeners() {
         binding.btnClean.setOnClickListener {
             viewModel.cleanGarbage()
             findNavController().navigate(R.id.action_cleanFragment_to_cleanOptimizingFragment)
+        }
+        binding.btnGoBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

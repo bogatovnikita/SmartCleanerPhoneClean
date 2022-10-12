@@ -2,6 +2,7 @@ package com.entertainment.event.ssearch.ar155.functions.scanning
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +23,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
     }
 
     private fun startOptimization() {
-        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_clean))
+        binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_scanning_splash))
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)
@@ -33,6 +34,10 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
                     findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
                 }
             }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner, true
+        ) {
         }
     }
 

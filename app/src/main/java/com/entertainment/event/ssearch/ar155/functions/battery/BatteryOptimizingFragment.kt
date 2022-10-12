@@ -2,6 +2,7 @@ package com.entertainment.event.ssearch.ar155.functions.battery
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -57,6 +58,10 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
                     findNavController().popBackStack()
                 }
             }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner, true
+        ) {
         }
     }
 

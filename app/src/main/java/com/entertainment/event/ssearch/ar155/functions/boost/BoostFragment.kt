@@ -24,7 +24,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         super.onViewCreated(view, savedInstanceState)
         initScreenStateObserver()
         viewModel.getParams()
-        goToOptimizingFragment()
+        setBtnListeners()
     }
 
     private fun initScreenStateObserver() {
@@ -70,10 +70,13 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         }
     }
 
-    private fun goToOptimizingFragment() {
+    private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boost()
             findNavController().navigate(R.id.action_boostFragment_to_boostOptimizingFragment)
+        }
+        binding.btnGoBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

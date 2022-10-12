@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_regular"
         android:gravity="center_horizontal"
-        android:text="Ускорение"
+        android:text="@string/cooling_title"
         android:textColor="@color/white"
         android:textSize="@dimen/_20ssp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_go_back"
@@ -35,7 +35,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/container_working_time"
         android:layout_width="0dp"
-        android:layout_height="106dp"
+        android:layout_height="@dimen/_95sdp"
         android:layout_marginTop="@dimen/_37sdp"
         android:background="@drawable/bg_main_for_params"
         android:orientation="vertical"
@@ -51,7 +51,7 @@
             android:fontFamily="@font/golos_medium"
             android:text="@string/temperature_cpu"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:text="@string/normal_temperature"
             android:textColor="@color/black"
-            android:textSize="@dimen/_8ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -174,7 +174,8 @@
         android:fontFamily="@font/golos_regular"
         android:text="@string/cooling_danger_reason"
         android:textColor="@color/white"
-        android:textSize="@dimen/_11ssp"
+        android:textSize="@dimen/_9ssp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_3sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_rocket_danger"

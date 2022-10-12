@@ -25,7 +25,7 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getTemperature()
         initScreenStateObserver()
-        goToOptimizingFragment()
+        setBtnListeners()
     }
 
     private fun initScreenStateObserver() {
@@ -67,10 +67,13 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
         }
     }
 
-    private fun goToOptimizingFragment() {
+    private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.cooling()
             findNavController().navigate(R.id.action_coolingFragment_to_coolingOptimizingFragment)
+        }
+        binding.btnGoBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

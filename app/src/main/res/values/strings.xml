@@ -19,7 +19,7 @@
     <string name="boost">Ускорить</string>
     <string name="boosting">Ускорение</string>
     <string name="danger_boost_off">Освобождено %.2f Гб\nТелефон ускорен на %d%%</string>
-    <string name="boost_reason_danger">Прямо сейчас фоновые процессы и приложения\nпрегружают оперативную память</string>
+    <string name="boost_reason_danger">Прямо сейчас фоновые процессы и приложения прегружают оперативную память</string>
     <string name="boost_reason_danger_off">Сейчас нет приложений, занимающих\nоперативную память</string>
     <string name="boost_danger_title">Память перегружена!\nТребуется ускорение!</string>
     <string name="boost_danger_description">Снижайте нагрузку\nна оперативную память\nи ускоряйте работу вашего\nтелефона</string>
@@ -55,6 +55,7 @@
     <string name="battery_danger_desc">Продлите работу\nустройства</string>
     <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
     <string name="clean_danger_desc">Освободите память\nот мусора</string>
+    <string name="cooling_title">Охлаждение</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

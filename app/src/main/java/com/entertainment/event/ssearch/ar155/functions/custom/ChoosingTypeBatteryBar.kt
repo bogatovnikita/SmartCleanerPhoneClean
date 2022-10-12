@@ -42,6 +42,13 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
                 it.isVisible = type == it
             }
         }
+        setAlpha()
+    }
+
+    private fun setAlpha() {
+        _binding.tvTypeNormal.alpha = if (_binding.btnNormalOn.isVisible) 1F else 0.5F
+        _binding.tvTypeExtra.alpha = if (_binding.btnExtraOn.isVisible) 1F else 0.5F
+        _binding.tvTypeUltra.alpha = if (_binding.btnUltraOn.isVisible) 1F else 0.5F
     }
 
 
@@ -63,6 +70,7 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
                 else -> {}
             }
         }
+        setAlpha()
     }
 
     companion object {
