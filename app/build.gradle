@@ -9,7 +9,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.entertainment.event.ssearch.ar155"
+        applicationId "com.softcleean.fastcleaner"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -27,7 +27,7 @@ android {
 
             resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
             buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-3940256099942544/3419835294"'
-            buildConfigField "String", "APP_METRICA_KEY", '"82f20de2-30a2-4f00-a6d1-3452b9dcf8db"'
+            buildConfigField "String", "APP_METRICA_KEY", '"3a252616-8002-4b53-9c55-c702d64eb4b8"'
 
             buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-3940256099942544/1033173712"'
             buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-3940256099942544/1033173712"'
