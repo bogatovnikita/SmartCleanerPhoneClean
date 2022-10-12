@@ -56,31 +56,39 @@
         android:id="@+id/cleanOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanOptimizingFragment"
         android:label="fragment_clean_optimizing"
-        tools:layout="@layout/fragment_clean_optimizing" />
+        tools:layout="@layout/fragment_clean_optimizing" >
+        <action
+            android:id="@+id/action_cleanOptimizingFragment_to_cleanResultFragment"
+            app:destination="@id/cleanResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/scanningFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.scanning.ScanningFragment"
         android:label="ScanningFragment" >
-        <action
-            android:id="@+id/action_scanningFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_to_homeFragment"
+        app:destination="@id/homeFragment" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_batteryFragment"
-            app:destination="@id/batteryFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_boostFragment"
-            app:destination="@id/boostFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_coolingFragment"
-            app:destination="@id/coolingFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_cleanFragment"
-            app:destination="@id/cleanFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_to_batteryFragment"
+        app:destination="@id/batteryFragment" />
+    <action
+        android:id="@+id/action_to_boostFragment"
+        app:destination="@id/boostFragment" />
+    <action
+        android:id="@+id/action_to_coolingFragment"
+        app:destination="@id/coolingFragment" />
+    <action
+        android:id="@+id/action_to_cleanFragment"
+        app:destination="@id/cleanFragment" />
+    <fragment
+        android:id="@+id/cleanResultFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.clean.CleanResultFragment"
+        android:label="CleanResultFragment" />
 </navigation>

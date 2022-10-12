@@ -58,7 +58,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
                 }
             }
         }

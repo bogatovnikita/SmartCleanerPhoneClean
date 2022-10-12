@@ -56,6 +56,7 @@
     <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
     <string name="clean_danger_desc">Освободите память\nот мусора</string>
     <string name="cooling_title">Охлаждение</string>
+    <string name="on_main_screen">На главный экран</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

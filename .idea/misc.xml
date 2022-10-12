@@ -6,6 +6,7 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1665" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_battery_type_choosing.xml" value="0.223" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.223" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_bottom_sheet_grey.xml" value="0.1665" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_button_boost_off.xml" value="0.2345" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_button_boost_on.xml" value="0.2345" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_clean_item.xml" value="0.1665" />
@@ -26,12 +27,14 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean_optimizing.xml" value="0.25" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean_result.xml" value="0.4" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_cooling.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_cooling_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_battery_save_fun.xml" value="0.7085427135678392" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_clean.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_fun_result.xml" value="0.536" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_home_fun.xml" value="0.536" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/item_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.entertainment.event.ssearch.ar155.databinding.ItemHomeFunBinding
+import com.entertainment.event.ssearch.ar155.utils.OptimizingType
 
 
 class HomeFunItemDiffCallback : DiffUtil.ItemCallback<ItemHomeFun>() {
@@ -14,10 +15,13 @@ class HomeFunItemDiffCallback : DiffUtil.ItemCallback<ItemHomeFun>() {
     override fun areItemsTheSame(oldItem: ItemHomeFun, newItem: ItemHomeFun): Boolean =
         oldItem.funName == newItem.funName
 
-    override fun areContentsTheSame(oldItem: ItemHomeFun, newItem: ItemHomeFun): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: ItemHomeFun, newItem: ItemHomeFun): Boolean =
+        oldItem == newItem
 
 }
-class HomeFunAdapter(private val listener: ClickOnFunListener): ListAdapter<ItemHomeFun, HomeFunAdapter.HomeFunItemViewHolder> (HomeFunItemDiffCallback()) {
+
+class HomeFunAdapter(private val listener: ClickOnFunListener) :
+    ListAdapter<ItemHomeFun, HomeFunAdapter.HomeFunItemViewHolder>(HomeFunItemDiffCallback()) {
 
     class HomeFunItemViewHolder(
         private val binding: ItemHomeFunBinding,
@@ -49,7 +53,8 @@ class HomeFunAdapter(private val listener: ClickOnFunListener): ListAdapter<Item
         return HomeFunItemViewHolder(binding, listener)
     }
 
-    override fun onBindViewHolder(holder: HomeFunItemViewHolder, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: HomeFunItemViewHolder, position: Int) =
+        holder.bind(getItem(position))
 
     interface ClickOnFunListener {
         fun onFunClick(item: ItemHomeFun)
@@ -61,13 +66,6 @@ data class ItemHomeFun(
     val funName: Int = 0,
     val funDangerDescription: Int = 0,
     val icon: Int = 0,
-    val type: String = BOOST,
+    val type: OptimizingType = OptimizingType.Boost,
     val btnText: Int = 0,
-) {
-    companion object {
-        const val CLEAN = "CLEAN"
-        const val BOOST = "BOOST"
-        const val BATTERY = "BATTERY"
-        const val COOLING = "COOLING"
-    }
-}
+)

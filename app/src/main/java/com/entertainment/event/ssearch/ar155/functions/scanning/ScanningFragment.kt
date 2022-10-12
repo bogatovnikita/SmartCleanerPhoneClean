@@ -31,7 +31,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_to_homeFragment)
                 }
             }
         }
