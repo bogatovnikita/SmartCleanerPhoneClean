@@ -23,8 +23,10 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery.xml" value="0.2" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_progres.xml" value="0.4" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_result.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost.xml" value="0.34421052631578947" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost_optimizing.xml" value="0.25" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_boost_result.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean_optimizing.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_clean_result.xml" value="0.4" />

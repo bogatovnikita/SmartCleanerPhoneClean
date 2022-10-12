@@ -18,7 +18,11 @@
         android:id="@+id/batteryOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.battery.BatteryOptimizingFragment"
         android:label="fragment_battery_optimizing"
-        tools:layout="@layout/fragment_battery_optimizing" />
+        tools:layout="@layout/fragment_battery_optimizing" >
+        <action
+            android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
+            app:destination="@id/batteryResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/boostFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.boost.BoostFragment"
@@ -31,7 +35,11 @@
     <fragment
         android:id="@+id/boostOptimizingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.boost.BoostOptimizingFragment"
-        android:label="BoostOptimizingFragment" />
+        android:label="BoostOptimizingFragment" >
+        <action
+            android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
+            app:destination="@id/boostResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/coolingFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingFragment"
@@ -99,4 +107,13 @@
         android:id="@+id/coolingResultFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.cooling.CoolingResultFragment"
         android:label="CoolingResultFragment" />
+    <fragment
+        android:id="@+id/boostResultFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.boost.BoostResultFragment"
+        android:label="BoostResultFragment" />
+    <fragment
+        android:id="@+id/batteryResultFragment"
+        android:name="com.entertainment.event.ssearch.ar155.functions.battery.BatteryResultFragment"
+        android:label="fragment_battery_result"
+        tools:layout="@layout/fragment_battery_result" />
 </navigation>

@@ -55,7 +55,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
                 }
             }
         }

@@ -48,7 +48,7 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_boostOptimizingFragment_to_boostResultFragment)
                 }
             }
         }
