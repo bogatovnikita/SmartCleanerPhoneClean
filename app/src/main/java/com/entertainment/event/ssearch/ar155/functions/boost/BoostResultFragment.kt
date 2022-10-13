@@ -8,6 +8,8 @@ import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBoostResultBinding
 import com.entertainment.event.ssearch.ar155.functions.result.BaseResultFragment
 import com.entertainment.event.ssearch.ar155.functions.result.ResultList
+import com.entertainment.event.ssearch.ar155.utils.LOW_LEVEL
+import com.entertainment.event.ssearch.ar155.utils.MEDIUM_LEVEL
 import com.entertainment.event.ssearch.ar155.utils.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -46,11 +48,22 @@ class BoostResultFragment :
             with(binding) {
                 tvRamPercents.text = getString(R.string.value_percents, boostPercent)
                 circularProgressRamPercent.progress = boostPercent.toFloat()
+                renderCircularProgress(boostPercent)
                 tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
                 tvFreeRam.text = getString(R.string.gb, totalRam - usedRam)
                 tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freeRam, overloadPercents)
             }
         }
+    }
+
+    private fun renderCircularProgress(percent: Int) {
+        binding.circularProgressRamPercent.indicator.color =
+            if (percent > LOW_LEVEL)
+                resources.getColor(R.color.red)
+            else if (percent > MEDIUM_LEVEL)
+                resources.getColor(R.color.orange)
+            else
+                resources.getColor(R.color.blue)
     }
 }

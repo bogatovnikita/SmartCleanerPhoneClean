@@ -37,7 +37,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
                     delay(100)
                     showInterstitial(
                         onClosed = {
-                            findNavController().navigate(R.id.action_to_homeFragment)
+                            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
                         }
                     )
                 }

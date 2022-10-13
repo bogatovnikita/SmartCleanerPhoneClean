@@ -174,7 +174,7 @@
         android:fontFamily="@font/golos_regular"
         android:text="@string/cooling_danger_reason"
         android:textColor="@color/white"
-        android:textSize="@dimen/_9ssp"
+        android:textSize="@dimen/_10ssp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_3sdp"
         app:layout_constraintEnd_toEndOf="parent"

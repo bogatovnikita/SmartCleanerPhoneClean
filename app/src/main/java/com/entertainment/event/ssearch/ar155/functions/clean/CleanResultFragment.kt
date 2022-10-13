@@ -8,6 +8,8 @@ import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentCleanResultBinding
 import com.entertainment.event.ssearch.ar155.functions.result.BaseResultFragment
 import com.entertainment.event.ssearch.ar155.functions.result.ResultList
+import com.entertainment.event.ssearch.ar155.utils.LOW_LEVEL
+import com.entertainment.event.ssearch.ar155.utils.MEDIUM_LEVEL
 import com.entertainment.event.ssearch.ar155.utils.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -47,18 +49,16 @@ class CleanResultFragment :
                 circularProgressStoragePercent.progress = memoryPercent.toFloat()
                 renderCircularProgress(memoryPercent)
                 tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
-                tvUsedStorage.text = getString(R.string.gb, usedMemory)
-                tvTotalStorage.text = getString(R.string.gb_fraction, totalMemory)
-                tvFreeStorage.text = getString(R.string.gb, freeMemory)
+                tvFreeMemory.text = getString(R.string.free_memory_size, freeMemory)
             }
         }
     }
 
     private fun renderCircularProgress(percent: Int) {
         binding.circularProgressStoragePercent.indicator.color =
-            if (percent > 85)
+            if (percent > LOW_LEVEL)
                 resources.getColor(R.color.red)
-            else if (percent > 60)
+            else if (percent > MEDIUM_LEVEL)
                 resources.getColor(R.color.orange)
             else
                 resources.getColor(R.color.blue)

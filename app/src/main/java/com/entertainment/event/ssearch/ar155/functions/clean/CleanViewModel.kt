@@ -25,8 +25,6 @@ class CleanViewModel @Inject constructor(
                     isCleared = cleanUseCase.isGarbageCleared(),
                     garbageList = getGarbageList(),
                     totalGarbageSize = cleanUseCase.getTotalGarbageSize(),
-                    totalMemory = totalMemory,
-                    usedMemory = usedMemory,
                     freeMemory = freeMemory,
                     memoryPercent = (100 - (freeMemory * 100 / totalMemory)).toInt(),
                 )

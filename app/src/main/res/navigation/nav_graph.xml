@@ -21,7 +21,9 @@
         tools:layout="@layout/fragment_battery_optimizing" >
         <action
             android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
-            app:destination="@id/batteryResultFragment" />
+            app:destination="@id/batteryResultFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"  />
     </fragment>
     <fragment
         android:id="@+id/boostFragment"
@@ -38,7 +40,9 @@
         android:label="BoostOptimizingFragment" >
         <action
             android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
-            app:destination="@id/boostResultFragment" />
+            app:destination="@id/boostResultFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"  />
     </fragment>
     <fragment
         android:id="@+id/coolingFragment"
@@ -54,7 +58,9 @@
         android:label="CoolingOptimizingFragment" >
         <action
             android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
-            app:destination="@id/coolingResultFragment" />
+            app:destination="@id/coolingResultFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/cleanFragment"
@@ -71,12 +77,19 @@
         tools:layout="@layout/fragment_clean_optimizing" >
         <action
             android:id="@+id/action_cleanOptimizingFragment_to_cleanResultFragment"
-            app:destination="@id/cleanResultFragment" />
+            app:destination="@id/cleanResultFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/scanningFragment"
         android:name="com.entertainment.event.ssearch.ar155.functions.scanning.ScanningFragment"
         android:label="ScanningFragment" >
+        <action
+            android:id="@+id/action_scanningFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/scanningFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <action
         android:id="@+id/action_to_homeFragment"

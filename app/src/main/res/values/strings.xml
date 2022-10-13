@@ -57,6 +57,8 @@
     <string name="clean_danger_desc">Освободите память\nот мусора</string>
     <string name="cooling_title">Охлаждение</string>
     <string name="on_main_screen">На главный экран</string>
+    <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
+    <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

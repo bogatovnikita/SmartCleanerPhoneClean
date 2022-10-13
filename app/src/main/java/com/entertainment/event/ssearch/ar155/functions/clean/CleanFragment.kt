@@ -12,8 +12,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.adapters.CleanAdapter
 import com.entertainment.event.ssearch.ar155.databinding.FragmentCleanBinding
+import com.entertainment.event.ssearch.ar155.utils.LOW_LEVEL
+import com.entertainment.event.ssearch.ar155.utils.MEDIUM_LEVEL
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CleanFragment : Fragment(R.layout.fragment_clean) {
@@ -33,7 +34,7 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
     }
 
     private fun initScreenStateObserver() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 renderState(state)
             }
@@ -51,9 +52,7 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
                     circularProgressStoragePercent.progress = memoryPercent.toFloat()
                     renderCircularProgress(memoryPercent)
                     tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
-                    tvUsedStorage.text = getString(R.string.gb, usedMemory)
-                    tvTotalStorage.text = getString(R.string.gb_fraction, totalMemory)
-                    tvFreeStorage.text = getString(R.string.gb, freeMemory)
+                    tvFreeMemory.text = getString(R.string.free_memory_size, freeMemory)
                 } else {
                     groupCoolingDone.isVisible = false
                     groupNeedCooling.isVisible = true
@@ -75,9 +74,9 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
 
     private fun renderCircularProgress(percent: Int) {
         binding.circularProgressStoragePercent.indicator.color =
-            if (percent > 85)
+            if (percent > LOW_LEVEL)
                 resources.getColor(R.color.red)
-            else if (percent > 60)
+            else if (percent > MEDIUM_LEVEL)
                 resources.getColor(R.color.orange)
             else
                 resources.getColor(R.color.blue)
