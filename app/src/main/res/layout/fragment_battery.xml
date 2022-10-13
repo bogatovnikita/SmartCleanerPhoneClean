@@ -173,7 +173,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottom_sheet_container" />
 
-    <com.entertainment.event.ssearch.ar155.custom.ChoosingTypeBatteryBar
+    <com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar
         android:id="@+id/choosing_type_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,69 @@
+package com.softcleean.fastcleaner.functions.boost
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.softcleean.fastcleaner.R
+import com.softcleean.fastcleaner.databinding.FragmentBoostResultBinding
+import com.softcleean.fastcleaner.functions.result.BaseResultFragment
+import com.softcleean.fastcleaner.functions.result.ResultList
+import com.softcleean.fastcleaner.utils.LOW_LEVEL
+import com.softcleean.fastcleaner.utils.MEDIUM_LEVEL
+import com.softcleean.fastcleaner.utils.OptimizingType
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@AndroidEntryPoint
+class BoostResultFragment :
+    BaseResultFragment<FragmentBoostResultBinding>(FragmentBoostResultBinding::inflate) {
+
+    private val viewModel: BoostViewModel by viewModels()
+
+    @Inject
+    lateinit var resultList: ResultList
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initAdapter(recyclerView = binding.recyclerView)
+        viewModel.getParams()
+        initScreenStateObserver()
+        setBtnListeners(btnGoBack = binding.btnGoBack, btnGoMain = binding.btnGoMain)
+    }
+
+    private fun initScreenStateObserver() {
+        lifecycleScope.launch {
+            viewModel.screenState.collect { state ->
+                renderState(state)
+            }
+        }
+    }
+
+    private fun renderState(stateScreen: BoostStateScreen) {
+        with(stateScreen) {
+            adapter.submitList(resultList.getList().filter {
+                OptimizingType.Boost != it.type
+            })
+            with(binding) {
+                tvRamPercents.text = getString(R.string.value_percents, boostPercent)
+                circularProgressRamPercent.progress = boostPercent.toFloat()
+                renderCircularProgress(boostPercent)
+                tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
+                tvUsedRam.text = getString(R.string.gb, usedRam)
+                tvFreeRam.text = getString(R.string.gb, totalRam - usedRam)
+                tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freeRam, overloadPercents)
+            }
+        }
+    }
+
+    private fun renderCircularProgress(percent: Int) {
+        binding.circularProgressRamPercent.indicator.color =
+            if (percent > LOW_LEVEL)
+                resources.getColor(R.color.red)
+            else if (percent > MEDIUM_LEVEL)
+                resources.getColor(R.color.orange)
+            else
+                resources.getColor(R.color.blue)
+    }
+}

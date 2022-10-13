@@ -81,7 +81,7 @@ jboolean checkTimeExpired(JNIEnv *env, jobject context, jstring field) {
 
 extern "C"
 JNIEXPORT jobjectArray JNICALL
-Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getFolders(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_clean_1provider_CleanProvider_getFolders(JNIEnv *env,
                                                          jclass clazz) {
     jobjectArray ret;
     int i;
@@ -149,7 +149,7 @@ Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getFolde
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_getOverheatedApps(
+Java_com_softcleean_fastcleaner_data_cooling_1provider_CoolingProvider_getOverheatedApps(
         JNIEnv *env, jclass clazz, jobject context) {
     if (checkTimeExpired(env, context, CPU(env))) {
         return 0;
@@ -172,7 +172,7 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getGarbageSize(
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_calculateWorkingMinutes(
+Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_calculateWorkingMinutes(
         JNIEnv *env, jclass clazz, jobject context, jint percent) {
     if (!checkTimeExpired(env, context, POWER_HIGH(env))) {
         return percent * 16 + ((jint) (rand() % 30));
@@ -188,7 +188,7 @@ Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_calc
 
 void putLongToPreferences(JNIEnv *env, jobject context, jstring fieldName, jlong value) {
     jclass providerClass = env->FindClass(
-            "com/entertainment/event/ssearch/data/shared_pref/SharedPrefProvider");
+            "com/softcleean/fastcleaner/data/shared_pref/SharedPrefProvider");
     jmethodID putStringMethodId = env->GetStaticMethodID(providerClass, "saveToPreferences",
                                                          "(Ljava/lang/String;J)V");
     env->CallStaticVoidMethod(providerClass, putStringMethodId, fieldName, value);
@@ -197,7 +197,7 @@ void putLongToPreferences(JNIEnv *env, jobject context, jstring fieldName, jlong
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_boost(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_boost_1provider_BoostProvider_boost(JNIEnv *env,
                                                     jclass clazz,
                                                     jobject context) {
     putLongToPreferences(env, context, BOOST(env), getCurrentTime(env));
@@ -205,14 +205,14 @@ Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_boost(JN
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_clean(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_clean_1provider_CleanProvider_clean(JNIEnv *env,
                                                    jclass clazz,
                                                    jobject context) {
     putLongToPreferences(env, context, JUNK(env), getCurrentTime(env));
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_cpu(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_cooling_1provider_CoolingProvider_cpu(JNIEnv *env,
                                                   jclass clazz,
                                                   jobject context) {
     putLongToPreferences(env, context, CPU(env), getCurrentTime(env));
@@ -221,7 +221,7 @@ Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_cpu(
 
 extern "C"
 JNIEXPORT jlong JNICALL
-Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getRamUsage(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_boost_1provider_BoostProvider_getRamUsage(JNIEnv *env,
                                                           jclass clazz,
                                                           jobject context,
                                                           jlong ram_total,
@@ -238,13 +238,13 @@ Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getRamUs
 }
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_checkRamOverload(
+Java_com_softcleean_fastcleaner_data_boost_1provider_BoostProvider_checkRamOverload(
         JNIEnv *env, jclass clazz, jobject instance) {
     return checkTimeExpired(env, instance, BOOST(env));
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_calculateTemperature(
+Java_com_softcleean_fastcleaner_data_cooling_1provider_CoolingProvider_calculateTemperature(
         JNIEnv *env, jclass clazz, jobject context, jint temp) {
     if (!checkTimeExpired(env, context, CPU(env))) {
         if(temperature == 0){
@@ -257,7 +257,7 @@ Java_com_entertainment_event_ssearch_data_cooling_1provider_CoolingProvider_calc
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_savePowerLowType(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerLowType(JNIEnv *env,
                                                        jclass clazz,
                                                        jobject context) {
     putLongToPreferences(env, context, POWER_LOW(env), getCurrentTime(env));
@@ -265,21 +265,21 @@ Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_save
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_savePowerMediumType(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerMediumType(JNIEnv *env,
                                                           jclass clazz,
                                                           jobject context) {
     putLongToPreferences(env, context, POWER_MEDIUM(env), getCurrentTime(env));
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_savePowerHighType(JNIEnv *env,
+Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerHighType(JNIEnv *env,
                                                         jclass clazz,
                                                         jobject context) {
     putLongToPreferences(env, context, POWER_HIGH(env), getCurrentTime(env));
 }
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_checkBatteryDecrease(
+Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_checkBatteryDecrease(
         JNIEnv *env, jclass clazz, jobject context) {
     return checkTimeExpired(env, context, POWER_LOW(env))
            || checkTimeExpired(env, context, POWER_MEDIUM(env))
@@ -288,7 +288,7 @@ Java_com_entertainment_event_ssearch_data_battery_1provider_BatteryProvider_chec
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_entertainment_event_ssearch_data_boost_1provider_BoostProvider_getOverloadedPercents(JNIEnv *env, jclass clazz,
+Java_com_softcleean_fastcleaner_data_boost_1provider_BoostProvider_getOverloadedPercents(JNIEnv *env, jclass clazz,
                                                                     jobject context) {
     overloadedPercens = (rand() % 10) + 2;
     return overloadedPercens;
@@ -320,7 +320,7 @@ jintArray createJunkFilesArray(JNIEnv *env) {
 
 extern "C"
 JNIEXPORT jintArray JNICALL
-Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getGarbageFilesCount(JNIEnv *env, jclass clazz,
+Java_com_softcleean_fastcleaner_data_clean_1provider_CleanProvider_getGarbageFilesCount(JNIEnv *env, jclass clazz,
                                                                    jobject context) {
     if (!checkTimeExpired(env, context, JUNK(env))) {
         files_junk_one = 0;
@@ -342,7 +342,7 @@ Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getGarba
 
 extern "C"
 JNIEXPORT jintArray JNICALL
-Java_com_entertainment_event_ssearch_data_clean_1provider_CleanProvider_getGarbageSizeArray(JNIEnv *env, jclass clazz,
+Java_com_softcleean_fastcleaner_data_clean_1provider_CleanProvider_getGarbageSizeArray(JNIEnv *env, jclass clazz,
                                                                   jobject context) {
     if (checkTimeExpired(env, context, JUNK(env))) {
         junk_one = 0;
