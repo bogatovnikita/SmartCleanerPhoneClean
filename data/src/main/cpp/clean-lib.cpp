@@ -174,11 +174,11 @@ extern "C"
 JNIEXPORT jint JNICALL
 Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_calculateWorkingMinutes(
         JNIEnv *env, jclass clazz, jobject context, jint percent) {
-    if (!checkTimeExpired(env, context, POWER_HIGH(env))) {
+    if (checkTimeExpired(env, context, POWER_HIGH(env))) {
         return percent * 16 + ((jint) (rand() % 30));
-    } else if (!checkTimeExpired(env, context, POWER_MEDIUM(env))) {
+    } else if (checkTimeExpired(env, context, POWER_MEDIUM(env))) {
         return percent * 14 + ((jint) (rand() % 30));
-    } else if (!checkTimeExpired(env, context, POWER_LOW(env))) {
+    } else if (checkTimeExpired(env, context, POWER_LOW(env))) {
         return percent * 12 + ((jint) (rand() % 30));
     } else {
         return percent * 9 + ((jint) (rand() % 30));
