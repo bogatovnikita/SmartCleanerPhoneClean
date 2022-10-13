@@ -6,16 +6,11 @@ import com.ads.library.AdsManager
 import com.ads.library.SubscriptionProvider
 import com.google.android.gms.AdView
 
-class Banner : AdView {
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
-
+class Banner @JvmOverloads constructor(
+    context: Context,
+    private val attr: AttributeSet? = null,
+    private val defStyleAttr: Int = 0
+) : AdView(context, attr, defStyleAttr) {
 
     init {
         init()

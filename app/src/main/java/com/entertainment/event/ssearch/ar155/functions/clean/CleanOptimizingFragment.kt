@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.entertainment.event.ssearch.ar155.BuildConfig
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
 import com.entertainment.event.ssearch.ar155.adapters.OptimizingRecyclerAdapter
@@ -19,6 +20,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import preloadInterstitial
+import showInterstitial
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -39,6 +42,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         startOptimization()
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL4)
     }
 
     private fun startOptimization() {
@@ -55,7 +59,11 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
+                    showInterstitial(
+                        onClosed = {
+                            findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
+                        }
+                    )
                 }
             }
         }

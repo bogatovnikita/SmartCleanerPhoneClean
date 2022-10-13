@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.entertainment.event.ssearch.ar155.BuildConfig
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentBatteryOptimizingBinding
 import com.entertainment.event.ssearch.ar155.adapters.HintDecoration
@@ -20,6 +21,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import preloadInterstitial
+import showInterstitial
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -40,6 +43,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
         initAdapter()
         setArrayOptionBoosting()
         startOptimization()
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL2)
     }
 
     private fun startOptimization() {
@@ -55,7 +59,11 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
+                    showInterstitial(
+                        onClosed = {
+                            findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
+                        }
+                    )
                 }
             }
         }

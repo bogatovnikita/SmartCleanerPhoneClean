@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.entertainment.event.ssearch.ar155.BuildConfig
 import com.entertainment.event.ssearch.ar155.R
 import com.entertainment.event.ssearch.ar155.databinding.FragmentScanningBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import preloadInterstitial
+import showInterstitial
 
 class ScanningFragment : Fragment(R.layout.fragment_scanning) {
 
@@ -20,18 +23,23 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startOptimization()
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
     }
 
     private fun startOptimization() {
         binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_scanning_splash))
         lifecycleScope.launch {
             repeat(101) { percent ->
-                delay(80)
+                delay(100)
                 setPercents(percent)
                 if (percent == 100) {
                     optimizationIsDone()
-                    delay(500)
-                    findNavController().navigate(R.id.action_to_homeFragment)
+                    delay(100)
+                    showInterstitial(
+                        onClosed = {
+                            findNavController().navigate(R.id.action_to_homeFragment)
+                        }
+                    )
                 }
             }
         }
