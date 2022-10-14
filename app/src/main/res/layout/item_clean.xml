@@ -14,7 +14,7 @@
         android:id="@+id/tv_type_junk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Кэш"
+        android:text="@string/clean"
         android:textSize="@dimen/_12ssp"
         android:textColor="@color/black"
         android:fontFamily="@font/golos_regular"/>
