@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="used">ยุ่ง</string>
+    <string name="temperature_cpu">อุณหภูมิโปรเซสเซอร์</string>
+    <string name="battery_title">พลัง</string>
+    <string name="boost_reason_danger_off">ขณะนี้ไม่มีแอปพลิเคชันที่ครอบครอง\nRAM</string>
+    <string name="working_time">%d ชั่วโมง %d นาที</string>
+    <string name="gb_fraction">/%.2f gb</string>
+    <string name="on_main_screen">หน้าจอหลัก</string>
+    <string name="clean_danger_title">ต้องทำความสะอาด!</string>
+    <string name="garbage_not_found">ไม่พบไฟล์ขยะ\n</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">พิเศษ\n+60%</string>
+    <string name="normal_mode">โหมดปกติ:</string>
+    <string name="type_normal">ปกติ\n+10%</string>
+    <string name="cooling_advice">ทำให้โทรศัพท์ของคุณเย็นลงอย่างสม่ำเสมอเพื่อลดความเครียด\nในโปรเซสเซอร์ของคุณขยายอายุการใช้งาน\nครั้งและเพิ่มประสิทธิภาพการทำงาน\nของอุปกรณ์ของคุณ</string>
+    <string name="ram">แกะ</string>
+    <string name="boosting">เร่งความเร็ว</string>
+    <string name="degree">%d ℃</string>
+    <string name="done">เสร็จแล้ว</string>
+    <string name="coolling_done">CPU เย็นลง\nอุณหภูมิปกติ</string>
+    <string name="free_memory_size">ที่เก็บข้อมูลฟรี %.1f GB</string>
+    <string name="boost_danger_description_off">อย่าลืมลด\nRAM Load\nและเร่งโทรศัพท์ของคุณ</string>
+    <string name="increase_time_working">คุณสามารถยืดอายุแบตเตอรี่ของโทรศัพท์ได้</string>
+    <string name="cooling">เย็น</string>
+    <string name="boost">เร่งความเร็ว</string>
+    <string name="normal_temperature">อุณหภูมิโปรเซสเซอร์\nปกติคือ 25–30 ℃</string>
+    <string name="scanning_system">สแกนระบบ …</string>
+    <string name="hello_blank_fragment">สวัสดีชิ้นส่วนว่างเปล่า</string>
+    <string name="cleared">ทำความสะอาด</string>
+    <string name="improve_working_time_by_percent">โทรศัพท์\nใช้เวลาเพิ่มขึ้น %d%%</string>
+    <string name="boost_danger_title">หน่วยความจำมากเกินไป!\nต้องการเร่งความเร็ว!</string>
+    <string name="clean_danger_desc">ฟรีหน่วยความจำจากขยะ</string>
+    <string name="battery_danger_desc">ขยายเวลาทำงานของ!</string>
+    <string name="cooling_danger_title">โปรเซสเซอร์ร้อนเกินไป! ต้องใช้ความเย็น!</string>
+    <string name="storage">พื้นที่จัดเก็บ</string>
+    <string name="clean_done">ลบไฟล์ขยะ</string>
+    <string name="cooling_danger_desc">แอปพลิเคชันปิดพื้นหลัง</string>
+    <string name="ready">เสร็จแล้ว!</string>
+    <string name="boost_danger_description">ลด RAM Load\nและเพิ่มความเร็วโทรศัพท์\nของคุณ</string>
+    <string name="boost_danger_desc">เพิ่มประสิทธิภาพประสิทธิภาพของโทรศัพท์ของคุณ</string>
+    <string name="boost_battery">ทำให้โทรศัพท์ของคุณทำงานได้ดี</string>
+    <string name="gb">%.2f gb</string>
+    <string name="free">ฟรี</string>
+    <string name="battery_boost">ขยาย</string>
+    <string name="type_save_battery_title">ขยายโหมดการทำงาน:</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="finded_junk_file">ตรวจพบไฟล์ขยะ\nไฟล์</string>
+    <string name="cleaning">ทำความสะอาด</string>
+    <string name="boost_reason_danger">ตอนนี้กระบวนการพื้นหลังและแอปพลิเคชันกำลังทำงานมากเกินไป RAM</string>
+    <string name="cooling_danger_reason">ตอนนี้กระบวนการพื้นหลังและแอพกำลังร้อนเกินไปโปรเซสเซอร์ของโทรศัพท์ของคุณ</string>
+    <string name="value_percents">%d %%</string>
+    <string name="check_device">ตรวจสอบสถานะของโทรศัพท์ของคุณ …</string>
+    <string name="cooling_done_description">ตอนนี้โทรศัพท์ของคุณเจ๋งและพร้อมใช้งาน</string>
+    <string name="clean">ทำความสะอาด</string>
+    <string name="clean_junks_safely">การลบไฟล์ขยะ\nนั้นปลอดภัยอย่างแน่นอน</string>
+    <string name="collect_data">รวบรวมข้อมูล …</string>
+    <string name="cooling_process">การทำให้เย็นลง</string>
+    <string name="cooling_title">การทำให้เย็นลง</string>
+    <string name="app_name">ทำความสะอาดเร็วขึ้น</string>
+    <string name="danger_boost_off">เพิ่มขึ้น %.2f GB\nโทรศัพท์เร็วกว่า %d %%</string>
+    <string name="remaining_working_time">เวลาทำงานที่เหลืออยู่</string>
+
+    <array name="battery_normal">
+        <item>ลดความสว่าง</item>
+        <item>ปิดการใช้งานความสว่างอัตโนมัติ</item>
+    </array>
+    <array name="battery_ultra">
+        <item>ลดความสว่าง</item>
+        <item>ปิดการใช้งานความสว่างอัตโนมัติ</item>
+        <item>ปิดการใช้งานไวไฟ</item>
+        <item>ตรึงการใช้งานพื้นหลัง</item>
+    </array>
+    <array name="battery_extra">
+        <item>ลดความสว่าง</item>
+        <item>ปิดการใช้งานความสว่างอัตโนมัติ</item>
+        <item>ปิดการใช้งานไวไฟ</item>
+        <item>ตรึงการใช้งานพื้นหลัง</item>
+        <item>ปิดการใช้งานบลูทูธ</item>
+    </array>
+    <array name="optimization">
+        <item>ลบกระบวนการพื้นหลัง</item>
+        <item>ล้างเส้นทางของระบบ</item>
+        <item>การปรับกระบวนการของระบบ</item>
+        <item>Cการตรวจสอบส่วนประกอบที่ไม่ได้ใช้</item>
+        <item>Dตัดการเชื่อมต่อจากเสาจีพีเอสที่ไม่จำเป็น</item>
+    </array>
+    <array name="clean">
+        <item>แคช</item>
+        <item>ไฟล์ชั่วคราว</item>
+        <item>ไฟล์ที่เหลือ</item>
+        <item>ะบบขยะ</item>
+    </array>
+</resources>
