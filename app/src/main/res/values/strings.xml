@@ -1,83 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Fast Cleaner</string>
+    <string name="used">Occupied</string>
+    <string name="temperature_cpu">Processor temperature</string>
+    <string name="battery_title">Power</string>
+    <string name="boost_reason_danger_off">No applications currently occupying\nRAM</string>
+    <string name="working_time">%d hours %d minutes</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="on_main_screen">Home Screen</string>
+    <string name="clean_danger_title">Cleanup required!</string>
+    <string name="garbage_not_found">No junk files\ndetected</string>
+    <string name="mb">%dMb</string>
+    <string name="type_extra">Extra\n+60%</string>
+    <string name="normal_mode">Normal mode:</string>
+    <string name="type_normal">Normal\n+10%</string>
+    <string name="cooling_advice">Cool your phone regularly to reduce the strain on your processor, extend its lifetime, and speed up your device\'s performance</string>
+    <string name="ram">RAM</string>
+    <string name="boosting">Accelerate</string>
+    <string name="degree">%d℃</string>
+    <string name="done">Done</string>
+    <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
+    <string name="free_memory_size">The storage is free\n%.1f GB</string>
+    <string name="boost_danger_description_off">Don\'t forget to reduce\nRAM load\nand speed up your phone</string>
+    <string name="increase_time_working">You can extend your phone\'s battery life</string>
+    <string name="cooling">Cool</string>
+    <string name="boost">Accelerate</string>
+    <string name="normal_temperature">Normal\nprocessor temperature is 25–30℃</string>
+    <string name="scanning_system">Scan the system…</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="battery_title">Питание</string>
-    <string name="remaining_working_time">Оставшееся время\nработы</string>
-    <string name="increase_time_working">Вы можете продлить\nвремя работы телефона</string>
-    <string name="type_save_battery_title">Режимы продления работы:</string>
-    <string name="type_extra">Экстра\n+60%</string>
-    <string name="type_ultra">Ультра\n+30%</string>
-    <string name="type_normal">Нормальный\n+10%</string>
-    <string name="boost_battery">Продлить работу телефона</string>
-    <string name="improve_working_time_by_percent">Время работы телефона\nувеличено на %d%%</string>
-    <string name="normal_mode">В нормальном режиме:</string>
-    <string name="working_time">%d часов %d минут</string>
+    <string name="cleared">Cleaned</string>
+    <string name="improve_working_time_by_percent">Phone\nuptime increased by%d%%</string>
+    <string name="boost_danger_title">Memory Overloaded!\nneeds speeding up!</string>
+    <string name="clean_danger_desc">Free\nmemory from junk</string>
+    <string name="battery_danger_desc">Extend\'s\nworking time!</string>
+    <string name="cooling_danger_title">Processor overheated!\nCooling required!</string>
+    <string name="storage">Storage</string>
+    <string name="clean_done">Garbage files deleted.</string>
+    <string name="cooling_danger_desc">Close background\napplications</string>
+    <string name="ready">Done!</string>
+    <string name="boost_danger_description">Reduce the RAM load\nand speed up your\nphone</string>
+    <string name="boost_danger_desc">Optimize your phone\'s performance</string>
+    <string name="boost_battery">Keep your phone up and running</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">Free</string>
+    <string name="battery_boost">Extend</string>
+    <string name="type_save_battery_title">Extend work modes:</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="finded_junk_file">\ntrash files detected</string>
+    <string name="cleaning">Cleanup</string>
+    <string name="boost_reason_danger">Right now background processes and applications are overloading RAM</string>
+    <string name="cooling_danger_reason">Right now background processes and apps are overheating your phone\'s processor</string>
     <string name="value_percents">%d %%</string>
-    <string name="ready">Готово!</string>
-    <string name="gb">%.2f Гб</string>
-    <string name="gb_fraction">/%.2f Гб</string>
-    <string name="boost">Ускорить</string>
-    <string name="boosting">Ускорение</string>
-    <string name="danger_boost_off">Освобождено %.2f Гб\nТелефон ускорен на %d%%</string>
-    <string name="boost_reason_danger">Прямо сейчас фоновые процессы и приложения прегружают оперативную память</string>
-    <string name="boost_reason_danger_off">Сейчас нет приложений, занимающих\nоперативную память</string>
-    <string name="boost_danger_title">Память перегружена!\nТребуется ускорение!</string>
-    <string name="boost_danger_description">Снижайте нагрузку\nна оперативную память\nи ускоряйте работу вашего\nтелефона</string>
-    <string name="boost_danger_description_off">Не забывайте снижать нагрузку\nна оперативную память\nи ускорять работу вашего телефона</string>
-    <string name="cooling">Охладить</string>
-    <string name="cooling_danger_reason">Прямо сейчас фоновые процессы и приложения\nперегревают процессор вашего телефона</string>
-    <string name="cooling_danger_title">Процессор перегрелся!\nТребуется охлаждение!</string>
-    <string name="coolling_done">Процессор охлажден,\nтемпература нормализована</string>
-    <string name="cooling_done_description">Сейчас ваш телефон охлажден и готов к работе</string>
-    <string name="degree">%d ℃</string>
-    <string name="mb">%d Mb</string>
-    <string name="temperature_cpu">Температура\nпроцессора</string>
-    <string name="normal_temperature">Нормальная температура\nпроцессора 25–30℃</string>
-    <string name="cooling_advice">Регулярно охлаждайте телефон, чтобы снизить нагрузку на процессор, продлить срок его службы и ускорить работу вашего устройства</string>
-    <string name="cooling_process">Охлаждение</string>
-    <string name="clean">Очистить</string>
-    <string name="clean_done">Мусорные файлы удалены</string>
-    <string name="clean_danger_title">Требуется очистка!</string>
-    <string name="cleaning">Очистка</string>
-    <string name="finded_junk_file">Обнаружены\nмусорные файлы</string>
-    <string name="clean_junks_safely">Удаление мусорных файлов\nабсолютно безопасно</string>
-    <string name="cleared">Очищено</string>
-    <string name="scanning_system">Сканируем систему…</string>
-    <string name="collect_data">Собираем данные…</string>
-    <string name="check_device">Проверяем состояние устройства…</string>
-    <string name="used">Занято</string>
-    <string name="storage">Хранилище</string>
-    <string name="free">Свободно</string>
-    <string name="ram">Оперативная память</string>
-    <string name="done">Выполнено</string>
-    <string name="battery_boost">Продлить</string>
-    <string name="boost_danger_desc">Оптимизируйте\nработу телефона</string>
-    <string name="battery_danger_desc">Продлите работу\nустройства</string>
-    <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
-    <string name="clean_danger_desc">Освободите память\nот мусора</string>
-    <string name="cooling_title">Охлаждение</string>
-    <string name="on_main_screen">На главный экран</string>
-    <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
-    <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
+    <string name="check_device">Checking Your Phone\'s Status…</string>
+    <string name="cooling_done_description">Right now your phone is cool and ready for use</string>
+    <string name="clean">Clean up</string>
+    <string name="clean_junks_safely">Deleting\njunk files is absolutely safe</string>
+    <string name="collect_data">Collecting Data…</string>
+    <string name="cooling_process">Cooling</string>
+    <string name="cooling_title">Cooling</string>
+    <string name="app_name">Fast Cleaner</string>
+    <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
+    <string name="remaining_working_time">Remaining\nrun time</string>
 
     <array name="battery_normal">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
+        <item>Decrease brightness</item>
+        <item>Disable auto-brightness</item>.
     </array>
 
     <array name="battery_ultra">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
-        <item>Отключим wi-fi</item>
-        <item>Заморозим фоновые приложения</item>
+        <item>Decrease brightness</item>
+        <item>Disable auto-brightness</item>
+        <item>Disable wi-fi</item>
+        <item>Freeze background apps</item>
     </array>
 
     <array name="battery_extra">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
-        <item>Отключим wi-fi</item>
-        <item>Заморозим фоновые приложения</item>
-        <item>Отключим bluetooth</item>
+        <item>Decrease brightness</item>
+        <item>Disable auto-brightness</item>
+        <item>Disable wi-fi</item>
+        <item>Freeze background applications</item>
+        <item>Disable bluetooth</item>.
     </array>
 
     <array name="optimization">
@@ -89,9 +90,10 @@
     </array>
 
     <array name="clean">
-        <item>Кэш</item>
-        <item>Временные файлы</item>
-        <item>Остаточные файлы</item>
-        <item>Системный мусор</item>
+        <item>Cache</item>
+        <item>Temporary files</item>
+        <item>Residual files</item>
+        <item>System garbage</item>.
     </array>
+
 </resources>

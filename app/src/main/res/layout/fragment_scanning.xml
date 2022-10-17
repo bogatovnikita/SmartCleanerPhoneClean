@@ -58,6 +58,7 @@
         android:gravity="center_horizontal"
         app:layout_constraintVertical_bias="0"
         android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
