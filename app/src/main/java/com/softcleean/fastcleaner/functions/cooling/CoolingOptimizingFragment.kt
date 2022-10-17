@@ -28,6 +28,8 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
 
     private lateinit var adapter: OptimizingRecyclerAdapter
 
+    private var isDoneOptimization = false
+
     private var listSize = 0
     private var listOptions = mutableListOf<String>()
 
@@ -37,6 +39,12 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
         setArrayOptionBoosting()
         startOptimization()
         preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL5)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isDoneOptimization)
+            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
     }
 
     private fun startOptimization() {
@@ -67,6 +75,7 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
     }
 
     private fun optimizationIsDone() {
+        isDoneOptimization = true
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             tvOptimizationTitle.isVisible = false

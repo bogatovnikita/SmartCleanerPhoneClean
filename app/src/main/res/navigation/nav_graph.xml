@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/scanningFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/batteryFragment"
@@ -129,4 +129,15 @@
         android:name="com.softcleean.fastcleaner.functions.battery.BatteryResultFragment"
         android:label="fragment_battery_result"
         tools:layout="@layout/fragment_battery_result" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.softcleean.fastcleaner.functions.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_scanningFragment"
+            app:destination="@id/scanningFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -32,6 +32,8 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
 
     private lateinit var adapter: OptimizingRecyclerAdapter
 
+    private var isDoneOptimization = false
+
     private var listSize = 0
     private var listOptions = mutableListOf<String>()
 
@@ -44,6 +46,12 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
         setArrayOptionBoosting()
         startOptimization()
         preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL2)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isDoneOptimization)
+            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
     }
 
     private fun startOptimization() {
@@ -74,6 +82,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
     }
 
     private fun optimizationIsDone() {
+        isDoneOptimization = true
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false

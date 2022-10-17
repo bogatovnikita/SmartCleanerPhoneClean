@@ -2,7 +2,7 @@
     <string name="app_name">Fast Cleaner</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="battery_title">Питание</string>
-    <string name="remaining_working_time">Оставшееся время \nработы</string>
+    <string name="remaining_working_time">Оставшееся время\nработы</string>
     <string name="increase_time_working">Вы можете продлить\nвремя работы телефона</string>
     <string name="type_save_battery_title">Режимы продления работы:</string>
     <string name="type_extra">Экстра\n+60%</string>
@@ -33,7 +33,7 @@
     <string name="mb">%d Mb</string>
     <string name="temperature_cpu">Температура\nпроцессора</string>
     <string name="normal_temperature">Нормальная температура\nпроцессора 25–30℃</string>
-    <string name="cooling_advice">Регулярно охлаждайте телефон,\nчтобы снизить нагрузку на\nпроцессор, продлить срок его\nслужбы и ускорить работу\nвашего устройства</string>
+    <string name="cooling_advice">Регулярно охлаждайте телефон, чтобы снизить нагрузку на процессор, продлить срок его службы и ускорить работу вашего устройства</string>
     <string name="cooling_process">Охлаждение</string>
     <string name="clean">Очистить</string>
     <string name="clean_done">Мусорные файлы удалены</string>

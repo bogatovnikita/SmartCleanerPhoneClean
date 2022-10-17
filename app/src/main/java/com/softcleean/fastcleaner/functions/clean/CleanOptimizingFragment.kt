@@ -32,6 +32,8 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
 
     private lateinit var adapter: OptimizingRecyclerAdapter
 
+    private var isDoneOptimization = false
+
     @Inject
     lateinit var cleanUseCase: CleanUseCase
 
@@ -43,6 +45,12 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
         initAdapter()
         startOptimization()
         preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL4)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isDoneOptimization)
+            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
     }
 
     private fun startOptimization() {
@@ -74,6 +82,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
     }
 
     private fun optimizationIsDone() {
+        isDoneOptimization = true
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false

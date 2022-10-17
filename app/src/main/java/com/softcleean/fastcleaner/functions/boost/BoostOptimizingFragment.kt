@@ -27,6 +27,8 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
 
     private lateinit var adapter: OptimizingRecyclerAdapter
 
+    private var isDoneOptimization = false
+
     private var listSize = 0
     private var listOptions = mutableListOf<String>()
 
@@ -36,6 +38,12 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
         setArrayOptionBoosting()
         startOptimization()
         preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL3)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isDoneOptimization)
+            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
     }
 
     private fun startOptimization() {
@@ -66,6 +74,7 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
     }
 
     private fun optimizationIsDone() {
+        isDoneOptimization = true
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false
