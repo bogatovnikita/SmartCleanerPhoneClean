@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Зануат</string>
-    <string name="temperature_cpu">Температура на процесора\n</string>
+    <string name="temperature_cpu">Температура на процесора</string>
     <string name="battery_title">Мощност</string>
     <string name="boost_reason_danger_off">В момента няма приложения, заемащи\nRAM</string>
     <string name="working_time">%d часа %d минути</string>

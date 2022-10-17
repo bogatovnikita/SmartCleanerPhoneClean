@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Busy</string>
-    <string name="temperature_cpu">Processor temperature\n</string>
+    <string name="temperature_cpu">Processor temperature</string>
     <string name="battery_title">Power</string>
     <string name="boost_reason_danger_off">No applications currently occupying\nRAM</string>
     <string name="working_time">%d hours %d minutes</string>
@@ -38,7 +38,7 @@
     <string name="cooling_danger_desc">Close background\napplications</string>
     <string name="ready">Done!</string>
     <string name="boost_danger_description">Reduce the RAM load\nand speed up your\nphone</string>
-    <string name="boost_danger_desc">Optimize your phone\'s performance\n</string>
+    <string name="boost_danger_desc">Optimize your phone\'s performance</string>
     <string name="boost_battery">Keep your phone up and running</string>
     <string name="gb">%.2f GB</string>
     <string name="free">Free</string>
