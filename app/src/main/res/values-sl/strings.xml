@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="used">Zaseden</string>
+    <string name="temperature_cpu">Temperatura procesorja</string>
+    <string name="battery_title">Moč</string>
+    <string name="boost_reason_danger_off">Trenutno ni aplikacij, ki bi zasedli\nRAM -a</string>
+    <string name="working_time">%d ur %d minut</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="on_main_screen">Domači zaslon</string>
+    <string name="clean_danger_title">Potrebno čiščenje!</string>
+    <string name="garbage_not_found">Brez neželenih datotek</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">Dodatnih\n+60%</string>
+    <string name="normal_mode">Normalen način:</string>
+    <string name="type_normal">Normalno\n+10%</string>
+    <string name="cooling_advice">Redno ohladite telefon, da zmanjšate obremenitev na svojem procesorju, podaljšajte življenjske dobe in pospešite zmogljivost naprave</string>
+    <string name="ram">Oven</string>
+    <string name="boosting">Pospešiti</string>
+    <string name="degree">%d ℃</string>
+    <string name="done">Končano</string>
+    <string name="coolling_done">CPU ohlajen,\ntemperatura normalizirana</string>
+    <string name="free_memory_size">Shranjevanje je brezplačno\n%.1f GB</string>
+    <string name="boost_danger_description_off">Ne pozabite zmanjšati\nRAM LOAD\nin pospešite telefon</string>
+    <string name="increase_time_working">Lahko podaljšate življenjsko dobo baterije svojega telefona</string>
+    <string name="cooling">Kul</string>
+    <string name="boost">Pospešiti</string>
+    <string name="normal_temperature">Običajna\ntemperatura procesorja je 25–30 ℃</string>
+    <string name="scanning_system">Skenirajte sistem …</string>
+    <string name="hello_blank_fragment">Pozdravljeni prazen fragment</string>
+    <string name="cleared">Očiščeno</string>
+    <string name="improve_working_time_by_percent">Telefon\nse je povečal za %d %%</string>
+    <string name="boost_danger_title">Pomnilnik preobremenjen!\npotrebuje pospešitev!</string>
+    <string name="clean_danger_desc">Brezplačno\npomnilnik od smeti</string>
+    <string name="battery_danger_desc">Iztegnite\ndelovnega časa!</string>
+    <string name="cooling_danger_title">Procesor pregret!\nPotrebno hlajenje!</string>
+    <string name="storage">Skladiščenje</string>
+    <string name="clean_done">Izbrisane datoteke za smeti.</string>
+    <string name="cooling_danger_desc">Zaprite ozadje\naplikacij</string>
+    <string name="ready">Končano!</string>
+    <string name="boost_danger_description">Zmanjšajte obremenitev RAM -a\nin pospešite svoj\ntelefon</string>
+    <string name="boost_danger_desc">Optimizirajte zmogljivost telefona</string>
+    <string name="boost_battery">Naj bo telefon vstal in zagnal</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">prost</string>
+    <string name="battery_boost">Iztegniti</string>
+    <string name="type_save_battery_title">Razširite delovne načine:</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="finded_junk_file">zaznanih datotek smeti</string>
+    <string name="cleaning">Pospravi</string>
+    <string name="boost_reason_danger">Trenutno procesi in aplikacije v ozadju preobremenijo RAM</string>
+    <string name="cooling_danger_reason">Trenutno procesi in aplikacije v ozadju pregrevajo procesor vašega telefona</string>
+    <string name="value_percents">%d %%</string>
+    <string name="check_device">Preverjanje stanja telefona …</string>
+    <string name="cooling_done_description">Trenutno je vaš telefon kul in pripravljen za uporabo</string>
+    <string name="clean">Pospravi</string>
+    <string name="clean_junks_safely">Brisanje\nneželenih datotek je popolnoma varno</string>
+    <string name="collect_data">Zbiranje podatkov …</string>
+    <string name="cooling_process">Hlajenje</string>
+    <string name="cooling_title">Hlajenje</string>
+    <string name="app_name">Hitro čistilo</string>
+    <string name="danger_boost_off">Osvobojen %.2f GB\nTelefon je hitrejši za %d %%</string>
+    <string name="remaining_working_time">Preostali\nčas teka</string>
+    <array name="battery_normal">
+        <item>Zmanjšanje svetlosti</item>
+        <item>Zaključite samodejno svetlost</item>
+    </array>
+    <array name="battery_ultra">
+        <item>Zmanjšanje svetlosti</item>
+        <item>Zaključi samodejno svetlost</item>
+        <item>Zaključi wi-fi</item>
+        <item>Zamrznitev aplikacij v ozadju</item>
+    </array>
+    <array name="battery_extra">
+        <item>Zmanjšanje svetlosti</item>
+        <item>Onemogoči samodejno svetlost</item>
+        <item>Zaključi wi-fi</item>
+        <item>Zamrznitev aplikacij v ozadju</item>
+        <item>Zaključi bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Odstranjevanje procesov v ozadju</item>
+        <item>Odstranjevanje sistemskih poti</item>
+        <item>Prilagajanje sistemskih procesov</item>
+        <item>Preverjanje neuporabljenih komponent</item>
+        <item>Odklop od nepotrebnih stolpov GPS</item>
+    </array>
+    <array name="clean">
+        <item>Predpomnilnik</item>
+        <item>Sodobne datoteke</item>
+        <item>Odložene datoteke</item>
+        <item>Sistemske smeti</item>
+    </array>
+</resources>
