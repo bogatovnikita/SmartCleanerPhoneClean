@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="used">Zaneprázdnený</string>
+    <string name="temperature_cpu">Teplota procesora</string>
+    <string name="battery_title">Moc</string>
+    <string name="boost_reason_danger_off">Žiadne žiadosti v súčasnosti zaberajú\nRAM</string>
+    <string name="working_time">%d hodín %d minút</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="on_main_screen">Domovská obrazovka</string>
+    <string name="clean_danger_title">Vyžaduje sa čistenie!</string>
+    <string name="garbage_not_found">Žiadne nevyžiadané súbory</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">Extra\n+60%</string>
+    <string name="normal_mode">Normálny režim:</string>
+    <string name="type_normal">Normálny\n+10%</string>
+    <string name="cooling_advice">Pravidelne ochladte svoj telefón, aby ste znížili tlak na procesor, predĺžte jeho životnosť a urýchlite výkonnosť vášho zariadenia</string>
+    <string name="ram">Búchať</string>
+    <string name="boosting">Urýchliť</string>
+    <string name="degree">%d ℃</string>
+    <string name="done">hotový</string>
+    <string name="coolling_done">CPU sa ochladila, normalizovaná teplota</string>
+    <string name="free_memory_size">Úložisko je bezplatné\n%.1f GB</string>
+    <string name="boost_danger_description_off">Nezabudnite znížiť RAM Load a urýchliť telefón</string>
+    <string name="increase_time_working">Môžete rozšíriť výdrž batérie telefónu</string>
+    <string name="cooling">Ochladiť</string>
+    <string name="boost">Urýchliť</string>
+    <string name="normal_temperature">Normálna teplota\nprocesora je 25–30 ℃</string>
+    <string name="scanning_system">Naskenujte systém …</string>
+    <string name="hello_blank_fragment">Ahoj prázdny fragment</string>
+    <string name="cleared">Vyčistený</string>
+    <string name="improve_working_time_by_percent">Telefón\ndostupnosť sa zvýšila o %d %%</string>
+    <string name="boost_danger_title">Preťažená pamäť!\npotrebuje zrýchlenie!</string>
+    <string name="clean_danger_desc">ZADARMO\nPamäť od harabúrd</string>
+    <string name="battery_danger_desc">Rozšírte pracovný čas!</string>
+    <string name="cooling_danger_title">Prehrievaný procesor! Požadované chladenie!</string>
+    <string name="storage">Ukladanie</string>
+    <string name="clean_done">Vymazané súbory odpadu.</string>
+    <string name="cooling_danger_desc">Zatvorte pozadie\naplikácií</string>
+    <string name="ready">Hotový!</string>
+    <string name="boost_danger_description">Znížte záťaž RAM\na urýchlite telefón</string>
+    <string name="boost_danger_desc">Optimalizujte výkon svojho telefónu</string>
+    <string name="boost_battery">Udržujte telefón v prevádzke</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">zadarmo</string>
+    <string name="battery_boost">Rozširovať</string>
+    <string name="type_save_battery_title">Rozšíriť pracovné režimy:</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="finded_junk_file">Zistené\nodpadových súborov</string>
+    <string name="cleaning">Vyčistiť</string>
+    <string name="boost_reason_danger">Práve teraz procesy pozadia a aplikácie preťaží RAM</string>
+    <string name="cooling_danger_reason">Práve teraz procesy na pozadí a aplikácie prehrieva procesor telefónu</string>
+    <string name="value_percents">%d %%</string>
+    <string name="check_device">Kontrola stavu telefónu …</string>
+    <string name="cooling_done_description">Práve teraz je váš telefón v pohode a pripravený na použitie</string>
+    <string name="clean">Vyčistiť</string>
+    <string name="clean_junks_safely">Vymazanie\nnevyžiadaných súborov je úplne bezpečné</string>
+    <string name="collect_data">Zhromažďovanie údajov …</string>
+    <string name="cooling_process">Chladenie</string>
+    <string name="cooling_title">Chladenie</string>
+    <string name="app_name">Rýchly čistiaci prostriedok</string>
+    <string name="danger_boost_off">Uvoľnené %.2f GB\nTelefón je rýchlejší %d %%</string>
+    <string name="remaining_working_time">Zostávajúci\nčas behu</string>
+    <array name="battery_normal">
+        <item>Zníženie jasu</item>
+        <item>Zakázať automatický jas</item>
+    </array>
+    <array name="battery_ultra">
+        <item>Znížiť jas</item>
+        <item>Zakázať automatický jas</item>
+        <item>Zakázať wi-fi</item>
+        <item>Zmrazenie aplikácií na pozadí</item>
+    </array>
+    <array name="battery_extra">
+        <item>Zníženie jasu</item>
+        <item>Zakázať automatický jas</item>
+        <item>Zakázať wi-fi</item>
+        <item>Zmrazenie aplikácií na pozadí</item>
+        <item>Zakázať bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Odstránenie procesov na pozadí</item>
+        <item>Vymazanie systémových ciest</item>
+        <item>Nastavenie systémových procesov</item>
+        <item>Kontrola nepoužívaných komponentov</item>
+        <item>Odpojenie od nepotrebných veží GPS</item>
+    </array>
+    <array name="clean">
+        <item>Vyčistiť vyrovnávaciu pamäť</item>
+        <item>Dočasné súbory</item>
+        <item>Ostatné súbory</item>
+        <item>Systémový odpad</item>
+    </array>
+</resources>
