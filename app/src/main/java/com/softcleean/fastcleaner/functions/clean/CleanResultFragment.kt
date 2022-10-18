@@ -8,8 +8,6 @@ import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentCleanResultBinding
 import com.softcleean.fastcleaner.functions.result.BaseResultFragment
 import com.softcleean.fastcleaner.functions.result.ResultList
-import com.softcleean.fastcleaner.utils.LOW_LEVEL
-import com.softcleean.fastcleaner.utils.MEDIUM_LEVEL
 import com.softcleean.fastcleaner.utils.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -47,20 +45,18 @@ class CleanResultFragment :
             })
             with(binding) {
                 circularProgressStoragePercent.progress = memoryPercent.toFloat()
-                renderCircularProgress(memoryPercent)
+                renderCircularProgress(isCleared)
                 tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
                 tvFreeMemory.text = getString(R.string.free_memory_size, freeMemory)
             }
         }
     }
 
-    private fun renderCircularProgress(percent: Int) {
+    private fun renderCircularProgress(isBoosted: Boolean) {
         binding.circularProgressStoragePercent.indicator.color =
-            if (percent > LOW_LEVEL)
-                resources.getColor(R.color.red)
-            else if (percent > MEDIUM_LEVEL)
-                resources.getColor(R.color.orange)
-            else
+            if (isBoosted)
                 resources.getColor(R.color.blue)
+            else
+                resources.getColor(R.color.orange)
     }
 }

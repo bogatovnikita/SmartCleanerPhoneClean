@@ -205,7 +205,7 @@
         android:fontFamily="@font/golos_medium"
         android:text="@string/cooling_advice"
         android:textColor="@color/black"
-        android:textSize="@dimen/_18ssp"
+        android:textSize="@dimen/_17ssp"
         app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

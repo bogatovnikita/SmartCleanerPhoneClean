@@ -10,8 +10,6 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentBoostBinding
-import com.softcleean.fastcleaner.utils.LOW_LEVEL
-import com.softcleean.fastcleaner.utils.MEDIUM_LEVEL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +39,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
             with(binding) {
                 tvRamPercents.text = getString(R.string.value_percents, boostPercent)
                 circularProgressRamPercent.progress = boostPercent.toFloat()
-                renderCircularProgress(boostPercent)
+                renderCircularProgress(isBoosted)
                 tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
                 tvFreeRam.text = getString(R.string.gb, totalRam - usedRam)
@@ -62,14 +60,12 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         }
     }
 
-    private fun renderCircularProgress(percent: Int) {
+    private fun renderCircularProgress(isBoosted: Boolean) {
         binding.circularProgressRamPercent.indicator.color =
-            if (percent > LOW_LEVEL)
-                resources.getColor(R.color.red)
-            else if (percent > MEDIUM_LEVEL)
-                resources.getColor(R.color.orange)
-            else
+            if (isBoosted)
                 resources.getColor(R.color.blue)
+            else
+                resources.getColor(R.color.orange)
     }
 
     private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {

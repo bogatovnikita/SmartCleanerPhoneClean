@@ -22,7 +22,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
         binding
         lifecycleScope.launchWhenResumed {
-            preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
             delay(1000)
             findNavController().navigate(R.id.action_splashFragment_to_scanningFragment)
         }

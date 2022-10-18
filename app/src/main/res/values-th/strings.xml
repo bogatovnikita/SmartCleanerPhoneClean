@@ -24,7 +24,7 @@
     <string name="increase_time_working">คุณสามารถยืดอายุแบตเตอรี่ของโทรศัพท์ได้</string>
     <string name="cooling">เย็น</string>
     <string name="boost">เร่งความเร็ว</string>
-    <string name="normal_temperature">อุณหภูมิโปรเซสเซอร์\nปกติคือ 25–30 ℃</string>
+    <string name="normal_temperature">อุณหภูมิโปรเซสเซอร์ปกติคือ 25–30 ℃</string>
     <string name="scanning_system">สแกนระบบ …</string>
     <string name="hello_blank_fragment">สวัสดีชิ้นส่วนว่างเปล่า</string>
     <string name="cleared">ทำความสะอาด</string>
@@ -37,7 +37,7 @@
     <string name="clean_done">ลบไฟล์ขยะ</string>
     <string name="cooling_danger_desc">แอปพลิเคชันปิดพื้นหลัง</string>
     <string name="ready">เสร็จแล้ว!</string>
-    <string name="boost_danger_description">ลด RAM Load\nและเพิ่มความเร็วโทรศัพท์\nของคุณ</string>
+    <string name="boost_danger_description">ลดภาระแรมและเพิ่มความเร็วโทรศัพท์ของคุณ</string>
     <string name="boost_danger_desc">เพิ่มประสิทธิภาพประสิทธิภาพของโทรศัพท์ของคุณ</string>
     <string name="boost_battery">ทำให้โทรศัพท์ของคุณทำงานได้ดี</string>
     <string name="gb">%.2f gb</string>

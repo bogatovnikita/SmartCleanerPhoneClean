@@ -25,6 +25,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
         startOptimization()
     }
 
@@ -34,12 +35,12 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
             repeat(101) { percent ->
                 val delay = if
                         (SubscriptionProvider.getInstance(requireActivity()).checkHasSubscription()) 30L
-                                                                                                       else 80L
+                                                                                                       else 90L
                 delay(delay)
                 setPercents(percent)
                 if (percent == 100) {
                     optimizationIsDone()
-                    delay(100)
+                    delay(400)
                     showInterstitial(
                         onClosed = {
                             findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)

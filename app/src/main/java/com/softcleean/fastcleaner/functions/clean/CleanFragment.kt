@@ -12,8 +12,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.adapters.CleanAdapter
 import com.softcleean.fastcleaner.databinding.FragmentCleanBinding
-import com.softcleean.fastcleaner.utils.LOW_LEVEL
-import com.softcleean.fastcleaner.utils.MEDIUM_LEVEL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,7 +48,7 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
                     groupCoolingDone.isVisible = true
                     groupNeedCooling.isVisible = false
                     circularProgressStoragePercent.progress = memoryPercent.toFloat()
-                    renderCircularProgress(memoryPercent)
+                    renderCircularProgress(isCleared)
                     tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
                     tvFreeMemory.text = getString(R.string.free_memory_size, freeMemory)
                 } else {
@@ -72,14 +70,12 @@ class CleanFragment : Fragment(R.layout.fragment_clean) {
         }
     }
 
-    private fun renderCircularProgress(percent: Int) {
+    private fun renderCircularProgress(isBoosted: Boolean) {
         binding.circularProgressStoragePercent.indicator.color =
-            if (percent > LOW_LEVEL)
-                resources.getColor(R.color.red)
-            else if (percent > MEDIUM_LEVEL)
-                resources.getColor(R.color.orange)
-            else
+            if (isBoosted)
                 resources.getColor(R.color.blue)
+            else
+                resources.getColor(R.color.orange)
     }
 
     private fun setBtnListeners() {

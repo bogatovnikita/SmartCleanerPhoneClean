@@ -40,7 +40,9 @@ class HomeViewModel @Inject constructor(
                     usedMemory = usedMemory,
                     freeMemory = freeMemory,
                     memoryPercent = (100 - (freeMemory * 100 / totalMemory)).toInt(),
-                    funList = generateFunList()
+                    funList = generateFunList(),
+                    isMemoryBoosted = cleanUseCase.isGarbageCleared(),
+                    isRamBoosted = boostUseCase.checkRamOverload()
                     )
             }
         }

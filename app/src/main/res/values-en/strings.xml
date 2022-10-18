@@ -24,7 +24,7 @@
     <string name="increase_time_working">You can extend your phone\'s battery life</string>
     <string name="cooling">Cool</string>
     <string name="boost">Accelerate</string>
-    <string name="normal_temperature">Normal\nprocessor temperature is 25–30℃</string>
+    <string name="normal_temperature">Normal processor temperature is 25–30℃</string>
     <string name="scanning_system">Scan the system…</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cleared">Cleaned</string>

@@ -46,10 +46,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             adapter.submitList(funList)
             with(binding) {
                 circularProgressRamPercent.progress = ramPercent.toFloat()
-                renderCircularProgress(ramPercent, circularProgressRamPercent)
+                renderCircularProgress(isRamBoosted, circularProgressRamPercent)
                 tvRamPercents.text = getString(R.string.value_percents, ramPercent)
                 circularProgressStoragePercent.progress = memoryPercent.toFloat()
-                renderCircularProgress(memoryPercent, circularProgressStoragePercent)
+                renderCircularProgress(isMemoryBoosted, circularProgressStoragePercent)
                 tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
                 tvUsedStorage.text = getString(R.string.gb, usedMemory)
                 tvTotalStorage.text = getString(R.string.gb_fraction, totalMemory)
@@ -61,14 +61,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun renderCircularProgress(percent: Int, view: ArcCircleProgressBar) {
+    private fun renderCircularProgress(isBoosted: Boolean, view: ArcCircleProgressBar) {
         view.indicator.color =
-            if (percent > 85)
-                resources.getColor(R.color.red)
-            else if (percent > 60)
-                resources.getColor(R.color.orange)
-            else
+            if (isBoosted)
                 resources.getColor(R.color.blue)
+            else
+                resources.getColor(R.color.orange)
     }
 
     private fun initAdapter() {
