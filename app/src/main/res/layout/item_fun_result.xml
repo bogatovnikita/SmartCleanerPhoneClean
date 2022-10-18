@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_ellipse_red"
         android:layout_marginBottom="-8dp"
+        android:layout_marginStart="@dimen/_2sdp"
         app:layout_constraintBottom_toTopOf="@id/tv_fun_name"
         app:layout_constraintStart_toEndOf="@id/tv_fun_name" />
 

@@ -20,7 +20,7 @@
     <string name="done">Fertig</string>
     <string name="coolling_done">CPU gekühlt,\nTemperatur normalisiert</string>
     <string name="free_memory_size">Der Speicher ist kostenlos\n%.1f GB</string>
-    <string name="boost_danger_description_off">Vergessen Sie nicht,\nRAM -Last\nzu reduzieren und Ihr Telefon zu beschleunigen</string>
+    <string name="boost_danger_description_off">Vergessen Sie nicht, RAM-Last zu reduzieren und Ihr Telefon zu beschleunigen</string>
     <string name="increase_time_working">Sie können die Akkulaufzeit Ihres Telefons verlängern</string>
     <string name="cooling">Kühl</string>
     <string name="boost">Beschleunigen</string>
@@ -28,7 +28,7 @@
     <string name="scanning_system">Scannen Sie das System …</string>
     <string name="hello_blank_fragment">Hallo leeres Fragment</string>
     <string name="cleared">Gereinigt</string>
-    <string name="improve_working_time_by_percent">Telefon\nDie Verfügbarkeit stieg um %d %%</string>
+    <string name="improve_working_time_by_percent">Telefon die verfügbarkeit\nstieg um %d %%</string>
     <string name="boost_danger_title">Speicher überladen!\nmuss beschleunigt werden!</string>
     <string name="clean_danger_desc">Kostenloser\nSpeicher von Junk</string>
     <string name="battery_danger_desc">Verlängerung der Arbeitszeit von\n!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Erweitern</string>
     <string name="type_save_battery_title">Arbeitsmodi erweitern:</string>
     <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">\nMülldateien erkannt</string>
+    <string name="finded_junk_file">Mülldateien erkannt</string>
     <string name="cleaning">Aufräumen</string>
     <string name="boost_reason_danger">Derzeit überlasten Hintergrundprozesse und Anwendungen den RAM</string>
     <string name="cooling_danger_reason">Derzeit haben Hintergrundprozesse und Apps den Prozessor Ihres Telefons überhitzt</string>

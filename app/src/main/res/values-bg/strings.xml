@@ -20,7 +20,7 @@
     <string name="done">Свършен</string>
     <string name="coolling_done">CPU охлажда се,\nтемпература се нормализира</string>
     <string name="free_memory_size">Съхранението е безплатно\n%.1f GB</string>
-    <string name="boost_danger_description_off">Не забравяйте да намалите\nRAM Load\nи да ускорите телефона си</string>
+    <string name="boost_danger_description_off">Не забравяйте да намалите натоварването на RAM паметта и да ускорите телефона си</string>
     <string name="increase_time_working">Можете да удължите живота на батерията на телефона си</string>
     <string name="cooling">Готино</string>
     <string name="boost">Ускорете</string>
@@ -28,7 +28,7 @@
     <string name="scanning_system">Сканирайте системата …</string>
     <string name="hello_blank_fragment">Здравей празен фрагмент</string>
     <string name="cleared">Изчистен</string>
-    <string name="improve_working_time_by_percent">Телефон\nВремето се увеличава %d %%</string>
+    <string name="improve_working_time_by_percent">Телефон времето\nсе увеличава %d %%</string>
     <string name="boost_danger_title">Паметта претоварена!\nсе нуждае от ускоряване!</string>
     <string name="clean_danger_desc">Безплатна\nпамет от боклуци</string>
     <string name="battery_danger_desc">Удължете работното време на\n!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Разшири</string>
     <string name="type_save_battery_title">Удължете режимите на работа:</string>
     <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">\nОткрити боклук файлове</string>
+    <string name="finded_junk_file">Открити\nбоклук файлове</string>
     <string name="cleaning">Почисти</string>
     <string name="boost_reason_danger">В момента фоновите процеси и приложенията претоварват RAM</string>
     <string name="cooling_danger_reason">В момента фоновите процеси и приложения прегряват процесора на вашия телефон</string>

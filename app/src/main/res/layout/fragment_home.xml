@@ -2,33 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".functions.home.HomeFragment">
 
-    <FrameLayout
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-        <com.softcleean.fastcleaner.ads.Banner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            ads:adUnitId="@string/ADMOB_BANNER"
-            ads:adSize="SMART_BANNER"/>
-
-    </FrameLayout>
-
     <TextView
         android:id="@+id/tv_app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_22sdp"
         android:fontFamily="@font/golos_medium"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
@@ -36,7 +19,7 @@
         android:textSize="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/banner" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_storage"

@@ -20,7 +20,7 @@
     <string name="done">Done</string>
     <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
     <string name="free_memory_size">The storage is free\n%.1f GB</string>
-    <string name="boost_danger_description_off">Don\'t forget to reduce\nRAM load\nand speed up your phone</string>
+    <string name="boost_danger_description_off">Don\'t forget to reduce RAM load and speed up your phone</string>
     <string name="increase_time_working">You can extend your phone\'s battery life</string>
     <string name="cooling">Cool</string>
     <string name="boost">Accelerate</string>
@@ -28,7 +28,7 @@
     <string name="scanning_system">Scan the system…</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cleared">Cleaned</string>
-    <string name="improve_working_time_by_percent">Phone\nuptime increased by%d%%</string>
+    <string name="improve_working_time_by_percent">Phone uptime\nincreased by %d %%</string>
     <string name="boost_danger_title">Memory Overloaded!\nneeds speeding up!</string>
     <string name="clean_danger_desc">Free\nmemory from junk</string>
     <string name="battery_danger_desc">Extend\'s\nworking time!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Extend</string>
     <string name="type_save_battery_title">Extend work modes:</string>
     <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">\ntrash files detected</string>
+    <string name="finded_junk_file">Trash\nfiles detected</string>
     <string name="cleaning">Cleanup</string>
     <string name="boost_reason_danger">Right now background processes and applications are overloading RAM</string>
     <string name="cooling_danger_reason">Right now background processes and apps are overheating your phone\'s processor</string>
@@ -59,7 +59,7 @@
     <string name="cooling_title">Cooling</string>
     <string name="app_name">Fast Cleaner</string>
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
-    <string name="remaining_working_time">Remaining\nrun time</string>
+    <string name="remaining_working_time">Remaining working time</string>
 
     <array name="battery_normal">
         <item>Decrease brightness</item>

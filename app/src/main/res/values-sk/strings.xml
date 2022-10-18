@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="used">Zaneprázdnený</string>
+    <string name="used">Použité</string>
     <string name="temperature_cpu">Teplota procesora</string>
     <string name="battery_title">Moc</string>
     <string name="boost_reason_danger_off">Žiadne žiadosti v súčasnosti zaberajú\nRAM</string>
@@ -20,7 +20,7 @@
     <string name="done">hotový</string>
     <string name="coolling_done">CPU sa ochladila, normalizovaná teplota</string>
     <string name="free_memory_size">Úložisko je bezplatné\n%.1f GB</string>
-    <string name="boost_danger_description_off">Nezabudnite znížiť RAM Load a urýchliť telefón</string>
+    <string name="boost_danger_description_off">Nezabudnite znížiť zaťaženie pamäte RAM a zrýchliť telefón</string>
     <string name="increase_time_working">Môžete rozšíriť výdrž batérie telefónu</string>
     <string name="cooling">Ochladiť</string>
     <string name="boost">Urýchliť</string>
@@ -28,7 +28,7 @@
     <string name="scanning_system">Naskenujte systém …</string>
     <string name="hello_blank_fragment">Ahoj prázdny fragment</string>
     <string name="cleared">Vyčistený</string>
-    <string name="improve_working_time_by_percent">Telefón\ndostupnosť sa zvýšila o %d %%</string>
+    <string name="improve_working_time_by_percent">Telefón dostupnosť\nsa zvýšila o %d %%</string>
     <string name="boost_danger_title">Preťažená pamäť!\npotrebuje zrýchlenie!</string>
     <string name="clean_danger_desc">ZADARMO\nPamäť od harabúrd</string>
     <string name="battery_danger_desc">Rozšírte pracovný čas!</string>
@@ -59,7 +59,7 @@
     <string name="cooling_title">Chladenie</string>
     <string name="app_name">Rýchly čistiaci prostriedok</string>
     <string name="danger_boost_off">Uvoľnené %.2f GB\nTelefón je rýchlejší %d %%</string>
-    <string name="remaining_working_time">Zostávajúci\nčas behu</string>
+    <string name="remaining_working_time">Zostávajúci čas\nbehu</string>
     <array name="battery_normal">
         <item>Zníženie jasu</item>
         <item>Zakázať automatický jas</item>

@@ -20,7 +20,7 @@
     <string name="done">Končano</string>
     <string name="coolling_done">CPU ohlajen,\ntemperatura normalizirana</string>
     <string name="free_memory_size">Shranjevanje je brezplačno\n%.1f GB</string>
-    <string name="boost_danger_description_off">Ne pozabite zmanjšati\nRAM LOAD\nin pospešite telefon</string>
+    <string name="boost_danger_description_off">Ne pozabite zmanjšati obremenitve pomnilnika RAM in pospešiti telefona</string>
     <string name="increase_time_working">Lahko podaljšate življenjsko dobo baterije svojega telefona</string>
     <string name="cooling">Kul</string>
     <string name="boost">Pospešiti</string>
@@ -28,7 +28,7 @@
     <string name="scanning_system">Skenirajte sistem …</string>
     <string name="hello_blank_fragment">Pozdravljeni prazen fragment</string>
     <string name="cleared">Očiščeno</string>
-    <string name="improve_working_time_by_percent">Telefon\nse je povečal za %d %%</string>
+    <string name="improve_working_time_by_percent">Telefon se je\npovečal za %d %%</string>
     <string name="boost_danger_title">Pomnilnik preobremenjen!\npotrebuje pospešitev!</string>
     <string name="clean_danger_desc">Brezplačno\npomnilnik od smeti</string>
     <string name="battery_danger_desc">Iztegnite\ndelovnega časa!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Iztegniti</string>
     <string name="type_save_battery_title">Razširite delovne načine:</string>
     <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">zaznanih datotek smeti</string>
+    <string name="finded_junk_file">Zaznanih\ndatotek smeti</string>
     <string name="cleaning">Pospravi</string>
     <string name="boost_reason_danger">Trenutno procesi in aplikacije v ozadju preobremenijo RAM</string>
     <string name="cooling_danger_reason">Trenutno procesi in aplikacije v ozadju pregrevajo procesor vašega telefona</string>
@@ -59,7 +59,7 @@
     <string name="cooling_title">Hlajenje</string>
     <string name="app_name">Hitro čistilo</string>
     <string name="danger_boost_off">Osvobojen %.2f GB\nTelefon je hitrejši za %d %%</string>
-    <string name="remaining_working_time">Preostali\nčas teka</string>
+    <string name="remaining_working_time">Preostali čas\nteka</string>
     <array name="battery_normal">
         <item>Zmanjšanje svetlosti</item>
         <item>Zaključite samodejno svetlost</item>

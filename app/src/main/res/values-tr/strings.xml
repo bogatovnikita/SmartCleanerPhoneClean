@@ -28,7 +28,7 @@
     <string name="scanning_system">Sistemi tarayın …</string>
     <string name="hello_blank_fragment">Merhaba boş parça</string>
     <string name="cleared">Temizlenmiş</string>
-    <string name="improve_working_time_by_percent">Telefon\nÇalışma Süresi%%darttı</string>
+    <string name="improve_working_time_by_percent">Telefon çalışma\nsüresi %d arttı %%</string>
     <string name="boost_danger_title">Hafıza aşırı yüklendi!\n \'nin hızlanması gerekiyor!</string>
     <string name="clean_danger_desc">Ücretsiz\nHafıza Önemsiz</string>
     <string name="battery_danger_desc">Cihazın çalışmasını\nuzatın!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Uzatmak</string>
     <string name="type_save_battery_title">Çalışma modlarını genişletin:</string>
     <string name="type_ultra">Ultra\n+% 30</string>
-    <string name="finded_junk_file">çöp dosyası tespit edildi</string>
+    <string name="finded_junk_file">Çöp dosyası\ntespit edildi</string>
     <string name="cleaning">Temizlemek</string>
     <string name="boost_reason_danger">Şu anda arka plan süreçleri ve uygulamaları RAM aşırı yükleniyor</string>
     <string name="cooling_danger_reason">Şu anda arka plan işlemleri ve uygulamaları telefonunuzun işlemcisini aşırı ısınıyor</string>

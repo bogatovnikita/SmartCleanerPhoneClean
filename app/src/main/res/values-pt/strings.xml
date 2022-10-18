@@ -28,7 +28,7 @@
     <string name="scanning_system">Digitalize o sistema …</string>
     <string name="hello_blank_fragment">Olá fragmento em branco</string>
     <string name="cleared">Limpo</string>
-    <string name="improve_working_time_by_percent">O tempo de atividade do telefone\naumentou %d%%</string>
+    <string name="improve_working_time_by_percent">O tempo de atividade\ndo telefone aumentou %d%%</string>
     <string name="boost_danger_title">Memória sobrecarregada!\nprecisa acelerar!</string>
     <string name="clean_danger_desc">Memória\ngrátis do lixo</string>
     <string name="battery_danger_desc">Estender o tempo de trabalho do!</string>
@@ -45,7 +45,7 @@
     <string name="battery_boost">Ampliar</string>
     <string name="type_save_battery_title">Estender os modos de trabalho:</string>
     <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">\narquivos de lixo detectados</string>
+    <string name="finded_junk_file">Arquivos de\nlixo detectados</string>
     <string name="cleaning">Limpar</string>
     <string name="boost_reason_danger">No momento, processos e aplicativos em segundo plano estão sobrecarregando RAM</string>
     <string name="cooling_danger_reason">No momento, processos e aplicativos em segundo plano estão superaquecendo o processador do seu telefone</string>
@@ -59,7 +59,7 @@
     <string name="cooling_title">Resfriamento</string>
     <string name="app_name">Limpador rápido</string>
     <string name="danger_boost_off">O telefone liberado %.2f GB\né mais rápido em %d %%</string>
-    <string name="remaining_working_time">Tempo de\nexecução restante</string>
+    <string name="remaining_working_time">Tempo de execução\nrestante</string>
     <array name="battery_normal">
         <item>Abrilhar o brilho</item>
         <item>Brilho Automático Desactivável</item>

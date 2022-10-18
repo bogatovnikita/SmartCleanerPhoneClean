@@ -233,8 +233,10 @@
         android:id="@+id/iv_rocket_danger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_28sdp"
+        app:layout_constraintVertical_bias="@integer/material_motion_duration_long_1"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_arrow_down" />
 
@@ -257,12 +259,12 @@
         android:id="@+id/bottom_sheet_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="-36dp"
         android:background="@drawable/bg_bottom_sheet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_rocket_danger" />
+        app:layout_constraintTop_toTopOf="@id/tv_type_save_battery_title" />
 
 
     <TextView
