@@ -54,6 +54,8 @@
             android:text="@string/used"
             android:textColor="@color/black"
             android:textSize="@dimen/_10ssp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintEnd_toStartOf="@+id/tv_used_storage"
             app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
             app:layout_constraintTop_toBottomOf="@id/tv_storage_title" />
 
@@ -192,6 +194,8 @@
             android:text="@string/used"
             android:textColor="@color/black"
             android:textSize="@dimen/_10ssp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintEnd_toStartOf="@+id/tv_used_ram"
             app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
             app:layout_constraintTop_toBottomOf="@id/tv_ram_title" />
 

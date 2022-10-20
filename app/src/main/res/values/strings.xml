@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="used">Occupied</string>
+    <string name="used">Used</string>
     <string name="temperature_cpu">Processor temperature</string>
     <string name="battery_title">Power</string>
     <string name="boost_reason_danger_off">No applications currently occupying\nRAM</string>
