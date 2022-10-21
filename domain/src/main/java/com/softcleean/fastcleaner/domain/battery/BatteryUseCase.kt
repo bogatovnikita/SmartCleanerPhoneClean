@@ -18,6 +18,14 @@ class BatteryUseCase @Inject constructor(
 
     fun saveBatteryType(type: String) = batteryRepository.saveBatteryType(type)
 
+    fun setScreenBrightness(value: Int) = batteryRepository.setScreenBrightness(value)
+
+    fun disableBluetooth() = batteryRepository.disableBluetooth()
+
+    fun disableWiFi() = batteryRepository.disableWiFi()
+
+    fun turnOffAutoBrightness() = batteryRepository.turnOffAutoBrightness()
+
     fun calculateWorkingTime(percent: Int): Int = batteryRepository.calculateWorkingTime(percent)
 
     fun getBatteryTemperature(): Flow<Int> = batteryRepository.getBatteryTemperature()

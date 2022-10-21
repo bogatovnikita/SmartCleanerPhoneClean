@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/batteryFragment"
-        android:name="com.softcleean.fastcleaner.functions.battery.BatteryFragment"
+        android:name="com.softcleean.fastcleaner.ui.battery.BatteryFragment"
         android:label="fragment_battery"
         tools:layout="@layout/fragment_battery" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/batteryOptimizingFragment"
-        android:name="com.softcleean.fastcleaner.functions.battery.BatteryOptimizingFragment"
+        android:name="com.softcleean.fastcleaner.ui.battery.BatteryOptimizingFragment"
         android:label="fragment_battery_optimizing"
         tools:layout="@layout/fragment_battery_optimizing" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/boostFragment"
-        android:name="com.softcleean.fastcleaner.functions.boost.BoostFragment"
+        android:name="com.softcleean.fastcleaner.ui.boost.BoostFragment"
         android:label="fragment_boost"
         tools:layout="@layout/fragment_boost" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/boostOptimizingFragment"
-        android:name="com.softcleean.fastcleaner.functions.boost.BoostOptimizingFragment"
+        android:name="com.softcleean.fastcleaner.ui.boost.BoostOptimizingFragment"
         android:label="BoostOptimizingFragment" >
         <action
             android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/coolingFragment"
-        android:name="com.softcleean.fastcleaner.functions.cooling.CoolingFragment"
+        android:name="com.softcleean.fastcleaner.ui.cooling.CoolingFragment"
         android:label="CoolingFragment" >
         <action
             android:id="@+id/action_coolingFragment_to_coolingOptimizingFragment"
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/coolingOptimizingFragment"
-        android:name="com.softcleean.fastcleaner.functions.cooling.CoolingOptimizingFragment"
+        android:name="com.softcleean.fastcleaner.ui.cooling.CoolingOptimizingFragment"
         android:label="CoolingOptimizingFragment" >
         <action
             android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/cleanFragment"
-        android:name="com.softcleean.fastcleaner.functions.clean.CleanFragment"
+        android:name="com.softcleean.fastcleaner.ui.clean.CleanFragment"
         android:label="CleanFragment" >
         <action
             android:id="@+id/action_cleanFragment_to_cleanOptimizingFragment"
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/cleanOptimizingFragment"
-        android:name="com.softcleean.fastcleaner.functions.clean.CleanOptimizingFragment"
+        android:name="com.softcleean.fastcleaner.ui.clean.CleanOptimizingFragment"
         android:label="fragment_clean_optimizing"
         tools:layout="@layout/fragment_clean_optimizing" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/scanningFragment"
-        android:name="com.softcleean.fastcleaner.functions.scanning.ScanningFragment"
+        android:name="com.softcleean.fastcleaner.ui.scanning.ScanningFragment"
         android:label="ScanningFragment" >
         <action
             android:id="@+id/action_scanningFragment_to_homeFragment"
@@ -96,7 +96,7 @@
         app:destination="@id/homeFragment" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.softcleean.fastcleaner.functions.home.HomeFragment"
+        android:name="com.softcleean.fastcleaner.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
     </fragment>
@@ -114,24 +114,24 @@
         app:destination="@id/cleanFragment" />
     <fragment
         android:id="@+id/cleanResultFragment"
-        android:name="com.softcleean.fastcleaner.functions.clean.CleanResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.clean.CleanResultFragment"
         android:label="CleanResultFragment" />
     <fragment
         android:id="@+id/coolingResultFragment"
-        android:name="com.softcleean.fastcleaner.functions.cooling.CoolingResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.cooling.CoolingResultFragment"
         android:label="CoolingResultFragment" />
     <fragment
         android:id="@+id/boostResultFragment"
-        android:name="com.softcleean.fastcleaner.functions.boost.BoostResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment" />
     <fragment
         android:id="@+id/batteryResultFragment"
-        android:name="com.softcleean.fastcleaner.functions.battery.BatteryResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.battery.BatteryResultFragment"
         android:label="fragment_battery_result"
         tools:layout="@layout/fragment_battery_result" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.softcleean.fastcleaner.functions.splash.SplashFragment"
+        android:name="com.softcleean.fastcleaner.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action

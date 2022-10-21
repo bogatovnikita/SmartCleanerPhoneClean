@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_splash"
-    tools:context=".functions.splash.SplashFragment">
+    tools:context=".ui.splash.SplashFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

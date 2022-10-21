@@ -74,6 +74,7 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
     }
 
     companion object {
+        const val INIT = "INIT"
         const val NORMAL = "NORMAL"
         const val ULTRA = "ULTRA"
         const val EXTRA = "EXTRA"

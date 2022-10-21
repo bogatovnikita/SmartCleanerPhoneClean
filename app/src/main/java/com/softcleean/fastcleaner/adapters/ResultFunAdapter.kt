@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.softcleean.fastcleaner.databinding.ItemFunResultBinding
-import com.softcleean.fastcleaner.functions.result.FunResult
+import com.softcleean.fastcleaner.ui.result.FunResult
 
 class ResultFunItemDiffCallback : DiffUtil.ItemCallback<FunResult>() {
 

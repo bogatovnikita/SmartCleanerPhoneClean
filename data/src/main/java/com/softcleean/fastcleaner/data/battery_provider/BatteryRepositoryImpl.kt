@@ -2,6 +2,8 @@ package com.softcleean.fastcleaner.data.battery_provider
 
 import android.app.Application
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.softcleean.fastcleaner.domain.battery.BatteryRepository
 import kotlinx.coroutines.flow.Flow
 import java.lang.ref.WeakReference
@@ -10,27 +12,35 @@ import javax.inject.Inject
 class BatteryRepositoryImpl @Inject constructor(
     private val application: Application,
     private val batteryChargeReceiver: BatteryChargeReceiver,
+    private val realBatteryProvider: RealBatteryProvider,
 ): BatteryRepository {
 
     private val contextWeakRef = WeakReference(application.applicationContext)
     private val context: Context
         get() = contextWeakRef.get()!!
 
-    override fun checkBatteryDecrease(): Boolean = BatteryProvider.checkBatteryDecrease(context)
+    override fun checkBatteryDecrease(): Boolean = FakeBatteryProvider.checkBatteryDecrease(context)
 
-    override fun calculateWorkingTime(percent: Int): Int = BatteryProvider.calculateWorkingMinutes(context, percent)
+    override fun calculateWorkingTime(percent: Int): Int = FakeBatteryProvider.calculateWorkingMinutes(context, percent)
 
-    override fun savePowerLowType() = BatteryProvider.savePowerLowType(context)
+    override fun savePowerLowType() = FakeBatteryProvider.savePowerLowType(context)
 
-    override fun savePowerMediumType() = BatteryProvider.savePowerMediumType(context)
+    override fun savePowerMediumType() = FakeBatteryProvider.savePowerMediumType(context)
 
-    override fun savePowerHighType() = BatteryProvider.savePowerHighType(context)
+    override fun savePowerHighType() = FakeBatteryProvider.savePowerHighType(context)
 
-    override fun getBatteryType(): String = BatteryProvider.getBatteryType()
+    override fun getBatteryType(): String = FakeBatteryProvider.getBatteryType()
 
-    override fun saveBatteryType(type: String) = BatteryProvider.saveBatteryType(type)
+    override fun saveBatteryType(type: String) = FakeBatteryProvider.saveBatteryType(type)
 
-    override fun setScreenBrightness(value: Int) = BatteryProvider.setScreenBrightness(value)
+    override fun setScreenBrightness(value: Int) = realBatteryProvider.setScreenBrightness(value)
+
+    override fun disableBluetooth() = realBatteryProvider.disableBluetooth()
+
+    override fun disableWiFi() = realBatteryProvider.disableWiFi()
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun turnOffAutoBrightness() = realBatteryProvider.turnOffAutoBrightness()
 
     override fun getBatteryTemperature(): Flow<Int> = batteryChargeReceiver.temperature
 

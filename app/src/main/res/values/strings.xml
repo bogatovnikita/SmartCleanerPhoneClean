@@ -60,6 +60,10 @@
     <string name="app_name">Fast Cleaner</string>
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
     <string name="remaining_working_time">Remaining working time</string>
+    <string name="get_permission">Нам нужно разрешение</string>
+    <string name="cancel">Отмена</string>
+    <string name="allow">Разрешить</string>
+    <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы мы могли увеличить время работы вашего устройства.</string>
 
     <array name="battery_normal">
         <item>Decrease brightness</item>

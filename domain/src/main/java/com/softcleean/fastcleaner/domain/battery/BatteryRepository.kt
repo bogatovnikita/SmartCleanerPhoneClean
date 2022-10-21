@@ -20,6 +20,12 @@ interface BatteryRepository {
 
     fun setScreenBrightness(value: Int)
 
+    fun disableBluetooth()
+
+    fun disableWiFi()
+
+    fun turnOffAutoBrightness()
+
     fun getBatteryTemperature(): Flow<Int>
 
     fun getBatteryPercent(): Flow<Int>

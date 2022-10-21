@@ -172,7 +172,7 @@ Java_com_ronmobgroup_ronclenaer_utils_NativeProvider_getGarbageSize(
 }
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_calculateWorkingMinutes(
+Java_com_softcleean_fastcleaner_data_battery_1provider_FakeBatteryProvider_calculateWorkingMinutes(
         JNIEnv *env, jclass clazz, jobject context, jint percent) {
     if (checkTimeExpired(env, context, POWER_HIGH(env))) {
         return percent * 16 + ((jint) (rand() % 30));
@@ -257,29 +257,29 @@ Java_com_softcleean_fastcleaner_data_cooling_1provider_CoolingProvider_calculate
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerLowType(JNIEnv *env,
-                                                       jclass clazz,
-                                                       jobject context) {
+Java_com_softcleean_fastcleaner_data_battery_1provider_FakeBatteryProvider_savePowerLowType(JNIEnv *env,
+                                                                                            jclass clazz,
+                                                                                            jobject context) {
     putLongToPreferences(env, context, POWER_LOW(env), getCurrentTime(env));
 
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerMediumType(JNIEnv *env,
-                                                          jclass clazz,
-                                                          jobject context) {
+Java_com_softcleean_fastcleaner_data_battery_1provider_FakeBatteryProvider_savePowerMediumType(JNIEnv *env,
+                                                                                               jclass clazz,
+                                                                                               jobject context) {
     putLongToPreferences(env, context, POWER_MEDIUM(env), getCurrentTime(env));
 }
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_savePowerHighType(JNIEnv *env,
-                                                        jclass clazz,
-                                                        jobject context) {
+Java_com_softcleean_fastcleaner_data_battery_1provider_FakeBatteryProvider_savePowerHighType(JNIEnv *env,
+                                                                                             jclass clazz,
+                                                                                             jobject context) {
     putLongToPreferences(env, context, POWER_HIGH(env), getCurrentTime(env));
 }
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_softcleean_fastcleaner_data_battery_1provider_BatteryProvider_checkBatteryDecrease(
+Java_com_softcleean_fastcleaner_data_battery_1provider_FakeBatteryProvider_checkBatteryDecrease(
         JNIEnv *env, jclass clazz, jobject context) {
     return checkTimeExpired(env, context, POWER_LOW(env))
            || checkTimeExpired(env, context, POWER_MEDIUM(env))
