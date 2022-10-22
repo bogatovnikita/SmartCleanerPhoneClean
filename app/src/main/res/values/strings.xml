@@ -64,6 +64,11 @@
     <string name="cancel">Отмена</string>
     <string name="allow">Разрешить</string>
     <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы мы могли увеличить время работы вашего устройства.</string>
+    <string name="title_dialog_bluetooth">Для Экстра режима нужен доступ к настройкам bluetooth</string>
+    <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth для увеличения времени работы батареи</string>
+    <string name="btn_continue">Далее</string>
+    <string name="settings">Настройки</string>
+    <string name="description_go_settings">Для выполнения этой функции нам необходимо разрешение на изменение системных настроек</string>
 
     <array name="battery_normal">
         <item>Decrease brightness</item>

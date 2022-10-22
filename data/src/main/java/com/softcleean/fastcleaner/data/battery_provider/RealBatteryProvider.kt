@@ -2,8 +2,9 @@ package com.softcleean.fastcleaner.data.battery_provider
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
 import android.content.Context
+import android.content.Context.BLUETOOTH_SERVICE
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
@@ -32,16 +33,15 @@ class RealBatteryProvider @Inject constructor(
     }
 
     @SuppressLint("MissingPermission")
-    fun disableBluetooth() {
-        val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter() ?: return
+    fun disableBluetooth(context: Context) {
+        val bluetoothAdapter = (context.getSystemService(BLUETOOTH_SERVICE) as BluetoothManager).adapter ?: return
         if (bluetoothAdapter.isEnabled) {
             bluetoothAdapter.disable()
         }
     }
 
-    // c 10 версии это делать нельзя
     fun disableWiFi() {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             val wifiManager =
                 context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
             if (wifiManager.isWifiEnabled) {

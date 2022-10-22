@@ -8,4 +8,5 @@ data class BatteryStateScreen(
     val isBoostedBattery: Boolean = false,
     val batterySaveType: String = INIT,
     val isCanWriteSettings: Boolean = false,
+    val hasBluetoothPerm: Boolean = false,
 )

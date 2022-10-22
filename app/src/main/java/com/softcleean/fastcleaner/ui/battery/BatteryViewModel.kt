@@ -103,4 +103,12 @@ class BatteryViewModel @Inject constructor(
         }
     }
 
+    fun setHasBluetoothPerm(hasBluetoothPerm: Boolean) {
+        updateState {
+            it.copy(
+                hasBluetoothPerm = hasBluetoothPerm
+            )
+        }
+    }
+
 }

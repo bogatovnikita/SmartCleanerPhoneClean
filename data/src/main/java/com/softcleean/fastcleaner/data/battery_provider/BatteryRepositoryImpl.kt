@@ -35,7 +35,7 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun setScreenBrightness(value: Int) = realBatteryProvider.setScreenBrightness(value)
 
-    override fun disableBluetooth() = realBatteryProvider.disableBluetooth()
+    override fun disableBluetooth() = realBatteryProvider.disableBluetooth(context)
 
     override fun disableWiFi() = realBatteryProvider.disableWiFi()
 

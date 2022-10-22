@@ -11,6 +11,7 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_button_boost_on.xml" value="0.2345" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_button_cancel.xml" value="0.1905" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_clean_item.xml" value="0.1665" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_description_settings.xml" value="0.1805" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_home_fun.xml" value="0.1665" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/bg_main_for_params.xml" value="0.223" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/ic__danger.xml" value="0.223" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/drawable/splash.xml" value="0.1665" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/choosing_type_battery_bar_view.xml" value="1.6" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/dialog_request_bluetooth.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/dialog_request_write_setting.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery.xml" value="0.2" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155/app/src/main/res/layout/fragment_battery_optimizing.xml" value="0.25" />
