@@ -29,11 +29,6 @@ class BatteryChargeReceiver @Inject constructor(): BroadcastReceiver() {
         _batteryPercent.value = batteryPct.toInt()
     }
 
-    //Почему сразу мы не подписываемся на значение, чтобы нам приходило последнее значение при подписке
-//    fun updateInfo() {
-//        batteryTemperature.postValue(BatteryProvider.calculateTemperature(application, temp))
-//    }
-
     //Регистрируем при входе в приложение (в main activity (ты же пишешь все в single activity?))
     fun registerReceiver(activity: Activity) {
         activity.registerReceiver(

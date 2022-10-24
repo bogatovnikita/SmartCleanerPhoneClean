@@ -31,7 +31,7 @@ class CleanResultFragment :
     }
 
     private fun initScreenStateObserver() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 renderState(state)
             }

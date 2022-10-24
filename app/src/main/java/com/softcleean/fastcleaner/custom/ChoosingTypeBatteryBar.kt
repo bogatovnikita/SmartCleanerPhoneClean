@@ -57,15 +57,12 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
             when (type) {
                 NORMAL -> {
                     renderSaveTypeBattery(btnNormalOn)
-                    btnNormalOff.performClick()
                 }
                 ULTRA -> {
                     renderSaveTypeBattery(btnUltraOn)
-                    btnUltraOff.performClick()
                 }
                 EXTRA -> {
                     renderSaveTypeBattery(btnExtraOn)
-                    btnExtraOff.performClick()
                 }
                 else -> {}
             }
@@ -74,7 +71,6 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
     }
 
     companion object {
-        const val INIT = "INIT"
         const val NORMAL = "NORMAL"
         const val ULTRA = "ULTRA"
         const val EXTRA = "EXTRA"

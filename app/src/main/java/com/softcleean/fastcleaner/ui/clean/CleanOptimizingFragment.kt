@@ -56,6 +56,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
     private fun startOptimization() {
         setArrayOptionBoosting()
         binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_clean))
+        binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(160)

@@ -57,6 +57,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
 
     private fun startOptimization() {
         binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_optimization_battery))
+        binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)

@@ -49,6 +49,7 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
 
     private fun startOptimization() {
         binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_optimization))
+        binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)

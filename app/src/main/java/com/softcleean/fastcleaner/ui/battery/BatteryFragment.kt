@@ -22,7 +22,6 @@ import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentBatteryBinding
 import com.softcleean.fastcleaner.adapters.BatterySaveFunctionRecyclerViewAdapter
 import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar.Companion.INIT
 import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar.Companion.NORMAL
 import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import com.softcleean.fastcleaner.ui.dialogs.DialogRequestBluetooth
@@ -76,7 +75,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         setTypeBoostBattery()
         setBtnListeners()
         setOnDialogsCallback()
-        checkPermission()
+        checkPermissions()
     }
 
     private fun initObserverStateScreen() {
@@ -116,46 +115,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun setTypeBoostBattery() {
         binding.choosingTypeBar.setOnChangeTypeListener { type ->
-            checkPermission()
+            checkPermissions()
             viewModel.setBatterySaveType(type)
-            when (type) {
-                NORMAL -> {
-                    viewModel.setBatterySaveType(NORMAL)
-                    adapter.submitList(
-                        resources.getStringArray(R.array.battery_normal).toList()
-                    )
-                    binding.descriptionGoSettings.isVisible = false
-                }
-                ULTRA -> {
-                    viewModel.setBatterySaveType(ULTRA)
-                    adapter.submitList(
-                        resources.getStringArray(R.array.battery_ultra).toList()
-                    )
-                    binding.descriptionGoSettings.isVisible = false
-                }
-                EXTRA -> {
-                    viewModel.setBatterySaveType(EXTRA)
-                    adapter.submitList(
-                        resources.getStringArray(R.array.battery_extra).toList()
-                    )
-                    if (!checkBluetoothPermission()) {
-                        if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
-                            binding.descriptionGoSettings.isVisible = true
-                            binding.btnGoBluetoothSettings.setOnClickListener {
-                                startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                    data = Uri.parse("package:" + requireActivity().packageName)
-                                })
-                            }
-                        } else {
-                            DialogRequestBluetooth().show(parentFragmentManager, TAG_BLUETOOTH)
-                        }
-                    }
-                }
-            }
         }
     }
 
-    private fun checkPermission() {
+    private fun checkPermissions() {
         if (!Settings.System.canWrite(requireContext())) {
             DialogRequestWriteSetting().show(parentFragmentManager, TAG_WRITE_SETTING)
         }
@@ -164,21 +129,22 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun checkBluetoothPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-                checkSelfPermission(requireContext(), Manifest.permission.BLUETOOTH_CONNECT) == PERMISSION_GRANTED
+            checkSelfPermission(
+                requireContext(),
+                Manifest.permission.BLUETOOTH_CONNECT
+            ) == PERMISSION_GRANTED
         else Build.VERSION.SDK_INT < Build.VERSION_CODES.S
     }
 
     private fun renderState(batteryStateScreen: BatteryStateScreen) {
         with(batteryStateScreen) {
+            batterySavingTypeProcessing(batterySaveType)
             with(binding) {
+                choosingTypeBar.setSaveTypeBattery(batterySaveType)
                 tvBatteryPercents.text = getString(R.string.value_percents, batteryPercents)
                 tvWorkingTime.text =
                     getString(R.string.working_time, batteryWorkingTime[0], batteryWorkingTime[1])
-                if (batterySaveType == INIT) {
-                    choosingTypeBar.setSaveTypeBattery(batterySaveType)
-                }
                 if (isBoostedBattery) {
-                    viewModel.getBatterySaveType()
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
                     tvDangerDescriptionOff.text = getString(
@@ -189,9 +155,46 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                     tvDangerDescriptionOff.isVisible = false
                     tvDangerDescription.isVisible = true
                 }
+                if (hasBluetoothPerm) {
+                    descriptionGoSettings.isVisible = false
+                }
             }
             renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
             renderCircularProgressBatteryPercent(batteryPercents)
+        }
+    }
+
+    private fun batterySavingTypeProcessing(type: String) {
+        when (type) {
+            NORMAL -> {
+                adapter.submitList(
+                    resources.getStringArray(R.array.battery_normal).toList()
+                )
+                binding.descriptionGoSettings.isVisible = false
+            }
+            ULTRA -> {
+                adapter.submitList(
+                    resources.getStringArray(R.array.battery_ultra).toList()
+                )
+                binding.descriptionGoSettings.isVisible = false
+            }
+            EXTRA -> {
+                adapter.submitList(
+                    resources.getStringArray(R.array.battery_extra).toList()
+                )
+                if (!checkBluetoothPermission()) {
+                    if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
+                        binding.descriptionGoSettings.isVisible = true
+                        binding.btnGoBluetoothSettings.setOnClickListener {
+                            startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                data = Uri.parse("package:" + requireActivity().packageName)
+                            })
+                        }
+                    } else {
+                        DialogRequestBluetooth().show(parentFragmentManager, TAG_BLUETOOTH)
+                    }
+                }
+            }
         }
     }
 
@@ -200,7 +203,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             viewModel.boostBattery()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
                 (viewModel.screenState.value.batterySaveType == ULTRA ||
-                viewModel.screenState.value.batterySaveType == EXTRA)
+                        viewModel.screenState.value.batterySaveType == EXTRA)
             ) {
                 openActivityToDisableWifi()
             } else {
@@ -212,7 +215,11 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         }
     }
 
-    private fun renderBtnBoostingBattery(isBoostedBattery: Boolean, isCanWriteSettings: Boolean, hasBluetoothPerm: Boolean) {
+    private fun renderBtnBoostingBattery(
+        isBoostedBattery: Boolean,
+        isCanWriteSettings: Boolean,
+        hasBluetoothPerm: Boolean
+    ) {
         if (isBoostedBattery || !isCanWriteSettings) {
             binding.btnBoostBattery.isClickable = false
             binding.btnBoostBattery.background =

@@ -10,7 +10,6 @@ import com.softcleean.fastcleaner.ui.result.BaseResultFragment
 import com.softcleean.fastcleaner.ui.result.ResultList
 import com.softcleean.fastcleaner.utils.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -31,7 +30,7 @@ class BatteryResultFragment :
     }
 
     private fun initScreenStateObserver() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 renderState(state)
             }
