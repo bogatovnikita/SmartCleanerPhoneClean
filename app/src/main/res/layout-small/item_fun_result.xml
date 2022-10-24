@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_home_fun"
+    android:elevation="1dp"
+    android:paddingStart="@dimen/_16sdp"
+    android:paddingEnd="@dimen/_11sdp"
+    android:layout_marginVertical="@dimen/_3sdp">
+
+    <ImageView
+        android:id="@+id/iv_dot_danger"
+        android:layout_width="@dimen/_4sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:src="@drawable/ic_ellipse_red"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginStart="@dimen/_2sdp"
+        app:layout_constraintBottom_toTopOf="@id/tv_fun_name"
+        app:layout_constraintStart_toEndOf="@id/tv_fun_name" />
+
+    <ImageView
+        android:id="@+id/iv_fun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rocket_danger"
+        app:layout_constraintBottom_toBottomOf="@+id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_fun_name" />
+
+    <TextView
+        android:id="@+id/tv_fun_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/boosting"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintStart_toEndOf="@id/iv_fun"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_fun_danger_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/boost_danger_desc"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_7ssp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_fun_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fun_name" />
+
+    <TextView
+        android:id="@+id/tv_fun_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:fontFamily="@font/golos_regular"
+        android:text="@string/done"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_7ssp"
+        android:layout_marginBottom="@dimen/_17sdp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_fun_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fun_name" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_danger_exist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="iv_dot_danger, tv_fun_danger_description" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_no_danger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_fun_done" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tv_fun_danger_description,tv_fun_done" />
+
+    <ImageView
+        android:id="@+id/ib_go_to_fun"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_13sdp"
+        android:background="@drawable/ic_arrow_go_head_big"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

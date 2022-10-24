@@ -11,12 +11,12 @@
         android:id="@+id/tv_app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_17sdp"
         android:fontFamily="@font/golos_medium"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="@dimen/_20sdp"
+        android:textSize="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_16sdp"
         android:background="@drawable/bg_main_for_params"
-        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_11sdp"
         app:layout_constraintEnd_toStartOf="@+id/container_circle_progress_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_app_name">
@@ -37,11 +37,11 @@
             android:id="@+id/tv_storage_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:fontFamily="@font/golos_medium"
             android:text="@string/storage"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,11 +49,11 @@
             android:id="@+id/tv_used"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_9sdp"
             android:fontFamily="@font/golos_regular"
             android:text="@string/used"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintEnd_toStartOf="@+id/tv_used_storage"
             app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
@@ -66,7 +66,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb_fraction"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_used"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -77,7 +77,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_used"
             app:layout_constraintEnd_toStartOf="@id/tv_total_storage" />
 
@@ -86,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_marginEnd="@dimen/_14sdp"
             android:background="@color/orange_light"
             app:layout_constraintEnd_toEndOf="@+id/tv_total_storage"
@@ -98,12 +98,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:alpha="0.5"
             android:fontFamily="@font/golos_regular"
             android:text="@string/free"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
             app:layout_constraintTop_toBottomOf="@id/separation_line"
@@ -117,9 +117,9 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="@id/tv_free"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_total_storage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -127,9 +127,9 @@
         android:id="@+id/container_circle_progress_bar_storage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:background="@drawable/bg_main_for_params"
-        android:padding="@dimen/_11sdp"
+        android:padding="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="@+id/container_storage"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +143,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/value_percents"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_10ssp"/>
 
         <yinkio.android.customView.progressBar.ArcCircleProgressBar
             android:id="@+id/circular_progress_storage_percent"
@@ -152,11 +152,11 @@
             android:layout_gravity="center"
             app:canalColor="@color/black"
             app:canalHasShadow="false"
-            app:canalWidth="@dimen/_6sdp"
+            app:canalWidth="@dimen/_5sdp"
             app:indicatorColor="@color/blue"
             app:indicatorEndAngle="270"
             app:indicatorStartAngle="-90"
-            app:indicatorWidth="@dimen/_6sdp"
+            app:indicatorWidth="@dimen/_5sdp"
             app:progress="65" />
 
     </FrameLayout>
@@ -165,9 +165,9 @@
         android:id="@+id/container_ram"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/bg_main_for_params"
-        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_11sdp"
         app:layout_constraintEnd_toStartOf="@+id/container_circle_progress_bar"
         app:layout_constraintStart_toStartOf="@+id/container_storage"
         app:layout_constraintTop_toBottomOf="@id/container_storage">
@@ -180,7 +180,7 @@
             android:fontFamily="@font/golos_medium"
             android:text="@string/ram"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -188,11 +188,11 @@
             android:id="@+id/tv_used_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_9sdp"
             android:fontFamily="@font/golos_regular"
             android:text="@string/used"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintEnd_toStartOf="@+id/tv_used_ram"
             app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
@@ -205,7 +205,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb_fraction"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_used_title"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -216,7 +216,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_used_title"
             app:layout_constraintEnd_toStartOf="@id/tv_total_ram" />
 
@@ -225,7 +225,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_marginEnd="@dimen/_14sdp"
             android:background="@color/orange_light"
             app:layout_constraintEnd_toEndOf="@+id/tv_total_ram"
@@ -237,12 +237,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:alpha="0.5"
             android:fontFamily="@font/golos_regular"
             android:text="@string/free"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
             app:layout_constraintTop_toBottomOf="@id/separation_line_ram"
@@ -256,7 +256,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/gb"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_7ssp"
             app:layout_constraintBottom_toBottomOf="@id/tv_free_ram_title"
             app:layout_constraintEnd_toEndOf="@+id/tv_total_ram" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -267,7 +267,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/_18sdp"
         android:background="@drawable/bg_main_for_params"
-        android:padding="@dimen/_11sdp"
+        android:padding="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="@+id/container_ram"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -281,7 +281,7 @@
             android:fontFamily="@font/golos_regular"
             android:text="@string/value_percents"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <yinkio.android.customView.progressBar.ArcCircleProgressBar
             android:id="@+id/circular_progress_ram_percent"
@@ -290,11 +290,11 @@
             android:layout_gravity="center"
             app:canalColor="@color/black"
             app:canalHasShadow="false"
-            app:canalWidth="@dimen/_6sdp"
+            app:canalWidth="@dimen/_5sdp"
             app:indicatorColor="@color/blue"
             app:indicatorEndAngle="270"
             app:indicatorStartAngle="-90"
-            app:indicatorWidth="@dimen/_6sdp"
+            app:indicatorWidth="@dimen/_5sdp"
             app:progress="65" />
 
     </FrameLayout>

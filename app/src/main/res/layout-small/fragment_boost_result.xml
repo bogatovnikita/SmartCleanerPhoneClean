@@ -172,25 +172,6 @@
     </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_danger_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:background="@drawable/bg_main_for_params"
-        android:fontFamily="@font/golos_regular"
-        android:paddingStart="@dimen/_12sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:paddingBottom="@dimen/_8sdp"
-        android:text="@string/boost_danger_title"
-        android:textColor="@color/red"
-        android:textSize="@dimen/_10ssp"
-        android:drawablePadding="@dimen/_8sdp"
-        app:drawableStartCompat="@drawable/ic_danger"
-        app:layout_constraintEnd_toEndOf="@+id/container_circle_progress_bar"
-        app:layout_constraintStart_toStartOf="@+id/container_working_time"
-        app:layout_constraintTop_toBottomOf="@+id/container_working_time" />
-
-    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_danger_description_off"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -203,95 +184,48 @@
         android:text="@string/danger_boost_off"
         android:textColor="@color/green"
         android:textSize="@dimen/_10ssp"
-        android:visibility="gone"
         android:drawablePadding="@dimen/_8sdp"
         app:drawableStartCompat="@drawable/ic_danger_off"
         app:layout_constraintEnd_toEndOf="@+id/container_circle_progress_bar"
         app:layout_constraintStart_toStartOf="@+id/container_working_time"
         app:layout_constraintTop_toBottomOf="@+id/container_working_time" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_danger_description_off,tv_danger_description" />
-
-    <ImageView
-        android:id="@+id/iv_arrow_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow_down"
-        app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier"
-        app:layout_constraintBottom_toTopOf="@id/tv_danger_reason"/>
-
-    <ImageView
-        android:id="@+id/iv_rocket_danger"
-        android:layout_width="@dimen/_16sdp"
-        android:layout_height="@dimen/_18sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginBottom="@dimen/_22sdp"
-        app:layout_constraintVertical_bias="@integer/material_motion_duration_long_1"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_arrow_down" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_danger_reason"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
-        android:text="@string/boost_reason_danger"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_8ssp"
-        android:layout_marginStart="@dimen/_3sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_rocket_danger"
-        app:layout_constraintTop_toTopOf="@id/iv_rocket_danger"
-        app:layout_constraintBottom_toBottomOf="@id/iv_rocket_danger"/>
-
     <View
         android:id="@+id/bottom_sheet_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="-26dp"
-        android:background="@drawable/bg_bottom_sheet"
+        android:background="@drawable/bg_bottom_sheet_grey"
+        android:layout_marginTop="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_type_save_battery_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_danger_description_off"/>
 
-
-    <TextView
-        android:id="@+id/tv_type_save_battery_title"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_21sdp"
-        android:fontFamily="@font/golos_medium"
-        android:text="@string/boost_danger_description"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_13ssp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_fun_result"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@id/btn_go_main"
+        app:layout_constraintTop_toTopOf="@id/bottom_sheet_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_boost_battery"
+        android:id="@+id/btn_go_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_12sdp"
-        android:layout_marginVertical="@dimen/_19sdp"
-        android:background="@color/black"
+        android:layout_marginHorizontal="@dimen/_11sdp"
+        android:layout_marginVertical="@dimen/_17sdp"
+        android:background="@drawable/bg_button_boost_on"
         android:drawableEnd="@drawable/ic_arrow_go_head"
         android:fontFamily="@font/golos_regular"
         android:gravity="start|center_vertical"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:text="@string/boost"
+        android:text="@string/on_main_screen"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/_10ssp"
