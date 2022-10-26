@@ -5,7 +5,8 @@
     <string name="battery_title">Power</string>
     <string name="boost_reason_danger_off">No applications currently occupying\nRAM</string>
     <string name="working_time">%d hours %d minutes</string>
-    <string name="gb_fraction">/%.2f GB</string>
+    <string name="gb_fraction">/%.1f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Home Screen</string>
     <string name="clean_danger_title">Cleanup required!</string>
     <string name="garbage_not_found">No junk files\ndetected</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Optimize your phone\'s performance</string>
     <string name="boost_battery">Keep your phone up and running</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">Free</string>
     <string name="battery_boost">Extend</string>
     <string name="type_save_battery_title">Extend work modes:</string>
@@ -60,6 +62,15 @@
     <string name="app_name">Fast Cleaner</string>
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
     <string name="remaining_working_time">Remaining working time</string>
+    <string name="cancel">Cancel</string>
+    <string name="allow">Allow</string>
+    <string name="settings">Settings</string>
+    <string name="dialog_write_setting_description">We need permission to change system settings so that we can increase the runtime of your device.</string>
+    <string name="description_go_settings">To perform this function, we need permission to change system settings</string>
+    <string name="get_permission">We need permission</string>
+    <string name="title_dialog_bluetooth">Extra mode requires access to bluetooth settings</string>
+    <string name="dialog_bluetooth_description">Allow the app to access the bluetooth settings to increase battery life.</string>
+    <string name="btn_continue">Next</string>
 
     <array name="battery_normal">
         <item>Decrease brightness</item>

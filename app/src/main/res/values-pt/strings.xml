@@ -5,7 +5,8 @@
     <string name="battery_title">Poder</string>
     <string name="boost_reason_danger_off">Nenhuma aplicação atualmente ocupando\nRAM</string>
     <string name="working_time">%d horas %d minutos</string>
-    <string name="gb_fraction">/%.2f gb</string>
+    <string name="gb_fraction">/%.1f gb</string>
+    <string name="gb_fraction_garbage">/%.1f gb</string>
     <string name="on_main_screen">Tela inicial</string>
     <string name="clean_danger_title">Limpeza necessária!</string>
     <string name="garbage_not_found">Nenhum arquivo lixo\ndetectado</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Otimize o desempenho do seu telefone</string>
     <string name="boost_battery">Mantenha seu telefone em funcionamento</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">Livre</string>
     <string name="battery_boost">Ampliar</string>
     <string name="type_save_battery_title">Estender os modos de trabalho:</string>
@@ -60,6 +62,16 @@
     <string name="app_name">Limpador rápido</string>
     <string name="danger_boost_off">O telefone liberado %.2f GB\né mais rápido em %d %%</string>
     <string name="remaining_working_time">Tempo de execução\nrestante</string>
+    <string name="cancel">Cancelar</string>
+    <string name="allow">Permitir</string>
+    <string name="settings">Definições</string>
+    <string name="dialog_write_setting_description">Precisamos de permissão para alterar as configurações do sistema para que possamos aumentar o tempo de execução do seu dispositivo.</string>
+    <string name="description_go_settings">Para executar esta função, precisamos de permissão para alterar as configurações do sistema</string>
+    <string name="get_permission">Precisamos de permissão</string>
+    <string name="title_dialog_bluetooth">O modo extra requer acesso às configurações do Bluetooth</string>
+    <string name="dialog_bluetooth_description">Permita que o aplicativo acesse as configurações do Bluetooth para aumentar a duração da bateria.</string>
+    <string name="btn_continue">Próximo</string>
+
     <array name="battery_normal">
         <item>Abrilhar o brilho</item>
         <item>Brilho Automático Desactivável</item>

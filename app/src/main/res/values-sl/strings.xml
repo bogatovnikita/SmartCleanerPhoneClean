@@ -5,7 +5,8 @@
     <string name="battery_title">Moč</string>
     <string name="boost_reason_danger_off">Trenutno ni aplikacij, ki bi zasedli\nRAM -a</string>
     <string name="working_time">%d ur %d minut</string>
-    <string name="gb_fraction">/%.2f GB</string>
+    <string name="gb_fraction">/%.1f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Domači zaslon</string>
     <string name="clean_danger_title">Potrebno čiščenje!</string>
     <string name="garbage_not_found">Brez neželenih datotek</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Optimizirajte zmogljivost telefona</string>
     <string name="boost_battery">Naj bo telefon vstal in zagnal</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">prost</string>
     <string name="battery_boost">Iztegniti</string>
     <string name="type_save_battery_title">Razširite delovne načine:</string>
@@ -60,6 +62,16 @@
     <string name="app_name">Hitro čistilo</string>
     <string name="danger_boost_off">Osvobojen %.2f GB\nTelefon je hitrejši za %d %%</string>
     <string name="remaining_working_time">Preostali čas\nteka</string>
+    <string name="cancel">Odpovedati</string>
+    <string name="allow">Dovolite</string>
+    <string name="settings">Nastavitve</string>
+    <string name="dialog_write_setting_description">Potrebujemo dovoljenje za spremembo nastavitev sistema, da bomo lahko povečali čas izvajanja vaše naprave.</string>
+    <string name="description_go_settings">Za izvedbo te funkcije potrebujemo dovoljenje za spremembo nastavitev sistema</string>
+    <string name="get_permission">Potrebujemo dovoljenje</string>
+    <string name="title_dialog_bluetooth">Dodatni način zahteva dostop do nastavitev Bluetooth</string>
+    <string name="dialog_bluetooth_description">Dovolite, da aplikacija dostopa do nastavitev Bluetooth, da poveča življenjsko dobo baterije.</string>
+    <string name="btn_continue">Naslednji</string>
+
     <array name="battery_normal">
         <item>Zmanjšanje svetlosti</item>
         <item>Zaključite samodejno svetlost</item>

@@ -6,6 +6,7 @@
     <string name="boost_reason_danger_off">No applications currently occupying\nRAM</string>
     <string name="working_time">%d hours %d minutes</string>
     <string name="gb_fraction">/%.2f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Home Screen</string>
     <string name="clean_danger_title">Cleanup required!</string>
     <string name="garbage_not_found">No junk files\ndetected</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Optimize your phone\'s performance</string>
     <string name="boost_battery">Keep your phone up and running</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">Free</string>
     <string name="battery_boost">Extend</string>
     <string name="type_save_battery_title">Extend work modes:</string>

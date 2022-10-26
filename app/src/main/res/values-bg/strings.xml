@@ -5,7 +5,8 @@
     <string name="battery_title">Мощност</string>
     <string name="boost_reason_danger_off">В момента няма приложения, заемащи\nRAM</string>
     <string name="working_time">%d часа %d минути</string>
-    <string name="gb_fraction">/%.2f GB</string>
+    <string name="gb_fraction">/%.1f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Началния екран</string>
     <string name="clean_danger_title">Изисква се почистване!</string>
     <string name="garbage_not_found">Не са открити боклуци</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Оптимизирайте \nпроизводителността на телефона си</string>
     <string name="boost_battery">Дръжте телефона си и работи</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">Безплатно</string>
     <string name="battery_boost">Разшири</string>
     <string name="type_save_battery_title">Удължете режимите на работа:</string>
@@ -60,6 +62,15 @@
     <string name="app_name">Бързо почистващ</string>
     <string name="danger_boost_off">Освободен %.2f GB\nТелефонът е по -бърз %d %%</string>
     <string name="remaining_working_time">Оставащо време\nза изпълнение</string>
+    <string name="cancel">Отказ</string>
+    <string name="allow">Раурехить</string>
+    <string name="settings">Настроки</string>
+    <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы мы могли увеличить время работы вашего устройства.</string>
+    <string name="description_go_settings">Dlje -ppolneniyty эtoй февркейина</string>
+    <string name="get_permission">Кам - на Рейррея</string>
+    <string name="title_dialog_bluetooth">Dlja kstra reжymа -nUжеn доступ к от nastrroйka bluetooth</string>
+    <string name="dialog_bluetooth_description">РзРерае Прилохний доступ к нанастрохка блуетотоф джал</string>
+    <string name="btn_continue">Далее</string>
     <array name="battery_normal">
         <item>Намаляване на яркостта</item>
         <item>Изключване на автоматичната яркост</item>

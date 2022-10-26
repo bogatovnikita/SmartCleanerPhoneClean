@@ -5,7 +5,8 @@
     <string name="battery_title">พลัง</string>
     <string name="boost_reason_danger_off">ขณะนี้ไม่มีแอปพลิเคชันที่ครอบครอง\nRAM</string>
     <string name="working_time">%d ชั่วโมง %d นาที</string>
-    <string name="gb_fraction">/%.2f gb</string>
+    <string name="gb_fraction">/%.1f gb</string>
+    <string name="gb_fraction_garbage">/%.1f gb</string>
     <string name="on_main_screen">หน้าจอหลัก</string>
     <string name="clean_danger_title">ต้องทำความสะอาด!</string>
     <string name="garbage_not_found">ไม่พบไฟล์ขยะ\n</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">เพิ่มประสิทธิภาพประสิทธิภาพของโทรศัพท์ของคุณ</string>
     <string name="boost_battery">ทำให้โทรศัพท์ของคุณทำงานได้ดี</string>
     <string name="gb">%.2f gb</string>
+    <string name="gb_one_after_dot">%.1f gb</string>
     <string name="free">ฟรี</string>
     <string name="battery_boost">ขยาย</string>
     <string name="type_save_battery_title">ขยายโหมดการทำงาน:</string>
@@ -60,6 +62,15 @@
     <string name="app_name">ทำความสะอาดเร็วขึ้น</string>
     <string name="danger_boost_off">เพิ่มขึ้น %.2f GB\nโทรศัพท์เร็วกว่า %d %%</string>
     <string name="remaining_working_time">เวลาทำงานที่เหลืออยู่</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="allow">อนุญาต</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="dialog_write_setting_description">เราต้องการอนุญาตให้เปลี่ยนการตั้งค่าระบบเพื่อให้เราสามารถเพิ่มรันไทม์ของอุปกรณ์ของคุณ</string>
+    <string name="description_go_settings">ในการดำเนินการฟังก์ชั่นนี้เราจำเป็นต้องได้รับอนุญาตให้เปลี่ยนการตั้งค่าระบบ</string>
+    <string name="get_permission">เราต้องการการอนุญาต</string>
+    <string name="title_dialog_bluetooth">โหมดพิเศษต้องการการเข้าถึงการตั้งค่าบลูทู ธ</string>
+    <string name="dialog_bluetooth_description">อนุญาตให้แอปเข้าถึงการตั้งค่าบลูทู ธ เพื่อเพิ่มอายุการใช้งานแบตเตอรี่</string>
+    <string name="btn_continue">ต่อไป</string>
 
     <array name="battery_normal">
         <item>ลดความสว่าง</item>

@@ -6,6 +6,7 @@
     <string name="boost_reason_danger_off">Şu anda RAM işgal eden hiçbir uygulama</string>
     <string name="working_time">%d saat %d dakika</string>
     <string name="gb_fraction">%.2f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Ana ekran</string>
     <string name="clean_danger_title">Temizleme Gerekli!</string>
     <string name="garbage_not_found">Önemsiz Dosya Yok\nTespit Edildi</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Telefonunuzun performansını optimize edin</string>
     <string name="boost_battery">Telefonunuzu çalışır durumda tutun</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">Özgür</string>
     <string name="battery_boost">Uzatmak</string>
     <string name="type_save_battery_title">Çalışma modlarını genişletin:</string>
@@ -60,6 +62,16 @@
     <string name="app_name">Hızlı temizleyici</string>
     <string name="danger_boost_off">%.2f GB\ntelefon %d %% oranında daha hızlı</string>
     <string name="remaining_working_time">Kalançalışma\nsüresi</string>
+    <string name="cancel">İptal</string>
+    <string name="allow">İzin vermek</string>
+    <string name="settings">Ayarlar</string>
+    <string name="dialog_write_setting_description">Cihazınızın çalışma zamanını artırabilmemiz için sistem ayarlarını değiştirmek için izin almamız gerekiyor.</string>
+    <string name="description_go_settings">Bu işlevi gerçekleştirmek için sistem ayarlarını değiştirmek için izin almamız gerekiyor</string>
+    <string name="get_permission">İzine ihtiyacımız var</string>
+    <string name="title_dialog_bluetooth">Ekstra mod, Bluetooth ayarlarına erişim gerektirir</string>
+    <string name="dialog_bluetooth_description">Pil ömrünü artırmak için uygulamanın Bluetooth ayarlarına erişmesine izin verin.</string>
+    <string name="btn_continue">Sonraki</string>
+
     <array name="battery_normal">
         <item>Parlaklığı azalt</item>
         <item>Otomatik parlaklığı devre dışı bırak</item>

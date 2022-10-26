@@ -6,6 +6,7 @@
     <string name="boost_reason_danger_off">Žiadne žiadosti v súčasnosti zaberajú\nRAM</string>
     <string name="working_time">%d hodín %d minút</string>
     <string name="gb_fraction">/%.2f GB</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="on_main_screen">Domovská obrazovka</string>
     <string name="clean_danger_title">Vyžaduje sa čistenie!</string>
     <string name="garbage_not_found">Žiadne nevyžiadané súbory</string>
@@ -41,6 +42,7 @@
     <string name="boost_danger_desc">Optimalizujte výkon svojho telefónu</string>
     <string name="boost_battery">Udržujte telefón v prevádzke</string>
     <string name="gb">%.2f GB</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
     <string name="free">zadarmo</string>
     <string name="battery_boost">Rozširovať</string>
     <string name="type_save_battery_title">Rozšíriť pracovné režimy:</string>
@@ -60,6 +62,16 @@
     <string name="app_name">Rýchly čistiaci prostriedok</string>
     <string name="danger_boost_off">Uvoľnené %.2f GB\nTelefón je rýchlejší %d %%</string>
     <string name="remaining_working_time">Zostávajúci čas\nbehu</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="allow">Povoliť</string>
+    <string name="settings">nastavenie</string>
+    <string name="dialog_write_setting_description">Potrebujeme povolenie na zmenu nastavení systému, aby sme mohli zvýšiť runtime vášho zariadenia.</string>
+    <string name="description_go_settings">Na vykonanie tejto funkcie potrebujeme povolenie na zmenu nastavení systému</string>
+    <string name="get_permission">Potrebujeme povolenie</string>
+    <string name="title_dialog_bluetooth">Extra režim vyžaduje prístup k nastaveniam Bluetooth</string>
+    <string name="dialog_bluetooth_description">Umožnite aplikácii prístup k nastaveniam Bluetooth, aby sa zvýšila výdrž batérie.</string>
+    <string name="btn_continue">Ďalšie</string>
+
     <array name="battery_normal">
         <item>Zníženie jasu</item>
         <item>Zakázať automatický jas</item>
