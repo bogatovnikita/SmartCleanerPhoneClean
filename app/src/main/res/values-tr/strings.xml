@@ -37,7 +37,7 @@
     <string name="storage">Depolamak</string>
     <string name="clean_done">Çöp dosyaları silindi.</string>
     <string name="cooling_danger_desc">Arka Plan\nUygulamaları Kapat</string>
-    <string name="ready">Tamamlandı!</string>
+    <string name="ready">Hazır!</string>
     <string name="boost_danger_description">RAM yükünü azaltın ve\ntelefonunuzu hızlandırın</string>
     <string name="boost_danger_desc">Telefonunuzun performansını optimize edin</string>
     <string name="boost_battery">Telefonunuzu çalışır durumda tutun</string>
