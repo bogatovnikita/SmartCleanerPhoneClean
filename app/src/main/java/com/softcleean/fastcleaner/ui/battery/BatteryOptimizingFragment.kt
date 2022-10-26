@@ -21,8 +21,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import preloadInterstitial
-import showInterstitial
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -46,7 +44,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
         setArrayOptionBoosting()
         startOptimization()
         startOptimizationFun()
-        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL2)
+//        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL2)
     }
 
     override fun onResume() {
@@ -69,11 +67,12 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    showInterstitial(
-                        onClosed = {
-                            findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
-                        }
-                    )
+                    findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
+//                    showInterstitial(
+//                        onClosed = {
+//                            findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
+//                        }
+//                    )
                 }
             }
         }

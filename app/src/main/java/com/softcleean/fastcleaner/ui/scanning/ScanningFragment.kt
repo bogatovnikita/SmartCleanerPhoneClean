@@ -8,14 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.ads.library.SubscriptionProvider
-import com.softcleean.fastcleaner.BuildConfig
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentScanningBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import preloadInterstitial
-import showInterstitial
 
 class ScanningFragment : Fragment(R.layout.fragment_scanning) {
 
@@ -25,7 +21,7 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
+//        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
         startOptimization()
     }
 
@@ -35,19 +31,20 @@ class ScanningFragment : Fragment(R.layout.fragment_scanning) {
         binding.ivBoosting.setImageDrawable(resources.getDrawable(R.drawable.ic_scanning_splash))
         lifecycleScope.launch {
             repeat(101) { percent ->
-                val delay = if
-                        (SubscriptionProvider.getInstance(requireActivity()).checkHasSubscription()) 30L
-                                                                                                       else 90L
-                delay(delay)
+//                val delay = if
+//                        (SubscriptionProvider.getInstance(requireActivity()).checkHasSubscription()) 30L
+//                                                                                                       else 90L
+                delay(90)
                 setPercents(percent)
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(400)
-                    showInterstitial(
-                        onClosed = {
-                            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
-                        }
-                    )
+                    findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+//                    showInterstitial(
+//                        onClosed = {
+//                            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+//                        }
+//                    )
                 }
             }
         }

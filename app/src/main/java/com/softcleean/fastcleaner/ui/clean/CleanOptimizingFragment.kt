@@ -20,8 +20,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import preloadInterstitial
-import showInterstitial
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -44,7 +42,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         startOptimization()
-        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL4)
+//        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL4)
     }
 
     override fun onResume() {
@@ -68,11 +66,12 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(500)
-                    showInterstitial(
-                        onClosed = {
-                            findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
-                        }
-                    )
+                    findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
+//                    showInterstitial(
+//                        onClosed = {
+//                            findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
+//                        }
+//                    )
                 }
             }
         }

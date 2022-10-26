@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import dagger.hilt.android.AndroidEntryPoint
-import initAds
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initAds()
+//        initAds()
     }
 
     override fun onResume() {

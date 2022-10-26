@@ -19,7 +19,6 @@
         android:layout_marginStart="@dimen/_4sdp"
         android:alpha="0.5"
         android:fontFamily="@font/golos_regular"
-        android:text="@string/offline_opt_in_message"
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp" />
 
