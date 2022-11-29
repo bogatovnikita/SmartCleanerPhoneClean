@@ -50,7 +50,7 @@ class BatteryOptimizingFragment : Fragment(R.layout.fragment_battery_optimizing)
     override fun onResume() {
         super.onResume()
         if (isDoneOptimization)
-            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
     }
 
     private fun startOptimization() {

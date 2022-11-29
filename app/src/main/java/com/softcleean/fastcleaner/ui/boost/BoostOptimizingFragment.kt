@@ -41,7 +41,7 @@ class BoostOptimizingFragment : Fragment(R.layout.fragment_boost_optimizing) {
     override fun onResume() {
         super.onResume()
         if (isDoneOptimization)
-            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_boostOptimizingFragment_to_boostResultFragment)
     }
 
     private fun startOptimization() {

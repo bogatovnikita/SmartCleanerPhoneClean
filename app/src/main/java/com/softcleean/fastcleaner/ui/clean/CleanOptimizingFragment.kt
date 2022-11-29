@@ -48,7 +48,7 @@ class CleanOptimizingFragment : Fragment(R.layout.fragment_clean_optimizing) {
     override fun onResume() {
         super.onResume()
         if (isDoneOptimization)
-            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_cleanOptimizingFragment_to_cleanResultFragment)
     }
 
     private fun startOptimization() {

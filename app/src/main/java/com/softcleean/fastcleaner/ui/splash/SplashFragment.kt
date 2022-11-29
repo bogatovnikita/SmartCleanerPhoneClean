@@ -19,7 +19,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         binding
         lifecycleScope.launchWhenResumed {
             delay(1000)
-            findNavController().navigate(R.id.action_splashFragment_to_scanningFragment)
+            findNavController().navigate(R.id.action_to_homeFragment)
         }
     }
 }

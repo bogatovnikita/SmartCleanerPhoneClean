@@ -42,7 +42,7 @@ class CoolingOptimizingFragment : Fragment(R.layout.fragment_cooling_optimizing)
     override fun onResume() {
         super.onResume()
         if (isDoneOptimization)
-            findNavController().navigate(R.id.action_scanningFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_coolingOptimizingFragment_to_coolingResultFragment)
     }
 
     private fun startOptimization() {
