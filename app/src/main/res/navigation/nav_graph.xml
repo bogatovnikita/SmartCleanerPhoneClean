@@ -92,22 +92,21 @@
         android:id="@+id/action_to_cleanFragment"
         app:destination="@id/cleanFragment" />
     <fragment
-        android:id="@+id/cleanResultFragment"
-        android:name="com.softcleean.fastcleaner.ui.clean.CleanResultFragment"
-        android:label="CleanResultFragment" />
-    <fragment
-        android:id="@+id/coolingResultFragment"
-        android:name="com.softcleean.fastcleaner.ui.cooling.CoolingResultFragment"
-        android:label="CoolingResultFragment" />
+        android:id="@+id/batteryResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.battery.BatteryResultFragment"
+        android:label="BatteryResultFragment" />
     <fragment
         android:id="@+id/boostResultFragment"
         android:name="com.softcleean.fastcleaner.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment" />
     <fragment
-        android:id="@+id/batteryResultFragment"
-        android:name="com.softcleean.fastcleaner.ui.battery.BatteryResultFragment"
-        android:label="fragment_battery_result"
-        tools:layout="@layout/fragment_battery_result" />
+        android:id="@+id/coolingResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.cooling.CoolingResultFragment"
+        android:label="CoolingResultFragment" />
+    <fragment
+        android:id="@+id/cleanResultFragment"
+        android:name="com.softcleean.fastcleaner.ui.clean.CleanResultFragment"
+        android:label="CleanResultFragment" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.softcleean.fastcleaner.ui.splash.SplashFragment"
