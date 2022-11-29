@@ -1,4 +1,4 @@
-package com.softcleean.fastcleaner.ui.battery
+package com.softcleean.fastcleaner.ui.base
 
 import android.app.Dialog
 import android.os.Bundle

@@ -3,6 +3,7 @@ package com.softcleean.fastcleaner.ui.battery
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
+import com.softcleean.fastcleaner.ui.base.BaseOptimizingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -17,11 +18,14 @@ class BatteryOptimizingFragment(
 
     override fun setArrayOptimization() {
         listOptions = when (batteryUseCase.getBatteryType()) {
-            ChoosingTypeBatteryBar.NORMAL -> resources.getStringArray(R.array.battery_normal).toMutableList()
-            ChoosingTypeBatteryBar.ULTRA -> resources.getStringArray(R.array.battery_ultra).toMutableList()
-            ChoosingTypeBatteryBar.EXTRA -> resources.getStringArray(R.array.battery_extra).toMutableList()
+            ChoosingTypeBatteryBar.NORMAL -> resources.getStringArray(R.array.battery_normal)
+                .toMutableList()
+            ChoosingTypeBatteryBar.ULTRA -> resources.getStringArray(R.array.battery_ultra)
+                .toMutableList()
+            ChoosingTypeBatteryBar.EXTRA -> resources.getStringArray(R.array.battery_extra)
+                .toMutableList()
             else -> mutableListOf()
-            }
+        }
     }
 
     override fun startOptimizationFun() {

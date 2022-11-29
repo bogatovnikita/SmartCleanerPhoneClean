@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
-    tools:context=".ui.battery.BaseOptimizingFragment">
+    tools:context=".ui.base.BaseOptimizingFragment">
 
     <ImageView
         android:id="@+id/iv_orange_ellipse_opt_done"
