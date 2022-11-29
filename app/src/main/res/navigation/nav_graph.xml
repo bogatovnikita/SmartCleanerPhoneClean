@@ -15,17 +15,6 @@
             app:destination="@id/batteryOptimizingFragment" />
     </fragment>
     <fragment
-        android:id="@+id/batteryOptimizingFragment"
-        android:name="com.softcleean.fastcleaner.ui.battery.BatteryOptimizingFragment"
-        android:label="fragment_battery_optimizing"
-        tools:layout="@layout/fragment_battery_optimizing" >
-        <action
-            android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
-            app:destination="@id/batteryResultFragment"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="false"  />
-    </fragment>
-    <fragment
         android:id="@+id/boostFragment"
         android:name="com.softcleean.fastcleaner.ui.boost.BoostFragment"
         android:label="fragment_boost"
@@ -124,4 +113,12 @@
         android:name="com.softcleean.fastcleaner.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
+    <dialog
+        android:id="@+id/batteryOptimizingFragment"
+        android:name="com.softcleean.fastcleaner.ui.battery.BatteryOptimizingFragment"
+        android:label="BatteryOptimizingFragment" >
+        <action
+            android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
+            app:destination="@id/batteryResultFragment" />
+    </dialog>
 </navigation>

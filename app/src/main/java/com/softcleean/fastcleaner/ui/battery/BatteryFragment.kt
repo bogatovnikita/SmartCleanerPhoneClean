@@ -51,7 +51,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private val startActivityForResultWriteSettings =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            viewModel.setWriteSettingsEnabling(Settings.System.canWrite(requireContext()))
+            viewModel.setWriteSettingsEnabling(hasPermCanWrite())
         }
 
     private val startActivityForResultBluetooth =
@@ -79,7 +79,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun initObserverStateScreen() {
-        viewModel.setWriteSettingsEnabling(Settings.System.canWrite(requireContext()))
+        viewModel.setWriteSettingsEnabling(hasPermCanWrite())
         lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 renderState(state)
@@ -99,11 +99,14 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun requestPermForChangingBrightness() {
-        if (Settings.System.canWrite(requireContext())) return
+        if (hasPermCanWrite()) return
         startActivityForResultWriteSettings.launch(Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS).apply {
             data = Uri.parse("package:" + requireActivity().packageName)
         })
     }
+
+    private fun hasPermCanWrite(): Boolean =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) Settings.System.canWrite(requireContext()) else true
 
     private fun requestPermForBluetooth() {
         startActivityForResultBluetooth.launch(arrayOf(Manifest.permission.BLUETOOTH_CONNECT))
@@ -121,7 +124,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun checkPermissions() {
-        if (!Settings.System.canWrite(requireContext())) {
+        if (!hasPermCanWrite()) {
             DialogRequestWriteSetting().show(parentFragmentManager, TAG_WRITE_SETTING)
         }
         viewModel.setHasBluetoothPerm(checkBluetoothPermission())

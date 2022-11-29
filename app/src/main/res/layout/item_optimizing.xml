@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_regular"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/_11ssp"
         android:gravity="center"
         android:layout_marginHorizontal="@dimen/_20sdp"
