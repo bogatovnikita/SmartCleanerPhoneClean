@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Зануат</string>
-    <string name="temperature_cpu">Температура на процесора</string>
+    <string name="temperature_cpu">Температура\nпроцесора</string>
     <string name="battery_title">Мощност</string>
     <string name="boost_reason_danger_off">В момента няма приложения, заемащи\nRAM</string>
     <string name="working_time">%d часа %d минути</string>
@@ -25,7 +25,7 @@
     <string name="increase_time_working">Можете да удължите живота на батерията на телефона си</string>
     <string name="cooling">Готино</string>
     <string name="boost">Ускорете</string>
-    <string name="normal_temperature">Нормалната температура на процесора е 25–30 ℃</string>
+    <string name="normal_temperature">Нормалната температура\nпроцесора е 25–30 ℃</string>
     <string name="scanning_system">Сканирайте системата …</string>
     <string name="hello_blank_fragment">Здравей празен фрагмент</string>
     <string name="cleared">Изчистен</string>

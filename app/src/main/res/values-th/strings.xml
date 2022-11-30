@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">ยุ่ง</string>
-    <string name="temperature_cpu">อุณหภูมิโปรเซสเซอร์</string>
+    <string name="temperature_cpu">อุณหภูมิ\nโปรเซสเซอร์</string>
     <string name="battery_title">พลัง</string>
     <string name="boost_reason_danger_off">ขณะนี้ไม่มีแอปพลิเคชันที่ครอบครอง\nRAM</string>
     <string name="working_time">%d ชั่วโมง %d นาที</string>
@@ -25,7 +25,7 @@
     <string name="increase_time_working">คุณสามารถยืดอายุแบตเตอรี่ของโทรศัพท์ได้</string>
     <string name="cooling">เย็น</string>
     <string name="boost">เร่งความเร็ว</string>
-    <string name="normal_temperature">อุณหภูมิโปรเซสเซอร์ปกติคือ 25–30 ℃</string>
+    <string name="normal_temperature">อุณหภูมิโป\nรเซสเซอร์ปกติคือ 25–30 ℃</string>
     <string name="scanning_system">สแกนระบบ …</string>
     <string name="hello_blank_fragment">สวัสดีชิ้นส่วนว่างเปล่า</string>
     <string name="cleared">ทำความสะอาด</string>

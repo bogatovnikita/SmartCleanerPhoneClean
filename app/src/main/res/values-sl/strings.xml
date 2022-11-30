@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Zaseden</string>
-    <string name="temperature_cpu">Temperatura procesorja</string>
+    <string name="temperature_cpu">Temperatura\nprocesorja</string>
     <string name="battery_title">Moč</string>
     <string name="boost_reason_danger_off">Trenutno ni aplikacij, ki bi zasedli\nRAM -a</string>
     <string name="working_time">%d ur %d minut</string>
@@ -25,7 +25,7 @@
     <string name="increase_time_working">Lahko podaljšate življenjsko dobo baterije svojega telefona</string>
     <string name="cooling">Kul</string>
     <string name="boost">Pospešiti</string>
-    <string name="normal_temperature">Običajna temperatura procesorja je 25–30 ℃</string>
+    <string name="normal_temperature">Običajna temperatura\nprocesorja je 25–30 ℃</string>
     <string name="scanning_system">Skenirajte sistem …</string>
     <string name="hello_blank_fragment">Pozdravljeni prazen fragment</string>
     <string name="cleared">Očiščeno</string>

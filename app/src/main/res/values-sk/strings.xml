@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Použité</string>
-    <string name="temperature_cpu">Teplota procesora</string>
+    <string name="temperature_cpu">Teplota\nprocesora</string>
     <string name="battery_title">Moc</string>
     <string name="boost_reason_danger_off">Žiadne žiadosti v súčasnosti zaberajú\nRAM</string>
     <string name="working_time">%d hodín %d minút</string>
@@ -25,7 +25,7 @@
     <string name="increase_time_working">Môžete rozšíriť výdrž batérie telefónu</string>
     <string name="cooling">Ochladiť</string>
     <string name="boost">Urýchliť</string>
-    <string name="normal_temperature">Normálna teplota procesora je 25–30 ℃</string>
+    <string name="normal_temperature">Normálna teplota\nprocesora je 25–30 ℃</string>
     <string name="scanning_system">Naskenujte systém …</string>
     <string name="hello_blank_fragment">Ahoj prázdny fragment</string>
     <string name="cleared">Vyčistený</string>

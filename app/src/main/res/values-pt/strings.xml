@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="used">Ocupado</string>
-    <string name="temperature_cpu">Temperatura do processador</string>
+    <string name="temperature_cpu">Temperatura\ndo processador</string>
     <string name="battery_title">Poder</string>
     <string name="boost_reason_danger_off">Nenhuma aplicação atualmente ocupando\nRAM</string>
     <string name="working_time">%d horas %d minutos</string>
@@ -25,7 +25,7 @@
     <string name="increase_time_working">Você pode prolongar a duração da bateria do seu telefone</string>
     <string name="cooling">Legal</string>
     <string name="boost">Acelerar</string>
-    <string name="normal_temperature">A temperatura normal do processador é 25–30 ℃</string>
+    <string name="normal_temperature">A temperatura normal\ndo processador é 25–30 ℃</string>
     <string name="scanning_system">Digitalize o sistema …</string>
     <string name="hello_blank_fragment">Olá fragmento em branco</string>
     <string name="cleared">Limpo</string>

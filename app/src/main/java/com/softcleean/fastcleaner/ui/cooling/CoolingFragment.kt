@@ -38,22 +38,30 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
     private fun renderState(stateScreen: CoolingScreenState) {
         with(stateScreen) {
             renderBtnBoostingBattery(isCoolingDone)
+            renderCircularProgress(isCoolingDone, temperature)
             with(binding) {
                 tvDegree.text = getString(R.string.degree, temperature)
                 if (isCoolingDone) {
                     tvDangerDescriptionOff.isVisible = true
                     tvDangerDescription.isVisible = false
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_danger_off))
                     ivDegree.setImageDrawable(resources.getDrawable(R.drawable.ic_thermometer_blue))
-                    tvDangerReason.text = getString(R.string.cooling_done_description)
                 } else {
                     tvDangerDescriptionOff.isVisible = false
                     tvDangerDescription.isVisible = true
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_cooling_danger))
                     ivDegree.setImageDrawable(resources.getDrawable(R.drawable.ic_thermometer_red))
                 }
             }
         }
+    }
+
+    private fun renderCircularProgress(isBoosted: Boolean, temperature: Int) {
+        binding.circularProgressTemperaturePercent.indicator.color =
+            if (isBoosted)
+                resources.getColor(R.color.blue)
+            else
+                resources.getColor(R.color.red)
+        val percentOfTemperature = if (temperature / 0.7f <= 100) temperature / 0.7f else 100f
+        binding.circularProgressTemperaturePercent.indicator.progress = percentOfTemperature
     }
 
     private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {
@@ -70,9 +78,6 @@ class CoolingFragment : Fragment(R.layout.fragment_cooling) {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.cooling()
             findNavController().navigate(R.id.action_coolingFragment_to_coolingOptimizingFragment)
-        }
-        binding.btnGoBack.setOnClickListener {
-            findNavController().popBackStack()
         }
     }
 
