@@ -55,7 +55,7 @@
     <string name="check_device">Checking Your Phone\'s Status…</string>
     <string name="cooling_done_description">Right now your phone is cool and ready for use</string>
     <string name="clean">Clean up</string>
-    <string name="clean_junks_safely">Deleting\njunk files is absolutely safe</string>
+    <string name="clean_junks_safely">Deleting junk\nfiles is absolutely\nsafe</string>
     <string name="collect_data">Collecting Data…</string>
     <string name="cooling_process">Cooling</string>
     <string name="cooling_title">Cooling</string>

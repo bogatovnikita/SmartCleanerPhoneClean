@@ -55,7 +55,7 @@
     <string name="check_device">Проверка на състоянието на телефона ви …</string>
     <string name="cooling_done_description">В момента телефонът ви е готин и готов за употреба</string>
     <string name="clean">Почисти</string>
-    <string name="clean_junks_safely">Изтриването на\nбоклуци е абсолютно безопасно</string>
+    <string name="clean_junks_safely">Изтриването на\nбоклуци е абсолютно\nбезопасно</string>
     <string name="collect_data">Събиране на данни …</string>
     <string name="cooling_process">Охлаждане</string>
     <string name="cooling_title">Охлаждане</string>

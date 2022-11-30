@@ -55,7 +55,7 @@
     <string name="check_device">Kontrola stavu telefónu …</string>
     <string name="cooling_done_description">Práve teraz je váš telefón v pohode a pripravený na použitie</string>
     <string name="clean">Vyčistiť</string>
-    <string name="clean_junks_safely">Vymazanie\nnevyžiadaných súborov je úplne bezpečné</string>
+    <string name="clean_junks_safely">Vymazanie nevyžiadaných\nsúborov je úplne\nbezpečné</string>
     <string name="collect_data">Zhromažďovanie údajov …</string>
     <string name="cooling_process">Chladenie</string>
     <string name="cooling_title">Chladenie</string>

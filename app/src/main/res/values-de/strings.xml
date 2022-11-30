@@ -55,7 +55,7 @@
     <string name="check_device">Überprüfen Sie den Status Ihres Telefons …</string>
     <string name="cooling_done_description">Im Moment ist Ihr Telefon cool und bereit für den Gebrauch</string>
     <string name="clean">Aufräumen</string>
-    <string name="clean_junks_safely">Das Löschen von\nJunk-Dateien ist absolut sicher</string>
+    <string name="clean_junks_safely">Das Löschen von\nJunk-Dateien ist\nabsolutsicher</string>
     <string name="collect_data">Daten sammeln…</string>
     <string name="cooling_process">Kühlung</string>
     <string name="cooling_title">Kühlung</string>

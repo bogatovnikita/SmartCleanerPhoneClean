@@ -55,7 +55,7 @@
     <string name="check_device">Preverjanje stanja telefona …</string>
     <string name="cooling_done_description">Trenutno je vaš telefon kul in pripravljen za uporabo</string>
     <string name="clean">Pospravi</string>
-    <string name="clean_junks_safely">Brisanje\nneželenih datotek je popolnoma varno</string>
+    <string name="clean_junks_safely">Brisanje neželenih\ndatotek je popolnoma\nvarno</string>
     <string name="collect_data">Zbiranje podatkov …</string>
     <string name="cooling_process">Hlajenje</string>
     <string name="cooling_title">Hlajenje</string>

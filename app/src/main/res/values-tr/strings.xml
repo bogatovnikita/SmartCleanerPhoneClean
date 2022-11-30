@@ -55,7 +55,7 @@
     <string name="check_device">Telefonunuzun durumunu kontrol etmek …</string>
     <string name="cooling_done_description">Şu anda telefonunuz havalı ve kullanıma hazır</string>
     <string name="clean">Temizlemek</string>
-    <string name="clean_junks_safely">önemsiz dosyayı silmek kesinlikle güvenlidir</string>
+    <string name="clean_junks_safely">önemsiz dosyayı\nsilmek kesinlikle\ngüvenlidir</string>
     <string name="collect_data">Veri Toplama …</string>
     <string name="cooling_process">Soğutma</string>
     <string name="cooling_title">Soğutma</string>

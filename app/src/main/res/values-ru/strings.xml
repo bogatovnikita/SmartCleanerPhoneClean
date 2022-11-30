@@ -43,7 +43,7 @@
     <string name="clean_danger_title">Требуется очистка!</string>
     <string name="cleaning">Очистка</string>
     <string name="finded_junk_file">Обнаружены\nмусорные файлы</string>
-    <string name="clean_junks_safely">Удаление мусорных файлов\nабсолютно безопасно</string>
+    <string name="clean_junks_safely">Удаление мусорных\nфайлов абсолютно\nбезопасно</string>
     <string name="cleared">Очищено</string>
     <string name="scanning_system">Сканируем систему…</string>
     <string name="collect_data">Собираем данные…</string>

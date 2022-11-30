@@ -200,9 +200,6 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
             }
         }
-        binding.btnGoBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private fun renderBtnBoostingBattery(
