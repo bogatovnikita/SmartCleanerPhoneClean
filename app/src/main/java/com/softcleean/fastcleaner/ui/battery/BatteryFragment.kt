@@ -145,25 +145,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             with(binding) {
                 choosingTypeBar.setSaveTypeBattery(batterySaveType)
                 tvBatteryPercents.text = getString(R.string.value_percents, batteryPercents)
-                tvWorkingTime.text =
-                    getString(R.string.working_time, batteryWorkingTime[0], batteryWorkingTime[1])
-                if (isBoostedBattery) {
-                    tvDangerDescriptionOff.isVisible = true
-                    tvDangerDescription.isVisible = false
-                    tvDangerDescriptionOff.text = getString(
-                        R.string.improve_working_time_by_percent,
-                        viewModel.modePercentBoost()
-                    )
-                } else {
-                    tvDangerDescriptionOff.isVisible = false
-                    tvDangerDescription.isVisible = true
-                }
                 if (hasBluetoothPerm) {
                     descriptionGoSettings.isVisible = false
                 }
             }
             renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
-            renderCircularProgressBatteryPercent(batteryPercents)
+            renderCircularProgressBatteryPercent(batteryPercents, isBoostedBattery)
         }
     }
 
@@ -238,12 +225,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         }
     }
 
-    private fun renderCircularProgressBatteryPercent(percent: Int) {
+    private fun renderCircularProgressBatteryPercent(percent: Int, isBoostedBattery: Boolean) {
         binding.circularProgressBatteryPercent.progress = percent.toFloat()
         binding.circularProgressBatteryPercent.indicator.color =
-            if (percent > 40)
+            if (isBoostedBattery)
                 resources.getColor(R.color.blue)
-            else if (percent > 20)
+            else if (percent > 30)
                 resources.getColor(R.color.orange)
             else
                 resources.getColor(R.color.red)

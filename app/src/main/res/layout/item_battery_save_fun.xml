@@ -7,19 +7,18 @@
     android:paddingVertical="@dimen/_2sdp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_3sdp"
+        android:layout_height="@dimen/_3sdp"
         android:layout_marginStart="@dimen/_36sdp"
-        android:background="@drawable/ic_ellipse_grey" />
+        android:background="@drawable/ic_ellipse_white" />
 
     <TextView
         android:id="@+id/function"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_4sdp"
-        android:alpha="0.5"
         android:fontFamily="@font/golos_regular"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_12ssp" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/_9ssp" />
 
 </LinearLayout>

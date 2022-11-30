@@ -5,6 +5,7 @@
     android:id="@+id/choosing_type_battery_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/main_background"
     android:soundEffectsEnabled="false"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
@@ -16,7 +17,7 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:fontFamily="@font/golos_regular"
         android:text="@string/type_normal"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/_9ssp"
         app:layout_constraintBottom_toTopOf="@id/bg_choosing"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/golos_regular"
         android:text="@string/type_ultra"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/_9ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:layout_marginEnd="@dimen/_9sdp"
         android:fontFamily="@font/golos_regular"
         android:text="@string/type_extra"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/_9ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_type_ultra" />
@@ -129,8 +130,7 @@
         android:layout_width="@dimen/_15sdp"
         android:layout_height="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="@+id/dot_base"
-        app:layout_constraintEnd_toEndOf="@+id/tv_type_extra"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_extra"
+        app:layout_constraintEnd_toEndOf="@+id/bg_choosing"
         app:layout_constraintTop_toTopOf="@+id/dot_base">
 
         <ImageView
