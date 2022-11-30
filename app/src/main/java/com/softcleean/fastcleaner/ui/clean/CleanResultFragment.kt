@@ -13,9 +13,9 @@ class CleanResultFragment: BaseFragmentResult(){
     @Inject
     lateinit var resultList: ResultList
 
-    override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Cooling }
+    override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Clean }
 
     override fun setFunName(): String = requireContext().getString(R.string.cleaning)
 
-    override fun setMessageOfCompleteFun(): String = requireContext().getString(R.string.coolling_done)
+    override fun setMessageOfCompleteFun(): String = requireContext().getString(R.string.clean_done)
 }

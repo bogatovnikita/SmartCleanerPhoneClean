@@ -14,4 +14,6 @@ class BoostOptimizingFragment(
         listOptions = resources.getStringArray(R.array.optimization).toMutableList()
     }
 
+    override fun setFunName(): String = requireContext().getString(R.string.boosting)
+
 }

@@ -52,7 +52,7 @@
         android:fontFamily="@font/golos_regular"
         android:gravity="center_vertical"
         android:paddingVertical="@dimen/_14sdp"
-        android:paddingStart="@dimen/_12sdp"
+        android:paddingStart="@dimen/_17sdp"
         android:text="@string/clean_done"
         android:textColor="@color/green"
         android:textSize="@dimen/_12ssp"

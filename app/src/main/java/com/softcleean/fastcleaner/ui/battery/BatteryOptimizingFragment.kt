@@ -48,4 +48,6 @@ class BatteryOptimizingFragment(
         }
     }
 
+    override fun setFunName(): String = requireContext().getString(R.string.battery_title)
+
 }

@@ -15,4 +15,6 @@ class CoolingOptimizingFragment(
 
     override fun startOptimizationFun() {}
 
+    override fun setFunName(): String = requireContext().getString(R.string.cooling_process)
+
 }

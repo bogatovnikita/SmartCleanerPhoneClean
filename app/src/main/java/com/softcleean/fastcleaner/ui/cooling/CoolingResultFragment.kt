@@ -16,7 +16,7 @@ class CoolingResultFragment: BaseFragmentResult(){
 
     override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Cooling }
 
-    override fun setFunName(): String = requireContext().getString(R.string.cooling)
+    override fun setFunName(): String = requireContext().getString(R.string.cooling_process)
 
     override fun setMessageOfCompleteFun(): String = requireContext().getString(R.string.coolling_done)
 

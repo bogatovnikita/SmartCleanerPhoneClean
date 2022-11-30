@@ -59,8 +59,13 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     abstract fun startOptimizationFun()
 
+    abstract fun setFunName(): String
+
     private fun startOptimization() {
         binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
+        binding.tvOptimizationTitle.text = setFunName()
+        binding.optimizationRunning.isVisible = true
+        binding.optimizationDone.isVisible = false
         lifecycleScope.launch {
             repeat(101) { percent ->
                 delay(80)
@@ -71,7 +76,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
                 }
                 if (percent == 100) {
                     optimizationIsDone()
-                    delay(500)
+                    delay(700)
                     findNavController().navigate(nextScreenId)
 //                    showInterstitial(
 //                        onClosed = {
@@ -88,7 +93,8 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false
-            tvOptimizationTitle.isVisible = false
+            optimizationRunning.isVisible = false
+            optimizationDone.isVisible = true
         }
     }
 

@@ -30,4 +30,6 @@ class CleanOptimizingFragment(
         }.toMutableList()
     }
 
+    override fun setFunName(): String = requireContext().getString(R.string.cleaning)
+
 }
