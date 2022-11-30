@@ -18,7 +18,7 @@ class BoostResultFragment: BaseFragmentResult() {
     @Inject
      lateinit var boostUseCase: BoostUseCase
 
-    override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Cooling }
+    override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Boost }
 
     override fun setFunName(): String = requireContext().getString(R.string.boosting)
 
