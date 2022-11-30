@@ -34,7 +34,7 @@ abstract class BaseFragmentResult: Fragment(R.layout.fragment_base_result) {
 
     private fun setBtnListeners() {
         binding.btnGoBack.setOnClickListener {
-            findNavController().navigate(R.id.action_to_homeFragment)
+            findNavController().navigate(R.id.action_to_boostFragment)
         }
     }
 

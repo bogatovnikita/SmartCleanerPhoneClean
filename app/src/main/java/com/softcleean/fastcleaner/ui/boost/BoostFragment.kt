@@ -11,6 +11,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentBoostBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import yinkio.android.customView.progressBar.ArcCircleProgressBar
 
 @AndroidEntryPoint
 class BoostFragment : Fragment(R.layout.fragment_boost) {
@@ -21,47 +23,44 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initScreenStateObserver()
         viewModel.getParams()
+        initScreenStateObserver()
         setBtnListeners()
     }
 
     private fun initScreenStateObserver() {
-        lifecycleScope.launchWhenResumed {
+        lifecycleScope.launch {
             viewModel.screenState.collect { state ->
                 renderState(state)
             }
         }
     }
 
-    private fun renderState(stateScreen: BoostStateScreen) {
-        with(stateScreen) {
+    private fun renderState(state: BoostScreenState) {
+        with(state) {
+            renderBtnBoostingBattery(isRamBoosted)
             with(binding) {
-                tvRamPercents.text = getString(R.string.value_percents, boostPercent)
-                circularProgressRamPercent.progress = boostPercent.toFloat()
-                renderCircularProgress(isBoosted)
-                tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
+                circularProgressRamPercent.progress = ramPercent.toFloat()
+                circularProgressRamPercentDuplicate?.progress = ramPercent.toFloat()
+                renderCircularProgress(isRamBoosted, circularProgressRamPercent)
+                tvRamPercents.text = getString(R.string.value_percents, ramPercent)
+                tvRamPercentsDuplicate?.text = getString(R.string.value_percents, ramPercent)
+                circularProgressStoragePercent.progress = memoryPercent.toFloat()
+                renderCircularProgress(isMemoryBoosted, circularProgressStoragePercent)
+                tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
+                tvUsedStorage.text = getString(R.string.gb, usedMemory)
+                tvTotalStorage.text = getString(R.string.gb_fraction, totalMemory)
+                tvFreeStorage.text = getString(R.string.gb, freeMemory)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
-                tvFreeRam.text = getString(R.string.gb, totalRam - usedRam)
-                if (isBoosted) {
-                    tvDangerDescriptionOff.isVisible = true
-                    tvDangerDescription.isVisible = false
-                    tvDangerDescriptionOff.text = getString(R.string.danger_boost_off, freeRam, overloadPercents)
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_rocket_danger_off))
-                    tvDangerReason.text = getString(R.string.boost_reason_danger_off)
-                    tvTypeSaveBatteryTitle.text = getString(R.string.boost_danger_description_off)
-                } else {
-                    tvDangerDescriptionOff.isVisible = false
-                    tvDangerDescription.isVisible = true
-                    ivRocketDanger.setImageDrawable(resources.getDrawable(R.drawable.ic_rocket_danger))
-                }
-                renderBtnBoostingBattery(isBoosted)
+                tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
+                tvFreeRam.text = getString(R.string.gb, freeRam)
+                tvDangerDescription?.isVisible = !isRamBoosted
             }
         }
     }
 
-    private fun renderCircularProgress(isBoosted: Boolean) {
-        binding.circularProgressRamPercent.indicator.color =
+    private fun renderCircularProgress(isBoosted: Boolean, view: ArcCircleProgressBar) {
+        view.indicator.color =
             if (isBoosted)
                 resources.getColor(R.color.blue)
             else
@@ -70,21 +69,18 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {
         if (isBoostedBattery) {
-            binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background = resources.getDrawable(R.drawable.bg_button_boost_off)
+            binding.btnBoostBattery?.isClickable = false
+            binding.btnBoostBattery?.background = resources.getDrawable(R.drawable.bg_button_boost_off)
         } else {
-            binding.btnBoostBattery.isClickable = true
-            binding.btnBoostBattery.background = resources.getDrawable(R.drawable.bg_button_boost_on)
+            binding.btnBoostBattery?.isClickable = true
+            binding.btnBoostBattery?.background = resources.getDrawable(R.drawable.bg_button_boost_on)
         }
     }
 
     private fun setBtnListeners() {
-        binding.btnBoostBattery.setOnClickListener {
+        binding.btnBoostBattery?.setOnClickListener {
             viewModel.boost()
-            findNavController().navigate(R.id.action_boostFragment_to_boostOptimizingFragment)
-        }
-        binding.btnGoBack.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_homeFragment_to_boostOptimizingFragment)
         }
     }
 }

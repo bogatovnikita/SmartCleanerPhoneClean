@@ -1,8 +1,6 @@
-package com.softcleean.fastcleaner.ui.home
+package com.softcleean.fastcleaner.ui.boost
 
-import com.softcleean.fastcleaner.adapters.ItemHomeFun
-
-data class HomeScreenState(
+data class BoostScreenState(
     val usedRam: Double = 0.0,
     val totalRam: Double = 0.0,
     val freeRam: Double = 0.0,
@@ -13,5 +11,5 @@ data class HomeScreenState(
     val freeMemory: Double = 0.0,
     val memoryPercent: Int = 60,
     val isMemoryBoosted: Boolean = false,
-    val funList: List<ItemHomeFun> = emptyList(),
+    val overloadPercent: Int = 0,
 )

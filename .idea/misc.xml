@@ -10,17 +10,22 @@
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_cooling_danger.xml" value="0.177" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_ellipse_grey.xml" value="0.177" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_optimization_battery.xml" value="0.145" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_rocket_danger.xml" value="0.121" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_rocket_danger_off.xml" value="0.177" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_white_bucket.xml" value="0.177" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_white_fire.xml" value="0.177" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/drawable/ic_white_rocket.xml" value="0.177" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout-small/fragment_boost.xml" value="0.152" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/choosing_type_battery_bar_view.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_base_optimizing.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_base_result.xml" value="0.8800000000000001" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_battery.xml" value="0.264" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_battery_optimizing.xml" value="0.25" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_boost.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_clean.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_clean_result.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_cooling.xml" value="0.264" />
+        <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/item_battery_save_fun.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/dimap/StudioProjects/ar155-clone/app/src/main/res/layout/item_optimizing.xml" value="0.25" />
