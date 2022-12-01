@@ -230,7 +230,7 @@
         android:drawableEnd="@drawable/ic_white_bucket"
         android:fontFamily="@font/golos_regular"
         android:gravity="start|center_vertical"
-        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
         android:text="@string/clean"
         android:textAllCaps="false"
         android:textColor="@color/white"

@@ -2,6 +2,7 @@ package com.softcleean.fastcleaner.ui.boost
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -41,10 +42,11 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
             renderBtnBoostingBattery(isRamBoosted)
             with(binding) {
                 circularProgressRamPercent.progress = ramPercent.toFloat()
-                circularProgressRamPercentDuplicate?.progress = ramPercent.toFloat()
+                circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
                 renderCircularProgress(isRamBoosted, circularProgressRamPercent)
+                renderCircularProgress(isRamBoosted, circularProgressRamPercentDuplicate)
                 tvRamPercents.text = getString(R.string.value_percents, ramPercent)
-                tvRamPercentsDuplicate?.text = getString(R.string.value_percents, ramPercent)
+                tvRamPercentsDuplicate.text = getString(R.string.value_percents, ramPercent)
                 circularProgressStoragePercent.progress = memoryPercent.toFloat()
                 renderCircularProgress(isMemoryBoosted, circularProgressStoragePercent)
                 tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
@@ -54,7 +56,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 tvUsedRam.text = getString(R.string.gb, usedRam)
                 tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
                 tvFreeRam.text = getString(R.string.gb, freeRam)
-                tvDangerDescription?.isVisible = !isRamBoosted
+                tvDangerDescription.isVisible = !isRamBoosted
             }
         }
     }
@@ -69,16 +71,16 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {
         if (isBoostedBattery) {
-            binding.btnBoostBattery?.isClickable = false
-            binding.btnBoostBattery?.background = resources.getDrawable(R.drawable.bg_button_boost_off)
+            binding.btnBoostBattery.isClickable = false
+            binding.btnBoostBattery.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_button_boost_off)
         } else {
-            binding.btnBoostBattery?.isClickable = true
-            binding.btnBoostBattery?.background = resources.getDrawable(R.drawable.bg_button_boost_on)
+            binding.btnBoostBattery.isClickable = true
+            binding.btnBoostBattery.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_button_boost_on)
         }
     }
 
     private fun setBtnListeners() {
-        binding.btnBoostBattery?.setOnClickListener {
+        binding.btnBoostBattery.setOnClickListener {
             viewModel.boost()
             findNavController().navigate(R.id.action_homeFragment_to_boostOptimizingFragment)
         }
