@@ -44,18 +44,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingVertical="16dp"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_navigation_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:background="@drawable/bg_navigation_bar">
 
         <ImageView
             android:id="@+id/btn_boost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_grey_rocket" />
+            app:srcCompat="@drawable/ic_boost_danger" />
 
         <ImageView
             android:id="@+id/btn_cool"

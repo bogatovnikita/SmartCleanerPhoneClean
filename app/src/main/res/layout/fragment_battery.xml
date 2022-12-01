@@ -155,7 +155,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_22sdp"
-        android:layout_marginVertical="@dimen/_19sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
         android:background="@color/blue"
         android:drawableEnd="@drawable/ic_white_battery"
         android:fontFamily="@font/golos_regular"

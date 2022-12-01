@@ -23,7 +23,7 @@ class ResultList @Inject constructor(
             icon = if (boostUseCase.checkRamOverload())
                 R.drawable.ic_rocket_danger_off
             else
-                R.drawable.ic_rocket_danger,
+                R.drawable.ic_boost_danger,
             type = OptimizingType.Boost,
         ),
         FunResult(

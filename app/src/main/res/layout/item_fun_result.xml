@@ -24,7 +24,7 @@
         android:id="@+id/iv_fun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_rocket_danger"
+        android:src="@drawable/ic_boost_danger"
         app:layout_constraintBottom_toBottomOf="@+id/barrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_fun_name" />
