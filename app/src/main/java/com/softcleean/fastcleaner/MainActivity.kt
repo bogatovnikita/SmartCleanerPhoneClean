@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import com.softcleean.fastcleaner.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import initAds
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        initAds()
+        initAds()
         initListeners()
         initChangeDestinationListener()
     }

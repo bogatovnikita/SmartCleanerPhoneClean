@@ -1,5 +1,6 @@
 package com.softcleean.fastcleaner.ui.clean
 
+import com.softcleean.fastcleaner.BuildConfig
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.domain.clean.CleanUseCase
 import com.softcleean.fastcleaner.ui.base.BaseOptimizingFragment
@@ -9,7 +10,7 @@ import kotlin.random.Random
 
 @AndroidEntryPoint
 class CleanOptimizingFragment(
-//    override val keyInter: String = "",
+    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL5,
     override val nextScreenId: Int = R.id.action_cleanOptimizingFragment_to_cleanResultFragment
 ) : BaseOptimizingFragment() {
 
