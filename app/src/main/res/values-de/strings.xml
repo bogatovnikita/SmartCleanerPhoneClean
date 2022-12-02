@@ -25,7 +25,7 @@
     <string name="improve_working_time_by_percent">Telefon die verfügbarkeit\nstieg um %d %%</string>
     <string name="boost_danger_title">Speicher überladen!\nmuss beschleunigt werden!</string>
     <string name="clean_danger_desc">Kostenloser\nSpeicher von Junk</string>
-    <string name="battery_danger_desc">Verlängerung der Arbeitszeit von\n!</string>
+    <string name="battery_danger_desc">Verlängerung der Arbeitszeit von!</string>
     <string name="cooling_danger_title">Prozessor überhitzt!\nKühlung erforderlich!</string>
     <string name="storage">Lagerung</string>
     <string name="clean_done">Mülldateien gelöscht.</string>

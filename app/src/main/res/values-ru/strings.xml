@@ -16,7 +16,6 @@
     <string name="gb_one_after_dot">%.1f Гб</string>
     <string name="gb_fraction">/%.1f Гб</string>
     <string name="gb_fraction_garbage">/%.1f Гб</string>
-    <string name="boost">Ускорить</string>
     <string name="boosting">Ускорение</string>
     <string name="danger_boost_off">Освобождено %.2f Гб\nТелефон ускорен на %d%%</string>
     <string name="boost_danger_title">Память перегружена!\nТребуется ускорение!</string>
@@ -42,7 +41,7 @@
     <string name="done">Выполнено</string>
     <string name="battery_boost">Продлить</string>
     <string name="boost_danger_desc">Оптимизируйте\nработу телефона</string>
-    <string name="battery_danger_desc">Продлите работу\nустройства</string>
+    <string name="battery_danger_desc">Продлите работу устройства</string>
     <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
     <string name="clean_danger_desc">Освободите память\nот мусора</string>
     <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
@@ -56,6 +55,8 @@
     <string name="title_dialog_bluetooth">Для Экстра режима нужен доступ к настройкам bluetooth</string>
     <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth для увеличения времени работы батареи</string>
     <string name="btn_continue">Далее</string>
+    <string name="privacy_policy"><u>Политика Конфиденциальности</u></string>
+    <string name="boost">Ускорьте работу вашего телефона</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

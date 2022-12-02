@@ -25,7 +25,7 @@
     <string name="improve_working_time_by_percent">Telefon se je\npovečal za %d %%</string>
     <string name="boost_danger_title">Pomnilnik preobremenjen!\npotrebuje pospešitev!</string>
     <string name="clean_danger_desc">Brezplačno\npomnilnik od smeti</string>
-    <string name="battery_danger_desc">Iztegnite\ndelovnega časa!</string>
+    <string name="battery_danger_desc">Iztegnite delovnega časa!</string>
     <string name="cooling_danger_title">Procesor pregret!\nPotrebno hlajenje!</string>
     <string name="storage">Skladiščenje</string>
     <string name="clean_done">Izbrisane datoteke za smeti.</string>

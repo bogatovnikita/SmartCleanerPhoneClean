@@ -55,8 +55,6 @@
     <string name="title_dialog_bluetooth">Extra mode requires access to bluetooth settings</string>
     <string name="dialog_bluetooth_description">Allow the app to access the bluetooth settings to increase battery life.</string>
     <string name="btn_continue">Next</string>
-
-
     <string name="privacy_policy"><u>Privacy policy</u></string>
     <string name="boost">Speed up your phone</string>
 

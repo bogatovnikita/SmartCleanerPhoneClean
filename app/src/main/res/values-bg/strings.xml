@@ -25,7 +25,7 @@
     <string name="improve_working_time_by_percent">Телефон времето\nсе увеличава %d %%</string>
     <string name="boost_danger_title">Паметта претоварена!\nсе нуждае от ускоряване!</string>
     <string name="clean_danger_desc">Безплатна\nпамет от боклуци</string>
-    <string name="battery_danger_desc">Удължете работното време на\n!</string>
+    <string name="battery_danger_desc">Удължете работното време на!</string>
     <string name="cooling_danger_title">Процесорът прегрява!\nИзисква се охлаждане!</string>
     <string name="storage">Съхранение</string>
     <string name="clean_done">Изтрити файлове за боклук.</string>

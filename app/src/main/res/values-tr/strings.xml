@@ -4,7 +4,7 @@
     <string name="temperature_cpu">İşlemci\nsıcaklığı</string>
     <string name="battery_title">Güç</string>
     <string name="working_time">%d saat %d dakika</string>
-    <string name="gb_fraction">%.2f GB</string>
+    <string name="gb_fraction">/%.2f GB</string>
     <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="clean_danger_title">Temizleme Gerekli!</string>
     <string name="garbage_not_found">Önemsiz Dosya Yok\nTespit Edildi</string>
@@ -25,7 +25,7 @@
     <string name="improve_working_time_by_percent">Telefon çalışma\nsüresi %d arttı %%</string>
     <string name="boost_danger_title">Hafıza aşırı yüklendi!\n \'nin hızlanması gerekiyor!</string>
     <string name="clean_danger_desc">Ücretsiz\nHafıza Önemsiz</string>
-    <string name="battery_danger_desc">Cihazın çalışmasını\nuzatın!</string>
+    <string name="battery_danger_desc">Cihazın çalışmasını uzatın!</string>
     <string name="cooling_danger_title">İşlemci aşırı ısındı!\nSoğutma Gerekli!</string>
     <string name="storage">Depolamak</string>
     <string name="clean_done">Çöp dosyaları silindi.</string>
