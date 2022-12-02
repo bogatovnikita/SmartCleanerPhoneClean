@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fast Cleaner</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="battery_title">Питание</string>
-    <string name="remaining_working_time">Оставшееся время\nработы</string>
-    <string name="increase_time_working">Вы можете продлить\nвремя работы телефона</string>
     <string name="type_save_battery_title">Режимы продления работы:</string>
     <string name="type_extra">Экстра\n+60%</string>
     <string name="type_ultra">Ультра\n+30%</string>
@@ -22,21 +19,14 @@
     <string name="boost">Ускорить</string>
     <string name="boosting">Ускорение</string>
     <string name="danger_boost_off">Освобождено %.2f Гб\nТелефон ускорен на %d%%</string>
-    <string name="boost_reason_danger">Прямо сейчас фоновые процессы и приложения прегружают оперативную память</string>
-    <string name="boost_reason_danger_off">Сейчас нет приложений, занимающих\nоперативную память</string>
     <string name="boost_danger_title">Память перегружена!\nТребуется ускорение!</string>
-    <string name="boost_danger_description">Снижайте нагрузку\nна оперативную память\nи ускоряйте работу вашего\nтелефона</string>
-    <string name="boost_danger_description_off">Не забывайте снижать нагрузку\nна оперативную память\nи ускорять работу вашего телефона</string>
     <string name="cooling">Охладить</string>
-    <string name="cooling_danger_reason">Прямо сейчас фоновые процессы и приложения\nперегревают процессор вашего телефона</string>
     <string name="cooling_danger_title">Процессор перегрелся!\nТребуется охлаждение!</string>
     <string name="coolling_done">Процессор охлажден,\nтемпература нормализована</string>
-    <string name="cooling_done_description">Сейчас ваш телефон охлажден и готов к работе</string>
     <string name="degree">%d ℃</string>
     <string name="mb">%d Mb</string>
     <string name="temperature_cpu">Температура\nпроцессора</string>
     <string name="normal_temperature">Нормальная температура\nпроцессора 25–30℃</string>
-    <string name="cooling_advice">Регулярно охлаждайте телефон, чтобы снизить нагрузку на процессор, продлить срок его службы и ускорить работу вашего устройства</string>
     <string name="cooling_process">Охлаждение</string>
     <string name="clean">Очистить</string>
     <string name="clean_done">Мусорные файлы удалены</string>
@@ -45,9 +35,6 @@
     <string name="finded_junk_file">Обнаружены\nмусорные файлы</string>
     <string name="clean_junks_safely">Удаление мусорных\nфайлов абсолютно\nбезопасно</string>
     <string name="cleared">Очищено</string>
-    <string name="scanning_system">Сканируем систему…</string>
-    <string name="collect_data">Собираем данные…</string>
-    <string name="check_device">Проверяем состояние устройства…</string>
     <string name="used">Занято</string>
     <string name="storage">Хранилище</string>
     <string name="free">Свободно</string>
@@ -58,8 +45,6 @@
     <string name="battery_danger_desc">Продлите работу\nустройства</string>
     <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
     <string name="clean_danger_desc">Освободите память\nот мусора</string>
-    <string name="cooling_title">Охлаждение</string>
-    <string name="on_main_screen">На главный экран</string>
     <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
     <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
     <string name="cancel">Отмена</string>
