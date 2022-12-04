@@ -51,10 +51,10 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 renderCircularProgress(isMemoryBoosted, circularProgressStoragePercent)
                 tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
                 tvUsedStorage.text = getString(R.string.gb, usedMemory)
-                tvTotalStorage.text = getString(R.string.gb_fraction, totalMemory)
+                tvTotalStorage.text = getString(R.string.gb_one_after_dot, totalMemory)
                 tvFreeStorage.text = getString(R.string.gb, freeMemory)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
-                tvTotalRam.text = getString(R.string.gb_fraction, totalRam)
+                tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
                 tvFreeRam.text = getString(R.string.gb, freeRam)
                 tvDangerDescription.isVisible = !isRamBoosted
             }
