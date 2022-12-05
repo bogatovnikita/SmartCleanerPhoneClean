@@ -57,6 +57,12 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
                 tvFreeRam.text = getString(R.string.gb, freeRam)
                 tvDangerDescription.isVisible = !isRamBoosted
+                if (isMemoryBoosted) {
+                    separationLine.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_separation_line)
+                }
+                if (isRamBoosted) {
+                    separationLineRam.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_separation_line)
+                }
             }
         }
     }
