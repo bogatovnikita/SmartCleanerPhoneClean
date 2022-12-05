@@ -19,7 +19,6 @@
     <string name="coolling_done">CPU soğutulmuş,\nsıcaklık normalleştirilmiş</string>
     <string name="free_memory_size">Depolama Ücretsiz \n %.1f GB</string>
     <string name="cooling">Serin</string>
-    <string name="boost">Hızlanmak</string>
     <string name="normal_temperature">Normal işlemci\nsıcaklığı 25–30 ℃</string>
     <string name="cleared">Temizlenmiş</string>
     <string name="improve_working_time_by_percent">Telefon çalışma\nsüresi %d arttı %%</string>
@@ -56,7 +55,8 @@
     <string name="title_dialog_bluetooth">Ekstra mod, Bluetooth ayarlarına erişim gerektirir</string>
     <string name="dialog_bluetooth_description">Pil ömrünü artırmak için uygulamanın Bluetooth ayarlarına erişmesine izin verin.</string>
     <string name="btn_continue">Sonraki</string>
-
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="boost">Telefonunuzu Hızlandırın</string>
     <array name="battery_normal">
         <item>Parlaklığı azalt</item>
         <item>Otomatik parlaklığı devre dışı bırak</item>

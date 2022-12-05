@@ -19,7 +19,6 @@
     <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
     <string name="free_memory_size">The storage is free\n%.1f GB</string>
     <string name="cooling">Cool</string>
-    <string name="boost">Accelerate</string>
     <string name="normal_temperature">Normal processor\ntemperature is 25–30℃</string>
     <string name="cleared">Cleaned</string>
     <string name="improve_working_time_by_percent">Phone uptime\nincreased by %d %%</string>
@@ -56,7 +55,8 @@
     <string name="title_dialog_bluetooth">Extra mode requires access to bluetooth settings</string>
     <string name="dialog_bluetooth_description">Allow the app to access the bluetooth settings to increase battery life.</string>
     <string name="btn_continue">Next</string>
-
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="boost">Speed up your phone</string>
     <array name="battery_normal">
         <item>Decrease brightness</item>
         <item>Disable auto-brightness</item>.

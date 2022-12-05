@@ -56,7 +56,7 @@
     <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth для увеличения времени работы батареи</string>
     <string name="btn_continue">Далее</string>
     <string name="privacy_policy"><u>Политика Конфиденциальности</u></string>
-    <string name="boost">Ускорьте работу вашего телефона</string>
+    <string name="boost">Ускорить работу телефона</string>
 
     <array name="battery_normal">
         <item>Уменьшим яркость</item>

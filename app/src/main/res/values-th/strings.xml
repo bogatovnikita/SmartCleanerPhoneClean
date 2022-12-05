@@ -19,14 +19,13 @@
     <string name="coolling_done">CPU เย็นลง\nอุณหภูมิปกติ</string>
     <string name="free_memory_size">ที่เก็บข้อมูลฟรี %.1f GB</string>
     <string name="cooling">เย็น</string>
-    <string name="boost">เร่งความเร็ว</string>
     <string name="normal_temperature">อุณหภูมิโป\nรเซสเซอร์ปกติคือ 25–30 ℃</string>
     <string name="cleared">ทำความสะอาด</string>
     <string name="improve_working_time_by_percent">โทรศัพท์\nใช้เวลาเพิ่มขึ้น %d%%</string>
     <string name="boost_danger_title">หน่วยความจำมากเกินไป!\nต้องการเร่งความเร็ว!</string>
     <string name="clean_danger_desc">ฟรีหน่วยความจำจากขยะ</string>
     <string name="battery_danger_desc">ขยายเวลาทำงานของ!</string>
-    <string name="cooling_danger_title">โปรเซสเซอร์ร้อนเกินไป! ต้องใช้ความเย็น!</string>
+    <string name="cooling_danger_title">โปรเซสเซอร์ร้อนเกินไป!\nต้องใช้ความเย็น!</string>
     <string name="storage">พื้นที่จัดเก็บ</string>
     <string name="clean_done">ลบไฟล์ขยะ</string>
     <string name="cooling_danger_desc">แอปพลิเคชันปิดพื้นหลัง</string>
@@ -56,7 +55,8 @@
     <string name="title_dialog_bluetooth">โหมดพิเศษต้องการการเข้าถึงการตั้งค่าบลูทู ธ</string>
     <string name="dialog_bluetooth_description">อนุญาตให้แอปเข้าถึงการตั้งค่าบลูทู ธ เพื่อเพิ่มอายุการใช้งานแบตเตอรี่</string>
     <string name="btn_continue">ต่อไป</string>
-
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="boost">เร่งโทรศัพท์ของคุณ</string>
     <array name="battery_normal">
         <item>ลดความสว่าง</item>
         <item>ปิดการใช้งานความสว่างอัตโนมัติ</item>

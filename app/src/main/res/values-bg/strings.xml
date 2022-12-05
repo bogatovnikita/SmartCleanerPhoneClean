@@ -22,7 +22,6 @@
     <string name="coolling_done">Процесорът се охлажда,\n температура се нормализира</string>
     <string name="free_memory_size">В съхранението свободно\n%.1f GB</string>
     <string name="cooling">Готино</string>
-    <string name="boost">Ускорете телефона си</string>
     <string name="normal_temperature">Нормална температура\n процесор 25-30 ℃</string>
     <string name="cleared">Изчистен</string>
     <string name="improve_working_time_by_percent">Времето за работа на телефона\n се релва на %d %%</string>
@@ -57,6 +56,7 @@
     <string name="danger_boost_off">%.2f GB\n Телефонът се освобождава от %d %%</string>
     <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="privacy_policy">Политика за поверителност</string>
+    <string name="boost">Ускорете телефона си</string>
     <array name="battery_normal">
         <item>Намаляване на яркостта</item>
         <item>Изключване на автоматичната яркост</item>

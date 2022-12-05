@@ -19,7 +19,6 @@
     <string name="coolling_done">CPU sa ochladila, normalizovaná teplota</string>
     <string name="free_memory_size">Úložisko je bezplatné\n%.1f GB</string>
     <string name="cooling">Ochladiť</string>
-    <string name="boost">Urýchliť</string>
     <string name="normal_temperature">Normálna teplota\nprocesora je 25–30 ℃</string>
     <string name="cleared">Vyčistený</string>
     <string name="improve_working_time_by_percent">Telefón dostupnosť\nsa zvýšila o %d %%</string>
@@ -56,6 +55,8 @@
     <string name="title_dialog_bluetooth">Extra režim vyžaduje prístup k nastaveniam Bluetooth</string>
     <string name="dialog_bluetooth_description">Umožnite aplikácii prístup k nastaveniam Bluetooth, aby sa zvýšila výdrž batérie.</string>
     <string name="btn_continue">Ďalšie</string>
+    <string name="privacy_policy">Zásady ochrany osobných údajov</string>
+    <string name="boost">Zrýchnite telefón</string>
 
     <array name="battery_normal">
         <item>Zníženie jasu</item>

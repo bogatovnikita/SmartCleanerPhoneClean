@@ -19,7 +19,6 @@
     <string name="coolling_done">CPU ohlajen,\ntemperatura normalizirana</string>
     <string name="free_memory_size">Shranjevanje je brezplačno\n%.1f GB</string>
     <string name="cooling">Kul</string>
-    <string name="boost">Pospešiti</string>
     <string name="normal_temperature">Običajna temperatura\nprocesorja je 25–30 ℃</string>
     <string name="cleared">Očiščeno</string>
     <string name="improve_working_time_by_percent">Telefon se je\npovečal za %d %%</string>
@@ -56,6 +55,8 @@
     <string name="title_dialog_bluetooth">Dodatni način zahteva dostop do nastavitev Bluetooth</string>
     <string name="dialog_bluetooth_description">Dovolite, da aplikacija dostopa do nastavitev Bluetooth, da poveča življenjsko dobo baterije.</string>
     <string name="btn_continue">Naslednji</string>
+    <string name="privacy_policy">Politika zasebnosti</string>
+    <string name="boost">Pospešite telefon</string>
 
     <array name="battery_normal">
         <item>Zmanjšanje svetlosti</item>

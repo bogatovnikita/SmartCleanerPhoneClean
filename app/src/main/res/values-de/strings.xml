@@ -19,7 +19,6 @@
     <string name="coolling_done">CPU gekühlt,\nTemperatur normalisiert</string>
     <string name="free_memory_size">Der Speicher ist kostenlos\n%.1f GB</string>
     <string name="cooling">Kühl</string>
-    <string name="boost">Beschleunigen</string>
     <string name="normal_temperature">Normal Prozessortemperatur\nbeträgt 25–30 ℃</string>
     <string name="cleared">Gereinigt</string>
     <string name="improve_working_time_by_percent">Telefon die verfügbarkeit\nstieg um %d %%</string>
@@ -56,6 +55,8 @@
     <string name="title_dialog_bluetooth">Der zusätzliche Modus erfordert Zugriff auf Bluetooth -Einstellungen</string>
     <string name="dialog_bluetooth_description">Lassen Sie die App auf die Bluetooth -Einstellungen zugreifen, um die Akkulaufzeit zu steigern.</string>
     <string name="btn_continue">Nächste</string>
+    <string name="privacy_policy">Datenschutz-Bestimmungen</string>
+    <string name="boost">Beschleunigen Sie Ihr Telefon</string>
     <array name="battery_normal">
         <item>Helligkeit verringern</item>
         <item>Auto-Helligkeit deaktivieren</item>
