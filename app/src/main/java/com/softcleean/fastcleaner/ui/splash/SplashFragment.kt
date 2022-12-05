@@ -54,7 +54,7 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     private fun preloadAndShowInter() {
 //        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
         lifecycleScope.launchWhenResumed {
-            delay(2500L)
+            delay(2500L) // TODO при добавлении рекламы поменять на 8000
             if (!isInterLoaded) {
                 findNavController().navigate(R.id.action_to_boostFragment)
             }
