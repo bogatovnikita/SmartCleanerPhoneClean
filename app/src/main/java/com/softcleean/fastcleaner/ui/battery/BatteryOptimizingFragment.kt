@@ -1,6 +1,5 @@
 package com.softcleean.fastcleaner.ui.battery
 
-import com.softcleean.fastcleaner.BuildConfig
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
@@ -10,7 +9,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class BatteryOptimizingFragment(
-    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL3,
+//    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL3,
     override val nextScreenId: Int = R.id.action_batteryOptimizingFragment_to_batteryResultFragment
 ) : BaseOptimizingFragment() {
 
