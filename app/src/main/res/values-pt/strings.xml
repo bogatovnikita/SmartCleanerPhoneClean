@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">O modo extra requer acesso às configurações do Bluetooth</string>
     <string name="dialog_bluetooth_description">Permita que o aplicativo acesse as configurações do Bluetooth para aumentar a duração da bateria.</string>
     <string name="btn_continue">Próximo</string>
-    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="privacy_policy"><u>Política de Privacidade</u></string>
     <string name="boost">Acelerar seu telefone</string>
 
     <array name="battery_normal">

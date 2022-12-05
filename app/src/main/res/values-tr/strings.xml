@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">Ekstra mod, Bluetooth ayarlarına erişim gerektirir</string>
     <string name="dialog_bluetooth_description">Pil ömrünü artırmak için uygulamanın Bluetooth ayarlarına erişmesine izin verin.</string>
     <string name="btn_continue">Sonraki</string>
-    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="privacy_policy"><u>Gizlilik Politikası</u></string>
     <string name="boost">Telefonunuzu Hızlandırın</string>
     <array name="battery_normal">
         <item>Parlaklığı azalt</item>

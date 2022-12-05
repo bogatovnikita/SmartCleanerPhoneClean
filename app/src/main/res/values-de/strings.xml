@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">Der zusätzliche Modus erfordert Zugriff auf Bluetooth -Einstellungen</string>
     <string name="dialog_bluetooth_description">Lassen Sie die App auf die Bluetooth -Einstellungen zugreifen, um die Akkulaufzeit zu steigern.</string>
     <string name="btn_continue">Nächste</string>
-    <string name="privacy_policy">Datenschutz-Bestimmungen</string>
+    <string name="privacy_policy"><u>Datenschutz-Bestimmungen</u></string>
     <string name="boost">Beschleunigen Sie Ihr Telefon</string>
     <array name="battery_normal">
         <item>Helligkeit verringern</item>

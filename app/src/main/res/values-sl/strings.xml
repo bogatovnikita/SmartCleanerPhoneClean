@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">Dodatni način zahteva dostop do nastavitev Bluetooth</string>
     <string name="dialog_bluetooth_description">Dovolite, da aplikacija dostopa do nastavitev Bluetooth, da poveča življenjsko dobo baterije.</string>
     <string name="btn_continue">Naslednji</string>
-    <string name="privacy_policy">Politika zasebnosti</string>
+    <string name="privacy_policy"><u>Politika zasebnosti</u></string>
     <string name="boost">Pospešite telefon</string>
 
     <array name="battery_normal">

@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">El modo adicional requiere acceso a la configuración de Bluetooth</string>
     <string name="dialog_bluetooth_description">Permita que la aplicación acceda a la configuración de Bluetooth para aumentar la duración de la batería.</string>
     <string name="btn_continue">próximo</string>
-    <string name="privacy_policy">Política de privacidad</string>
+    <string name="privacy_policy"><u>Política de privacidad</u></string>
     <string name="boost">Acelera tu teléfono</string>
 
     <array name="battery_normal">

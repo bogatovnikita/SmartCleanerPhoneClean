@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">Extra režim vyžaduje prístup k nastaveniam Bluetooth</string>
     <string name="dialog_bluetooth_description">Umožnite aplikácii prístup k nastaveniam Bluetooth, aby sa zvýšila výdrž batérie.</string>
     <string name="btn_continue">Ďalšie</string>
-    <string name="privacy_policy">Zásady ochrany osobných údajov</string>
+    <string name="privacy_policy"><u>Zásady ochrany osobných údajov</u></string>
     <string name="boost">Zrýchnite telefón</string>
 
     <array name="battery_normal">

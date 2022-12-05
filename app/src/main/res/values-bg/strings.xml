@@ -55,7 +55,7 @@
     <string name="app_name">Бързо почистващ</string>
     <string name="danger_boost_off">%.2f GB\n Телефонът се освобождава от %d %%</string>
     <string name="gb_fraction_garbage">/%.1f GB</string>
-    <string name="privacy_policy">Политика за поверителност</string>
+    <string name="privacy_policy"><u>Политика за поверителност</u></string>
     <string name="boost">Ускорете телефона си</string>
     <array name="battery_normal">
         <item>Намаляване на яркостта</item>

@@ -37,7 +37,7 @@
     <string name="free">ฟรี</string>
     <string name="battery_boost">ขยาย</string>
     <string name="type_save_battery_title">ขยายโหมดการทำงาน:</string>
-    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="type_ultra">อัลตร้า\n+30%</string>
     <string name="finded_junk_file">ตรวจพบไฟล์ขยะ\nไฟล์</string>
     <string name="cleaning">ทำความสะอาด</string>
     <string name="value_percents">%d %%</string>
@@ -55,7 +55,7 @@
     <string name="title_dialog_bluetooth">โหมดพิเศษต้องการการเข้าถึงการตั้งค่าบลูทู ธ</string>
     <string name="dialog_bluetooth_description">อนุญาตให้แอปเข้าถึงการตั้งค่าบลูทู ธ เพื่อเพิ่มอายุการใช้งานแบตเตอรี่</string>
     <string name="btn_continue">ต่อไป</string>
-    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="privacy_policy"><u>นโยบายความเป็นส่วนตัว</u></string>
     <string name="boost">เร่งโทรศัพท์ของคุณ</string>
     <array name="battery_normal">
         <item>ลดความสว่าง</item>
