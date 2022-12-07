@@ -23,12 +23,12 @@
     <string name="cleared">Cleaned</string>
     <string name="improve_working_time_by_percent">Phone uptime\nincreased by %d %%</string>
     <string name="boost_danger_title">Memory Overloaded!\nneeds speeding up!</string>
-    <string name="clean_danger_desc">Free memory\nfrom junk</string>
+    <string name="clean_danger_desc">Free memory from junk</string>
     <string name="battery_danger_desc">Extend\'s\nworking time!</string>
     <string name="cooling_danger_title">Processor overheated!\nCooling required!</string>
     <string name="storage">Storage</string>
     <string name="clean_done">Garbage files deleted.</string>
-    <string name="cooling_danger_desc">Close background\napplications</string>
+    <string name="cooling_danger_desc">Close background applications</string>
     <string name="ready">Done!</string>
     <string name="boost_danger_desc">Optimize your phone\'s performance</string>
     <string name="boost_battery">Keep your phone up and running</string>

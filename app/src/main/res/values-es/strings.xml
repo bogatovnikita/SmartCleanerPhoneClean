@@ -23,12 +23,12 @@
     <string name="cleared">Limpio</string>
     <string name="improve_working_time_by_percent">Teléfono El tiempo de\nactividad aumentó en un %d %%</string>
     <string name="boost_danger_title">Memoria sobrecargada!\nnecesita acelerar!</string>
-    <string name="clean_danger_desc">Memoria gratuita\nde basura</string>
+    <string name="clean_danger_desc">Memoria gratuita de basura</string>
     <string name="battery_danger_desc">Extiende el tiempo de trabajo del!</string>
     <string name="cooling_danger_title">Procesador sobrecalentado!\nRequerido requerido!</string>
     <string name="storage">Almacenamiento</string>
     <string name="clean_done">Archivos de basura eliminados.</string>
-    <string name="cooling_danger_desc">Cerrar antecedentes\naplicaciones</string>
+    <string name="cooling_danger_desc">Cerrar antecedentes aplicaciones</string>
     <string name="ready">Hecho!</string>
     <string name="boost_danger_desc">Optimizar el rendimiento de su teléfono</string>
     <string name="boost_battery">Mantenga su teléfono en funcionamiento</string>

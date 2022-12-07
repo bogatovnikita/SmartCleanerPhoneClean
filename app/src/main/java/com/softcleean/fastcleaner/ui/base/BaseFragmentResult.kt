@@ -22,7 +22,6 @@ abstract class BaseFragmentResult: Fragment(R.layout.fragment_base_result) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setBtnListeners()
         initAdapter()
         renderState()
     }
@@ -30,12 +29,6 @@ abstract class BaseFragmentResult: Fragment(R.layout.fragment_base_result) {
     private fun renderState() {
         binding.tvFunName.text = setFunName()
         binding.tvDescriptionDangerOff.text = setMessageOfCompleteFun()
-    }
-
-    private fun setBtnListeners() {
-        binding.btnGoBack.setOnClickListener {
-            findNavController().navigate(R.id.action_to_boostFragment)
-        }
     }
 
     private fun initAdapter() {

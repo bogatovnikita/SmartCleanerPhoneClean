@@ -23,12 +23,12 @@
     <string name="cleared">Vyčistený</string>
     <string name="improve_working_time_by_percent">Telefón dostupnosť\nsa zvýšila o %d %%</string>
     <string name="boost_danger_title">Preťažená pamäť!\npotrebuje zrýchlenie!</string>
-    <string name="clean_danger_desc">ZADARMO\nPamäť od harabúrd</string>
+    <string name="clean_danger_desc">ZADARMO Pamäť od harabúrd</string>
     <string name="battery_danger_desc">Rozšírte pracovný čas!</string>
     <string name="cooling_danger_title">Prehrievaný procesor! Požadované chladenie!</string>
     <string name="storage">Ukladanie</string>
     <string name="clean_done">Vymazané súbory odpadu.</string>
-    <string name="cooling_danger_desc">Zatvorte pozadie\naplikácií</string>
+    <string name="cooling_danger_desc">Zatvorte pozadie aplikácií</string>
     <string name="ready">Hotový!</string>
     <string name="boost_danger_desc">Optimalizujte výkon svojho telefónu</string>
     <string name="boost_battery">Udržujte telefón v prevádzke</string>

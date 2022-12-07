@@ -27,12 +27,12 @@
     <string name="improve_working_time_by_percent">Времето за работа на телефона\n се релва на %d %%</string>
     <string name="allow">Позволява</string>
     <string name="boost_danger_title">Паметта е претоварена!\nУскорението е уморено!</string>
-    <string name="clean_danger_desc">Безплатна памет\nот боклуци</string>
+    <string name="clean_danger_desc">Безплатна памет от боклуци</string>
     <string name="battery_danger_desc">Удължете работата на устройството</string>
     <string name="cooling_danger_title">Процесорът е прегрял!\n охлаждане!</string>
     <string name="storage">Съхранение</string>
     <string name="clean_done">Файловете за боклук се изтриват</string>
-    <string name="cooling_danger_desc">Затворете фоновите\n приложения</string>
+    <string name="cooling_danger_desc">Затворете фоновите приложения</string>
     <string name="dialog_write_setting_description">Нуждаем се от разрешение за промяна на настройките на системата, за да можем да увеличим времето на работа на вашето устройство.</string>
     <string name="ready">Готов!</string>
     <string name="boost_danger_desc">Оптимизирайте работата на телефона</string>

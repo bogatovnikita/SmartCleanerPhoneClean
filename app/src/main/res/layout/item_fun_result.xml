@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginBottom="@dimen/_19sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:fontFamily="@font/golos_regular"
         android:text="@string/boost_danger_desc"
         android:textColor="@color/red"

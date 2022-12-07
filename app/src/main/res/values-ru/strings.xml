@@ -40,10 +40,10 @@
     <string name="ram">Оперативная память</string>
     <string name="done">Выполнено</string>
     <string name="battery_boost">Продлить</string>
-    <string name="boost_danger_desc">Оптимизируйте\nработу телефона</string>
+    <string name="boost_danger_desc">Оптимизируйте работу телефона</string>
     <string name="battery_danger_desc">Продлите работу устройства</string>
-    <string name="cooling_danger_desc">Закройте фоновые\nприложения</string>
-    <string name="clean_danger_desc">Освободите память\nот мусора</string>
+    <string name="cooling_danger_desc">Закройте фоновые приложения</string>
+    <string name="clean_danger_desc">Освободите память от мусора</string>
     <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
     <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
     <string name="cancel">Отмена</string>
