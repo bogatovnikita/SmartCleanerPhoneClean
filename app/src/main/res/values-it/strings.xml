@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Annulla</string>
+    <string name="used">Usato</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
+    <string name="temperature_cpu">Processor\nTemperature</string>
+    <string name="battery_title">Potenza</string>
+    <string name="working_time">%d ore %d minuti</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="clean_danger_title">Cleanup richiesto!</string>
+    <string name="garbage_not_found">Nessun file spazzatura\ndetto</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">Extra\n+60%</string>
+    <string name="normal_mode">Modalità normale:</string>
+    <string name="type_normal">Normale\n+10%</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="ram">RAM</string>
+    <string name="settings">Impostazioni</string>
+    <string name="boosting">Accelerare</string>
+    <string name="degree">%d ℃</string>
+    <string name="get_permission">Abbiamo bisogno del permesso</string>
+    <string name="done">Fatto</string>
+    <string name="coolling_done">CPU raffreddato, \n temperatura normalizzata</string>
+    <string name="free_memory_size">Lo spazio di archiviazione è gratuito \n%.1f GB</string>
+    <string name="cooling">Freddo</string>
+    <string name="boost">Accelera il tuo telefono</string>
+    <string name="normal_temperature">Processore normale\n Temperatura è 25–30 ℃</string>
+    <string name="cleared">Pulito</string>
+    <string name="improve_working_time_by_percent">Telefono di uptime \n -aumento del %d %%</string>
+    <string name="allow">Permettere</string>
+    <string name="boost_danger_title">Memoria sovraccarica! \n Needs accelerando!</string>
+    <string name="clean_danger_desc">Memoria libera da spazzatura</string>
+    <string name="battery_danger_desc">Estendere\'s\norario di lavoro!</string>
+    <string name="cooling_danger_title">Processore surriscaldato! \n cooling richiesto!</string>
+    <string name="storage">Magazzinaggio</string>
+    <string name="clean_done">File di immondizia eliminati.</string>
+    <string name="cooling_danger_desc">Chiudi le applicazioni di fondo</string>
+    <string name="dialog_write_setting_description">Abbiamo bisogno dell\'autorizzazione per modificare le impostazioni del sistema in modo da poter aumentare il runtime del dispositivo.</string>
+    <string name="ready">Fatto!</string>
+    <string name="boost_danger_desc">Ottimizza le prestazioni del tuo telefono</string>
+    <string name="boost_battery">Mantieni il telefono in funzione</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">Gratuito</string>
+    <string name="battery_boost">Estendere</string>
+    <string name="type_save_battery_title">Estendere le modalità di lavoro:</string>
+    <string name="finded_junk_file">Trash\nFiles rilevati</string>
+    <string name="cleaning">Pulire</string>
+    <string name="description_go_settings">Per eseguire questa funzione, abbiamo bisogno dell\'autorizzazione per modificare le impostazioni del sistema</string>
+    <string name="value_percents">%d %%</string>
+    <string name="clean">Pulire</string>
+    <string name="clean_junks_safely">L\'eliminazione di Junk\nFiles è assolutamente \nSafe</string>
+    <string name="title_dialog_bluetooth">La modalità extra richiede l\'accesso alle impostazioni Bluetooth</string>
+    <string name="dialog_bluetooth_description">Consenti all\'app di accedere alle impostazioni Bluetooth per aumentare la durata della batteria.</string>
+    <string name="btn_continue">Prossimo</string>
+    <string name="cooling_process">Raffreddamento</string>
+    <string name="app_name">Pulitore veloce</string>
+    <string name="danger_boost_off">Freed up %.2f GB\nPhone è più veloce del %d %%</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
+    <string name="privacy_policy"><u> PRIVITAZIONE PROPRIVACIA</u></string>
+
+    <array name="battery_ultra">
+        <item>Diminuire la luminosità</item>
+        <item>Disabilita l\'auto-brigatezza</item>
+        <item>Disabilita Wi-Fi</item>
+        <item>Freeze Background Apps</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Diminuire la luminosità</item>
+        <item>Disabilita l\'auto-brigatezza</item>
+        <item>Disabilita Wi-Fi</item>
+        <item>Applicazioni di background di congelamento</item>
+        <item>Disabilita il Bluetooth</item>
+    </array>
+
+    <array name="optimization">
+        <item>Eliminazione dei processi di fondo</item>
+        <item>Percorsi di sistema di cancellazione</item>
+        <item>Regolazione dei processi del sistema</item>
+        <item>Controllo dei componenti inutilizzati</item>
+        <item>Scollegare da inutili torri GPS</item>
+    </array>
+
+    <array name="clean">
+        <item>Cache</item>
+        <item>File temporanei</item>
+        <item>File residui</item>
+        <item>Garbage del sistema</item>
+    </array>
+
+    <array name="battery_normal">
+        <item>Diminuire la luminosità</item>
+        <item>Disabilita l\'auto-brigatezza</item>
+    </array>
+</resources>

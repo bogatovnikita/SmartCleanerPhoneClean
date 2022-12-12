@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Anulować</string>
+    <string name="used">Używany</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
+    <string name="temperature_cpu">Procesor\nTemperature</string>
+    <string name="battery_title">Moc</string>
+    <string name="working_time">%d godziny %d minuty</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="clean_danger_title">Wymagane czyszczenie!</string>
+    <string name="garbage_not_found">Brak śmieciowych plików\nkined</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">Extra\n+60%</string>
+    <string name="normal_mode">Tryb normalny:</string>
+    <string name="type_normal">Normalny\n+10%</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="ram">Baran</string>
+    <string name="settings">Ustawienia</string>
+    <string name="boosting">Przyśpieszyć</string>
+    <string name="degree">%d ℃</string>
+    <string name="get_permission">Potrzebujemy pozwolenia</string>
+    <string name="done">Gotowe</string>
+    <string name="coolling_done">Ochłodzony procesor, \nTemperature znormalizowany</string>
+    <string name="free_memory_size">Pamięć jest bezpłatna 1\n%.1f GB</string>
+    <string name="cooling">Chłodny</string>
+    <string name="boost">Przyspiesz swój telefon</string>
+    <string name="normal_temperature">Normalny procesor\nTemperature wynosi 25–30 ℃</string>
+    <string name="cleared">Wyczyszczony</string>
+    <string name="improve_working_time_by_percent">Telefone Uptime \n Increnered by %d %%</string>
+    <string name="allow">Umożliwić</string>
+    <string name="boost_danger_title">Pamięć przeciążona! \nNeeds przyspiesza!</string>
+    <string name="clean_danger_desc">Bezpłatna pamięć z śmieci</string>
+    <string name="battery_danger_desc">Przedłużyć\'s\nczas pracy!</string>
+    <string name="cooling_danger_title">Procesor przegrzany! \n Wymagane!</string>
+    <string name="storage">Magazynowanie</string>
+    <string name="clean_done">Pliki na śmieci usunięte.</string>
+    <string name="cooling_danger_desc">Zamknij aplikacje w tle</string>
+    <string name="dialog_write_setting_description">Potrzebujemy pozwolenia na zmianę ustawień systemu, abyśmy mogli zwiększyć czas wykonywania urządzenia.</string>
+    <string name="ready">Gotowe!</string>
+    <string name="boost_danger_desc">Zoptymalizuj wydajność telefonu</string>
+    <string name="boost_battery">Trzymaj telefon na bieżąco</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">Bezpłatny</string>
+    <string name="battery_boost">Rozszerzyć</string>
+    <string name="type_save_battery_title">Rozszerzyć tryby pracy:</string>
+    <string name="finded_junk_file">Wykryto Trash\nFiles</string>
+    <string name="cleaning">Sprzątać</string>
+    <string name="description_go_settings">Aby wykonać tę funkcję, potrzebujemy pozwolenia na zmianę ustawień systemu</string>
+    <string name="value_percents">%d %%</string>
+    <string name="clean">Sprzątać</string>
+    <string name="clean_junks_safely">Usuwanie Junk\nFiles jest absolutnie\nSafe</string>
+    <string name="title_dialog_bluetooth">Dodatkowy tryb wymaga dostępu do ustawień Bluetooth</string>
+    <string name="dialog_bluetooth_description">Pozwól aplikacji uzyskać dostęp do ustawień Bluetooth, aby zwiększyć żywotność baterii.</string>
+    <string name="btn_continue">Następny</string>
+    <string name="cooling_process">Chłodzenie</string>
+    <string name="app_name">Szybki czystszy</string>
+    <string name="danger_boost_off">Freed Up %.2f GB\nPhone jest szybszy o %d %%</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
+    <string name="privacy_policy"><u>Polityka Prywatności</u></string>
+
+    <array name="battery_ultra">
+        <item>Zmniejszyć jasność</item>
+        <item>Wyłącz automatyczną jasność</item>
+        <item>Wyłącz Wi-Fi</item>
+        <item>Zamrozić aplikacje w tle</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Zmniejszyć jasność</item>
+        <item>Wyłącz automatyczną jasność</item>
+        <item>Wyłącz Wi-Fi</item>
+        <item>Zamrozić aplikacje w tle</item>
+        <item>Wyłącz Bluetooth</item>
+    </array>
+
+    <array name="optimization">
+        <item>Usuwanie procesów w tle</item>
+        <item>Ścieżki systemu rozliczania</item>
+        <item>Dostosowanie procesów systemowych</item>
+        <item>Sprawdzanie nieużywanych komponentów</item>
+        <item>Odłącz od niepotrzebnych wież GPS</item>
+    </array>
+
+    <array name="clean">
+        <item>Pamięć podręczna</item>
+        <item>Pliki tymczasowe</item>
+        <item>Pliki resztkowe</item>
+        <item>Śmieci systemowe</item>
+    </array>
+
+    <array name="battery_normal">
+        <item>Zmniejszyć jasność</item>
+        <item>Wyłącz automatyczną jasność</item>
+    </array>
+
+</resources>

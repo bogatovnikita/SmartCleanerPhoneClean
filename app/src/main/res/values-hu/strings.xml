@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Megszünteti</string>
+    <string name="used">Használt</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
+    <string name="temperature_cpu">Processzor\nhőmérséklet</string>
+    <string name="battery_title">Erő</string>
+    <string name="working_time">%d óra %d perc</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="clean_danger_title">Tisztítás szükséges!</string>
+    <string name="garbage_not_found">Nincsenek szemétfájlok\nDeted</string>
+    <string name="mb">%d MB</string>
+    <string name="type_extra">Extra\n+60%</string>
+    <string name="normal_mode">Normál mód:</string>
+    <string name="type_normal">Normál\n+10%</string>
+    <string name="type_ultra">Ultra\n+30%</string>
+    <string name="ram">Kos</string>
+    <string name="settings">Beállítások</string>
+    <string name="boosting">Felgyorsít</string>
+    <string name="degree">%d ℃</string>
+    <string name="get_permission">Engedélyre van szükségünk</string>
+    <string name="done">Kész</string>
+    <string name="coolling_done">CPU hűtött, \n -hőmérséklet normalizálva</string>
+    <string name="free_memory_size">A tároló ingyenes\n%.1f GB</string>
+    <string name="cooling">Menő</string>
+    <string name="boost">Gyorsítsa fel a telefonját</string>
+    <string name="normal_temperature">Normál processzor\nA hőmérséklet 25–30 ℃</string>
+    <string name="cleared">Megtisztított</string>
+    <string name="improve_working_time_by_percent">Telefonos Uptime \n %d %%</string>
+    <string name="allow">Lehetővé teszi</string>
+    <string name="boost_danger_title">A memória túlterhelt! \nSzükségletek felgyorsul!</string>
+    <string name="clean_danger_desc">Ingyenes memória a szeméttől</string>
+    <string name="battery_danger_desc">Hosszabbítsd meg az S\n munkaidőt!</string>
+    <string name="cooling_danger_title">A processzor túlmelegedett!\ncooling szükséges!</string>
+    <string name="storage">Tárolás</string>
+    <string name="clean_done">A szemétfájlok töröltek.</string>
+    <string name="cooling_danger_desc">Zárja be a háttér -alkalmazásokat</string>
+    <string name="dialog_write_setting_description">Engedélyre van szükségünk a rendszerbeállítások megváltoztatásához, hogy növeljük az eszköz futási idejét.</string>
+    <string name="ready">Kész!</string>
+    <string name="boost_danger_desc">Optimalizálja a telefon teljesítményét</string>
+    <string name="boost_battery">Tartsa a telefonját és futtassa</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">Ingyenes</string>
+    <string name="battery_boost">Kiterjeszt</string>
+    <string name="type_save_battery_title">Bővítse a munkamódokat:</string>
+    <string name="finded_junk_file">A kukák\nfilies észlelt</string>
+    <string name="cleaning">Tisztítás</string>
+    <string name="description_go_settings">Ennek a funkciónak a végrehajtásához engedélyre van szükségünk a rendszerbeállítások megváltoztatásához</string>
+    <string name="value_percents">%d %%</string>
+    <string name="clean">Megtisztít</string>
+    <string name="clean_junks_safely">A Junk\nFiles törlése abszolút\nsafe</string>
+    <string name="title_dialog_bluetooth">Az extra mód hozzáférést igényel a Bluetooth -beállításokhoz</string>
+    <string name="dialog_bluetooth_description">Hagyja, hogy az alkalmazás hozzáférjen a Bluetooth beállításokhoz az akkumulátor élettartamának növelése érdekében.</string>
+    <string name="btn_continue">Következő</string>
+    <string name="cooling_process">Hűtés</string>
+    <string name="app_name">Gyors tisztítószer</string>
+    <string name="danger_boost_off">Felszabadult %.2f GB\nPhone gyorsabb az %d %% -ra</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
+    <string name="privacy_policy"><u>PRIVACY POLICIANIA</u></string>
+
+    <array name="battery_ultra">
+        <item>Csökkentse a fényerőt</item>
+        <item>Tiltsa le az automatikus fényességet</item>
+        <item>Tiltsa le a Wi-Fi-t</item>
+        <item>Fagyasztva háttér -alkalmazások</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Csökkentse a fényerőt</item>
+        <item>Tiltsa le az automatikus fényességet</item>
+        <item>Tiltsa le a Wi-Fi-t</item>
+        <item>Fagyasztva háttér -alkalmazások</item>
+        <item>Tiltsa le a Bluetooth -ot</item>
+    </array>
+
+    <array name="optimization">
+        <item>A háttér folyamatainak törlése</item>
+        <item>Rendszertisztító rendszer útvonalak</item>
+        <item>A rendszer folyamatainak beállítása</item>
+        <item>A fel nem használt alkatrészek ellenőrzése</item>
+        <item>Válasszuk le a felesleges GPS -tornyoktól</item>
+    </array>
+
+    <array name="clean">
+        <item>Gyorsítótár</item>
+        <item>Ideiglenes fájlok</item>
+        <item>Fennmaradó fájlok</item>
+        <item>Rendszer szemét</item>
+    </array>
+
+    <array name="battery_normal">
+        <item>Csökkentse a fényerőt</item>
+        <item>Tiltsa le az automatikus fényességet</item>
+    </array>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Ματαίωση</string>
+    <string name="used">Μεταχειρισμένος</string>
+    <string name="gb_one_after_dot">%.1f GB</string>
+    <string name="temperature_cpu">Επεξεργαστής\nTemperature</string>
+    <string name="battery_title">Εξουσία</string>
+    <string name="working_time">%d ώρες %d λεπτά</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="clean_danger_title">Απαιτείται καθαρισμός!</string>
+    <string name="garbage_not_found">Χωρίς αρχεία Junk\nDetected</string>
+    <string name="mb">%dMB</string>
+    <string name="type_extra">Επιπλέον\n+60%</string>
+    <string name="normal_mode">Κανονική λειτουργία:</string>
+    <string name="type_normal">Κανονική\n+10%</string>
+    <string name="type_ultra">Εξαιρετικά\n+30%</string>
+    <string name="ram">ΕΜΒΟΛΟ</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="boosting">Επιταχύνω</string>
+    <string name="degree">%d ℃</string>
+    <string name="get_permission">Χρειαζόμαστε άδεια</string>
+    <string name="done">Ολοκληρώθηκε</string>
+    <string name="coolling_done">Η CPU ψύχεται, κανονικοποιημένη \n τεμαχίων κανονικοποιημένη</string>
+    <string name="free_memory_size">Η αποθήκευση είναι δωρεάν\n%.1f GB</string>
+    <string name="cooling">Δροσερός</string>
+    <string name="boost">Επιταχύνετε το τηλέφωνό σας</string>
+    <string name="normal_temperature">Η κανονική επεξεργαστή\nTemperature είναι 25–30 ℃</string>
+    <string name="cleared">Καθαρισμένος</string>
+    <string name="improve_working_time_by_percent">Τηλέφωνο uptime \n αυξήθηκε κατά %d %%</string>
+    <string name="allow">Επιτρέπω</string>
+    <string name="boost_danger_title">Η μνήμη υπερφορτωμένη! \nΑπαιτήσεις Επιταχύνοντας!</string>
+    <string name="clean_danger_desc">Δωρεάν μνήμη από σκουπίδια</string>
+    <string name="battery_danger_desc">Επεκτείνετε το χρόνο εργασίας S\n</string>
+    <string name="cooling_danger_title">Ο επεξεργαστής υπερθερμανθεί! Απαιτείται \n ψύξης!</string>
+    <string name="storage">Αποθήκευση</string>
+    <string name="clean_done">Τα αρχεία σκουπιδιών διαγράφηκαν.</string>
+    <string name="cooling_danger_desc">Κλείσιμο εφαρμογών φόντου</string>
+    <string name="dialog_write_setting_description">Χρειαζόμαστε την άδεια να αλλάξουμε τις ρυθμίσεις του συστήματος, ώστε να μπορέσουμε να αυξήσουμε το χρόνο εκτέλεσης της συσκευής σας.</string>
+    <string name="ready">Ολοκληρώθηκε!</string>
+    <string name="boost_danger_desc">Βελτιστοποιήστε την απόδοση του τηλεφώνου σας</string>
+    <string name="boost_battery">Κρατήστε το τηλέφωνό σας σε λειτουργία</string>
+    <string name="gb">%.2f GB</string>
+    <string name="free">Ελεύθερος</string>
+    <string name="battery_boost">Επεκτείνω</string>
+    <string name="type_save_battery_title">Επεκτείνετε τρόπους εργασίας:</string>
+    <string name="finded_junk_file">Ανιχνεύονται τα σκουπίδια\nfiles</string>
+    <string name="cleaning">Καθάρισε</string>
+    <string name="description_go_settings">Για να εκτελέσετε αυτήν τη λειτουργία, χρειαζόμαστε άδεια για την αλλαγή των ρυθμίσεων του συστήματος</string>
+    <string name="value_percents">%d %%</string>
+    <string name="clean">Καθάρισε</string>
+    <string name="clean_junks_safely">Η διαγραφή του Junk\nFiles είναι απολύτως\nSAFE</string>
+    <string name="title_dialog_bluetooth">Η επιπλέον λειτουργία απαιτεί πρόσβαση στις ρυθμίσεις Bluetooth</string>
+    <string name="dialog_bluetooth_description">Επιτρέψτε στην εφαρμογή να αποκτήσει πρόσβαση στις ρυθμίσεις Bluetooth για να αυξήσει τη διάρκεια ζωής της μπαταρίας.</string>
+    <string name="btn_continue">Επόμενο</string>
+    <string name="cooling_process">Ψύξη</string>
+    <string name="app_name">Γρήγορος καθαριστής</string>
+    <string name="danger_boost_off">Η απελευθέρωση %.2f GB\nPhone είναι ταχύτερο κατά %d %%</string>
+    <string name="gb_fraction_garbage">/%.1f GB</string>
+    <string name="privacy_policy"><u> πολιτική απόδοσης</u></string>
+    <array name="battery_ultra">
+        <item>Μείωση της φωτεινότητας</item>
+        <item>Απενεργοποιήστε την αυτόματη φωτεινότητα</item>
+        <item>Απενεργοποιήστε το Wi-Fi</item>
+        <item>Εφαρμογές φόντου κατάψυξης</item>
+    </array>
+    <array name="battery_extra">
+        <item>Μείωση της φωτεινότητας</item>
+        <item>Απενεργοποιήστε την αυτόματη φωτεινότητα</item>
+        <item>Απενεργοποιήστε το Wi-Fi</item>
+        <item>Εφαρμογές φόντου κατάψυξης</item>
+        <item>Απενεργοποιήστε το Bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Διαγραφή διαδικασιών φόντου</item>
+        <item>Διαδρομές συστήματος εκκαθάρισης</item>
+        <item>Ρύθμιση διαδικασιών συστήματος</item>
+        <item>Έλεγχος αχρησιμοποίητων εξαρτημάτων</item>
+        <item>Αποσυνδέστε τους περιττούς πύργους GPS</item>
+    </array>
+    <array name="clean">
+        <item>Κρύπτη</item>
+        <item>Προσωρινά αρχεία</item>
+        <item>Υπολειμματικά αρχεία</item>
+        <item>Σκουπίδια του συστήματος</item>
+    </array>
+    <array name="battery_normal">
+        <item>Μείωση της φωτεινότητας</item>
+        <item>Απενεργοποιήστε την αυτόματη φωτεινότητα</item>
+    </array>
+</resources>

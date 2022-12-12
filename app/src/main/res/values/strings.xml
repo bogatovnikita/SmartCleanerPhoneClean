@@ -60,7 +60,7 @@
 
     <array name="battery_normal">
         <item>Decrease brightness</item>
-        <item>Disable auto-brightness</item>.
+        <item>Disable auto-brightness</item>
     </array>
 
     <array name="battery_ultra">
@@ -75,7 +75,7 @@
         <item>Disable auto-brightness</item>
         <item>Disable wi-fi</item>
         <item>Freeze background applications</item>
-        <item>Disable bluetooth</item>.
+        <item>Disable bluetooth</item>
     </array>
 
     <array name="optimization">
@@ -90,7 +90,7 @@
         <item>Cache</item>
         <item>Temporary files</item>
         <item>Residual files</item>
-        <item>System garbage</item>.
+        <item>System garbage</item>
     </array>
 
 </resources>
