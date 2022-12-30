@@ -50,15 +50,12 @@ class RealBatteryProvider @Inject constructor(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun turnOffAutoBrightness() {
-        if (Settings.System.canWrite(context)) {
             Settings.System.putInt(
                 context.contentResolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
             )
-        }
     }
 
 }

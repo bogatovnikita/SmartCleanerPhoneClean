@@ -39,7 +39,6 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun disableWiFi() = realBatteryProvider.disableWiFi()
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun turnOffAutoBrightness() = realBatteryProvider.turnOffAutoBrightness()
 
     override fun getBatteryTemperature(): Flow<Int> = batteryChargeReceiver.temperature
