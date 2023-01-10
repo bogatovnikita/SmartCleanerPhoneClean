@@ -3,13 +3,16 @@ package com.softcleean.fastcleaner
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.softcleean.fastcleaner.ads.AdsViewModel
 import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import com.softcleean.fastcleaner.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-//import initAds
+import initAdsAndAppOpen
+import showInterstitial
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -17,12 +20,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     @Inject
     lateinit var batteryChargeReceiver: BatteryChargeReceiver
+    private val viewModel: AdsViewModel by viewModels()
 
     private val binding: ActivityMainBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        initAds()
+        initAdsAndAppOpen()
         initListeners()
         initChangeDestinationListener()
     }
@@ -45,16 +49,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     }
 
     override fun onClick(view: View) {
+        renderNavBar((view.id))
+        when (view.id) {
+            R.id.btn_boost -> navigateAndShowInter(R.id.action_to_boostFragment)
+            R.id.btn_cool -> navigateAndShowInter(R.id.action_to_coolingFragment)
+            R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
+            R.id.btn_clean -> navigateAndShowInter(R.id.action_to_cleanFragment)
+        }
+    }
+
+    private fun navigateAndShowInter(navigateId: Int) {
+        if (viewModel.isCanShowInter()) {
+            viewModel.cantShowInter()
+            showInterstitial()
+        }
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        renderNavBar((view.id))
-        when (view.id) {
-            R.id.btn_boost -> navController.navigate(R.id.action_to_boostFragment)
-            R.id.btn_cool -> navController.navigate(R.id.action_to_coolingFragment)
-            R.id.btn_battery -> navController.navigate(R.id.action_to_batteryFragment)
-            R.id.btn_clean -> navController.navigate(R.id.action_to_cleanFragment)
-        }
+        navController.navigate(navigateId)
     }
 
     private fun initChangeDestinationListener() {

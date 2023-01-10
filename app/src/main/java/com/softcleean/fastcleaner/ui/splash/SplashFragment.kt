@@ -1,6 +1,6 @@
 package com.softcleean.fastcleaner.ui.splash
 
-//import addAdsLoadedListener
+import addAdsLoadedListener
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
@@ -9,25 +9,25 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-//import com.softcleean.fastcleaner.BuildConfig
+import com.softcleean.fastcleaner.BuildConfig
 import com.softcleean.fastcleaner.R
 import com.softcleean.fastcleaner.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
-//import preloadInterstitial
-//import removeAdsLoadedListener
-//import showInterstitial
+import preloadInterstitial
+import removeAdsLoadedListener
+import showInterstitial
 
 class SplashFragment : DialogFragment(R.layout.fragment_splash) {
 
     private val binding: FragmentSplashBinding by viewBinding()
     private var isInterLoaded = false
 
-//    private val adsListener = {
-//        isInterLoaded = true
-//        showInterstitial(onClosed = {
-//            findNavController().navigate(R.id.action_to_boostFragment)
-//        })
-//    }
+    private val adsListener = {
+        isInterLoaded = true
+        showInterstitial(onClosed = {
+            findNavController().navigate(R.id.action_to_boostFragment)
+        })
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         setStyle(STYLE_NO_FRAME, R.style.Dialog)
@@ -38,12 +38,12 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     override fun onResume() {
         super.onResume()
         render()
-//        addAdsLoadedListener(adsListener)
+        addAdsLoadedListener(adsListener)
     }
 
     override fun onPause() {
         super.onPause()
-//        removeAdsLoadedListener(adsListener)
+        removeAdsLoadedListener(adsListener)
     }
 
     private fun render() {
@@ -52,9 +52,9 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     }
 
     private fun preloadAndShowInter() {
-//        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
         lifecycleScope.launchWhenResumed {
-            delay(2500L) // TODO при добавлении рекламы поменять на 8000
+            delay(8000L)
             if (!isInterLoaded) {
                 findNavController().navigate(R.id.action_to_boostFragment)
             }

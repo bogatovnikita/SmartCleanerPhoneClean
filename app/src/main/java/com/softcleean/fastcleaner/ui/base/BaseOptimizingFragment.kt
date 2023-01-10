@@ -18,8 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-//import preloadInterstitial
-//import showInterstitial
+import preloadInterstitial
 
 @AndroidEntryPoint
 abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_optimizing) {
@@ -34,12 +33,12 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     protected var listOptions: MutableList<String> = mutableListOf()
         set(list) {
-         listSize = list.size
-         field = list
-         adapter.submitList(list)
-     }
+            listSize = list.size
+            field = list
+            adapter.submitList(list)
+        }
 
-//    abstract val keyInter: String
+    abstract val keyInter: String
     abstract val nextScreenId: Int
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -54,7 +53,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         startOptimization()
         startOptimizationFun()
         dialog.apply { isCancelable = false }
-//        preloadInterstitial(keyInter)
+        preloadInterstitial(keyInter)
     }
 
     abstract fun setArrayOptimization()
@@ -79,11 +78,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
                 if (percent == 100) {
                     optimizationIsDone()
                     delay(700)
-//                    showInterstitial(
-//                        onClosed = {
-                            findNavController().navigate(nextScreenId)
-//                        }
-//                    )
+                    findNavController().navigate(nextScreenId)
                 }
             }
         }

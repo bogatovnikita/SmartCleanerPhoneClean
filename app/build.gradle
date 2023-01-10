@@ -18,7 +18,7 @@ android {
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-3940256099942544~3347511713"
+        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-9465601451746569~2506761761"
     }
 
     buildTypes {
@@ -26,27 +26,27 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-//            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "ADMOB_BANNER", "ca-app-pub-9465601451746569/3498078106"
+            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-9465601451746569/1717011003"'
             buildConfigField "String", "APP_METRICA_KEY", '"3a252616-8002-4b53-9c55-c702d64eb4b8"'
 
-//            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL6", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-9465601451746569/6147210603"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-9465601451746569/6039399399"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-9465601451746569/8581802258"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-9465601451746569/7077148893"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-9465601451746569/9511740547"'
         }
 
         debug {
-//            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-3940256099942544/3419835294"'
             buildConfigField "String", "APP_METRICA_KEY", '"82f20de2-30a2-4f00-a6d1-3452b9dcf8db"'
-//
-//            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-3940256099942544/1033173712"'
-//            buildConfigField "String", "ADMOB_INTERSTITIAL6", '"ca-app-pub-3940256099942544/1033173712"'
+
+            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-3940256099942544/1033173712"'
         }
     }
     compileOptions {
@@ -97,11 +97,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
     //ads
-//    implementation fileTree(dir: 'libs', include: ['*.aar'])
-//    implementation 'com.google.firebase:firebase-config-ktx:21.1.0'
-//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
-//    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
-//    implementation 'com.google.android.gms:play-services-ads:21.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation 'com.google.firebase:firebase-config-ktx:21.1.0'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
+    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
+    implementation 'com.google.android.gms:play-services-ads:21.0.0'
     implementation "com.android.billingclient:billing:5.1.0"
 
     // AppMetrica SDK.

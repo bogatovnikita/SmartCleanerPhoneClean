@@ -18,11 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-<!--                <com.softcleean.fastcleaner.ads.Banner-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    ads:adUnitId="@string/ADMOB_BANNER"-->
-<!--                    ads:adSize="SMART_BANNER"/>-->
+                <com.softcleean.fastcleaner.ads.Banner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    ads:adUnitId="@string/ADMOB_BANNER"
+                    ads:adSize="SMART_BANNER"/>
 
     </FrameLayout>
 
