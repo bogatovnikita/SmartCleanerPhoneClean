@@ -10,56 +10,56 @@
         android:name="com.softcleean.fastcleaner.ui.battery.BatteryFragment"
         android:label="fragment_battery"
         tools:layout="@layout/fragment_battery" >
-        <action
-            android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
-            app:destination="@id/batteryOptimizingFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
+        app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
         android:name="com.softcleean.fastcleaner.ui.boost.BoostOptimizingFragment"
         android:label="BoostOptimizingFragment" >
-        <action
-            android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
-            app:destination="@id/boostResultFragment"
-            app:popUpTo="@id/boostFragment"
-            app:popUpToInclusive="false"  />
     </dialog>
+    <action
+        android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
+        app:destination="@id/boostResultFragment"
+        app:popUpTo="@id/boostFragment"
+        app:popUpToInclusive="false"  />
     <fragment
         android:id="@+id/coolingFragment"
         android:name="com.softcleean.fastcleaner.ui.cooling.CoolingFragment"
         android:label="CoolingFragment" >
-        <action
-            android:id="@+id/action_coolingFragment_to_coolingOptimizingFragment"
-            app:destination="@id/coolingOptimizingFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_coolingFragment_to_coolingOptimizingFragment"
+        app:destination="@id/coolingOptimizingFragment" />
     <dialog
         android:id="@+id/coolingOptimizingFragment"
         android:name="com.softcleean.fastcleaner.ui.cooling.CoolingOptimizingFragment"
         android:label="CoolingOptimizingFragment" >
-        <action
-            android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
-            app:destination="@id/coolingResultFragment"
-            app:popUpTo="@id/boostFragment"
-            app:popUpToInclusive="false" />
     </dialog>
+    <action
+        android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
+        app:destination="@id/coolingResultFragment"
+        app:popUpTo="@id/boostFragment"
+        app:popUpToInclusive="false" />
     <fragment
         android:id="@+id/cleanFragment"
         android:name="com.softcleean.fastcleaner.ui.clean.CleanFragment"
         android:label="CleanFragment" >
-        <action
-            android:id="@+id/action_cleanFragment_to_cleanOptimizingFragment"
-            app:destination="@id/cleanOptimizingFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_cleanFragment_to_cleanOptimizingFragment"
+        app:destination="@id/cleanOptimizingFragment" />
     <dialog
         android:id="@+id/cleanOptimizingFragment"
         android:name="com.softcleean.fastcleaner.ui.clean.CleanOptimizingFragment"
         android:label="fragment_clean_optimizing" >
-        <action
-            android:id="@+id/action_cleanOptimizingFragment_to_cleanResultFragment"
-            app:destination="@id/cleanResultFragment"
-            app:popUpTo="@id/boostFragment"
-            app:popUpToInclusive="false" />
     </dialog>
+    <action
+        android:id="@+id/action_cleanOptimizingFragment_to_cleanResultFragment"
+        app:destination="@id/cleanResultFragment"
+        app:popUpTo="@id/boostFragment"
+        app:popUpToInclusive="false" />
     <action
         android:id="@+id/action_to_boostFragment"
         app:destination="@id/boostFragment" />
@@ -68,10 +68,10 @@
         android:name="com.softcleean.fastcleaner.ui.boost.BoostFragment"
         android:label="fragment_boost"
         tools:layout="@layout/fragment_boost" >
-        <action
-            android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
-            app:destination="@id/boostOptimizingFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
+        app:destination="@id/boostOptimizingFragment" />
     <action
         android:id="@+id/action_to_batteryFragment"
         app:destination="@id/batteryFragment" />
@@ -106,8 +106,10 @@
         android:id="@+id/batteryOptimizingFragment"
         android:name="com.softcleean.fastcleaner.ui.battery.BatteryOptimizingFragment"
         android:label="BatteryOptimizingFragment" >
-        <action
-            android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
-            app:destination="@id/batteryResultFragment" />
     </dialog>
+    <action
+        android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
+        app:destination="@id/batteryResultFragment"
+        app:popUpTo="@id/boostFragment"
+        app:popUpToInclusive="false" />
 </navigation>
