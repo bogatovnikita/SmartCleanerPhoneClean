@@ -2,6 +2,7 @@ package com.softcleean.fastcleaner.ui.base
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -28,6 +29,7 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         renderState()
+        showInterAndGoBack()
     }
 
     override fun onResume() {
@@ -43,6 +45,13 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
     private fun renderState() {
         binding.tvFunName.text = setFunName()
         binding.tvDescriptionDangerOff.text = setMessageOfCompleteFun()
+    }
+
+    private fun showInterAndGoBack() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+            showInterstitial()
+        }
     }
 
     private fun initAdapter() {
