@@ -28,19 +28,7 @@ class App: Application() {
             UtilsProviderForCLibrary.initUtilsProviderForCLibrary(this)
         }
         FirebaseApp.initializeApp(this)
-        FirebaseAnalytics.getInstance(this).setAnalyticsCollectionEnabled(true) // 30 and 31 save
-        FirebaseAnalytics.getInstance(this).logEvent(
-            "test",
-            Bundle()
-        )
-        val settings = remoteConfigSettings {
-            this.minimumFetchIntervalInSeconds = 1
-        }
-        Firebase.remoteConfig.setConfigSettingsAsync(settings)
-        Firebase.remoteConfig.fetchAndActivate().addOnCompleteListener {
-            val string = Firebase.remoteConfig.getString("test")
-            Log.e("!!!", "result = $string")
-        }
+        FirebaseAnalytics.getInstance(this).setAnalyticsCollectionEnabled(true)
     }
 
     private fun isMainProcess(): Boolean {
