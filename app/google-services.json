@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "621706205099",
-    "project_id": "fast-cleaner-pro-d2b70",
-    "storage_bucket": "fast-cleaner-pro-d2b70.appspot.com"
+    "project_number": "967281973961",
+    "project_id": "fast-cleaner-pro-f1584",
+    "storage_bucket": "fast-cleaner-pro-f1584.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:621706205099:android:c8402ec478e69184dfa4ee",
+        "mobilesdk_app_id": "1:967281973961:android:8a058bdae8b16ec74dcb18",
         "android_client_info": {
           "package_name": "com.softcleean.fastcleaner"
         }
       },
       "oauth_client": [
         {
-          "client_id": "621706205099-66g5iu3k3hdi34k3b921rb84hj5ls8u9.apps.googleusercontent.com",
+          "client_id": "967281973961-tn443alfq6crs5hsg0dsujnjos5u1one.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3M5cjLCpPvMIW9MHEdP6JqH5JC5WZzoM"
+          "current_key": "AIzaSyBKhlFCFcF7buDszgpuMrrrZIAzJxiyBQs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "621706205099-66g5iu3k3hdi34k3b921rb84hj5ls8u9.apps.googleusercontent.com",
+              "client_id": "967281973961-tn443alfq6crs5hsg0dsujnjos5u1one.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
