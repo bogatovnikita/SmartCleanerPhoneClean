@@ -18,7 +18,7 @@ android {
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-9465601451746569~2506761761"
+        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-7524511648460069~6680837698"
     }
 
     buildTypes {
@@ -26,15 +26,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-9465601451746569/3498078106"
-            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-9465601451746569/1717011003"'
+            resValue "string", "ADMOB_BANNER", "ca-app-pub-7524511648460069/8297736341"
+            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-7524511648460069/1185533082"'
             buildConfigField "String", "APP_METRICA_KEY", '"3a252616-8002-4b53-9c55-c702d64eb4b8"'
 
-            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-9465601451746569/6147210603"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-9465601451746569/6039399399"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-9465601451746569/8581802258"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-9465601451746569/7077148893"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-9465601451746569/9511740547"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-7524511648460069/3552127387"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-7524511648460069/7299800708"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-7524511648460069/8069956899"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-7524511648460069/5443793550"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-7524511648460069/3168984003"'
         }
 
         debug {
