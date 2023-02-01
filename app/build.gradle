@@ -13,8 +13,8 @@ android {
         applicationId "com.softcleean.fastcleaner"
         minSdk 21
         targetSdk 32
-        versionCode 4
-        versionName "3.0.1"
+        versionCode 5
+        versionName "5.0"
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -98,10 +98,9 @@ dependencies {
 
     //ads
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.google.firebase:firebase-config-ktx:21.1.0'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
     implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
-    implementation 'com.google.android.gms:play-services-ads:21.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.4.0'
     implementation "com.android.billingclient:billing:5.1.0"
 
     // AppMetrica SDK.
@@ -109,4 +108,7 @@ dependencies {
 
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.android.gms:play-services-measurement:20.1.2'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-config-ktx'
 }
