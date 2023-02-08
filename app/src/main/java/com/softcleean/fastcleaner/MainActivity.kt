@@ -1,7 +1,10 @@
 package com.softcleean.fastcleaner
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
@@ -12,6 +15,7 @@ import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import com.softcleean.fastcleaner.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import initAdsAndAppOpen
+import initPostbackProvider
 import showInterstitial
 import javax.inject.Inject
 
@@ -25,8 +29,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     private val binding: ActivityMainBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         initAdsAndAppOpen()
+        initPostbackProvider()
+        super.onCreate(savedInstanceState)
         initListeners()
         initChangeDestinationListener()
     }

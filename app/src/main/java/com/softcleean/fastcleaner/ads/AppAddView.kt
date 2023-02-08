@@ -17,7 +17,7 @@ class Banner @JvmOverloads constructor(
     }
 
     private fun init(){
-        if (!SubscriptionProvider.getInstance(context).checkHasSubscription()) AdsManager.initBanner(this)
+        AdsManager.initBanner(this)
     }
 
 }

@@ -13,8 +13,8 @@ android {
         applicationId "com.softcleean.fastcleaner"
         minSdk 21
         targetSdk 32
-        versionCode 5
-        versionName "5.0"
+        versionCode 6
+        versionName "6.0"
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -111,4 +111,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-measurement:20.1.2'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-config-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
 }

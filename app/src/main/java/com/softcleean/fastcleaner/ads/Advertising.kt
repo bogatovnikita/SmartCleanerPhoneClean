@@ -4,6 +4,7 @@ import com.ads.library.AdsDelegate
 import com.ads.library.AdsManager
 import com.ads.library.SubscriptionProvider
 import com.softcleean.fastcleaner.BuildConfig
+import com.softcleean.fastcleaner.ads.PostBackProvider
 
 fun Fragment.showInterstitial(
     onClosed: () -> Unit = {},
@@ -59,3 +60,7 @@ fun Activity.initAdsAndAppOpen() {
 }
 
 fun Activity.emulateSubscription() = SubscriptionProvider.getInstance(this).emulateSubscription()
+
+fun Activity.initPostbackProvider(){
+    PostBackProvider.init(this)
+}

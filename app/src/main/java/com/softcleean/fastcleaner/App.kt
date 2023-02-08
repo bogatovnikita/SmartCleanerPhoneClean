@@ -9,6 +9,7 @@ import android.util.Log
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary
@@ -17,7 +18,7 @@ import com.yandex.metrica.YandexMetricaConfig
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -29,6 +30,7 @@ class App: Application() {
         }
         FirebaseApp.initializeApp(this)
         FirebaseAnalytics.getInstance(this).setAnalyticsCollectionEnabled(true)
+        FirebaseMessaging.getInstance().isAutoInitEnabled = true
     }
 
     private fun isMainProcess(): Boolean {
