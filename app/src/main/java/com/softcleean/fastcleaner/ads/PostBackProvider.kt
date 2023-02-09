@@ -107,10 +107,14 @@ object PostBackProvider {
             .appendPath("chbcl6k.php")
             .appendQueryParameter("cnv_id", getClickId())
             .appendQueryParameter("cnv_status", event.name)
-        if (amount != null) {
+        if(amount != null && event.eventName != null){
+            builder.appendQueryParameter(event.eventName, amount.toString())
+        }
+        if (amount != null && event.needPayout) {
             builder.appendQueryParameter("payout", amount.toString())
         }
         val link = builder.build().toString()
+        Log.e("!!!", link)
         return link
     }
 
@@ -149,13 +153,13 @@ object PostBackProvider {
         }
     }
 
-    enum class Events {
-        install,
-        rev1,
-        rev3,
-        rev7,
-        rev30,
-        revall;
+    enum class Events(val eventName: String?, val needPayout: Boolean = false) {
+        install(null),
+        rev1("event_1", true),
+        rev3("event_2"),
+        rev7("event_3"),
+        rev30("event_4"),
+        revall("event_5");
 
         companion object {
 
