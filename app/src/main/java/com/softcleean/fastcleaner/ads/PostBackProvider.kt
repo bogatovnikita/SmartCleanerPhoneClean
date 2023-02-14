@@ -20,7 +20,7 @@ object PostBackProvider {
     private const val INSTALL_DATE = "install_date"
     private const val INSTALL_EVENT_SENT = "install_event_sent"
     private const val PREFERENCES_NAME = "postbacks"
-    private const val POSTBACK_LINK = "captains.space"
+    private const val POSTBACK_LINK = "144.76.113.136"
 
     private lateinit var preferences: SharedPreferences
 
@@ -108,7 +108,7 @@ object PostBackProvider {
             .appendQueryParameter("cnv_id", getClickId())
             .appendQueryParameter("cnv_status", event.name)
         if(amount != null && event.eventName != null){
-            builder.appendQueryParameter("event_1", amount.toString())
+            builder.appendQueryParameter(event.eventName, amount.toString())
         }
         if (amount != null && event.needPayout) {
             builder.appendQueryParameter("payout", amount.toString())
@@ -166,18 +166,18 @@ object PostBackProvider {
             fun getDays(dayAfter: Long): List<Events> {
                 val days = mutableListOf<Events>()
                 days.add(revall)
-//                if (dayAfter < 30) {
-//                    days.add(rev30)
-//                }
-//                if (dayAfter < 7) {
-//                    days.add(rev7)
-//                }
-//                if (dayAfter < 3) {
-//                    days.add(rev3)
-//                }
-//                if (dayAfter < 1) {
-//                    days.add(rev1)
-//                }
+                if (dayAfter < 30) {
+                    days.add(rev30)
+                }
+                if (dayAfter < 7) {
+                    days.add(rev7)
+                }
+                if (dayAfter < 3) {
+                    days.add(rev3)
+                }
+                if (dayAfter < 1) {
+                    days.add(rev1)
+                }
                 return days
             }
 
