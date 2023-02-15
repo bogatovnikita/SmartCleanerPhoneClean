@@ -11,6 +11,7 @@ import com.android.installreferrer.api.InstallReferrerStateListener
 import com.google.android.gms.ads.AdValue
 import com.softcleean.fastcleaner.BuildConfig
 import com.yandex.metrica.YandexMetrica
+import java.math.BigDecimal
 import java.net.URL
 import java.util.concurrent.TimeUnit
 
@@ -100,14 +101,14 @@ object PostBackProvider {
 
     private fun getClickId() = preferences.getString(CLICK_ID, "")!!
 
-    private fun getUrl(event: Events, amount: Double? = null): String {
+    private fun getUrl(event: Events, amount: String? = null): String {
         val builder = Uri.Builder()
             .scheme("http")
             .authority(POSTBACK_LINK)
             .appendPath("chbcl6k.php")
             .appendQueryParameter("cnv_id", getClickId())
             .appendQueryParameter("cnv_status", event.name)
-        if(amount != null && event.eventName != null){
+        if (amount != null && event.eventName != null) {
             builder.appendQueryParameter(event.eventName, amount.toString())
         }
         if (amount != null && event.needPayout) {
@@ -119,12 +120,12 @@ object PostBackProvider {
     }
 
     private fun revenueEvent(adValue: AdValue) {
-        val amount = (adValue.valueMicros.toDouble() / 1000000)
+        val amount = BigDecimal.valueOf(adValue.valueMicros).divide(BigDecimal(1000000))
         val days = Events.getDays(getDaysAfterInstall())
         Thread {
             days.forEach {
                 try {
-                    val result = URL(getUrl(it, amount)).readText()
+                    val result = URL(getUrl(it, amount.toPlainString())).readText()
                 } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                     YandexMetrica.reportEvent(
@@ -155,11 +156,11 @@ object PostBackProvider {
 
     enum class Events(val eventName: String?, val needPayout: Boolean = false) {
         install(null),
-        rev1("event_1", true),
-        rev3("event_2"),
-        rev7("event_3"),
-        rev30("event_4"),
-        revall("event_5");
+        rev1("add_event1", true),
+        rev3("add_event2"),
+        rev7("add_event3"),
+        rev30("add_event4"),
+        revall("add_event5");
 
         companion object {
 
