@@ -13,6 +13,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.softcleean.fastcleaner.ads.AdsViewModel
 import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import com.softcleean.fastcleaner.databinding.ActivityMainBinding
+import com.softcleean.fastcleaner.utils.showNotification
 import dagger.hilt.android.AndroidEntryPoint
 import initAdsAndAppOpen
 import initPostbackProvider

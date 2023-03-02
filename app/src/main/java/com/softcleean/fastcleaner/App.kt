@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Process
 import android.util.Log
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.ktx.Firebase
@@ -31,6 +32,11 @@ class App : Application() {
         FirebaseApp.initializeApp(this)
         FirebaseAnalytics.getInstance(this).setAnalyticsCollectionEnabled(true)
         FirebaseMessaging.getInstance().isAutoInitEnabled = true
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            val token = task.result
+            Log.e("!!!", "Token = $token")
+        })
     }
 
     private fun isMainProcess(): Boolean {
