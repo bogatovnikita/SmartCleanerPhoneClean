@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="need_permission">Нам нужно разрешение</string>
+    <string name="need_permission_description">Для пользования менеджером файлов вам нужно выдать разрешение к хранилищу, чтобы вы могли просматривать и удалять файлы из нашего приложения</string>
+    <string name="allow_access_to_manage_all_files">Дать доступ ко всем файлам</string>
+
+    <string name="give_permission">Дать разрешение</string>
+
+
+</resources>

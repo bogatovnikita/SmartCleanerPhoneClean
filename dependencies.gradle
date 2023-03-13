@@ -1,0 +1,50 @@
+buildscript {
+    ext{
+
+        versions = [
+                vbProperty : '1.5.6',
+                lottie : '5.2.0',
+                navigation : '2.5.3',
+                junit : '4.13.2',
+                android_junit : '1.1.5',
+                espresso : '3.5.1',
+                robolectric : '4.8',
+                mockk : '1.13.3',
+                core_ktx: '1.7.0',
+                appcompat: '1.6.0',
+                material: '1.8.0'
+        ]
+
+        presentation = [
+                'lifecycle_aware'   : project(':lifecycle_aware'),
+                'permissions_views' : project(':permissions_views'),
+                'recycler_adapter'  : project(':recycler_adapter'),
+                'ads'               : project(':ads'),
+                'resources'         : project(':resources'),
+                'vb'                : "com.github.kirich1409:viewbindingpropertydelegate:${versions.vbProperty}",
+                'lottie'            : "com.airbnb.android:lottie:${versions.lottie}",
+                'nav_fragment_ktx'  : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+                'nav_ui_ktx'        : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
+                'core_ktx'          : "androidx.core:core-ktx:${versions.core_ktx}",
+                'appcompat'         : "androidx.appcompat:appcompat:${versions.appcompat}",
+                'material'          : "com.google.android.material:material:${versions.material}"
+        ]
+
+        navigation = [
+                'nav_fragment_ktx'  : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+                'nav_ui_ktx'        : "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+        ]
+
+        presentation_test = [
+                'mockk': "io.mockk:mockk:${versions.mockk}",
+                'junit': "junit:junit:${versions.junit}",
+                'robolectric': "org.robolectric:robolectric:${versions.robolectric}"
+        ]
+
+        presentation_android_test = [
+                'junit': "androidx.test.ext:junit:${versions.android_junit}",
+                'espresso': "androidx.test.espresso:espresso-core:${versions.espresso}"
+        ]
+
+    }
+}

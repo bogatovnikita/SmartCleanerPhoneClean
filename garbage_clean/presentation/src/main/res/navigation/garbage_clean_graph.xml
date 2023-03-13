@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/garbage_clean_graph"
+    app:startDestination="@id/garbageCleanFragment">
+
+    <fragment
+        android:id="@+id/garbageCleanFragment"
+        android:name="yin_kio.garbage_clean.presentation.views.GarbageCleanFragment"
+        android:label="GarbageCleanFragment" />
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="yin_kio.garbage_clean.presentation.views.GarbageCleanPermissionFragment"
+        android:label="GarbageCleanPermissionFragment" />
+    <dialog
+        android:id="@+id/deleteProgressDialog"
+        android:name="yin_kio.garbage_clean.presentation.views.DeleteProgressDialog"
+        android:label="DeleteProgressDialog" />
+</navigation>

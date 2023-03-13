@@ -20,3 +20,18 @@ include ':app'
 include ':app:data'
 include ':app:domain'
 include ':resources'
+
+include ':garbage_clean'
+include ':garbage_clean:domain'
+include ':garbage_clean:data'
+include ':garbage_clean:presentation'
+include ':garbage_clean:test'
+
+include ':ads'
+include ':permissions'
+include ':file_utils'
+include ':storage_info_provider'
+
+include ':lifecycle_aware'
+include ':permissions_views'
+include ':recycler_adapter'

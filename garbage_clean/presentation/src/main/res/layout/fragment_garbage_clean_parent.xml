@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:id="@+id/garbage_clean_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:navGraph="@navigation/garbage_clean_graph"
+    tools:layout="@layout/fragment_garbage_clean">
+
+</androidx.fragment.app.FragmentContainerView>

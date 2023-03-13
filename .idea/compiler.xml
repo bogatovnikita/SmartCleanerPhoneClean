@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="AR156.ads" target="11" />
+      <module name="AR156.app" target="11" />
+      <module name="AR156.app.data" target="11" />
+      <module name="AR156.app.domain" target="11" />
+      <module name="AR156.garbage_clean.data" target="11" />
+      <module name="AR156.garbage_clean.presentation" target="11" />
+      <module name="AR156.garbage_clean.test" target="11" />
+      <module name="AR156.lifecycle_aware" target="11" />
+      <module name="AR156.permissions" target="11" />
+      <module name="AR156.permissions_views" target="11" />
+      <module name="AR156.recycler_adapter" target="11" />
+      <module name="AR156.resources" target="11" />
+      <module name="AR156.storage_info_provider" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
