@@ -19,3 +19,4 @@ rootProject.name = "AR156"
 include ':app'
 include ':domain'
 include ':data'
+include ':resources'
