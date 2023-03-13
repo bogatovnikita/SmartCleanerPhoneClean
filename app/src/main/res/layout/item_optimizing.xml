@@ -8,9 +8,7 @@
         android:id="@+id/tv_optimizing_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_11ssp"
+        android:textAppearance="@style/Text.Regular.12"
         android:gravity="center"
         android:layout_marginHorizontal="@dimen/_20sdp"
         tools:text="Decrease in brightness.."/>

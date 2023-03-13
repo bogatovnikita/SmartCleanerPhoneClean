@@ -81,13 +81,10 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     private fun initStartOptimization() {
         binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
         binding.tvOptimizationTitle.text = getFunName()
-        binding.optimizationRunning.isVisible = true
-        binding.optimizationDone.isVisible = false
     }
 
     private fun renderInProgressOptimization(percent: Int) {
         binding.tvProgressPercents.text = getString(R.string.value_percents, percent)
-        binding.linearProgressIndicator.progress = percent
         updateList(progress = percent)
     }
 
@@ -97,8 +94,6 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         with(binding) {
             tvProgressPercents.text = getString(R.string.ready)
             recyclerView.isVisible = false
-            optimizationRunning.isVisible = false
-            optimizationDone.isVisible = true
         }
         navigateNext()
     }
