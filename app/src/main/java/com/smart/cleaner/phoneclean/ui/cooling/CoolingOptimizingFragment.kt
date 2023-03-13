@@ -9,12 +9,12 @@ class CoolingOptimizingFragment(
     override val nextScreenId: Int = R.id.action_coolingOptimizingFragment_to_coolingResultFragment
 ) : BaseOptimizingFragment() {
 
-    override fun setArrayOptimization() {
+    override fun getArrayOptimization() {
         listOptions = resources.getStringArray(R.array.optimization).toMutableList()
     }
 
     override fun startOptimizationFun() {}
 
-    override fun setFunName(): String = requireContext().getString(R.string.cooling_process)
+    override fun getFunName(): String = requireContext().getString(R.string.cooling_process)
 
 }

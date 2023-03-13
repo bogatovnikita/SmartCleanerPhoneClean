@@ -17,7 +17,7 @@ class BatteryOptimizingFragment(
     @Inject
     lateinit var batteryUseCase: BatteryUseCase
 
-    override fun setArrayOptimization() {
+    override fun getArrayOptimization() {
         listOptions = when (batteryUseCase.getBatteryType()) {
             ChoosingTypeBatteryBar.NORMAL -> resources.getStringArray(R.array.battery_normal)
                 .toMutableList()
@@ -49,6 +49,6 @@ class BatteryOptimizingFragment(
         }
     }
 
-    override fun setFunName(): String = requireContext().getString(R.string.battery_title)
+    override fun getFunName(): String = requireContext().getString(R.string.battery_title)
 
 }
