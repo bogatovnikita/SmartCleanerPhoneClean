@@ -15,7 +15,7 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "AR155"
+rootProject.name = "AR156"
 include ':app'
 include ':domain'
 include ':data'

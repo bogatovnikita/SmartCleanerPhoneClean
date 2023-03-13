@@ -17,3 +17,5 @@ local.properties
 /app/release/AR155-com.softcleean.fastcleaner-v2.0(2)-release.aab
 /app/debug/AR155-com.softcleean.fastcleaner-v3.0(3)-debug.apk
 /app/release/AR155-com.softcleean.fastcleaner-v3.0(3)-release.aab
+/app/debug/
+/app/release/
