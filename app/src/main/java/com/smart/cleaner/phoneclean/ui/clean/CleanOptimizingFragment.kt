@@ -19,7 +19,7 @@ class CleanOptimizingFragment(
 
     override fun startOptimizationFun() {}
 
-    override fun setArrayOptimization() {
+    override fun getArrayOptimization() {
         val randomType = Random.nextInt(1, 3)
         listOptions = cleanUseCase.getFolders().filter { path ->
             when (randomType) {
@@ -31,6 +31,6 @@ class CleanOptimizingFragment(
         }.toMutableList()
     }
 
-    override fun setFunName(): String = requireContext().getString(R.string.cleaning)
+    override fun getFunName(): String = requireContext().getString(R.string.cleaning)
 
 }

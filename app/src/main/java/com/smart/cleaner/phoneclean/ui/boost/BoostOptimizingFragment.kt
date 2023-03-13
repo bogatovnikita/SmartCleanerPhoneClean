@@ -11,10 +11,10 @@ class BoostOptimizingFragment(
 
     override fun startOptimizationFun() {}
 
-    override fun setArrayOptimization() {
+    override fun getArrayOptimization() {
         listOptions = resources.getStringArray(R.array.optimization).toMutableList()
     }
 
-    override fun setFunName(): String = requireContext().getString(R.string.boosting)
+    override fun getFunName(): String = requireContext().getString(R.string.boosting)
 
 }

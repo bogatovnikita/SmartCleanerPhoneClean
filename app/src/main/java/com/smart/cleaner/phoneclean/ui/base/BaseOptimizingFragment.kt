@@ -13,12 +13,12 @@ import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.adapters.HintDecoration
 import com.smart.cleaner.phoneclean.adapters.OptimizingRecyclerAdapter
 import com.smart.cleaner.phoneclean.ads.preloadInterstitial
+import com.smart.cleaner.phoneclean.ads.showInterstitial
 import com.smart.cleaner.phoneclean.databinding.FragmentBaseOptimizingBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_optimizing) {
@@ -38,6 +38,8 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
             adapter.submitList(list)
         }
 
+    private val delayTime = 8000L
+
     abstract val keyInter: String
     abstract val nextScreenId: Int
 
@@ -49,40 +51,46 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        setArrayOptimization()
+        getArrayOptimization()
         startOptimization()
         startOptimizationFun()
         dialog.apply { isCancelable = false }
         preloadInterstitial(keyInter)
     }
 
-    abstract fun setArrayOptimization()
+    abstract fun getArrayOptimization()
 
     abstract fun startOptimizationFun()
 
-    abstract fun setFunName(): String
+    abstract fun getFunName(): String
 
     private fun startOptimization() {
-        binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
-        binding.tvOptimizationTitle.text = setFunName()
-        binding.optimizationRunning.isVisible = true
-        binding.optimizationDone.isVisible = false
-        lifecycleScope.launch {
-            repeat(101) { percent ->
-                delay(80)
-                binding.tvProgressPercents.text = getString(R.string.value_percents, percent)
-                binding.linearProgressIndicator.progress = percent
-                withContext(Dispatchers.Main) {
-                    updateList(progress = percent)
-                }
-                if (percent == 100) {
-                    optimizationIsDone()
-                    delay(700)
-                    findNavController().navigate(nextScreenId)
+        initStartOptimization()
+        lifecycleScope.launch(Dispatchers.Main) {
+            val maxPercent = 101
+            repeat(maxPercent) { percent ->
+                delay(delayTime/maxPercent)
+                renderInProgressOptimization(percent)
+                when(percent) {
+                    100 -> optimizationIsDone()
                 }
             }
         }
     }
+
+    private fun initStartOptimization() {
+        binding.tvProgressPercents.text = getString(R.string.value_percents, 0)
+        binding.tvOptimizationTitle.text = getFunName()
+        binding.optimizationRunning.isVisible = true
+        binding.optimizationDone.isVisible = false
+    }
+
+    private fun renderInProgressOptimization(percent: Int) {
+        binding.tvProgressPercents.text = getString(R.string.value_percents, percent)
+        binding.linearProgressIndicator.progress = percent
+        updateList(progress = percent)
+    }
+
 
     private fun optimizationIsDone() {
         isDoneOptimization = true
@@ -91,6 +99,16 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
             recyclerView.isVisible = false
             optimizationRunning.isVisible = false
             optimizationDone.isVisible = true
+        }
+        navigateNext()
+    }
+
+    private fun navigateNext() {
+        lifecycleScope.launch {
+            delay(700)
+            showInterstitial(
+                onClosed = { findNavController().navigate(nextScreenId) }
+            )
         }
     }
 
