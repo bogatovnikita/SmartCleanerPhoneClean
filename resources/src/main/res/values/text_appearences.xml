@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Text"/>
+    <style name="Text">
+        <item name="android:textColor">@color/text</item>
+    </style>
 
     <style name="Text.Light">
         <item name="android:fontFamily">@font/heraclito_light</item>
     </style>
 
     <style name="Text.Medium">
-        <item name="android:fontFamily">@font/heraclito_light</item>
+        <item name="android:fontFamily">@font/heraclito_medium</item>
     </style>
 
     <style name="Text.Regular">
-        <item name="android:fontFamily">@font/heraclito_light</item>
+        <item name="android:fontFamily">@font/heraclito_regular</item>
     </style>
 
     <style name="Text.Semi_Bold">
-        <item name="android:fontFamily">@font/heraclito_light</item>
+        <item name="android:fontFamily">@font/heraclito_semi_bold</item>
     </style>
 
 
