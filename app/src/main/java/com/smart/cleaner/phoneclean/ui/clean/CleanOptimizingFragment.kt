@@ -10,7 +10,7 @@ import kotlin.random.Random
 
 @AndroidEntryPoint
 class CleanOptimizingFragment(
-    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL5,
+    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL,
     override val nextScreenId: Int = R.id.action_cleanOptimizingFragment_to_cleanResultFragment
 ) : BaseOptimizingFragment() {
 

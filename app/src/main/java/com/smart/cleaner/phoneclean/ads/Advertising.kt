@@ -57,7 +57,6 @@ fun Activity.preloadInterstitial(key: String) {
 
 fun Activity.initAdsAndAppOpen() {
     AdsManager.init(this, BuildConfig.DEBUG)
-    AdsManager.fetchAppOpenManager(this, BuildConfig.ADMOB_APP_OPEN, false)
 }
 
 fun Activity.emulateSubscription() = SubscriptionProvider.getInstance(this).emulateSubscription()

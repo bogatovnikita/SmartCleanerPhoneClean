@@ -19,9 +19,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val config = YandexMetricaConfig.newConfigBuilder(BuildConfig.APP_METRICA_KEY).build()
-        YandexMetrica.activate(applicationContext, config)
-        YandexMetrica.enableActivityAutoTracking(this)
         if (isMainProcess()) {
             UtilsProviderForCLibrary.initUtilsProviderForCLibrary(this)
         }

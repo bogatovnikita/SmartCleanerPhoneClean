@@ -5,7 +5,7 @@ import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
 
 class BoostOptimizingFragment(
-    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL2,
+    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL,
     override val nextScreenId: Int = R.id.action_boostOptimizingFragment_to_boostResultFragment
 ) : BaseOptimizingFragment() {
 

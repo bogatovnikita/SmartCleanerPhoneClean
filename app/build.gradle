@@ -18,7 +18,7 @@ android {
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-7524511648460069~6680837698"
+        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-8163620531689724~7878779159"
     }
 
     buildTypes {
@@ -26,27 +26,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-7524511648460069/8297736341"
-            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-7524511648460069/1185533082"'
-            buildConfigField "String", "APP_METRICA_KEY", '"3a252616-8002-4b53-9c55-c702d64eb4b8"'
-
-            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-7524511648460069/3552127387"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-7524511648460069/7299800708"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-7524511648460069/8069956899"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-7524511648460069/5443793550"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-7524511648460069/3168984003"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL", "\"ca-app-pub-8163620531689724/2456089751\""
+            resValue "string", "ADMOB_BANNER", "\"ca-app-pub-8163620531689724/1121799110\""
         }
 
         debug {
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
-            buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-3940256099942544/3419835294"'
-            buildConfigField "String", "APP_METRICA_KEY", '"82f20de2-30a2-4f00-a6d1-3452b9dcf8db"'
-
-            buildConfigField "String", "ADMOB_INTERSTITIAL1", '"ca-app-pub-3940256099942544/1033173712"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL2", '"ca-app-pub-3940256099942544/1033173712"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL3", '"ca-app-pub-3940256099942544/1033173712"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL4", '"ca-app-pub-3940256099942544/1033173712"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL5", '"ca-app-pub-3940256099942544/1033173712"'
+            buildConfigField "String", "ADMOB_INTERSTITIAL", "\"ca-app-pub-3940256099942544/1033173712\""
+            resValue "string", "ADMOB_BANNER", "\"ca-app-pub-3940256099942544/6300978111\""
         }
     }
     compileOptions {

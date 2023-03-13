@@ -52,7 +52,7 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     }
 
     private fun preloadAndShowInter() {
-        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL1)
+        preloadInterstitial(BuildConfig.ADMOB_INTERSTITIAL)
         lifecycleScope.launchWhenResumed {
             delay(8000L)
             if (!isInterLoaded) {
