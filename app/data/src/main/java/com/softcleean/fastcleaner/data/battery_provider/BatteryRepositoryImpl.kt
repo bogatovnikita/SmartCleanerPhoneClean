@@ -2,8 +2,6 @@ package com.softcleean.fastcleaner.data.battery_provider
 
 import android.app.Application
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.softcleean.fastcleaner.domain.battery.BatteryRepository
 import kotlinx.coroutines.flow.Flow
 import java.lang.ref.WeakReference

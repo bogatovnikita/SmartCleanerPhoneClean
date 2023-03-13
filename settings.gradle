@@ -17,6 +17,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AR156"
 include ':app'
-include ':domain'
-include ':data'
+include ':app:data'
+include ':app:domain'
 include ':resources'

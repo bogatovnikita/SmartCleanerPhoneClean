@@ -8,7 +8,6 @@ import android.content.Context.BLUETOOTH_SERVICE
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
-import androidx.annotation.RequiresApi
 import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary.getContentResolver
 import java.lang.ref.WeakReference
 import javax.inject.Inject
