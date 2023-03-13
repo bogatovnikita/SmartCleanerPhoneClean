@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/container_main"
-    tools:context=".MainActivity">
+    tools:context="com.smart.cleaner.phoneclean.MainActivity">
 
     <FrameLayout
         android:id="@+id/banner"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-                <com.softcleean.fastcleaner.ads.Banner
+                <com.smart.cleaner.phoneclean.ads.Banner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     ads:adUnitId="@string/ADMOB_BANNER"

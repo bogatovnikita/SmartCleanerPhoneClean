@@ -83,7 +83,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_battery_name" />
 
-    <com.softcleean.fastcleaner.custom.ChoosingTypeBatteryBar
+    <com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
         android:id="@+id/choosing_type_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
