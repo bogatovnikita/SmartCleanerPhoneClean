@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button"/>
+
+    <style name="Button.Main">
+        <item name="android:background">@drawable/bg_main_button</item>
+        <item name="android:textAppearance">@style/Text.Medium.18</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button.Push">
+        <item name="android:background">@drawable/bg_button_push</item>
+        <item name="android:textAppearance">@style/Text.Regular.12</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button.Dialog">
+        <item name="android:textAppearance">@style/Text.Medium.18</item>
+    </style>
+
+    <style name="Button.Dialog.Ok">
+        <item name="android:background">@drawable/bg_button_dialog_ok</item>
+        <item name="android:textAppearance">@style/Text.Medium.18</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button.Dialog.Cancel">
+        <item name="android:background">@drawable/bg_button_dialog_cancel</item>
+        <item name="android:textAppearance">@style/Text.Medium.18</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+
+
+</resources>
