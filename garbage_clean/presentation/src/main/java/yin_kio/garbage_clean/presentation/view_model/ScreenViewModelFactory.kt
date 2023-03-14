@@ -16,7 +16,7 @@ class ScreenViewModelFactory  {
             )
             val useCases = GarbageCleanFactory.createUseCases(
                 files = FilesImpl(),
-                outBoundary = presenter,
+                outer = presenter,
                 coroutineScope = viewModelScope,
                 fileSystemInfoProvider = FileSystemInfoProviderImpl(applicationContext),
                 permissions = PermissionsImpl(applicationContext),

@@ -6,14 +6,14 @@ import yin_kio.garbage_clean.domain.entities.FileSystemInfo
 import yin_kio.garbage_clean.domain.entities.GarbageType
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
 import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.presentation.models.UiDeleteFromItem
 import yin_kio.garbage_clean.presentation.models.UiFileSystemInfo
 import yin_kio.garbage_clean.presentation.view_model.MutableScreenViewModel
 
 class ScreenPresenter(
     private val context: Context,
-) : OutBoundary {
+) : Outer {
 
     var viewModel: MutableScreenViewModel? = null
 

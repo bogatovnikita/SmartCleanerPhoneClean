@@ -12,7 +12,7 @@ import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
 import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
@@ -22,7 +22,7 @@ import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 class GarbageCleanerUseCasesTest {
 
     private val files: Files = mockk()
-    private val outBoundary: OutBoundary = spyk()
+    private val outer: Outer = spyk()
     private val mapper: DeleteFormMapper = mockk()
     private val updateUseCase: UpdateUseCase = mockk()
     private val ads: Ads = mockk()
@@ -56,7 +56,7 @@ class GarbageCleanerUseCasesTest {
                 files = files,
                 garbageFiles = garbageFiles,
                 coroutineScope = this,
-                outBoundary = outBoundary,
+                outer = outer,
                 mapper = mapper,
                 updateUseCase = updateUseCase,
                 ads = ads,
@@ -75,7 +75,7 @@ class GarbageCleanerUseCasesTest {
 
         coVerify {
             garbageFiles.deleteForm.switchSelectAll()
-            outBoundary.outDeleteForm(deleteFormOut)
+            outer.outDeleteForm(deleteFormOut)
         }
     }
 
@@ -86,7 +86,7 @@ class GarbageCleanerUseCasesTest {
         wait()
 
         coVerify { garbageFiles.deleteForm.switchSelection(GarbageType.Apk) }
-        coVerify { outBoundary.outDeleteForm(DeleteFormOut()) }
+        coVerify { outer.outDeleteForm(DeleteFormOut()) }
     }
 
     @Test
@@ -105,12 +105,12 @@ class GarbageCleanerUseCasesTest {
 
         coVerifyOrder {
             ads.preloadAd()
-            outBoundary.outDeleteProgress(DeleteProgressState.Progress)
-            outBoundary.outDeleteRequest(listOf(GarbageType.Apk, GarbageType.Temp))
+            outer.outDeleteProgress(DeleteProgressState.Progress)
+            outer.outDeleteRequest(listOf(GarbageType.Apk, GarbageType.Temp))
             files.deleteAndGetNoDeletable(listOf(APK, TEMP))
             noDeletableFiles.save(listOf())
-            outBoundary.outDeletedSize(0)
-            outBoundary.outDeleteProgress(DeleteProgressState.Complete)
+            outer.outDeletedSize(0)
+            outer.outDeleteProgress(DeleteProgressState.Complete)
         }
     }
 
@@ -135,7 +135,7 @@ class GarbageCleanerUseCasesTest {
     fun testClose() = setupTest {
         useCases.close()
 
-        coVerify { outBoundary.outIsClosed(true) }
+        coVerify { outer.outIsClosed(true) }
     }
 
 

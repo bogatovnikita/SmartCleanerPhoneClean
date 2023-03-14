@@ -9,7 +9,7 @@ import yin_kio.garbage_clean.domain.gateways.Ads
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.services.DeleteRequestInterpreter
 import java.io.File
@@ -19,7 +19,7 @@ internal class GarbageCleanerUseCasesImpl(
     private val garbageFiles: GarbageFiles,
     private val mapper: DeleteFormMapper,
     private val files: Files,
-    private val outBoundary: OutBoundary,
+    private val outer: Outer,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
     private val updateUseCase: UpdateUseCase,
@@ -40,15 +40,15 @@ internal class GarbageCleanerUseCasesImpl(
 
     private fun updateDeleteForm() {
         val deleteFormOut = mapper.createDeleteFormOut(garbageFiles.deleteForm)
-        outBoundary.outDeleteForm(deleteFormOut)
+        outer.outDeleteForm(deleteFormOut)
     }
 
     override fun deleteIfCan() = async{
         val deleteRequest = garbageFiles.deleteForm.deleteRequest
         if (deleteRequest.isNotEmpty()) {
             ads.preloadAd()
-            outBoundary.outDeleteProgress(DeleteProgressState.Progress)
-            outBoundary.outDeleteRequest(garbageFiles.deleteForm.deleteRequest.map { it })
+            outer.outDeleteProgress(DeleteProgressState.Progress)
+            outer.outDeleteRequest(garbageFiles.deleteForm.deleteRequest.map { it })
 
             val interpretedRequest = interpreter.interpret(deleteRequest)
             val noDeletable = files.deleteAndGetNoDeletable(interpretedRequest)
@@ -58,8 +58,8 @@ internal class GarbageCleanerUseCasesImpl(
 
             noDeletableFiles.save(noDeletable)
             delay(8000)
-            outBoundary.outDeletedSize(deletedSize)
-            outBoundary.outDeleteProgress(DeleteProgressState.Complete)
+            outer.outDeletedSize(deletedSize)
+            outer.outDeleteProgress(DeleteProgressState.Complete)
         }
     }
 
@@ -70,6 +70,6 @@ internal class GarbageCleanerUseCasesImpl(
     }
 
     override fun close() {
-        outBoundary.outIsClosed(true)
+        outer.outIsClosed(true)
     }
 }

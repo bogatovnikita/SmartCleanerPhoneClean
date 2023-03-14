@@ -4,7 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.*
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanUseCases
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
@@ -14,7 +14,7 @@ object GarbageCleanFactory {
 
     fun createUseCases(
         files: Files,
-        outBoundary: OutBoundary,
+        outer: Outer,
         coroutineScope: CoroutineScope,
         fileSystemInfoProvider: FileSystemInfoProvider,
         permissions: Permissions,
@@ -28,11 +28,11 @@ object GarbageCleanFactory {
             garbageFiles = garbageFiles,
             mapper = mapper,
             files = files,
-            outBoundary = outBoundary,
+            outer = outer,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.Default,
             updateUseCase =  UpdateUseCase(
-                outBoundary = outBoundary,
+                outer = outer,
                 coroutineScope = coroutineScope,
                 mapper = mapper,
                 garbageFiles = garbageFiles,

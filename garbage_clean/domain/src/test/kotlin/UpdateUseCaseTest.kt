@@ -14,13 +14,13 @@ import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
 import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UpdateUseCaseTest {
 
-    private val outBoundary: OutBoundary = spyk()
+    private val outer: Outer = spyk()
     private val fileSystemInfoProvider: FileSystemInfoProvider = mockk()
     private val permissions: Permissions = mockk()
     private val garbageFiles: GarbageFiles = spyk()
@@ -51,13 +51,13 @@ class UpdateUseCaseTest {
         deleteFormOut: DeleteFormOut
     ) {
         coVerifyOrder {
-            outBoundary.outDeleteProgress(DeleteProgressState.Wait)
-            outBoundary.outHasPermission(true)
-            outBoundary.outUpdateProgress(true)
-            outBoundary.outFileSystemInfo(fileSystemInfo)
+            outer.outDeleteProgress(DeleteProgressState.Wait)
+            outer.outHasPermission(true)
+            outer.outUpdateProgress(true)
+            outer.outFileSystemInfo(fileSystemInfo)
             garbageFiles.setFiles(listOf())
-            outBoundary.outDeleteForm(deleteFormOut)
-            outBoundary.outUpdateProgress(false)
+            outer.outDeleteForm(deleteFormOut)
+            outer.outUpdateProgress(false)
         }
     }
 
@@ -68,7 +68,7 @@ class UpdateUseCaseTest {
         updateUseCase.update()
         wait()
 
-        coVerify { outBoundary.outHasPermission(false) }
+        coVerify { outer.outHasPermission(false) }
     }
 
 
@@ -93,7 +93,7 @@ class UpdateUseCaseTest {
             coEvery { fileSystemInfoProvider.getFileSystemInfo() } returns FileSystemInfo()
 
             updateUseCase = UpdateUseCase(
-                outBoundary = outBoundary,
+                outer = outer,
                 coroutineScope = this,
                 mapper = DeleteFormMapper(),
                 garbageFiles = garbageFiles,
