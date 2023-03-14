@@ -19,15 +19,18 @@ internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mut
         files.forEach {
 
             val file = File(it)
-            if(file.isDirectory && file.list().isNullOrEmpty()) addTo(GarbageType.EmptyFolders, file.absolutePath)
+            val rawPath = file.absolutePath
+            val lowercasePath = rawPath.lowercase()
 
-            if(file.absolutePath.lowercase().containsMask(apks)) addTo(GarbageType.Apk, file.absolutePath)
+            if(file.isDirectory && file.list().isNullOrEmpty()) addTo(GarbageType.EmptyFolders, rawPath)
 
-            if(file.absolutePath.lowercase().containsMask(temp)) addTo(GarbageType.Temp, file.absolutePath)
+            if(lowercasePath.containsMask(apks)) addTo(GarbageType.Apk, rawPath)
 
-            if(file.absolutePath.lowercase().containsMask(rest)) addTo(GarbageType.RestFiles, file.absolutePath)
+            if(lowercasePath.containsMask(temp)) addTo(GarbageType.Temp, rawPath)
 
-            if(file.absolutePath.lowercase().containsMask(thumb)) addTo(GarbageType.Thumbnails, file.absolutePath)
+            if(lowercasePath.containsMask(rest)) addTo(GarbageType.RestFiles, rawPath)
+
+            if(lowercasePath.containsMask(thumb)) addTo(GarbageType.Thumbnails, rawPath)
 
         }
 
@@ -65,17 +68,19 @@ internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mut
     }
 
     companion object{
+        private val separator = File.separator
+
         const val APK = ".apk"
         const val TMP = ".tmp"
         const val TEMP = ".temp"
-        const val TEMP_PATH = "/temp/"
-        const val TMP_PATH = "/tmp/"
+        val TEMP_PATH = "${separator}temp${separator}"
+        val TMP_PATH = "${separator}tmp${separator}"
         const val DAT = ".dat"
         const val LOG = ".log"
-        const val LOG_PATH = "/log/"
+        val LOG_PATH = "${separator}log${separator}"
         const val THUMB = ".thumb"
-        const val THUMB_PATH = "/thumb/"
-        const val THUMBNAILS_PATH = "/thumbnails/"
+        val THUMB_PATH = "${separator}thumb${separator}"
+        val THUMBNAILS_PATH = "${separator}thumbnails${separator}"
     }
 
 }
