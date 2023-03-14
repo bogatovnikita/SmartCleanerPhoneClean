@@ -8,7 +8,7 @@ import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanUseCases
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_cases.Updater
 
 object GarbageCleanFactory {
 
@@ -31,7 +31,7 @@ object GarbageCleanFactory {
             outer = outer,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.Default,
-            updateUseCase =  UpdateUseCase(
+            updater =  Updater(
                 outer = outer,
                 coroutineScope = coroutineScope,
                 mapper = mapper,

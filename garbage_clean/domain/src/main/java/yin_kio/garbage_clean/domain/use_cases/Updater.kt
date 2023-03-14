@@ -2,7 +2,6 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.entities.FileSystemInfo
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.FileSystemInfoProvider
@@ -10,11 +9,12 @@ import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
-import yin_kio.garbage_clean.domain.out.DeleteProgressState
+import yin_kio.garbage_clean.domain.out.Navigator
 import yin_kio.garbage_clean.domain.out.Outer
+import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import kotlin.coroutines.CoroutineContext
 
-internal class UpdateUseCase(
+internal class Updater(
     private val outer: Outer,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
@@ -26,18 +26,16 @@ internal class UpdateUseCase(
     private val noDeletableFiles: NoDeletableFiles
 ) {
 
-    fun update() = async {
+    fun update(navigator: Navigator) = async {
         if (permissions.hasStoragePermission){
             outAll()
         } else {
-            outer.outHasPermission(false)
+            navigator.showPermission()
         }
 
     }
 
     private suspend fun outAll() {
-        outer.outDeleteProgress(DeleteProgressState.Wait)
-        outer.outHasPermission(true)
         outer.outUpdateProgress(true)
         outer.outFileSystemInfo(getFileSystemInfo())
 

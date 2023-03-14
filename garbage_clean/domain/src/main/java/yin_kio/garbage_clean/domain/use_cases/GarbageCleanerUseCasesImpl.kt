@@ -8,7 +8,7 @@ import yin_kio.garbage_clean.domain.entities.GarbageType
 import yin_kio.garbage_clean.domain.gateways.Ads
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
-import yin_kio.garbage_clean.domain.out.DeleteProgressState
+import yin_kio.garbage_clean.domain.out.Navigator
 import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.services.DeleteRequestInterpreter
@@ -22,7 +22,7 @@ internal class GarbageCleanerUseCasesImpl(
     private val outer: Outer,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
-    private val updateUseCase: UpdateUseCase,
+    private val updater: Updater,
     private val ads: Ads,
     private val noDeletableFiles: NoDeletableFiles
 ) : GarbageCleanUseCases {
@@ -43,11 +43,11 @@ internal class GarbageCleanerUseCasesImpl(
         outer.outDeleteForm(deleteFormOut)
     }
 
-    override fun deleteIfCan() = async{
+    override fun deleteIfCan(navigator: Navigator) = async{
         val deleteRequest = garbageFiles.deleteForm.deleteRequest
         if (deleteRequest.isNotEmpty()) {
             ads.preloadAd()
-            outer.outDeleteProgress(DeleteProgressState.Progress)
+            navigator.showDeleteProgress()
             outer.outDeleteRequest(garbageFiles.deleteForm.deleteRequest.map { it })
 
             val interpretedRequest = interpreter.interpret(deleteRequest)
@@ -59,17 +59,17 @@ internal class GarbageCleanerUseCasesImpl(
             noDeletableFiles.save(noDeletable)
             delay(8000)
             outer.outDeletedSize(deletedSize)
-            outer.outDeleteProgress(DeleteProgressState.Complete)
+            navigator.complete()
         }
     }
 
-    override fun update() = updateUseCase.update()
+    override fun update(navigator: Navigator) = updater.update(navigator)
 
     private fun async(action: suspend () -> Unit){
         coroutineScope.launch(dispatcher) { action() }
     }
 
-    override fun close() {
-        outer.outIsClosed(true)
+    override fun close(navigator: Navigator) {
+        navigator.close()
     }
 }
