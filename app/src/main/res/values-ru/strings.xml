@@ -59,23 +59,19 @@
     <string name="boost">Ускорить работу телефона</string>
 
     <array name="battery_normal">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
+        <item>Снижает яркость на 70%</item>
     </array>
 
     <array name="battery_ultra">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
-        <item>Отключим wi-fi</item>
-        <item>Заморозим фоновые приложения</item>
+        <item>Снижает яркость на 80%</item>
+        <item>Закрывает фоновые приложения</item>
     </array>
 
     <array name="battery_extra">
-        <item>Уменьшим яркость</item>
-        <item>Отключим автояркость</item>
-        <item>Отключим wi-fi</item>
-        <item>Заморозим фоновые приложения</item>
-        <item>Отключим bluetooth</item>
+        <item>Снижает яркость на 90%</item>
+        <item>Закрывает фоновые приложения</item>
+        <item>Отключит Wi-Fi</item>
+        <item>Отключит Bluetooth</item>
     </array>
 
     <array name="optimization">
@@ -92,5 +88,17 @@
         <item>Остаточные файлы</item>
         <item>Системный мусор</item>
     </array>
+
+    <!--  new  -->
+    <string name="type_description_normal">Нормальный режим активирует ограничения:</string>
+    <string name="type_description_ultra">Ультра режим активирует ограничения:</string>
+    <string name="type_description_extra">Экстра режим активирует ограничения:</string>
+    <string name="ten">+10</string>
+    <string name="thirty">+30</string>
+    <string name="sixty">+60</string>
+    <string name="normal">Нормальный</string>
+    <string name="ultra">Ультра</string>
+    <string name="extra">Экстра</string>
+    <string name="optimize">Оптимизировать</string>
 
 </resources>

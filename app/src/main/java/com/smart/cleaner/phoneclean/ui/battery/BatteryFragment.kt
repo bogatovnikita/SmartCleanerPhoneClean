@@ -160,18 +160,21 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 adapter.submitList(
                     resources.getStringArray(R.array.battery_normal).toList()
                 )
+                binding.titleList.text = getText(R.string.type_description_normal)
                 binding.descriptionGoSettings.isVisible = false
             }
             ULTRA -> {
                 adapter.submitList(
                     resources.getStringArray(R.array.battery_ultra).toList()
                 )
+                binding.titleList.text = getText(R.string.type_description_ultra)
                 binding.descriptionGoSettings.isVisible = false
             }
             EXTRA -> {
                 adapter.submitList(
                     resources.getStringArray(R.array.battery_extra).toList()
                 )
+                binding.titleList.text = getText(R.string.type_description_extra)
                 if (!checkBluetoothPermission()) {
                     if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
                         binding.descriptionGoSettings.isVisible = true
@@ -209,16 +212,13 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     ) {
         if (isBoostedBattery || !isCanWriteSettings) {
             binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_off)
+            binding.btnBoostBattery.isEnabled = false
         } else if (!hasBluetoothPerm && viewModel.screenState.value.batterySaveType == EXTRA) {
             binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_off)
+            binding.btnBoostBattery.isEnabled = false
         } else {
             binding.btnBoostBattery.isClickable = true
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_on)
+            binding.btnBoostBattery.isEnabled = true
         }
     }
 

@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    android:background="@color/background"
     tools:context=".ui.battery.BatteryFragment">
 
     <TextView
         android:id="@+id/tv_battery_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_26sdp"
         android:fontFamily="@font/golos_regular"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="@dimen/_17ssp"
-        android:layout_marginTop="@dimen/_26sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,12 +39,12 @@
         android:id="@+id/tv_battery_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
         android:fontFamily="@font/golos_bold"
         android:gravity="center_horizontal"
         android:text="@string/battery_title"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
-        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circular_progress_battery_percent" />
@@ -54,6 +54,7 @@
         android:layout_width="@dimen/_130sdp"
         android:layout_height="@dimen/_130sdp"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_12sdp"
         app:canalColor="@color/white"
         app:canalHasShadow="false"
         app:canalWidth="@dimen/_6sdp"
@@ -61,7 +62,6 @@
         app:indicatorEndAngle="270"
         app:indicatorStartAngle="-90"
         app:indicatorWidth="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_battery_title"
@@ -73,12 +73,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_19sdp"
         android:fontFamily="@font/golos_medium"
+        android:gravity="center_horizontal"
         android:text="@string/type_save_battery_title"
         android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_19sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_battery_name" />
@@ -87,35 +87,46 @@
         android:id="@+id/choosing_type_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_6sdp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_save_battery_title" />
 
-    <TextView
-        android:id="@+id/title_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_19sdp"
-        android:text="@string/type_description"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_11ssp"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:fontFamily="@font/golos_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosing_type_bar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_4sdp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
-        app:layout_constraintTop_toBottomOf="@+id/title_list"
-        tools:listitem="@layout/item_battery_save_fun" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_description_type_list"
+        android:elevation="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/description_go_settings"
+        app:layout_constraintTop_toBottomOf="@+id/choosing_type_bar"
+        app:layout_constraintVertical_bias="0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/title_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="@string/type_description_normal"
+            android:textAppearance="@style/Text.Medium.14" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            app:layout_constraintTop_toBottomOf="@+id/title_list"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_battery_save_fun" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/description_go_settings"
@@ -126,11 +137,10 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_10sdp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
         app:layout_constraintEnd_toEndOf="@+id/btn_boost_battery"
         app:layout_constraintStart_toStartOf="@+id/btn_boost_battery"
-        app:layout_constraintTop_toBottomOf="@+id/title_list"
         app:layout_constraintVertical_bias="1">
 
         <TextView
@@ -154,17 +164,14 @@
         android:id="@+id/btn_boost_battery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_22sdp"
-        android:layout_marginBottom="@dimen/_12sdp"
-        android:background="@color/blue"
-        android:drawableEnd="@drawable/ic_white_battery"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="start|center_vertical"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:textAllCaps="false"
-        android:text="@string/boost_battery"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_main_button"
+        android:gravity="center"
+        android:paddingHorizontal="15dp"
+        android:text="@string/optimize"
+        android:textAppearance="@style/Text.Medium.18"
         android:textColor="@color/white"
-        android:textSize="@dimen/_12ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
