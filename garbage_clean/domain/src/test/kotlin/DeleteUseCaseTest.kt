@@ -2,6 +2,7 @@ import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
@@ -27,13 +28,25 @@ class DeleteUseCaseTest {
     private val ads: Ads = spyk()
     private val noDeletableFiles: NoDeletableFiles = spyk()
 
-    private lateinit var useCase: DeleteUseCase
+    private val dispatcher = StandardTestDispatcher()
+    private val testScope = TestScope(dispatcher)
+
+    private val useCase: DeleteUseCase = DeleteUseCase(
+        garbageFiles = garbageFiles,
+        ads = ads,
+        coroutineScope = testScope,
+        dispatcher = dispatcher,
+        files = files,
+        noDeletableFiles = noDeletableFiles,
+        outer = outer,
+    )
 
     private val navigator: Navigator = spyk()
 
 
+
     @Test
-    fun testDelete() = setupTest{
+    fun testDelete() = testScope.runTest{
         coEvery { garbageFiles.deleteForm.deleteRequest } returns DeleteRequest().apply {
             add(GarbageType.Apk)
             add(GarbageType.Temp)
@@ -57,24 +70,5 @@ class DeleteUseCaseTest {
         }
     }
 
-    private fun setupTest(testBody: suspend TestScope.() -> Unit){
-        runTest {
-            useCase = DeleteUseCase(
-                garbageFiles = garbageFiles,
-                ads = ads,
-                coroutineScope = this,
-                dispatcher = coroutineContext,
-                files = files,
-                noDeletableFiles = noDeletableFiles,
-                outer = outer,
-
-            )
-            testBody()
-        }
-    }
-
-    private fun TestScope.wait() {
-        advanceUntilIdle()
-    }
 
 }
