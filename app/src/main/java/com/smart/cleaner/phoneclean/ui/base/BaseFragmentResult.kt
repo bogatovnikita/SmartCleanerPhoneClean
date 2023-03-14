@@ -19,7 +19,6 @@ import com.smart.cleaner.phoneclean.utils.OptimizingType
 abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
 
     private val binding: FragmentBaseResultBinding by viewBinding()
-    private val viewModel: AdsViewModel by activityViewModels()
 
     abstract fun setListFun(): List<FunResult>
     abstract fun setFunName(): String
@@ -30,16 +29,6 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
         initAdapter()
         renderState()
         showInterAndGoBack()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.canShowInter()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.cantShowInter()
     }
 
     private fun renderState() {
@@ -59,8 +48,8 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
             override fun onFunClick(item: FunResult) {
                 when (item.type) {
                     OptimizingType.Boost -> showAdsAndNavigate(R.id.action_to_boostFragment)
-                    OptimizingType.Clean -> showAdsAndNavigate(R.id.action_to_cleanFragment)
-                    OptimizingType.Cooling -> showAdsAndNavigate(R.id.action_to_coolingFragment)
+                    OptimizingType.Clean -> {}
+                    OptimizingType.Cooling -> {}
                     OptimizingType.Battery -> showAdsAndNavigate(R.id.action_to_batteryFragment)
                 }
             }

@@ -2,15 +2,11 @@ package com.smart.cleaner.phoneclean
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.smart.cleaner.phoneclean.ads.AdsViewModel
-import com.smart.cleaner.phoneclean.ads.initAdsAndAppOpen
-import com.smart.cleaner.phoneclean.ads.initPostbackProvider
-import com.smart.cleaner.phoneclean.ads.showInterstitial
+import com.smart.cleaner.phoneclean.ads.initAdsLib
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
 import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,14 +17,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     @Inject
     lateinit var batteryChargeReceiver: BatteryChargeReceiver
-    private val viewModel: AdsViewModel by viewModels()
 
     private val binding: ActivityMainBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initAdsAndAppOpen()
-        initPostbackProvider()
         super.onCreate(savedInstanceState)
+        initAdsLib()
         initListeners()
         initChangeDestinationListener()
     }
@@ -54,17 +48,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         renderNavBar((view.id))
         when (view.id) {
             R.id.btn_boost -> navigateAndShowInter(R.id.action_to_boostFragment)
-            R.id.btn_cool -> navigateAndShowInter(R.id.action_to_coolingFragment)
+            R.id.btn_cool -> {}
             R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
-            R.id.btn_clean -> navigateAndShowInter(R.id.action_to_cleanFragment)
+            R.id.btn_clean -> {}
         }
     }
 
     private fun navigateAndShowInter(navigateId: Int) {
-        if (viewModel.isCanShowInter()) {
-            viewModel.cantShowInter()
-            showInterstitial()
-        }
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -72,13 +62,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     }
 
     private fun initChangeDestinationListener() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.boostFragment -> renderNavBar(binding.btnBoost.id)
-                R.id.cleanFragment -> renderNavBar(binding.btnClean.id)
-                R.id.coolingFragment -> renderNavBar(binding.btnCool.id)
                 R.id.batteryFragment -> renderNavBar(binding.btnBattery.id)
             }
         }

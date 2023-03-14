@@ -69,9 +69,9 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         lifecycleScope.launch(Dispatchers.Main) {
             val maxPercent = 101
             repeat(maxPercent) { percent ->
-                delay(delayTime/maxPercent)
+                delay(delayTime / maxPercent)
                 renderInProgressOptimization(percent)
-                when(percent) {
+                when (percent) {
                     100 -> optimizationIsDone()
                 }
             }
@@ -91,10 +91,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     private fun optimizationIsDone() {
         isDoneOptimization = true
-        with(binding) {
-            tvProgressPercents.text = getString(R.string.ready)
-            recyclerView.isVisible = false
-        }
+        binding.recyclerView.isVisible = false
         navigateNext()
     }
 

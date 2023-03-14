@@ -55,12 +55,9 @@ fun Activity.preloadInterstitial(key: String) {
     AdsManager.preloadAd(this, key)
 }
 
-fun Activity.initAdsAndAppOpen() {
+fun Activity.initAdsLib() {
     AdsManager.init(this, BuildConfig.DEBUG)
 }
 
 fun Activity.emulateSubscription() = SubscriptionProvider.getInstance(this).emulateSubscription()
 
-fun Activity.initPostbackProvider(){
-    PostBackProvider.init(this)
-}

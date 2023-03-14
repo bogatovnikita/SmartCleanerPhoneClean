@@ -48,7 +48,6 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
 
     private fun render() {
         dialog.apply { isCancelable = false }
-        binding.tvPrivacyPolicy.setOnClickListener { openPrivacyPolicy() }
     }
 
     private fun preloadAndShowInter() {
@@ -61,12 +60,4 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
         }
     }
 
-    private fun openPrivacyPolicy() {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://sites.google.com/view/fastcleanersft/")
-            )
-        )
-    }
 }

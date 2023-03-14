@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,35 +7,47 @@
     android:background="@color/white"
     tools:context=".ui.base.BaseOptimizingFragment">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_104sdp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_optimization_title"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"
+        app:lottie_rawRes="@raw/lottie_optimization" />
+
     <TextView
         android:id="@+id/tv_optimization_title"
+        style="@style/Text.Semi_Bold.32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/battery_title"
-        style="@style/Text.Semi_Bold.32"
-        app:layout_constraintVertical_bias="0.48"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
 
     <TextView
         android:id="@+id/tv_progress_percents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/value_percents"
         android:textAppearance="@style/Text.Medium.20"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_optimization_title"
         app:layout_constraintStart_toStartOf="@+id/tv_optimization_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_optimization_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_optimization_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_16ssp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="@dimen/_16ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

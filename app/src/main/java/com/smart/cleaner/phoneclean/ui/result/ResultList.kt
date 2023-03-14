@@ -4,14 +4,10 @@ import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.utils.OptimizingType
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import com.softcleean.fastcleaner.domain.boost.BoostUseCase
-import com.softcleean.fastcleaner.domain.clean.CleanUseCase
-import com.softcleean.fastcleaner.domain.cooling.CoolingUseCase
 import javax.inject.Inject
 
 class ResultList @Inject constructor(
     private val batteryUseCase: BatteryUseCase,
-    private val coolingUseCase: CoolingUseCase,
-    private val cleanUseCase: CleanUseCase,
     private val boostUseCase: BoostUseCase,
 ) {
 
@@ -36,26 +32,6 @@ class ResultList @Inject constructor(
                 R.drawable.ic_battery_danger,
             type = OptimizingType.Battery,
         ),
-        FunResult(
-            isOptimized = coolingUseCase.getCoolingDone(),
-            funName = R.string.cooling_process,
-            funDangerDescription = R.string.cooling_danger_desc,
-            icon = if (coolingUseCase.getCoolingDone())
-                R.drawable.ic_cooling_danger_off
-            else
-                R.drawable.ic_cooling_danger,
-            type = OptimizingType.Cooling,
-        ),
-        FunResult(
-            isOptimized = cleanUseCase.isGarbageCleared(),
-            funName = R.string.cleaning,
-            funDangerDescription = R.string.clean_danger_desc,
-            icon = if (cleanUseCase.isGarbageCleared())
-                R.drawable.ic_clean_danger_off
-            else
-                R.drawable.ic_clean_danger,
-            type = OptimizingType.Clean,
-        )
     )
 
 }
