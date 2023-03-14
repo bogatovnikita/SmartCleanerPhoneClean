@@ -7,13 +7,12 @@ import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.DeleteRequest
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.entities.GarbageType
-import yin_kio.garbage_clean.domain.gateways.Ads
 import yin_kio.garbage_clean.domain.gateways.Files
-import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
 import yin_kio.garbage_clean.domain.out.Navigator
 import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
+import yin_kio.garbage_clean.domain.use_cases.DeleteUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.Updater
 
@@ -25,14 +24,14 @@ class GarbageCleanerUseCasesTest {
     private val outer: Outer = spyk()
     private val mapper: DeleteFormMapper = mockk()
     private val updater: Updater = mockk()
-    private val ads: Ads = mockk()
-    private val noDeletableFiles: NoDeletableFiles = spyk()
     private lateinit var useCases: GarbageCleanerUseCasesImpl
     private val garbageFiles: GarbageFiles = spyk()
 
     private val deleteFormOut = DeleteFormOut()
 
     private val navigator: Navigator = spyk()
+
+    private val deleteUseCase: DeleteUseCase = mockk()
 
 
     init {
@@ -48,22 +47,21 @@ class GarbageCleanerUseCasesTest {
 
             updater.update(navigator)
 
-            ads.preloadAd()
+            deleteUseCase.delete(navigator)
+
         } returns Unit
     }
 
     private fun setupTest(testBody: suspend TestScope.() -> Unit){
         runTest {
             useCases = GarbageCleanerUseCasesImpl(
-                files = files,
                 garbageFiles = garbageFiles,
                 coroutineScope = this,
                 outer = outer,
                 mapper = mapper,
                 updater = updater,
-                ads = ads,
                 dispatcher = coroutineContext,
-                noDeletableFiles = noDeletableFiles
+                deleteUseCase = deleteUseCase,
             )
             testBody()
         }
@@ -93,27 +91,11 @@ class GarbageCleanerUseCasesTest {
 
     @Test
     fun `test deleteIfCan deleteRequest is not empty`() = setupTest{
-        coEvery { garbageFiles.deleteForm.deleteRequest } returns DeleteRequest().apply {
-            add(GarbageType.Apk)
-            add(GarbageType.Temp)
-
-            garbageFiles[GarbageType.Apk] = mutableSetOf(APK)
-            garbageFiles[GarbageType.Temp] = mutableSetOf(TEMP)
-        }
-        coEvery { files.deleteAndGetNoDeletable(listOf(APK, TEMP)) } returns listOf()
-
         useCases.deleteIfCan(navigator)
         wait()
 
-        coVerifyOrder {
-            ads.preloadAd()
-            navigator.showDeleteProgress()
-            outer.outDeleteRequest(listOf(GarbageType.Apk, GarbageType.Temp))
-            files.deleteAndGetNoDeletable(listOf(APK, TEMP))
-            noDeletableFiles.save(listOf())
-            outer.outDeletedSize(0)
-            navigator.complete()
-        }
+
+        coVerify { deleteUseCase.delete(navigator) }
     }
 
 

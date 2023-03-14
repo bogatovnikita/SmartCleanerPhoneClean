@@ -1,33 +1,24 @@
 package yin_kio.garbage_clean.domain.use_cases
 
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.entities.GarbageType
-import yin_kio.garbage_clean.domain.gateways.Ads
-import yin_kio.garbage_clean.domain.gateways.Files
-import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.out.Navigator
 import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
-import yin_kio.garbage_clean.domain.services.DeleteRequestInterpreter
-import java.io.File
 import kotlin.coroutines.CoroutineContext
 
 internal class GarbageCleanerUseCasesImpl(
     private val garbageFiles: GarbageFiles,
     private val mapper: DeleteFormMapper,
-    private val files: Files,
     private val outer: Outer,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
     private val updater: Updater,
-    private val ads: Ads,
-    private val noDeletableFiles: NoDeletableFiles
+    private val deleteUseCase: DeleteUseCase
 ) : GarbageCleanUseCases {
 
-    private val interpreter = DeleteRequestInterpreter(garbageFiles)
 
     override fun switchSelectAll() = async {
         garbageFiles.deleteForm.switchSelectAll()
@@ -43,25 +34,7 @@ internal class GarbageCleanerUseCasesImpl(
         outer.outDeleteForm(deleteFormOut)
     }
 
-    override fun deleteIfCan(navigator: Navigator) = async{
-        val deleteRequest = garbageFiles.deleteForm.deleteRequest
-        if (deleteRequest.isNotEmpty()) {
-            ads.preloadAd()
-            navigator.showDeleteProgress()
-            outer.outDeleteRequest(garbageFiles.deleteForm.deleteRequest.map { it })
-
-            val interpretedRequest = interpreter.interpret(deleteRequest)
-            val noDeletable = files.deleteAndGetNoDeletable(interpretedRequest)
-
-            val deleted = interpretedRequest.filter { !noDeletable.contains(it) }
-            val deletedSize = deleted.sumOf { File(it).length() }
-
-            noDeletableFiles.save(noDeletable)
-            delay(8000)
-            outer.outDeletedSize(deletedSize)
-            navigator.complete()
-        }
-    }
+    override fun deleteIfCan(navigator: Navigator) = deleteUseCase.delete(navigator)
 
     override fun update(navigator: Navigator) = updater.update(navigator)
 
