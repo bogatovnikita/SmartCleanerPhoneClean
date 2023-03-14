@@ -93,4 +93,13 @@
         <item>System garbage</item>
     </array>
 
+            <!--  new  -->
+    <string name="type_description">Нормальный режим активирует ограничения:</string>
+    <string name="ten">+10</string>
+    <string name="thirty">+30</string>
+    <string name="sixty">+60</string>
+    <string name="normal">Нормальный</string>
+    <string name="ultra">Ультра</string>
+    <string name="extra">Экстра</string>
+
 </resources>
