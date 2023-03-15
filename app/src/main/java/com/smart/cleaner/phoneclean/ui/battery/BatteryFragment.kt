@@ -213,12 +213,16 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         if (isBoostedBattery || !isCanWriteSettings) {
             binding.btnBoostBattery.isClickable = false
             binding.btnBoostBattery.isEnabled = false
+            binding.btnBoostBattery.isVisible = true
         } else if (!hasBluetoothPerm && viewModel.screenState.value.batterySaveType == EXTRA) {
             binding.btnBoostBattery.isClickable = false
             binding.btnBoostBattery.isEnabled = false
+            if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT))
+                binding.btnBoostBattery.isVisible = false
         } else {
             binding.btnBoostBattery.isClickable = true
             binding.btnBoostBattery.isEnabled = true
+            binding.btnBoostBattery.isVisible = true
         }
     }
 

@@ -48,7 +48,6 @@
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
     <string name="cancel">Cancel</string>
     <string name="allow">Allow</string>
-    <string name="settings">Settings</string>
     <string name="dialog_write_setting_description">We need permission to change system settings so that we can increase the runtime of your device.</string>
     <string name="description_go_settings">To perform this function, we need permission to change system settings</string>
     <string name="get_permission">We need permission</string>
@@ -100,5 +99,7 @@
     <string name="ultra">Ультра</string>
     <string name="extra">Экстра</string>
     <string name="optimize">Оптимизировать</string>
+    <string name="settings">Настройки</string>
+    <string name="go_settings_description">Для выполнения данной функции\nвам необходимо самостоятельно\nдать разрешение в настройках</string>
 
 </resources>
