@@ -23,7 +23,8 @@ class RealBatteryProvider @Inject constructor(
     fun setScreenBrightness(value: Int) {
         try {
             Settings.System.putInt(
-                getContentResolver(), Settings.System.SCREEN_BRIGHTNESS,
+                getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS,
                 value
             )
         } catch (e: Exception) {

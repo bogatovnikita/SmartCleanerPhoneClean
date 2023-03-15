@@ -17,22 +17,8 @@ class BatteryViewModel @Inject constructor(
 ) : BaseViewModel<BatteryStateScreen>(BatteryStateScreen()) {
 
     fun getParams() {
-        getBatteryCharge()
         getIsBoostedBattery()
         getBatterySaveType()
-    }
-
-    private fun getBatteryCharge() {
-        viewModelScope.launch(Dispatchers.Default) {
-            batteryUseCase.getBatteryPercent().collect { percent ->
-                updateState {
-                    it.copy(
-                        batteryPercents = percent,
-                    )
-                }
-                calculateRemainingBatteryLife(percent)
-            }
-        }
     }
 
     private fun getIsBoostedBattery() {
@@ -55,15 +41,6 @@ class BatteryViewModel @Inject constructor(
         }
     }
 
-    private fun calculateRemainingBatteryLife(percent: Int) {
-            val time = batteryUseCase.calculateWorkingTime(percent)
-            updateState {
-                it.copy(
-                    batteryWorkingTime = arrayOf(time / 60, time % 60)
-                )
-            }
-    }
-
     fun boostBattery() {
         viewModelScope.launch {
             batteryUseCase.saveBatteryType(screenState.value.batterySaveType)
@@ -71,17 +48,6 @@ class BatteryViewModel @Inject constructor(
                 NORMAL -> batteryUseCase.savePowerLowType()
                 ULTRA -> batteryUseCase.savePowerMediumType()
                 EXTRA -> batteryUseCase.savePowerHighType()
-            }
-        }
-    }
-
-    fun modePercentBoost(): Int {
-        return when (batteryUseCase.getBatteryType()) {
-            NORMAL -> 10
-            ULTRA -> 30
-            EXTRA -> 60
-            else -> {
-                10
             }
         }
     }

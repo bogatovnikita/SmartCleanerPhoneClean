@@ -48,7 +48,6 @@
     <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
     <string name="cancel">Отмена</string>
     <string name="allow">Разрешить</string>
-    <string name="settings">Настройки</string>
     <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы мы могли увеличить время работы вашего устройства.</string>
     <string name="description_go_settings">Для выполнения этой функции нам необходимо разрешение на изменение системных настроек</string>
     <string name="get_permission">Нам нужно разрешение</string>
@@ -100,5 +99,9 @@
     <string name="ultra">Ультра</string>
     <string name="extra">Экстра</string>
     <string name="optimize">Оптимизировать</string>
+    <string name="settings">Настройки</string>
+    <string name="go_settings_description">Для выполнения данной функции\nвам необходимо самостоятельно\nдать разрешение в настройках</string>
+    <string name="battery_boosted">Оптимизировано!</string>
+    <string name="battery_unboosted">Требуется увеличить время работы телефона!</string>
 
 </resources>

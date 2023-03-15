@@ -32,17 +32,13 @@ class BatteryOptimizingFragment(
     override fun startOptimizationFun() {
         when (batteryUseCase.getBatteryType()) {
             ChoosingTypeBatteryBar.NORMAL -> {
-                batteryUseCase.setScreenBrightness(5)
-                batteryUseCase.turnOffAutoBrightness()
+                batteryUseCase.setScreenBrightness(30)
             }
             ChoosingTypeBatteryBar.ULTRA -> {
-                batteryUseCase.setScreenBrightness(5)
-                batteryUseCase.turnOffAutoBrightness()
-                batteryUseCase.disableWiFi()
+                batteryUseCase.setScreenBrightness(20)
             }
             ChoosingTypeBatteryBar.EXTRA -> {
-                batteryUseCase.setScreenBrightness(5)
-                batteryUseCase.turnOffAutoBrightness()
+                batteryUseCase.setScreenBrightness(10)
                 batteryUseCase.disableWiFi()
                 batteryUseCase.disableBluetooth()
             }

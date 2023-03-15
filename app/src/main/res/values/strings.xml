@@ -101,5 +101,7 @@
     <string name="optimize">Оптимизировать</string>
     <string name="settings">Настройки</string>
     <string name="go_settings_description">Для выполнения данной функции\nвам необходимо самостоятельно\nдать разрешение в настройках</string>
+    <string name="battery_boosted">Оптимизировано!</string>
+    <string name="battery_unboosted">Требуется увеличить время работы телефона!</string>
 
 </resources>
