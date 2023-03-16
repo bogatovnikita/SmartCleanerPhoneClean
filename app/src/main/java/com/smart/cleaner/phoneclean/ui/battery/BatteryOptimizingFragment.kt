@@ -1,11 +1,14 @@
 package com.smart.cleaner.phoneclean.ui.battery
 
+import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phoneclean.BuildConfig
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
 import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -32,19 +35,27 @@ class BatteryOptimizingFragment(
     override fun startOptimizationFun() {
         when (batteryUseCase.getBatteryType()) {
             ChoosingTypeBatteryBar.NORMAL -> {
-                batteryUseCase.setScreenBrightness(30)
+                batteryUseCase.setScreenBrightness(77)
             }
             ChoosingTypeBatteryBar.ULTRA -> {
-                batteryUseCase.setScreenBrightness(20)
+                batteryUseCase.setScreenBrightness(51)
+                killBackgroundProcess()
             }
             ChoosingTypeBatteryBar.EXTRA -> {
-                batteryUseCase.setScreenBrightness(10)
+                batteryUseCase.setScreenBrightness(26)
                 batteryUseCase.disableWiFi()
                 batteryUseCase.disableBluetooth()
+                killBackgroundProcess()
             }
         }
     }
 
-    override fun getFunName(): String = requireContext().getString(R.string.battery_title)
+    private fun killBackgroundProcess() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            batteryUseCase.killBackgroundProcess()
+        }
+    }
+
+    override fun getFunName(): String = requireContext().getString(R.string.optimization)
 
 }

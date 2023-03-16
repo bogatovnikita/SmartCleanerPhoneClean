@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary;
 
 @Keep
-public class FakeBatteryProvider {
+public class BatteryPrefsProvider {
 
     private static final String BATTERY_TYPE = "BATTERY_TYPE";
 
@@ -14,8 +14,6 @@ public class FakeBatteryProvider {
     }
 
     public static native boolean checkBatteryDecrease(Context context);
-
-    public static native int calculateWorkingMinutes(Context context, int percent);
 
     public static native void savePowerLowType(Context context);
 

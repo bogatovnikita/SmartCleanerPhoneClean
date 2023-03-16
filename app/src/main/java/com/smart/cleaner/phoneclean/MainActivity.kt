@@ -8,15 +8,10 @@ import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.ads.initAdsLib
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
-import com.softcleean.fastcleaner.data.battery_provider.BatteryChargeReceiver
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
-
-    @Inject
-    lateinit var batteryChargeReceiver: BatteryChargeReceiver
 
     private val binding: ActivityMainBinding by viewBinding()
 
@@ -32,16 +27,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         binding.btnCool.setOnClickListener(this)
         binding.btnBattery.setOnClickListener(this)
         binding.btnClean.setOnClickListener(this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        batteryChargeReceiver.registerReceiver(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        batteryChargeReceiver.unregisterReceiver(this)
     }
 
     override fun onClick(view: View) {

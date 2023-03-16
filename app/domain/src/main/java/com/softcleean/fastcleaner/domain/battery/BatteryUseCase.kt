@@ -1,6 +1,5 @@
 package com.softcleean.fastcleaner.domain.battery
 
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class BatteryUseCase @Inject constructor(
@@ -24,11 +23,5 @@ class BatteryUseCase @Inject constructor(
 
     fun disableWiFi() = batteryRepository.disableWiFi()
 
-    fun turnOffAutoBrightness() = batteryRepository.turnOffAutoBrightness()
-
-    fun calculateWorkingTime(percent: Int): Int = batteryRepository.calculateWorkingTime(percent)
-
-    fun getBatteryTemperature(): Flow<Int> = batteryRepository.getBatteryTemperature()
-
-    fun getBatteryPercent(): Flow<Int> = batteryRepository.getBatteryPercent()
+    suspend fun killBackgroundProcess() = batteryRepository.killBackgroundProcess()
 }
