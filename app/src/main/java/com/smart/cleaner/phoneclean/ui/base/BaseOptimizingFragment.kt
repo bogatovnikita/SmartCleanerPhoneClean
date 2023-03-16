@@ -9,11 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.ads.preloadAd
+import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.adapters.HintDecoration
 import com.smart.cleaner.phoneclean.adapters.OptimizingRecyclerAdapter
-import com.smart.cleaner.phoneclean.ads.preloadInterstitial
-import com.smart.cleaner.phoneclean.ads.showInterstitial
 import com.smart.cleaner.phoneclean.databinding.FragmentBaseOptimizingBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -39,8 +39,6 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         }
 
     private val delayTime = 8000L
-
-    abstract val keyInter: String
     abstract val nextScreenId: Int
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -55,7 +53,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         startOptimization()
         startOptimizationFun()
         dialog.apply { isCancelable = false }
-        preloadInterstitial(keyInter)
+        preloadAd()
     }
 
     abstract fun getArrayOptimization()
@@ -98,7 +96,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     private fun navigateNext() {
         lifecycleScope.launch {
             delay(700)
-            showInterstitial(
+            showInter(
                 onClosed = { findNavController().navigate(nextScreenId) }
             )
         }

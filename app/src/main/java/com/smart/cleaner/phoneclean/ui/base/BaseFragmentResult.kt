@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.adapters.ResultFunAdapter
-import com.smart.cleaner.phoneclean.ads.AdsViewModel
-import com.smart.cleaner.phoneclean.ads.showInterstitial
 import com.smart.cleaner.phoneclean.databinding.FragmentBaseResultBinding
 import com.smart.cleaner.phoneclean.ui.result.FunResult
 import com.smart.cleaner.phoneclean.utils.OptimizingType
@@ -39,7 +36,6 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
     private fun showInterAndGoBack() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().popBackStack()
-            showInterstitial()
         }
     }
 
@@ -47,10 +43,10 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
         val adapter = ResultFunAdapter(object : ResultFunAdapter.ClickOnFunResultListener {
             override fun onFunClick(item: FunResult) {
                 when (item.type) {
-                    OptimizingType.Boost -> showAdsAndNavigate(R.id.action_to_boostFragment)
+                    OptimizingType.Boost -> findNavController().navigate(R.id.action_to_boostFragment)
                     OptimizingType.Clean -> {}
                     OptimizingType.Cooling -> {}
-                    OptimizingType.Battery -> showAdsAndNavigate(R.id.action_to_batteryFragment)
+                    OptimizingType.Battery -> findNavController().navigate(R.id.action_to_batteryFragment)
                 }
             }
 
@@ -58,12 +54,6 @@ abstract class BaseFragmentResult : Fragment(R.layout.fragment_base_result) {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter.submitList(setListFun())
-    }
-
-    private fun showAdsAndNavigate(navigateId: Int) {
-        showInterstitial(
-            onClosed = { findNavController().navigate(navigateId) }
-        )
     }
 
 }

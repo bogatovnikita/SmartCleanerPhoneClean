@@ -13,7 +13,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class BatteryOptimizingFragment(
-    override val keyInter: String = BuildConfig.ADMOB_INTERSTITIAL,
     override val nextScreenId: Int = R.id.action_batteryOptimizingFragment_to_batteryResultFragment
 ) : BaseOptimizingFragment() {
 

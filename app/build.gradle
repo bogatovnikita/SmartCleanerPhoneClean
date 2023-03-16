@@ -18,21 +18,12 @@ android {
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-8163620531689724~7878779159"
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            buildConfigField "String", "ADMOB_INTERSTITIAL", "\"ca-app-pub-8163620531689724/2456089751\""
-            resValue "string", "ADMOB_BANNER", "\"ca-app-pub-8163620531689724/1121799110\""
-        }
-
-        debug {
-            buildConfigField "String", "ADMOB_INTERSTITIAL", "\"ca-app-pub-3940256099942544/1033173712\""
-            resValue "string", "ADMOB_BANNER", "\"ca-app-pub-3940256099942544/6300978111\""
         }
     }
     compileOptions {
@@ -51,6 +42,7 @@ android {
 dependencies {
 
     implementation project(":resources")
+    implementation project(":ads")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -83,13 +75,6 @@ dependencies {
     // Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
-
-    //ads
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
-    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
-    implementation 'com.google.android.gms:play-services-ads:21.4.0'
-    implementation "com.android.billingclient:billing:5.1.0"
 
     // AppMetrica SDK.
     implementation "com.yandex.android:mobmetricalib:5.2.0"
