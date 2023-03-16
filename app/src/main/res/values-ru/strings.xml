@@ -46,14 +46,7 @@
     <string name="clean_danger_desc">Освободите память от мусора</string>
     <string name="garbage_not_found">Мусорных файлов\nнe обнаружено</string>
     <string name="free_memory_size">В хранилище свободно\n%.1f Гб</string>
-    <string name="cancel">Отмена</string>
-    <string name="allow">Разрешить</string>
-    <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы мы могли увеличить время работы вашего устройства.</string>
     <string name="description_go_settings">Для выполнения этой функции нам необходимо разрешение на изменение системных настроек</string>
-    <string name="get_permission">Нам нужно разрешение</string>
-    <string name="title_dialog_bluetooth">Для Экстра режима нужен доступ к настройкам bluetooth</string>
-    <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth для увеличения времени работы батареи</string>
-    <string name="btn_continue">Далее</string>
     <string name="privacy_policy"><u>Политика Конфиденциальности</u></string>
     <string name="boost">Ускорить работу телефона</string>
 
@@ -103,5 +96,12 @@
     <string name="go_settings_description">Для выполнения данной функции\nвам необходимо самостоятельно\nдать разрешение в настройках</string>
     <string name="battery_boosted">Оптимизировано!</string>
     <string name="battery_unboosted">Требуется увеличить время работы телефона!</string>
+    <string name="title_dialog_bluetooth">For Extra mode, you need access to the bluetooth settings</string>
+    <string name="dialog_bluetooth_description">Allow the app to access bluetooth settings to increase battery life</string>
+    <string name="btn_continue">Next</string>
+    <string name="get_permission">We need permission</string>
+    <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
+    <string name="cancel">Close</string>
+    <string name="allow">Allow</string>
 
 </resources>
