@@ -46,14 +46,7 @@
     <string name="cooling_process">Cooling</string>
     <string name="app_name">Fast Cleaner</string>
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
-    <string name="cancel">Cancel</string>
-    <string name="allow">Allow</string>
-    <string name="dialog_write_setting_description">We need permission to change system settings so that we can increase the runtime of your device.</string>
     <string name="description_go_settings">To perform this function, we need permission to change system settings</string>
-    <string name="get_permission">We need permission</string>
-    <string name="title_dialog_bluetooth">Extra mode requires access to bluetooth settings</string>
-    <string name="dialog_bluetooth_description">Allow the app to access the bluetooth settings to increase battery life.</string>
-    <string name="btn_continue">Next</string>
     <string name="privacy_policy"><u>Privacy policy</u></string>
     <string name="boost">Speed up your phone</string>
 
@@ -104,5 +97,12 @@
     <string name="battery_boosted">Оптимизировано!</string>
     <string name="battery_unboosted">Требуется увеличить время работы телефона!</string>
     <string name="optimization">Оптимизация…</string>
+    <string name="title_dialog_bluetooth">For Extra mode, you need access to the bluetooth settings</string>
+    <string name="dialog_bluetooth_description">Allow the app to access bluetooth settings to increase battery life</string>
+    <string name="btn_continue">Next</string>
+    <string name="get_permission">We need permission</string>
+    <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
+    <string name="cancel">Close</string>
+    <string name="allow">Allow</string>
 
 </resources>

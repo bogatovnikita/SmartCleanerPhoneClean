@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_home_fun">
+    android:background="@drawable/bg_dialog">
 
     <ImageView
         android:id="@+id/btn_cancel_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_cancel_dialog"
-        android:layout_margin="@dimen/_10sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_margin="12dp"
+        android:background="@drawable/cancel_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-14dp"
+        android:layout_marginEnd="15dp"
         android:text="@string/title_dialog_bluetooth"
-        android:textColor="@color/purple"
-        android:textSize="@dimen/_12ssp"
-        android:layout_marginStart="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@id/btn_cancel_dialog"
+        android:textAppearance="@style/Text.Semi_Bold.18"
         app:layout_constraintEnd_toStartOf="@+id/btn_cancel_dialog"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel_dialog" />
 
     <TextView
         android:id="@+id/dialog_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/dialog_bluetooth_description"
-        android:textSize="@dimen/_10ssp"
-        android:fontFamily="@font/golos_medium"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        android:textAppearance="@style/Text.Regular.16"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_ok"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_marginStart="@dimen/_3sdp"
-        android:background="@drawable/bg_button_boost_on"
-        android:fontFamily="@font/golos_medium"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_main_button"
         android:text="@string/btn_continue"
+        android:textAppearance="@style/Text.Medium.18"
         android:textColor="@color/white"
-        android:textSize="@dimen/_10ssp"
-        android:layout_marginVertical="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialog_description"
         app:layout_constraintEnd_toEndOf="@+id/dialog_description"
-        app:layout_constraintStart_toStartOf="@+id/dialog_description"/>
+        app:layout_constraintStart_toStartOf="@+id/dialog_description"
+        app:layout_constraintTop_toBottomOf="@id/dialog_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
