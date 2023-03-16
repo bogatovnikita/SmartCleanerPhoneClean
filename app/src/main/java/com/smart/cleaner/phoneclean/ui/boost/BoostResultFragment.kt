@@ -1,6 +1,9 @@
 package com.smart.cleaner.phoneclean.ui.boost
 
+import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.R
+import com.smart.cleaner.phoneclean.databinding.FragmentBoostResultBinding
 import com.smart.cleaner.phoneclean.ui.base.BaseFragmentResult
 import com.smart.cleaner.phoneclean.ui.result.FunResult
 import com.smart.cleaner.phoneclean.ui.result.ResultList
@@ -10,7 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class BoostResultFragment: BaseFragmentResult() {
+class BoostResultFragment: BaseFragmentResult(R.layout.fragment_boost_result) {
+
+    private val binding: FragmentBoostResultBinding by viewBinding()
 
     @Inject
     lateinit var resultList: ResultList
@@ -20,13 +25,7 @@ class BoostResultFragment: BaseFragmentResult() {
 
     override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Boost }
 
-    override fun setFunName(): String = requireContext().getString(R.string.boosting)
-
-    override fun setMessageOfCompleteFun(): String {
-        val freePercents = boostUseCase.getOverloadedPercents()
-        val freeRam = (boostUseCase.getTotalRam() / 1024.0 / 1024.0 / 1024.0) * freePercents / 100
-        return requireContext().getString(R.string.danger_boost_off, freeRam, freePercents)
-    }
+    override fun setRecyclerView(): RecyclerView = binding.recyclerView
 
 
 }
