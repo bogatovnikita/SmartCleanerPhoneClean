@@ -12,22 +12,27 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-fun Fragment.preloadAd(){
+fun Fragment.preloadAd() {
     requireActivity().preloadAd()
 }
 
 
-
-fun Context.preloadAd(){
-    if (!AdsManager.checkAdsLoaded()){
+fun Context.preloadAd() {
+    if (!AdsManager.checkAdsLoaded()) {
         Log.i("AdsWrapper", "preloadAds")
-        CoroutineScope(Dispatchers.Main).launch { AdsManager.preloadAd(this@preloadAd, BuildConfig.ADMOB_INTERSTITIAL) }
+        CoroutineScope(Dispatchers.Main).launch {
+            AdsManager.preloadAd(
+                this@preloadAd,
+                BuildConfig.ADMOB_INTERSTITIAL
+            )
+        }
     } else {
         Log.i("AdsWrapper", "Ads has already loaded")
     }
 }
 
-fun addAdsLoadedListener(loadedListener: () -> Unit) = AdsManager.addAdsLoadedListener(loadedListener)
+fun addAdsLoadedListener(loadedListener: () -> Unit) =
+    AdsManager.addAdsLoadedListener(loadedListener)
 
 fun removeAdsLoadedListener(loadedListener: () -> Unit) {
     AdsManager.removeAdsLoadedListener(loadedListener)
@@ -37,10 +42,10 @@ fun removeAdsLoadedListener(loadedListener: () -> Unit) {
 fun Activity.showInter(
     onClosed: () -> Unit = {},
     onOpened: () -> Unit = {},
-){
+) {
 
     Log.i("AdsWrapper", "showInter")
-    AdsManager.showInterstitial(this, object : AdsDelegate{
+    AdsManager.showInterstitial(this, object : AdsDelegate {
         override fun adsClosed() {
             onClosed()
         }
@@ -53,7 +58,7 @@ fun Activity.showInter(
 
 fun Fragment.showInter(
     onClosed: () -> Unit = {}
-){
+) {
     requireActivity().showInter(
         onClosed = onClosed
     )
@@ -62,13 +67,13 @@ fun Fragment.showInter(
 fun Fragment.showInter(
     onClosed: () -> Unit = {},
     onOpened: () -> Unit = {},
-){
+) {
     requireActivity().showInter(onClosed, onOpened)
 }
 
-fun Activity.initAds(){
+fun Activity.initAds() {
     SubscriptionProvider.getInstance(this).init(
-       this
+        this, BuildConfig.SUBSCRIPTION_ID
     )
     AdsManager.init(this, BuildConfig.DEBUG)
 }
