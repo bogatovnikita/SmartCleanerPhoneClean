@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="used">Used</string>
     <string name="temperature_cpu">Processor\ntemperature</string>
     <string name="working_time">%d hours %d minutes</string>
-    <string name="gb_fraction">/%.2f GB</string>
     <string name="gb_fraction_garbage">/%.1f GB</string>
     <string name="clean_danger_title">Cleanup required!</string>
     <string name="garbage_not_found">No junk files\ndetected</string>
@@ -11,7 +9,6 @@
     <string name="type_extra">Extra\n+60%</string>
     <string name="normal_mode">Normal mode:</string>
     <string name="type_normal">Normal\n+10%</string>
-    <string name="ram">RAM</string>
     <string name="degree">%d℃</string>
     <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
     <string name="free_memory_size">The storage is free\n%.1f GB</string>
@@ -28,8 +25,6 @@
     <string name="ready">Done!</string>
     <string name="boost_battery">Keep your phone up and running</string>
     <string name="gb">%.2f GB</string>
-    <string name="gb_one_after_dot">%.1f GB</string>
-    <string name="free">Free</string>
     <string name="battery_boost">Extend</string>
     <string name="type_save_battery_title">Extend work modes:</string>
     <string name="type_ultra">Ultra\n+30%</string>
@@ -100,5 +95,13 @@
     <string name="done">Done</string>
     <string name="advice">We strongly recommend performing these optimizations</string>
     <string name="fun_battery">Battery saver</string>
+    <string name="ram_unboosted">Memory is overloaded! Optimization is required!</string>
+    <string name="ram_boosted">Memory is cleared! The phone has been successfully optimized!</string>
+    <string name="ram_usage">RAM Usage</string>
+    <string name="used">Used</string>
+    <string name="gb_one_after_dot">%.1f Gb</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="free">Free RAM</string>
+    <string name="ram">Total amount of RAM</string>
 
 </resources>

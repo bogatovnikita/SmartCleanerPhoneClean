@@ -1,6 +1,5 @@
 package com.smart.cleaner.phoneclean.ui.boost
 
-import com.smart.cleaner.phoneclean.BuildConfig
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
 
@@ -14,6 +13,6 @@ class BoostOptimizingFragment(
         listOptions = resources.getStringArray(R.array.optimization).toMutableList()
     }
 
-    override fun getFunName(): String = requireContext().getString(R.string.boosting)
+    override fun getFunName(): String = requireContext().getString(R.string.optimization)
 
 }

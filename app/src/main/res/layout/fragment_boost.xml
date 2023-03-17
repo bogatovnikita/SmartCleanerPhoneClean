@@ -4,47 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
+    android:background="@color/background"
     tools:context=".ui.boost.BoostFragment">
 
     <TextView
-        android:id="@+id/tv_app_name"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_boost_fun"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="center_horizontal"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_17ssp"
-        app:layout_constraintVertical_bias="0.67"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/boosting"
+        android:textAppearance="@style/Text.Medium.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline_top_circle_progress"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_top_circle_progress"
+    <ImageView
+        android:id="@+id/btn_change_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_bottom_circle_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25"/>
+        android:layout_marginEnd="17dp"
+        android:background="@drawable/flag"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_boost_fun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_boost_fun" />
 
     <TextView
         android:id="@+id/tv_ram_percents_duplicate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/golos_regular"
         android:text="@string/value_percents"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_24ssp"
+        android:textAppearance="@style/Text.Medium"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/circular_progress_ram_percent_duplicate"
         app:layout_constraintEnd_toEndOf="@+id/circular_progress_ram_percent_duplicate"
         app:layout_constraintStart_toStartOf="@+id/circular_progress_ram_percent_duplicate"
@@ -55,327 +46,164 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="@dimen/_50sdp"
-        app:canalColor="@color/white"
+        android:layout_marginHorizontal="89dp"
+        android:layout_marginTop="27dp"
+        app:canalColor="#CCCCCC"
         app:canalHasShadow="false"
-        app:canalWidth="@dimen/_6sdp"
-        app:indicatorColor="@color/blue"
+        app:canalWidth="12dp"
+        app:indicatorColor="@color/primary"
         app:indicatorEndAngle="270"
         app:indicatorStartAngle="-90"
-        app:indicatorWidth="@dimen/_6sdp"
+        app:indicatorWidth="12dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom_circle_progress"
-        app:layout_constraintTop_toBottomOf="@id/guideline_top_circle_progress"
+        app:layout_constraintTop_toBottomOf="@id/tv_boost_fun"
         app:progress="65" />
 
     <TextView
-        android:id="@+id/tv_battery_name"
+        android:id="@+id/tv_boost_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:fontFamily="@font/golos_bold"
+        android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
-        android:text="@string/boosting"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_16ssp"
+        android:text="@string/ram_usage"
+        android:textAppearance="@style/Text.Regular"
+        android:textColor="@color/grey"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circular_progress_ram_percent_duplicate" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_danger_description"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tv_ram_unboosted"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_main_for_params"
-        android:drawablePadding="@dimen/_8sdp"
-        android:fontFamily="@font/golos_regular"
-        android:paddingStart="@dimen/_23sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:paddingBottom="@dimen/_8sdp"
-        android:text="@string/boost_danger_title"
+        android:layout_marginTop="16dp"
+        android:text="@string/ram_unboosted"
+        android:textAppearance="@style/Text.Medium.14"
         android:textColor="@color/red"
-        android:textSize="@dimen/_12ssp"
-        app:drawableStartCompat="@drawable/ic_danger"
-        app:layout_constraintEnd_toEndOf="@+id/container_storage"
-        app:layout_constraintStart_toStartOf="@+id/container_storage"
-        app:layout_constraintTop_toBottomOf="@+id/tv_battery_name" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_boost_name" />
+
+    <TextView
+        android:id="@+id/tv_ram_boosted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:text="@string/ram_boosted"
+        android:textAppearance="@style/Text.Medium.14"
+        android:textColor="@color/secondary"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_boost_name" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_danger_description" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_storage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_22sdp"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:background="@drawable/bg_main_for_params"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:paddingVertical="@dimen/_12sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrier">
-
-        <TextView
-            android:id="@+id/tv_storage_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="@font/golos_medium"
-            android:text="@string/storage"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_total_storage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:fontFamily="@font/golos_medium"
-            android:text="@string/gb_one_after_dot"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_storage_title"
-            app:layout_constraintEnd_toStartOf="@+id/circular_progress_storage_percent" />
-
-        <TextView
-            android:id="@+id/tv_storage_percents"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/value_percents"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/circular_progress_storage_percent"
-            app:layout_constraintEnd_toEndOf="@+id/circular_progress_storage_percent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="@+id/circular_progress_storage_percent"
-            app:layout_constraintTop_toTopOf="@+id/circular_progress_storage_percent" />
-
-        <yinkio.android.customView.progressBar.ArcCircleProgressBar
-            android:id="@+id/circular_progress_storage_percent"
-            android:layout_width="@dimen/_51sdp"
-            android:layout_height="@dimen/_51sdp"
-            android:layout_gravity="center"
-            app:canalColor="@color/black"
-            app:canalHasShadow="false"
-            app:canalWidth="@dimen/_5sdp"
-            app:indicatorColor="@color/blue"
-            app:indicatorEndAngle="270"
-            app:indicatorStartAngle="-90"
-            app:indicatorWidth="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:progress="65" />
-
-        <View
-            android:id="@+id/separation_line"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@color/orange_light"
-            app:layout_constraintEnd_toEndOf="@+id/tv_total_storage"
-            app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_storage_title" />
-
-        <TextView
-            android:id="@+id/tv_used"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/used"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_used_storage"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
-            app:layout_constraintTop_toBottomOf="@+id/separation_line" />
-
-        <TextView
-            android:id="@+id/tv_used_storage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/gb_one_after_dot"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_used"
-            app:layout_constraintEnd_toEndOf="@+id/tv_total_storage" />
-
-        <TextView
-            android:id="@+id/tv_free"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:alpha="0.5"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/free"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_storage_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_used"
-            app:layout_constraintVertical_bias="0" />
-
-        <TextView
-            android:id="@+id/tv_free_storage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.5"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/gb"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_free"
-            app:layout_constraintEnd_toEndOf="@+id/tv_used_storage" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:constraint_referenced_ids="tv_ram_boosted, tv_ram_unboosted" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_ram"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_main_for_params"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:paddingVertical="@dimen/_12sdp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
-        app:layout_constraintEnd_toEndOf="@+id/container_storage"
-        app:layout_constraintStart_toStartOf="@+id/container_storage"
-        app:layout_constraintTop_toBottomOf="@id/container_storage"
-        app:layout_constraintVertical_bias="0">
-
-        <TextView
-            android:id="@+id/tv_ram_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
-            android:fontFamily="@font/golos_medium"
-            android:text="@string/ram"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <yinkio.android.customView.progressBar.ArcCircleProgressBar
-            android:id="@+id/circular_progress_ram_percent"
-            android:layout_width="@dimen/_51sdp"
-            android:layout_height="@dimen/_51sdp"
-            android:layout_gravity="center"
-            app:canalColor="@color/black"
-            app:canalHasShadow="false"
-            app:canalWidth="@dimen/_5sdp"
-            app:indicatorColor="@color/blue"
-            app:indicatorEndAngle="270"
-            app:indicatorStartAngle="-90"
-            app:indicatorWidth="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:progress="65" />
-
-        <TextView
-            android:id="@+id/tv_ram_percents"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/value_percents"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_10ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/circular_progress_ram_percent"
-            app:layout_constraintEnd_toEndOf="@+id/circular_progress_ram_percent"
-            app:layout_constraintStart_toStartOf="@+id/circular_progress_ram_percent"
-            app:layout_constraintTop_toTopOf="@+id/circular_progress_ram_percent" />
+        android:paddingVertical="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/barrier">
 
         <TextView
             android:id="@+id/tv_used_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="@font/golos_regular"
             android:text="@string/used"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_used_ram"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
-            app:layout_constraintTop_toBottomOf="@+id/separation_line_ram" />
-
-        <TextView
-            android:id="@+id/tv_total_ram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:fontFamily="@font/golos_medium"
-            android:text="@string/gb_one_after_dot"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ram_title"
-            app:layout_constraintEnd_toStartOf="@+id/circular_progress_ram_percent"
-            app:layout_constraintTop_toTopOf="@+id/tv_ram_title" />
+            android:textAppearance="@style/Text.Medium.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_used_ram"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/gb_one_after_dot"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
+            android:text="@string/gb_fraction"
+            android:textAppearance="@style/Text.Medium.16"
+            android:textColor="@color/grey"
             app:layout_constraintBottom_toBottomOf="@+id/tv_used_title"
-            app:layout_constraintEnd_toEndOf="@+id/tv_total_ram" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <View
-            android:id="@+id/separation_line_ram"
+            android:id="@+id/separation_line_ram_one"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@color/orange_light"
-            app:layout_constraintEnd_toEndOf="@+id/tv_total_ram"
-            app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ram_title" />
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="-5dp"
+            android:background="@color/card"
+            app:layout_constraintEnd_toEndOf="@id/tv_used_ram"
+            app:layout_constraintStart_toStartOf="@id/tv_used_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_used_title" />
 
         <TextView
             android:id="@+id/tv_free_ram_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:alpha="0.5"
-            android:fontFamily="@font/golos_regular"
+            android:layout_marginTop="12dp"
             android:text="@string/free"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_ram_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_used_title"
-            app:layout_constraintVertical_bias="0" />
+            android:textAppearance="@style/Text.Medium.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separation_line_ram_one" />
 
         <TextView
             android:id="@+id/tv_free_ram"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.5"
-            android:fontFamily="@font/golos_regular"
-            android:text="@string/gb"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9ssp"
+            android:text="@string/gb_fraction"
+            android:textAppearance="@style/Text.Medium.16"
+            android:textColor="@color/grey"
             app:layout_constraintBottom_toBottomOf="@id/tv_free_ram_title"
-            app:layout_constraintEnd_toEndOf="@+id/tv_total_ram" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/separation_line_ram_two"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="-5dp"
+            android:background="@color/card"
+            app:layout_constraintEnd_toEndOf="@id/tv_used_ram"
+            app:layout_constraintStart_toStartOf="@id/tv_used_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_free_ram_title" />
+
+        <TextView
+            android:id="@+id/tv_ram_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/ram"
+            android:textAppearance="@style/Text.Medium.16"
+            android:textColor="@color/primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separation_line_ram_two" />
+
+        <TextView
+            android:id="@+id/tv_total_ram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gb_one_after_dot"
+            android:textAppearance="@style/Text.Medium.16"
+            android:textColor="@color/primary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_ram_title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -383,16 +211,15 @@
         android:id="@+id/btn_boost_battery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_22sdp"
-        android:layout_marginBottom="@dimen/_12sdp"
-        android:background="@color/blue"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="start|center_vertical"
-        android:paddingHorizontal="@dimen/_12sdp"
-        android:text="@string/boost"
-        android:textAllCaps="false"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_main_button"
+        android:gravity="center"
+        android:paddingHorizontal="15dp"
+        android:text="@string/optimize"
+        android:textAppearance="@style/Text.Medium.18"
         android:textColor="@color/white"
-        android:textSize="@dimen/_12ssp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
