@@ -4,67 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
-
-    <TextView
-        android:id="@+id/tv_fun_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="center_horizontal"
-        android:text="@string/cleaning"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_18ssp"
-        app:layout_constraintVertical_bias="0.55"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_top_check_mark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_top_check_mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.085"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_bottom_check_mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27"/>
+    android:background="@color/background">
 
     <ImageView
-        android:id="@+id/iv_fun_done"
+        android:id="@+id/btn_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/ic_go_back"
+        app:layout_constraintBottom_toBottomOf="@id/tv_boost_fun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_boost_fun" />
+
+    <TextView
+        android:id="@+id/tv_boost_fun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/boosting"
+        android:textAppearance="@style/Text.Medium.24"
+        app:layout_constraintStart_toEndOf="@id/btn_go_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_change_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:background="@drawable/flag"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_boost_fun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_boost_fun" />
+
+    <TextView
+        android:id="@+id/tv_ram_percents_duplicate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/value_percents"
+        android:textAppearance="@style/Text.Medium.20"
+        app:layout_constraintBottom_toBottomOf="@+id/circular_progress_ram_percent_duplicate"
+        app:layout_constraintEnd_toEndOf="@+id/circular_progress_ram_percent_duplicate"
+        app:layout_constraintStart_toStartOf="@+id/circular_progress_ram_percent_duplicate"
+        app:layout_constraintTop_toTopOf="@+id/circular_progress_ram_percent_duplicate" />
+
+    <yinkio.android.customView.progressBar.ArcCircleProgressBar
+        android:id="@+id/circular_progress_ram_percent_duplicate"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/ic_fun_done"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="140dp"
+        android:layout_marginTop="23dp"
+        app:canalColor="#CCCCCC"
+        app:canalHasShadow="false"
+        app:canalWidth="7dp"
+        app:indicatorColor="@color/primary"
+        app:indicatorEndAngle="270"
+        app:indicatorStartAngle="-90"
+        app:indicatorWidth="7dp"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_top_check_mark"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom_check_mark"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_description_danger_off"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_main_for_params"
-        android:drawablePadding="@dimen/_8sdp"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="center_vertical"
-        android:paddingVertical="@dimen/_14sdp"
-        android:paddingStart="@dimen/_17sdp"
-        android:text="@string/clean_done"
-        android:textColor="@color/green"
-        android:textSize="@dimen/_12ssp"
-        app:drawableStartCompat="@drawable/ic_danger_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_fun_done" />
+        app:layout_constraintTop_toBottomOf="@id/tv_boost_fun"
+        app:progress="65" />
+
+    <TextView
+        android:id="@+id/tv_optimized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/boosted"
+        android:textAppearance="@style/Text.Medium.16"
+        android:textColor="@color/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circular_progress_ram_percent_duplicate" />
+
+    <TextView
+        android:id="@+id/tv_optimized_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/boosted_desc"
+        android:textAppearance="@style/Text.Medium.14"
+        android:textColor="@color/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_optimized" />
+
+    <TextView
+        android:id="@+id/tv_advice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:text="@string/advice"
+        android:textAppearance="@style/Text.Medium.16"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_optimized_desc" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -76,7 +117,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_description_danger_off"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice"
         tools:listitem="@layout/item_fun_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

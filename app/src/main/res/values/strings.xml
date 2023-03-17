@@ -103,5 +103,7 @@
     <string name="gb_fraction">/%.2f GB</string>
     <string name="free">Free RAM</string>
     <string name="ram">Total amount of RAM</string>
+    <string name="boosted">Memory is cleared!</string>
+    <string name="boosted_desc">The phone has been successfully optimized</string>
 
 </resources>
