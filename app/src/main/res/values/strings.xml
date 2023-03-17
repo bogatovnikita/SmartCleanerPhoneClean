@@ -2,7 +2,6 @@
 <resources>
     <string name="used">Used</string>
     <string name="temperature_cpu">Processor\ntemperature</string>
-    <string name="battery_title">Power</string>
     <string name="working_time">%d hours %d minutes</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="gb_fraction_garbage">/%.1f GB</string>
@@ -13,7 +12,6 @@
     <string name="normal_mode">Normal mode:</string>
     <string name="type_normal">Normal\n+10%</string>
     <string name="ram">RAM</string>
-    <string name="boosting">Accelerate</string>
     <string name="degree">%d℃</string>
     <string name="done">Done</string>
     <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
@@ -24,13 +22,11 @@
     <string name="improve_working_time_by_percent">Phone uptime \nincreased by %d %%</string>
     <string name="boost_danger_title">Memory Overloaded!\nneeds speeding up!</string>
     <string name="clean_danger_desc">Free memory from junk</string>
-    <string name="battery_danger_desc">Extend\'s\nworking time!</string>
     <string name="cooling_danger_title">Processor overheated!\nCooling required!</string>
     <string name="storage">Storage</string>
     <string name="clean_done">Garbage files deleted.</string>
     <string name="cooling_danger_desc">Close background applications</string>
     <string name="ready">Done!</string>
-    <string name="boost_danger_desc">Optimize your phone\'s performance</string>
     <string name="boost_battery">Keep your phone up and running</string>
     <string name="gb">%.2f GB</string>
     <string name="gb_one_after_dot">%.1f GB</string>
@@ -44,7 +40,6 @@
     <string name="clean">Clean up</string>
     <string name="clean_junks_safely">Deleting junk\nfiles is absolutely\nsafe</string>
     <string name="cooling_process">Cooling</string>
-    <string name="app_name">Fast Cleaner</string>
     <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
     <string name="description_go_settings">To perform this function, we need permission to change system settings</string>
     <string name="privacy_policy"><u>Privacy policy</u></string>
@@ -76,6 +71,7 @@
         <item>Disconnect from unnecessary GPS towers...</item>
     </array>
 
+    <string name="app_name" translatable="false">Smart Cleaner:\nPhone Clean</string>
     <string name="type_description_normal">Normal mode activates restrictions:</string>
     <string name="type_description_ultra">Ultra mode activates restrictions:</string>
     <string name="type_description_extra">Extra mode activates restrictions:</string>
@@ -98,5 +94,9 @@
     <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
     <string name="cancel">Close</string>
     <string name="allow">Allow</string>
+    <string name="boosting">Quick optimize</string>
+    <string name="boost_danger_desc">Speed up the work of your phone</string>
+    <string name="battery_title">Battery saver</string>
+    <string name="battery_danger_desc">Increase the performance of your phone</string>
 
 </resources>

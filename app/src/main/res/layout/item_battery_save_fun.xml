@@ -11,7 +11,7 @@
         android:layout_height="@dimen/_3sdp"
         android:layout_marginTop="2dp"
         android:layout_marginStart="9dp"
-        android:background="@drawable/ic_ellipse_white" />
+        android:background="@drawable/ic_ellipse_black" />
 
     <TextView
         android:id="@+id/function"

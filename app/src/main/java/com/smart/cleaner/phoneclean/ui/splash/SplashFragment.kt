@@ -1,6 +1,9 @@
 package com.smart.cleaner.phoneclean.ui.splash
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
@@ -11,9 +14,12 @@ import com.example.ads.preloadAd
 import com.example.ads.removeAdsLoadedListener
 import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.R
+import com.smart.cleaner.phoneclean.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 
 class SplashFragment : DialogFragment(R.layout.fragment_splash) {
+
+    private val binding: FragmentSplashBinding by viewBinding()
 
     private var isInterLoaded = false
 
@@ -30,6 +36,14 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
         return super.onCreateDialog(savedInstanceState)
     }
 
+    private fun setGradientColor() {
+        val shader = LinearGradient(0f, 0f, 0f, binding.appName.textSize,
+        intArrayOf( Color.parseColor("#8A99DC"), Color.parseColor("#B9C3F1")),
+            null, Shader.TileMode.CLAMP
+        )
+        binding.appName.paint.shader = shader
+    }
+
     override fun onResume() {
         super.onResume()
         render()
@@ -42,6 +56,7 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     }
 
     private fun render() {
+        setGradientColor()
         dialog.apply { isCancelable = false }
     }
 

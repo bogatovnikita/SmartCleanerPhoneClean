@@ -11,16 +11,6 @@
     android:layout_marginVertical="@dimen/_3sdp">
 
     <ImageView
-        android:id="@+id/iv_dot_danger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_ellipse_red"
-        android:layout_marginBottom="-8dp"
-        android:layout_marginStart="@dimen/_2sdp"
-        app:layout_constraintBottom_toTopOf="@id/tv_fun_name"
-        app:layout_constraintStart_toEndOf="@id/tv_fun_name" />
-
-    <ImageView
         android:id="@+id/iv_fun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +45,6 @@
         android:textSize="@dimen/_9ssp"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ib_go_to_fun"
         app:layout_constraintStart_toStartOf="@+id/tv_fun_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_fun_name"
         app:layout_constraintVertical_bias="0" />
@@ -80,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="iv_dot_danger, tv_fun_danger_description" />
+        app:constraint_referenced_ids="tv_fun_danger_description" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_no_danger"
@@ -95,15 +84,5 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="tv_fun_danger_description,tv_fun_done" />
-
-    <ImageView
-        android:id="@+id/ib_go_to_fun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_arrow_go_head_big"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

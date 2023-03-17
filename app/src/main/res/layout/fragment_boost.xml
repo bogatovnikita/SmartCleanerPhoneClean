@@ -386,7 +386,6 @@
         android:layout_marginHorizontal="@dimen/_22sdp"
         android:layout_marginBottom="@dimen/_12sdp"
         android:background="@color/blue"
-        android:drawableEnd="@drawable/ic_white_rocket"
         android:fontFamily="@font/golos_regular"
         android:gravity="start|center_vertical"
         android:paddingHorizontal="@dimen/_12sdp"
