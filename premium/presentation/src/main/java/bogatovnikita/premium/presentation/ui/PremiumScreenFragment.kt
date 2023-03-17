@@ -1,8 +1,8 @@
 package bogatovnikita.premium.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import bogatovnikita.premium.presentation.base.BaseFragment
 import bogatovnikita.premium.presentation.databinding.FragmentPremiumScreenBinding
 import com.example.ads.setOnSetupFinished
@@ -30,7 +30,6 @@ class PremiumScreenFragment :
     }
 
     private fun closePremiumScreen() {
-        Log.e("pie", "closePremiumScreen: ")
-        //TODO
+        findNavController().popBackStack()
     }
 }

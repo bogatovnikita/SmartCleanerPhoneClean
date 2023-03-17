@@ -7,6 +7,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.initAds
+import com.example.ads.initSubscription
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initSubscription()
         initAds()
         initListeners()
         initChangeDestinationListener()
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
             R.id.btn_clean -> {}
             R.id.btn_duplicate -> {}
             R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
-            R.id.btn_paywall -> {}
+            R.id.btn_paywall -> navigateAndShowInter(R.id.action_to_premiumScreenFragment)
         }
     }
 
@@ -62,7 +64,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     private fun renderNavBar(currentDestination: Int) {
         val listButton =
-            listOf(binding.btnBoost, binding.btnClean, binding.btnDuplicate, binding.btnBattery, binding.btnPaywall)
+            listOf(
+                binding.btnBoost,
+                binding.btnClean,
+                binding.btnDuplicate,
+                binding.btnBattery,
+                binding.btnPaywall
+            )
         listButton.forEach { image ->
             image.setImageDrawable(
                 AppCompatResources.getDrawable(

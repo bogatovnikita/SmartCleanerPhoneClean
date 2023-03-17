@@ -26,7 +26,12 @@ fun Fragment.setOnSetupFinished() {
     }
 }
 
-fun Fragment.setSubscriptionListener(onClosed: () -> Unit = {}) = onClosed()
+fun Fragment.setSubscriptionListener(onClosed: () -> Unit) {
+    val subscriptionProvider = SubscriptionProvider.getInstance(requireActivity())
+    subscriptionProvider.setSubscriptionListener {
+        onClosed()
+    }
+}
 
 fun Fragment.startSubscription() = SubscriptionProvider.getInstance(requireActivity())
     .startSubscription(requireActivity(), BuildConfig.SUBSCRIPTION_ID)
