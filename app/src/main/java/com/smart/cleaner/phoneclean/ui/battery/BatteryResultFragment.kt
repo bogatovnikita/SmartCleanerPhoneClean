@@ -1,39 +1,39 @@
 package com.smart.cleaner.phoneclean.ui.battery
 
+import android.os.Bundle
+import android.view.View
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
+import com.smart.cleaner.phoneclean.databinding.FragmentBatteryResultBinding
 import com.smart.cleaner.phoneclean.ui.base.BaseFragmentResult
 import com.smart.cleaner.phoneclean.ui.result.FunResult
 import com.smart.cleaner.phoneclean.ui.result.ResultList
 import com.smart.cleaner.phoneclean.utils.OptimizingType
-import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class BatteryResultFragment: BaseFragmentResult(){
+class BatteryResultFragment : BaseFragmentResult(R.layout.fragment_battery_result) {
+
+    private val binding: FragmentBatteryResultBinding by viewBinding()
 
     @Inject
     lateinit var resultList: ResultList
 
-    @Inject
-    lateinit var batteryUseCase: BatteryUseCase
-
-    override fun setListFun(): List<FunResult> = resultList.getList().filter { it.type != OptimizingType.Battery }
-
-    override fun setFunName(): String = requireContext().getString(R.string.battery_title)
-
-    override fun setMessageOfCompleteFun(): String = requireContext().getString(R.string.improve_working_time_by_percent, modePercentBoost())
-
-    private fun modePercentBoost(): Int {
-        return when (batteryUseCase.getBatteryType()) {
-            ChoosingTypeBatteryBar.NORMAL -> 10
-            ChoosingTypeBatteryBar.ULTRA -> 30
-            ChoosingTypeBatteryBar.EXTRA -> 60
-            else -> {
-                10
-            }
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
     }
+
+    private fun initListeners() {
+        binding.btnGoBack.setOnClickListener { findNavController().popBackStack() }
+    }
+
+    override fun setListFun(): List<FunResult> =
+        resultList.getList().filter { it.type != OptimizingType.Battery }
+
+    override fun setRecyclerView(): RecyclerView = binding.recyclerView
 
 }

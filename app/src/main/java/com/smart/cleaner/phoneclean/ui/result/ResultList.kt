@@ -16,20 +16,14 @@ class ResultList @Inject constructor(
             isOptimized = boostUseCase.checkRamOverload(),
             funName = R.string.boosting,
             funDangerDescription = R.string.boost_danger_desc,
-            icon = if (boostUseCase.checkRamOverload())
-                R.drawable.ic_rocket_danger_off
-            else
-                R.drawable.ic_boost_danger,
+            icon = R.drawable.ic_boost_danger,
             type = OptimizingType.Boost,
         ),
         FunResult(
             isOptimized = batteryUseCase.checkBatteryDecrease(),
             funName = R.string.battery_title,
             funDangerDescription = R.string.battery_danger_desc,
-            icon = if (batteryUseCase.checkBatteryDecrease())
-                R.drawable.ic_battery_danger_off
-            else
-                R.drawable.ic_battery_danger,
+            icon = R.drawable.ic_battery_danger,
             type = OptimizingType.Battery,
         ),
     )

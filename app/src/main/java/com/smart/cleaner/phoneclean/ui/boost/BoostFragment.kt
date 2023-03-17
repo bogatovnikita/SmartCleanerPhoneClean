@@ -2,7 +2,6 @@ package com.smart.cleaner.phoneclean.ui.boost
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,7 +12,6 @@ import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.databinding.FragmentBoostBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import yinkio.android.customView.progressBar.ArcCircleProgressBar
 
 @AndroidEntryPoint
 class BoostFragment : Fragment(R.layout.fragment_boost) {
@@ -39,55 +37,26 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     private fun renderState(state: BoostScreenState) {
         with(state) {
-            renderBtnBoostingBattery(isRamBoosted)
+            setEnableBtn(!isRamBoosted)
             with(binding) {
-                circularProgressRamPercent.progress = ramPercent.toFloat()
                 circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
-                renderCircularProgress(isRamBoosted, circularProgressRamPercent)
-                renderCircularProgress(isRamBoosted, circularProgressRamPercentDuplicate)
-                tvRamPercents.text = getString(R.string.value_percents, ramPercent)
                 tvRamPercentsDuplicate.text = getString(R.string.value_percents, ramPercent)
-                circularProgressStoragePercent.progress = memoryPercent.toFloat()
-                renderCircularProgress(isMemoryBoosted, circularProgressStoragePercent)
-                tvStoragePercents.text = getString(R.string.value_percents, memoryPercent)
-                tvUsedStorage.text = getString(R.string.gb, usedMemory)
-                tvTotalStorage.text = getString(R.string.gb_one_after_dot, totalMemory)
-                tvFreeStorage.text = getString(R.string.gb, freeMemory)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
                 tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
                 tvFreeRam.text = getString(R.string.gb, freeRam)
-                tvDangerDescription.isVisible = !isRamBoosted
-                if (isMemoryBoosted) {
-                    separationLine.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_separation_line)
-                }
-                if (isRamBoosted) {
-                    separationLineRam.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_separation_line)
-                }
+                tvRamBoosted.isVisible = isRamBoosted
+                tvRamUnboosted.isVisible = !isRamBoosted
             }
         }
     }
 
-    private fun renderCircularProgress(isBoosted: Boolean, view: ArcCircleProgressBar) {
-        view.indicator.color =
-            if (isBoosted)
-                resources.getColor(R.color.blue)
-            else
-                resources.getColor(R.color.orange)
-    }
-
-    private fun renderBtnBoostingBattery(isBoostedBattery: Boolean) {
-        if (isBoostedBattery) {
-            binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_button_boost_off)
-        } else {
-            binding.btnBoostBattery.isClickable = true
-            binding.btnBoostBattery.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_button_boost_on)
-        }
+    private fun setEnableBtn(enable: Boolean) {
+        binding.btnBoostBattery.isClickable = enable
+        binding.btnBoostBattery.isEnabled = enable
     }
 
     private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
-            viewModel.boost()
             findNavController().navigate(R.id.action_homeFragment_to_boostOptimizingFragment)
         }
     }

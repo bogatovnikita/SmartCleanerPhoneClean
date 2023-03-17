@@ -9,14 +9,14 @@
         android:id="@+id/batteryFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryFragment"
         android:label="fragment_battery"
-        tools:layout="@layout/fragment_battery"></fragment>
+        tools:layout="@layout/fragment_battery"/>
     <action
         android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
         app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostOptimizingFragment"
-        android:label="BoostOptimizingFragment"></dialog>
+        android:label="BoostOptimizingFragment"/>
     <action
         android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
         app:destination="@id/boostResultFragment"
@@ -29,18 +29,18 @@
         android:id="@+id/boostFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostFragment"
         android:label="fragment_boost"
-        tools:layout="@layout/fragment_boost"></fragment>
+        tools:layout="@layout/fragment_boost"/>
     <action
         android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
         app:destination="@id/boostOptimizingFragment" />
     <action
         android:id="@+id/action_to_batteryFragment"
         app:destination="@id/batteryFragment" />
-    <fragment
+    <dialog
         android:id="@+id/batteryResultFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryResultFragment"
         android:label="BatteryResultFragment" />
-    <fragment
+    <dialog
         android:id="@+id/boostResultFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment" />
@@ -52,7 +52,7 @@
     <dialog
         android:id="@+id/batteryOptimizingFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryOptimizingFragment"
-        android:label="BatteryOptimizingFragment"></dialog>
+        android:label="BatteryOptimizingFragment"/>
     <action
         android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
         app:destination="@id/batteryResultFragment"

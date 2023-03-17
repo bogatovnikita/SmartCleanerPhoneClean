@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,11 +36,18 @@
             app:srcCompat="@drawable/ic_boost_danger" />
 
         <ImageView
-            android:id="@+id/btn_cool"
+            android:id="@+id/btn_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_grey_fire" />
+            app:srcCompat="@drawable/ic_grey_trash" />
+
+        <ImageView
+            android:id="@+id/btn_duplicate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_grey_duplicate" />
 
         <ImageView
             android:id="@+id/btn_battery"
@@ -50,12 +57,12 @@
             app:srcCompat="@drawable/ic_grey_battery" />
 
         <ImageView
-            android:id="@+id/btn_clean"
+            android:id="@+id/btn_paywall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_grey_bucket" />
+            app:srcCompat="@drawable/ic_paywall_off" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </LinearLayout>

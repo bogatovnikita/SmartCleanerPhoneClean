@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.smart.cleaner.phoneclean.ads.initAdsLib
+import com.example.ads.initAds
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,25 +17,27 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initAdsLib()
+        initAds()
         initListeners()
         initChangeDestinationListener()
     }
 
     private fun initListeners() {
         binding.btnBoost.setOnClickListener(this)
-        binding.btnCool.setOnClickListener(this)
-        binding.btnBattery.setOnClickListener(this)
         binding.btnClean.setOnClickListener(this)
+        binding.btnDuplicate.setOnClickListener(this)
+        binding.btnBattery.setOnClickListener(this)
+        binding.btnPaywall.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
         renderNavBar((view.id))
         when (view.id) {
             R.id.btn_boost -> navigateAndShowInter(R.id.action_to_boostFragment)
-            R.id.btn_cool -> {}
-            R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
             R.id.btn_clean -> {}
+            R.id.btn_duplicate -> {}
+            R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
+            R.id.btn_paywall -> {}
         }
     }
 
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
     private fun renderNavBar(currentDestination: Int) {
         val listButton =
-            listOf(binding.btnBoost, binding.btnCool, binding.btnBattery, binding.btnClean)
+            listOf(binding.btnBoost, binding.btnClean, binding.btnDuplicate, binding.btnBattery, binding.btnPaywall)
         listButton.forEach { image ->
             image.setImageDrawable(
                 AppCompatResources.getDrawable(
@@ -76,19 +78,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         return if (isActive) {
             when (destination) {
                 R.id.btn_boost -> R.drawable.ic_boost_danger
-                R.id.btn_cool -> R.drawable.ic_cooling_danger
-                R.id.btn_battery -> R.drawable.ic_battery_danger
                 R.id.btn_clean -> R.drawable.ic_clean_danger
+                R.id.btn_duplicate -> R.drawable.ic_duplicate_danger
+                R.id.btn_battery -> R.drawable.ic_battery_danger
+                R.id.btn_paywall -> R.drawable.ic_paywall_on
                 else -> R.drawable.ic_clean_danger
             }
         } else {
 
             when (destination) {
-                R.id.btn_boost -> R.drawable.ic_grey_rocket
-                R.id.btn_cool -> R.drawable.ic_grey_fire
+                R.id.btn_boost -> R.drawable.ic_grey_light_bulb
+                R.id.btn_clean -> R.drawable.ic_grey_trash
+                R.id.btn_duplicate -> R.drawable.ic_grey_duplicate
                 R.id.btn_battery -> R.drawable.ic_grey_battery
-                R.id.btn_clean -> R.drawable.ic_grey_bucket
-                else -> R.drawable.ic_grey_bucket
+                R.id.btn_paywall -> R.drawable.ic_paywall_off
+                else -> R.drawable.ic_grey_light_bulb
             }
 
         }
