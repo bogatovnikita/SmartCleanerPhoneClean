@@ -13,7 +13,6 @@
     <string name="type_normal">Normal\n+10%</string>
     <string name="ram">RAM</string>
     <string name="degree">%d℃</string>
-    <string name="done">Done</string>
     <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
     <string name="free_memory_size">The storage is free\n%.1f GB</string>
     <string name="cooling">Cool</string>
@@ -98,5 +97,6 @@
     <string name="boost_danger_desc">Speed up the work of your phone</string>
     <string name="battery_title">Battery saver</string>
     <string name="battery_danger_desc">Increase the performance of your phone</string>
+    <string name="done">Done</string>
 
 </resources>
