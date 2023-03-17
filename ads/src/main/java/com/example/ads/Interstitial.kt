@@ -71,7 +71,6 @@ fun Fragment.showInter(
     requireActivity().showInter(onClosed, onOpened)
 }
 
-fun Activity.initInter() {
-    SubscriptionProvider.getInstance(this).init(this)
+fun Activity.initAds() {
     AdsManager.init(this, BuildConfig.DEBUG)
 }
