@@ -1,8 +1,9 @@
 package com.smart.cleaner.phoneclean.ui.base
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,10 +12,15 @@ import com.smart.cleaner.phoneclean.adapters.ResultFunAdapter
 import com.smart.cleaner.phoneclean.ui.result.FunResult
 import com.smart.cleaner.phoneclean.utils.OptimizingType
 
-abstract class BaseFragmentResult(layout: Int) : Fragment(layout) {
+abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
 
     abstract fun setListFun(): List<FunResult>
     abstract fun setRecyclerView(): RecyclerView
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        setStyle(STYLE_NO_FRAME, R.style.Dialog)
+        return super.onCreateDialog(savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

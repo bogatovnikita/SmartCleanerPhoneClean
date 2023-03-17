@@ -4,67 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:background="@color/background">
 
     <TextView
-        android:id="@+id/tv_fun_name"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_battery_fun"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="center_horizontal"
-        android:text="@string/cleaning"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_18ssp"
-        app:layout_constraintVertical_bias="0.55"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_top_check_mark"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fun_battery"
+        android:textAppearance="@style/Text.Medium.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_top_check_mark"
+    <ImageView
+        android:id="@+id/btn_change_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.085"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_bottom_check_mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27"/>
+        android:layout_marginEnd="17dp"
+        android:background="@drawable/flag"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_battery_fun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_battery_fun" />
 
     <ImageView
         android:id="@+id/iv_fun_done"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/ic_fun_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/battery_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_top_check_mark"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom_check_mark"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_battery_fun" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_description_danger_off"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tv_optimized"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/bg_main_for_params"
-        android:drawablePadding="@dimen/_8sdp"
-        android:fontFamily="@font/golos_regular"
-        android:gravity="center_vertical"
-        android:paddingVertical="@dimen/_14sdp"
-        android:paddingStart="@dimen/_17sdp"
-        android:text="@string/clean_done"
-        android:textColor="@color/green"
-        android:textSize="@dimen/_12ssp"
-        app:drawableStartCompat="@drawable/ic_danger_off"
+        android:layout_marginTop="16dp"
+        android:text="@string/battery_boosted"
+        android:textAppearance="@style/Text.Medium.14"
+        android:textColor="@color/secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_fun_done" />
+
+    <TextView
+        android:id="@+id/tv_advice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:text="@string/advice"
+        android:textAppearance="@style/Text.Medium.16"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_optimized" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -76,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_description_danger_off"
+        app:layout_constraintTop_toBottomOf="@id/tv_advice"
         tools:listitem="@layout/item_fun_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

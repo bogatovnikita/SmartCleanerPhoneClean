@@ -98,5 +98,7 @@
     <string name="battery_title">Battery saver</string>
     <string name="battery_danger_desc">Increase the performance of your phone</string>
     <string name="done">Done</string>
+    <string name="advice">We strongly recommend performing these optimizations</string>
+    <string name="fun_battery">Battery saver</string>
 
 </resources>
