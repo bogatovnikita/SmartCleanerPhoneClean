@@ -71,13 +71,7 @@ fun Fragment.showInter(
     requireActivity().showInter(onClosed, onOpened)
 }
 
-fun Activity.initAds() {
-    SubscriptionProvider.getInstance(this).init(
-        this, BuildConfig.SUBSCRIPTION_ID
-    )
+fun Activity.initInter() {
+    SubscriptionProvider.getInstance(this).init(this)
     AdsManager.init(this, BuildConfig.DEBUG)
 }
-
-fun Context.hasSubscription() = SubscriptionProvider.getInstance(this).checkHasSubscription()
-
-fun Activity.emulateSubscription() = SubscriptionProvider.getInstance(this).emulateSubscription()

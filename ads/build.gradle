@@ -28,7 +28,7 @@ android {
             buildConfigField "String", "ADMOB_APP_OPEN", '"ca-app-pub-3940256099942544/3419835294"'
             buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
             buildConfigField "String", "ADMOB_REWARD", '"ca-app-pub-3940256099942544/5224354917"'
-            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.1"'
+            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'
             resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
         }
     }
@@ -52,8 +52,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
     implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
     implementation 'com.google.android.gms:play-services-ads:21.2.0'
-    //не обновлять
-    implementation "com.android.billingclient:billing:4.0.0"
+    implementation "com.android.billingclient:billing:5.1.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
