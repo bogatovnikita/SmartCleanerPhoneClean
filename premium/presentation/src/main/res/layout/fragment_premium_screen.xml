@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background"
     android:layout_height="match_parent">
 
     <TextView
@@ -10,8 +11,8 @@
         style="@style/Text.Medium.24"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/premium_title"
         app:layout_constraintEnd_toStartOf="@id/language_selection"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.14" />
 
     <ImageView
         android:id="@+id/cup"
@@ -49,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.46" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start_to_advantages"
@@ -126,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.67" />
 
     <TextView
         android:id="@+id/trial_version"
@@ -145,7 +146,7 @@
         style="@style/Text.Medium.14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:gravity="center"
         android:text="@string/you_can_cancel_your_subscription_at_any_time"
         android:textColor="@color/primary"
@@ -171,7 +172,7 @@
         style="@style/Text.Medium.14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:gravity="center"
         android:text="@string/after_cost"
         android:textColor="@color/grey"
@@ -184,7 +185,7 @@
         style="@style/Text.Medium.12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:alpha="0.67"
         android:text="@string/privacy_policy"
         android:textColor="@color/grey"
@@ -198,7 +199,7 @@
         style="@style/Text.Medium.12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:alpha="0.67"
         android:text="@string/restore_purchases"
         android:textColor="@color/grey"
@@ -211,7 +212,7 @@
         style="@style/Text.Medium.12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:alpha="0.67"
         android:text="@string/terms_of_use"
         android:textColor="@color/grey"
