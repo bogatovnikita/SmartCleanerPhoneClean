@@ -1,7 +1,6 @@
 package com.smart.cleaner.phoneclean.ui.battery
 
 import androidx.lifecycle.lifecycleScope
-import com.smart.cleaner.phoneclean.BuildConfig
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
 import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
@@ -51,7 +50,10 @@ class BatteryOptimizingFragment(
 
     private fun killBackgroundProcess() {
         lifecycleScope.launch(Dispatchers.IO) {
-            batteryUseCase.killBackgroundProcess()
+            batteryUseCase.killBackgroundProcessInstalledApps()
+        }
+        lifecycleScope.launch(Dispatchers.IO) {
+            batteryUseCase.killBackgroundProcessSystemApps()
         }
     }
 

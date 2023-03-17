@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
 import android.app.Application
-import android.app.usage.UsageStats
-import android.app.usage.UsageStatsManager
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Context.BLUETOOTH_SERVICE
@@ -13,12 +11,13 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
 import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary.getContentResolver
+import com.softcleean.fastcleaner.data.apps_provider.AppsProvider
 import java.lang.ref.WeakReference
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class RealBatteryProvider @Inject constructor(
-    application: Application
+    application: Application,
+    private val appsProvider: AppsProvider
 ) {
 
     private val contextWeakRef = WeakReference(application.applicationContext)
@@ -39,7 +38,8 @@ class RealBatteryProvider @Inject constructor(
 
     @SuppressLint("MissingPermission")
     fun disableBluetooth(context: Context) {
-        val bluetoothAdapter = (context.getSystemService(BLUETOOTH_SERVICE) as BluetoothManager).adapter ?: return
+        val bluetoothAdapter =
+            (context.getSystemService(BLUETOOTH_SERVICE) as BluetoothManager).adapter ?: return
         if (bluetoothAdapter.isEnabled) {
             bluetoothAdapter.disable()
         }
@@ -55,33 +55,20 @@ class RealBatteryProvider @Inject constructor(
         }
     }
 
-    suspend fun killBackgroundProcess() {
+    suspend fun killBackgroundProcessInstalledApps() {
         val am =
             context.getSystemService(Activity.ACTIVITY_SERVICE) as ActivityManager
-        getApps().forEach { app ->
-            am.killBackgroundProcesses(app.packageName)
-        }
-    }
-
-    suspend fun getApps(): List<UsageStats> {
-        return getStats()
-            .filter {
-                it.packageName.isNotEmpty()
-                        && it.packageName != context.packageName
-                        && context.packageManager.getLaunchIntentForPackage(it.packageName) != null
-                        && !it.packageName.contains(".test")
+            appsProvider.getInstalledApp().forEach { app ->
+                am.killBackgroundProcesses(app.packageName)
             }
     }
 
-    private suspend fun getStats(): List<UsageStats> {
-        val usageStatsManager =
-            context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
-        val currentTime = System.currentTimeMillis()
-        return usageStatsManager.queryUsageStats(
-            UsageStatsManager.INTERVAL_DAILY,
-            currentTime - TimeUnit.MINUTES.toMillis(1),
-            currentTime
-        ) ?: listOf()
+    suspend fun killBackgroundProcessSystemApps() {
+        val am =
+            context.getSystemService(Activity.ACTIVITY_SERVICE) as ActivityManager
+        appsProvider.getSystemApp().forEach { app ->
+            am.killBackgroundProcesses(app.packageName)
+        }
     }
 
 }

@@ -33,6 +33,8 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun disableWiFi() = realBatteryProvider.disableWiFi()
 
-    override suspend fun killBackgroundProcess() = realBatteryProvider.killBackgroundProcess()
+    override suspend fun killBackgroundProcessInstalledApps() = realBatteryProvider.killBackgroundProcessInstalledApps()
+
+    override suspend fun killBackgroundProcessSystemApps() = realBatteryProvider.killBackgroundProcessSystemApps()
 
 }

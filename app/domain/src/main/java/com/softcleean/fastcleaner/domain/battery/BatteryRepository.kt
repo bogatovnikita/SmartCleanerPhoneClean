@@ -22,6 +22,8 @@ interface BatteryRepository {
 
     fun disableWiFi()
 
-    suspend fun killBackgroundProcess()
+    suspend fun killBackgroundProcessInstalledApps()
+
+    suspend fun killBackgroundProcessSystemApps()
 
 }

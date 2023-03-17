@@ -23,5 +23,7 @@ class BatteryUseCase @Inject constructor(
 
     fun disableWiFi() = batteryRepository.disableWiFi()
 
-    suspend fun killBackgroundProcess() = batteryRepository.killBackgroundProcess()
+    suspend fun killBackgroundProcessInstalledApps() = batteryRepository.killBackgroundProcessInstalledApps()
+
+    suspend fun killBackgroundProcessSystemApps() = batteryRepository.killBackgroundProcessSystemApps()
 }

@@ -214,10 +214,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boostBattery()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                (viewModel.screenState.value.batterySaveType == ULTRA ||
-                        viewModel.screenState.value.batterySaveType == EXTRA)
-            ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && viewModel.screenState.value.batterySaveType == EXTRA) {
                 openActivityToDisableWifi()
             } else {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
