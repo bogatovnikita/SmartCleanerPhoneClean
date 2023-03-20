@@ -19,9 +19,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        app:layout_constraintWidth_percent="0.09"
         android:id="@+id/language_selection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="@id/title"
         app:layout_constraintEnd_toEndOf="parent"

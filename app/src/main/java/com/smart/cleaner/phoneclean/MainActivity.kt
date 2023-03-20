@@ -1,15 +1,19 @@
 package com.smart.cleaner.phoneclean
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import com.example.ads.initAds
 import com.example.ads.initSubscription
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
@@ -102,7 +106,27 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 R.id.btn_paywall -> R.drawable.ic_paywall_off
                 else -> R.drawable.ic_grey_light_bulb
             }
-
         }
+    }
+
+    private fun setApplicationLanguage(localeCode: String) {
+        val locale = Locale.forLanguageTag(localeCode)
+        val activityRes = resources
+        val activityConf = activityRes.configuration
+        activityConf.setLocale(locale)
+        activityRes.updateConfiguration(activityConf, activityRes.displayMetrics)
+
+        val applicationRes = applicationContext.resources
+        val applicationConf = applicationRes.configuration
+        applicationConf.setLocale(locale)
+        applicationRes.updateConfiguration(
+            applicationConf,
+            applicationRes.displayMetrics
+        )
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        setApplicationLanguage(LocaleProvider(this).getCurrentLocaleModel().language)
     }
 }
