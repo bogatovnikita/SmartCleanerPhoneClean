@@ -6,8 +6,6 @@ interface BatteryRepository {
 
     fun checkBatteryDecrease(): Boolean
 
-    fun calculateWorkingTime(percent: Int): Int
-
     fun savePowerLowType()
 
     fun savePowerMediumType()
@@ -24,10 +22,8 @@ interface BatteryRepository {
 
     fun disableWiFi()
 
-    fun turnOffAutoBrightness()
+    suspend fun killBackgroundProcessInstalledApps()
 
-    fun getBatteryTemperature(): Flow<Int>
-
-    fun getBatteryPercent(): Flow<Int>
+    suspend fun killBackgroundProcessSystemApps()
 
 }

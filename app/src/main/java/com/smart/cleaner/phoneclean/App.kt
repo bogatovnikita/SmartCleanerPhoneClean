@@ -20,14 +20,6 @@ class App : Application() {
         if (isMainProcess()) {
             UtilsProviderForCLibrary.initUtilsProviderForCLibrary(this)
         }
-        FirebaseApp.initializeApp(this)
-        FirebaseAnalytics.getInstance(this).setAnalyticsCollectionEnabled(true)
-        FirebaseMessaging.getInstance().isAutoInitEnabled = true
-
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            val token = task.result
-            Log.e("!!!", "Token = $token")
-        })
     }
 
     private fun isMainProcess(): Boolean {

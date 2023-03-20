@@ -3,9 +3,10 @@ package com.smart.cleaner.phoneclean.custom
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
+import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.databinding.ChoosingTypeBatteryBarViewBinding
 
 
@@ -22,33 +23,32 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
         with(_binding) {
             btnNormalOff.setOnClickListener {
                 block(NORMAL)
-                renderSaveTypeBattery(btnNormalOn)
+                renderSaveTypeBattery(btnNormalOn, containerNormal)
             }
             btnUltraOff.setOnClickListener {
                 block(ULTRA)
-                renderSaveTypeBattery(btnUltraOn)
+                renderSaveTypeBattery(btnUltraOn, containerUltra)
             }
             btnExtraOff.setOnClickListener {
                 block(EXTRA)
-                renderSaveTypeBattery(btnExtraOn)
+                renderSaveTypeBattery(btnExtraOn, containerExtra)
             }
         }
     }
 
-    private fun renderSaveTypeBattery(type: ImageView) {
+    private fun renderSaveTypeBattery(radioButton: ImageView, container: View) {
         with(_binding) {
-            val listId = listOf(btnNormalOn, btnUltraOn, btnExtraOn)
-            listId.forEach {
-                it.isVisible = type == it
+            val listBtnId = listOf(btnNormalOn, btnUltraOn, btnExtraOn)
+            val listContainerId = listOf(containerNormal, containerUltra, containerExtra)
+            listBtnId.forEach {
+                it.visibility = if (radioButton == it) VISIBLE else INVISIBLE
+            }
+            listContainerId.forEach {
+                val id =
+                    if (container == it) R.drawable.bg_battery_container_checked else R.drawable.bg_battery_container_unchecked
+                it.setBackgroundResource(id)
             }
         }
-        setAlpha()
-    }
-
-    private fun setAlpha() {
-        _binding.tvTypeNormal.alpha = if (_binding.btnNormalOn.isVisible) 1F else 0.5F
-        _binding.tvTypeExtra.alpha = if (_binding.btnExtraOn.isVisible) 1F else 0.5F
-        _binding.tvTypeUltra.alpha = if (_binding.btnUltraOn.isVisible) 1F else 0.5F
     }
 
 
@@ -56,18 +56,17 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
         with(_binding) {
             when (type) {
                 NORMAL -> {
-                    renderSaveTypeBattery(btnNormalOn)
+                    renderSaveTypeBattery(btnNormalOn, containerNormal)
                 }
                 ULTRA -> {
-                    renderSaveTypeBattery(btnUltraOn)
+                    renderSaveTypeBattery(btnUltraOn, containerUltra)
                 }
                 EXTRA -> {
-                    renderSaveTypeBattery(btnExtraOn)
+                    renderSaveTypeBattery(btnExtraOn, containerExtra)
                 }
                 else -> {}
             }
         }
-        setAlpha()
     }
 
     companion object {

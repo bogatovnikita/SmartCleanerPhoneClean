@@ -2,15 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="3dp">
 
     <TextView
         android:id="@+id/tv_optimizing_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:textAppearance="@style/Text.Regular.12"
-        android:gravity="center"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        tools:text="Decrease in brightness.."/>
+        tools:text="Decrease in brightness.." />
 
 </FrameLayout>

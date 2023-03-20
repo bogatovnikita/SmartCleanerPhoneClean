@@ -20,11 +20,11 @@ class ResultFunAdapter(private val listener: ClickOnFunResultListener) :
 
         fun bind(item: FunResult) {
             if (item.isOptimized) {
-                binding.groupDangerExist.isVisible = false
-                binding.groupNoDanger.isVisible = true
+                binding.tvFunDone.isVisible = true
+                binding.tvFunDangerDescription.isVisible = false
             } else {
-                binding.groupDangerExist.isVisible = true
-                binding.groupNoDanger.isVisible = false
+                binding.tvFunDone.isVisible = false
+                binding.tvFunDangerDescription.isVisible = true
                 binding.tvFunDangerDescription.setText(item.funDangerDescription)
             }
             binding.tvFunName.setText(item.funName)

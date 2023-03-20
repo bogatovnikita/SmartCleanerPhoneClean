@@ -44,6 +44,7 @@ dependencies {
 
     implementation project(':garbage_clean:domain')
     implementation project(':garbage_clean:data')
+    implementation project(':language_dialog')
 
     implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
 

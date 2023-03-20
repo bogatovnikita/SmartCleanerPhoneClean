@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -141,60 +142,79 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun renderState(batteryStateScreen: BatteryStateScreen) {
         with(batteryStateScreen) {
+            setBatteryStatus(isBoostedBattery)
             batterySavingTypeProcessing(batterySaveType)
             with(binding) {
                 choosingTypeBar.setSaveTypeBattery(batterySaveType)
-                tvBatteryPercents.text = getString(R.string.value_percents, batteryPercents)
                 if (hasBluetoothPerm) {
                     descriptionGoSettings.isVisible = false
                 }
             }
             renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
-            renderCircularProgressBatteryPercent(batteryPercents, isBoostedBattery)
         }
+    }
+
+    private fun setBatteryStatus(isBoostedBattery: Boolean) {
+
+        val ivId = if (isBoostedBattery) R.drawable.battery_normal else R.drawable.battery_low
+        binding.ivBatteryStatus.setImageResource(ivId)
+
+        val descriptionStrId =
+            if (isBoostedBattery) R.string.battery_boosted else R.string.battery_unboosted
+        val descriptionColorId = if (isBoostedBattery) general.R.color.secondary else R.color.red
+        binding.tvBatteryStatus.setText(descriptionStrId)
+        binding.tvBatteryStatus.setTextColor(
+            AppCompatResources.getColorStateList(
+                requireContext(),
+                descriptionColorId
+            )
+        )
+
     }
 
     private fun batterySavingTypeProcessing(type: String) {
         when (type) {
             NORMAL -> {
-                adapter.submitList(
-                    resources.getStringArray(R.array.battery_normal).toList()
-                )
+                renderTypeStatus(R.array.battery_normal, R.string.type_description_normal)
                 binding.descriptionGoSettings.isVisible = false
             }
             ULTRA -> {
-                adapter.submitList(
-                    resources.getStringArray(R.array.battery_ultra).toList()
-                )
+                renderTypeStatus(R.array.battery_ultra, R.string.type_description_ultra)
                 binding.descriptionGoSettings.isVisible = false
             }
             EXTRA -> {
-                adapter.submitList(
-                    resources.getStringArray(R.array.battery_extra).toList()
-                )
-                if (!checkBluetoothPermission()) {
-                    if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
-                        binding.descriptionGoSettings.isVisible = true
-                        binding.btnGoBluetoothSettings.setOnClickListener {
-                            startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                data = Uri.parse("package:" + requireActivity().packageName)
-                            })
-                        }
-                    } else {
-                        DialogRequestBluetooth().show(parentFragmentManager, TAG_BLUETOOTH)
-                    }
-                }
+                renderTypeStatus(R.array.battery_extra, R.string.type_description_extra)
+                showDialogOrRequestBLEPermission()
             }
         }
+    }
+
+    private fun showDialogOrRequestBLEPermission() {
+        if (!checkBluetoothPermission()) {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
+                binding.descriptionGoSettings.isVisible = true
+                binding.btnGoBluetoothSettings.setOnClickListener {
+                    startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                        data = Uri.parse("package:" + requireActivity().packageName)
+                    })
+                }
+            } else {
+                DialogRequestBluetooth().show(parentFragmentManager, TAG_BLUETOOTH)
+            }
+        }
+    }
+
+    private fun renderTypeStatus(list: Int, type: Int) {
+        adapter.submitList(
+            resources.getStringArray(list).toList()
+        )
+        binding.titleList.text = getText(type)
     }
 
     private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boostBattery()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                (viewModel.screenState.value.batterySaveType == ULTRA ||
-                        viewModel.screenState.value.batterySaveType == EXTRA)
-            ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && viewModel.screenState.value.batterySaveType == EXTRA) {
                 openActivityToDisableWifi()
             } else {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
@@ -208,29 +228,21 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         hasBluetoothPerm: Boolean
     ) {
         if (isBoostedBattery || !isCanWriteSettings) {
-            binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_off)
+            makeAvailableBtn(false)
+            binding.btnBoostBattery.isVisible = true
         } else if (!hasBluetoothPerm && viewModel.screenState.value.batterySaveType == EXTRA) {
-            binding.btnBoostBattery.isClickable = false
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_off)
+            makeAvailableBtn(false)
+            if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT))
+                binding.btnBoostBattery.isVisible = false
         } else {
-            binding.btnBoostBattery.isClickable = true
-            binding.btnBoostBattery.background =
-                resources.getDrawable(R.drawable.bg_button_boost_on)
+            makeAvailableBtn(true)
+            binding.btnBoostBattery.isVisible = true
         }
     }
 
-    private fun renderCircularProgressBatteryPercent(percent: Int, isBoostedBattery: Boolean) {
-        binding.circularProgressBatteryPercent.progress = percent.toFloat()
-        binding.circularProgressBatteryPercent.indicator.color =
-            if (isBoostedBattery)
-                resources.getColor(R.color.blue)
-            else if (percent > 30)
-                resources.getColor(R.color.orange)
-            else
-                resources.getColor(R.color.red)
+    private fun makeAvailableBtn(enable: Boolean) {
+        binding.btnBoostBattery.isClickable = enable
+        binding.btnBoostBattery.isEnabled = enable
     }
 
     private fun initAdapter() {

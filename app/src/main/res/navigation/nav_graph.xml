@@ -9,55 +9,17 @@
         android:id="@+id/batteryFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryFragment"
         android:label="fragment_battery"
-        tools:layout="@layout/fragment_battery" >
-    </fragment>
+        tools:layout="@layout/fragment_battery" />
     <action
         android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
         app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostOptimizingFragment"
-        android:label="BoostOptimizingFragment" >
-    </dialog>
+        android:label="BoostOptimizingFragment" />
     <action
         android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
         app:destination="@id/boostResultFragment"
-        app:popUpTo="@id/boostFragment"
-        app:popUpToInclusive="false"  />
-    <fragment
-        android:id="@+id/coolingFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.cooling.CoolingFragment"
-        android:label="CoolingFragment" >
-    </fragment>
-    <action
-        android:id="@+id/action_coolingFragment_to_coolingOptimizingFragment"
-        app:destination="@id/coolingOptimizingFragment" />
-    <dialog
-        android:id="@+id/coolingOptimizingFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.cooling.CoolingOptimizingFragment"
-        android:label="CoolingOptimizingFragment" >
-    </dialog>
-    <action
-        android:id="@+id/action_coolingOptimizingFragment_to_coolingResultFragment"
-        app:destination="@id/coolingResultFragment"
-        app:popUpTo="@id/boostFragment"
-        app:popUpToInclusive="false" />
-    <fragment
-        android:id="@+id/cleanFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.clean.CleanFragment"
-        android:label="CleanFragment" >
-    </fragment>
-    <action
-        android:id="@+id/action_cleanFragment_to_cleanOptimizingFragment"
-        app:destination="@id/cleanOptimizingFragment" />
-    <dialog
-        android:id="@+id/cleanOptimizingFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.clean.CleanOptimizingFragment"
-        android:label="fragment_clean_optimizing" >
-    </dialog>
-    <action
-        android:id="@+id/action_cleanOptimizingFragment_to_cleanResultFragment"
-        app:destination="@id/cleanResultFragment"
         app:popUpTo="@id/boostFragment"
         app:popUpToInclusive="false" />
     <action
@@ -67,36 +29,21 @@
         android:id="@+id/boostFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostFragment"
         android:label="fragment_boost"
-        tools:layout="@layout/fragment_boost" >
-    </fragment>
+        tools:layout="@layout/fragment_boost" />
     <action
         android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
         app:destination="@id/boostOptimizingFragment" />
     <action
         android:id="@+id/action_to_batteryFragment"
         app:destination="@id/batteryFragment" />
-    <action
-        android:id="@+id/action_to_coolingFragment"
-        app:destination="@id/coolingFragment" />
-    <action
-        android:id="@+id/action_to_cleanFragment"
-        app:destination="@id/cleanFragment" />
-    <fragment
+    <dialog
         android:id="@+id/batteryResultFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryResultFragment"
         android:label="BatteryResultFragment" />
-    <fragment
+    <dialog
         android:id="@+id/boostResultFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment" />
-    <fragment
-        android:id="@+id/coolingResultFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.cooling.CoolingResultFragment"
-        android:label="CoolingResultFragment" />
-    <fragment
-        android:id="@+id/cleanResultFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.clean.CleanResultFragment"
-        android:label="CleanResultFragment" />
     <dialog
         android:id="@+id/splashFragment"
         android:name="com.smart.cleaner.phoneclean.ui.splash.SplashFragment"
@@ -105,11 +52,18 @@
     <dialog
         android:id="@+id/batteryOptimizingFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryOptimizingFragment"
-        android:label="BatteryOptimizingFragment" >
-    </dialog>
+        android:label="BatteryOptimizingFragment" />
     <action
         android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
         app:destination="@id/batteryResultFragment"
         app:popUpTo="@id/boostFragment"
         app:popUpToInclusive="false" />
+    <action
+        android:id="@+id/action_to_premiumScreenFragment"
+        app:destination="@id/premiumScreenFragment" />
+    <fragment
+        android:id="@+id/premiumScreenFragment"
+        android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"
+        android:label="PremiumScreenFragment"
+        tools:layout="@layout/fragment_premium_screen" />
 </navigation>

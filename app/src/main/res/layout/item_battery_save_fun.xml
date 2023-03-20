@@ -4,21 +4,21 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingVertical="@dimen/_2sdp">
+    android:paddingVertical="4dp">
 
     <ImageView
         android:layout_width="@dimen/_3sdp"
         android:layout_height="@dimen/_3sdp"
-        android:layout_marginStart="@dimen/_36sdp"
-        android:background="@drawable/ic_ellipse_white" />
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="9dp"
+        android:background="@drawable/ic_ellipse_black" />
 
     <TextView
         android:id="@+id/function"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_4sdp"
-        android:fontFamily="@font/golos_regular"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_9ssp" />
+        android:layout_marginStart="8dp"
+        android:text="@string/type_description_normal"
+        android:textAppearance="@style/Text.Regular.14"/>
 
 </LinearLayout>

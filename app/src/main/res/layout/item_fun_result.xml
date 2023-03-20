@@ -4,21 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_home_fun"
+    android:background="@drawable/bg_fun_result_item"
     android:elevation="1dp"
-    android:paddingStart="@dimen/_20sdp"
-    android:paddingEnd="@dimen/_12sdp"
-    android:layout_marginVertical="@dimen/_3sdp">
-
-    <ImageView
-        android:id="@+id/iv_dot_danger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_ellipse_red"
-        android:layout_marginBottom="-8dp"
-        android:layout_marginStart="@dimen/_2sdp"
-        app:layout_constraintBottom_toTopOf="@id/tv_fun_name"
-        app:layout_constraintStart_toEndOf="@id/tv_fun_name" />
+    android:paddingStart="22dp"
+    android:paddingEnd="25dp">
 
     <ImageView
         android:id="@+id/iv_fun"
@@ -33,12 +22,10 @@
         android:id="@+id/tv_fun_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/golos_regular"
+        android:textAppearance="@style/Text.Medium.16"
         android:text="@string/boosting"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_12ssp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="17dp"
         app:layout_constraintStart_toEndOf="@id/iv_fun"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,16 +33,15 @@
         android:id="@+id/tv_fun_danger_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_19sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:fontFamily="@font/golos_regular"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/boost_danger_desc"
-        android:textColor="@color/red"
-        android:textSize="@dimen/_9ssp"
+        android:textColor="@color/error"
+        android:textAppearance="@style/Text.Regular.14"
         app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toStartOf="@id/btn_go_head"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ib_go_to_fun"
         app:layout_constraintStart_toStartOf="@+id/tv_fun_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_fun_name"
         app:layout_constraintVertical_bias="0" />
@@ -64,30 +50,25 @@
         android:id="@+id/tv_fun_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/golos_regular"
+        android:layout_marginTop="4dp"
         android:text="@string/done"
-        android:textColor="@color/green"
-        android:textSize="@dimen/_9ssp"
+        android:textAppearance="@style/Text.Regular.14"
+        android:textColor="@color/secondary"
+        android:visibility="gone"
         android:layout_marginBottom="@dimen/_19sdp"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_fun_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_fun_name" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_danger_exist"
+    <ImageView
+        android:id="@+id/btn_go_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:constraint_referenced_ids="iv_dot_danger, tv_fun_danger_description" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_no_danger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="tv_fun_done" />
+        android:background="@drawable/ic_go_head"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -95,15 +76,5 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="tv_fun_danger_description,tv_fun_done" />
-
-    <ImageView
-        android:id="@+id/ib_go_to_fun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_arrow_go_head_big"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
