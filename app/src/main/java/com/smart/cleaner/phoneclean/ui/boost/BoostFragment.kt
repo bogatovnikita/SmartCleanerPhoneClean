@@ -1,5 +1,6 @@
 package com.smart.cleaner.phoneclean.ui.boost
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -8,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bogatovnikita.language_dialog.ui.LocalDialog
+import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.databinding.FragmentBoostBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +28,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         viewModel.getParams()
         initScreenStateObserver()
         setBtnListeners()
+        initLocale()
     }
 
     private fun initScreenStateObserver() {
@@ -59,5 +63,22 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         binding.btnBoostBattery.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_boostOptimizingFragment)
         }
+
+        binding.btnChangeLanguage.setOnClickListener {
+            openLocalDialog()
+        }
+    }
+
+    private fun openLocalDialog() {
+        val dialog = LocalDialog(requireContext()) {
+            val intent: Intent = requireActivity().intent
+            requireActivity().finish()
+            startActivity(intent)
+        }
+        dialog.show()
+    }
+
+    private fun initLocale() {
+        binding.btnChangeLanguage.setImageResource(LocaleProvider(requireContext()).getCurrentLocaleModel().image)
     }
 }

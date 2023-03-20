@@ -28,11 +28,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        app:layout_constraintWidth_percent="0.09"
         android:id="@+id/btn_change_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="17dp"
-        android:background="@drawable/flag"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        tools:src="@drawable/flag"
         app:layout_constraintBottom_toBottomOf="@+id/tv_boost_fun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_boost_fun" />
