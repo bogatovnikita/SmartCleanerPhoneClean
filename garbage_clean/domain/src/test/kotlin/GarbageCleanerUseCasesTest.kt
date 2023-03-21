@@ -1,36 +1,45 @@
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.DeleteRequest
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.entities.GarbageType
-import yin_kio.garbage_clean.domain.gateways.Ads
 import yin_kio.garbage_clean.domain.gateways.Files
-import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
-import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Navigator
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
+import yin_kio.garbage_clean.domain.use_cases.DeleteUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_cases.Updater
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GarbageCleanerUseCasesTest {
 
     private val files: Files = mockk()
-    private val outBoundary: OutBoundary = spyk()
+    private val outer: Outer = spyk()
     private val mapper: DeleteFormMapper = mockk()
-    private val updateUseCase: UpdateUseCase = mockk()
-    private val ads: Ads = mockk()
-    private val noDeletableFiles: NoDeletableFiles = spyk()
-    private lateinit var useCases: GarbageCleanerUseCasesImpl
+    private val updater: Updater = mockk()
     private val garbageFiles: GarbageFiles = spyk()
-
     private val deleteFormOut = DeleteFormOut()
+    private val navigator: Navigator = spyk()
+    private val deleteUseCase: DeleteUseCase = mockk()
+
+    private val dispatcher = StandardTestDispatcher()
+    private val testScope = TestScope(dispatcher)
+    private val useCases: GarbageCleanerUseCasesImpl = GarbageCleanerUseCasesImpl(
+        garbageFiles = garbageFiles,
+        coroutineScope = testScope,
+        outer = outer,
+        mapper = mapper,
+        updater = updater,
+        dispatcher = dispatcher,
+        deleteUseCase = deleteUseCase,
+    )
 
 
     init {
@@ -44,104 +53,76 @@ class GarbageCleanerUseCasesTest {
             garbageFiles.deleteForm.switchSelectAll()
             garbageFiles.deleteForm.switchSelection(GarbageType.Apk)
 
-            updateUseCase.update()
+            updater.update(navigator)
 
-            ads.preloadAd()
+            deleteUseCase.delete(navigator)
+
         } returns Unit
     }
 
-    private fun setupTest(testBody: suspend TestScope.() -> Unit){
-        runTest {
-            useCases = GarbageCleanerUseCasesImpl(
-                files = files,
-                garbageFiles = garbageFiles,
-                coroutineScope = this,
-                outBoundary = outBoundary,
-                mapper = mapper,
-                updateUseCase = updateUseCase,
-                ads = ads,
-                dispatcher = coroutineContext,
-                noDeletableFiles = noDeletableFiles
-            )
-            testBody()
-        }
-    }
+
 
 
     @Test
-    fun testSwitchSelectAll() = setupTest {
+    fun testSwitchSelectAll() = runTest {
         useCases.switchSelectAll()
         wait()
 
         coVerify {
             garbageFiles.deleteForm.switchSelectAll()
-            outBoundary.outDeleteForm(deleteFormOut)
+            outer.outDeleteForm(deleteFormOut)
         }
     }
 
 
     @Test
-    fun testSwitchSelection() = setupTest{
+    fun testSwitchSelection() = runTest {
         useCases.switchSelection(GarbageType.Apk)
         wait()
 
         coVerify { garbageFiles.deleteForm.switchSelection(GarbageType.Apk) }
-        coVerify { outBoundary.outDeleteForm(DeleteFormOut()) }
+        coVerify { outer.outDeleteForm(DeleteFormOut()) }
     }
 
     @Test
-    fun `test deleteIfCan deleteRequest is not empty`() = setupTest{
-        coEvery { garbageFiles.deleteForm.deleteRequest } returns DeleteRequest().apply {
-            add(GarbageType.Apk)
-            add(GarbageType.Temp)
-
-            garbageFiles[GarbageType.Apk] = mutableSetOf(APK)
-            garbageFiles[GarbageType.Temp] = mutableSetOf(TEMP)
-        }
-        coEvery { files.deleteAndGetNoDeletable(listOf(APK, TEMP)) } returns listOf()
-
-        useCases.deleteIfCan()
+    fun `test deleteIfCan deleteRequest is not empty`() = runTest {
+        useCases.deleteIfCan(navigator)
         wait()
 
-        coVerifyOrder {
-            ads.preloadAd()
-            outBoundary.outDeleteProgress(DeleteProgressState.Progress)
-            outBoundary.outDeleteRequest(listOf(GarbageType.Apk, GarbageType.Temp))
-            files.deleteAndGetNoDeletable(listOf(APK, TEMP))
-            noDeletableFiles.save(listOf())
-            outBoundary.outDeletedSize(0)
-            outBoundary.outDeleteProgress(DeleteProgressState.Complete)
-        }
+
+        coVerify { deleteUseCase.delete(navigator) }
     }
 
 
     @Test
-    fun `test deleteIfCan deleteRequest is empty`() = setupTest{
+    fun `test deleteIfCan deleteRequest is empty`() = runTest {
         coEvery { garbageFiles.deleteForm.deleteRequest } returns DeleteRequest()
 
-        useCases.deleteIfCan()
+        useCases.deleteIfCan(navigator)
 
         coVerify(inverse = true) { files.deleteAndGetNoDeletable(listOf()) }
     }
 
     @Test
-    fun testUpdate() = setupTest{
-        useCases.update()
+    fun testUpdate() = runTest {
+        useCases.update(navigator)
 
-        coVerify { updateUseCase.update() }
+        coVerify { updater.update(navigator) }
     }
 
     @Test
-    fun testClose() = setupTest {
-        useCases.close()
+    fun testClose() = runTest {
+        useCases.close(navigator)
 
-        coVerify { outBoundary.outIsClosed(true) }
+        coVerify { navigator.close() }
     }
 
 
 
-    private fun TestScope.wait() {
-        advanceUntilIdle()
+    private fun runTest(testBody: suspend TestScope.() -> Unit){
+        testScope.runTest {
+            testBody()
+        }
     }
 
     companion object{

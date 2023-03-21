@@ -2,7 +2,6 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.entities.FileSystemInfo
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.FileSystemInfoProvider
@@ -10,12 +9,13 @@ import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
-import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Navigator
+import yin_kio.garbage_clean.domain.out.Outer
+import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import kotlin.coroutines.CoroutineContext
 
-internal class UpdateUseCase(
-    private val outBoundary: OutBoundary,
+internal class Updater(
+    private val outer: Outer,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
     private val mapper: DeleteFormMapper,
@@ -26,27 +26,25 @@ internal class UpdateUseCase(
     private val noDeletableFiles: NoDeletableFiles
 ) {
 
-    fun update() = async {
+    fun update(navigator: Navigator) = async {
         if (permissions.hasStoragePermission){
             outAll()
         } else {
-            outBoundary.outHasPermission(false)
+            navigator.showPermission()
         }
 
     }
 
     private suspend fun outAll() {
-        outBoundary.outDeleteProgress(DeleteProgressState.Wait)
-        outBoundary.outHasPermission(true)
-        outBoundary.outUpdateProgress(true)
-        outBoundary.outFileSystemInfo(getFileSystemInfo())
+        outer.outUpdateProgress(true)
+        outer.outFileSystemInfo(getFileSystemInfo())
 
         loadFilesToEntityExceptNoDeletable()
 
         if (garbageFiles.isNotEmpty()) garbageFiles.deleteForm.switchSelectAll()
 
-        outBoundary.outDeleteForm(getDeleteFormOut())
-        outBoundary.outUpdateProgress(false)
+        outer.outDeleteForm(getDeleteFormOut())
+        outer.outUpdateProgress(false)
     }
 
     private suspend fun loadFilesToEntityExceptNoDeletable() {

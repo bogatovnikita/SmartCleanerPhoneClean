@@ -64,16 +64,16 @@ class GarbageFilesTest {
     }
 
     private fun assertContainsApkAndTemp(){
-        assertEquals(garbageFiles[GarbageType.Apk]!!, apk.toPathsSet())
-        assertEquals(garbageFiles[GarbageType.Temp]!!, temp.toPathsSet())
+        assertEquals(apk.toPathsSet(), garbageFiles[GarbageType.Apk]!!)
+        assertEquals(temp.toPathsSet(), garbageFiles[GarbageType.Temp]!!)
         assertNull(garbageFiles[GarbageType.RestFiles])
         assertNull(garbageFiles[GarbageType.Thumbnails])
         assertNull(garbageFiles[GarbageType.EmptyFolders])
     }
 
     private fun assertContainsAll() {
-        assertEquals(garbageFiles[GarbageType.Apk]!!, apk.toPathsSet())
-        assertEquals(garbageFiles[GarbageType.Temp]!!, temp.toPathsSet())
+        assertEquals(apk.toPathsSet(), garbageFiles[GarbageType.Apk]!!)
+        assertEquals(temp.toPathsSet(), garbageFiles[GarbageType.Temp]!!)
         assertEquals(garbageFiles[GarbageType.RestFiles]!!, rest.toPathsSet())
         assertEquals(garbageFiles[GarbageType.Thumbnails]!!, thumb.toPathsSet())
         assertEquals(garbageFiles[GarbageType.EmptyFolders]!!, emptyFolders.toPathsSet())

@@ -4,32 +4,34 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import yin_kio.garbage_clean.domain.entities.FileSystemInfo
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.FileSystemInfoProvider
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles
 import yin_kio.garbage_clean.domain.gateways.Permissions
-import yin_kio.garbage_clean.domain.services.DeleteFormMapper
 import yin_kio.garbage_clean.domain.out.DeleteFormOut
-import yin_kio.garbage_clean.domain.out.DeleteProgressState
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Navigator
+import yin_kio.garbage_clean.domain.out.Outer
+import yin_kio.garbage_clean.domain.services.DeleteFormMapper
+import yin_kio.garbage_clean.domain.use_cases.Updater
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class UpdateUseCaseTest {
+class UpdaterTest {
 
-    private val outBoundary: OutBoundary = spyk()
+    private val outer: Outer = spyk()
     private val fileSystemInfoProvider: FileSystemInfoProvider = mockk()
     private val permissions: Permissions = mockk()
     private val garbageFiles: GarbageFiles = spyk()
     private val files: Files = mockk()
     private val noDeletableFiles: NoDeletableFiles = spyk()
-    private lateinit var updateUseCase: UpdateUseCase
+    private lateinit var updater: Updater
 
     private val fileSystemInfo = FileSystemInfo()
     private val deleteFormOut = DeleteFormOut()
+
+    private val navigator: Navigator = spyk()
 
 
     init {
@@ -40,7 +42,7 @@ class UpdateUseCaseTest {
     fun `testUpdate with has permission`() = setupTest{
         coEvery { permissions.hasStoragePermission } returns true
 
-        updateUseCase.update()
+        updater.update(navigator)
         wait()
 
         assertUpdateOrder(fileSystemInfo, deleteFormOut)
@@ -51,13 +53,11 @@ class UpdateUseCaseTest {
         deleteFormOut: DeleteFormOut
     ) {
         coVerifyOrder {
-            outBoundary.outDeleteProgress(DeleteProgressState.Wait)
-            outBoundary.outHasPermission(true)
-            outBoundary.outUpdateProgress(true)
-            outBoundary.outFileSystemInfo(fileSystemInfo)
+            outer.outUpdateProgress(true)
+            outer.outFileSystemInfo(fileSystemInfo)
             garbageFiles.setFiles(listOf())
-            outBoundary.outDeleteForm(deleteFormOut)
-            outBoundary.outUpdateProgress(false)
+            outer.outDeleteForm(deleteFormOut)
+            outer.outUpdateProgress(false)
         }
     }
 
@@ -65,10 +65,10 @@ class UpdateUseCaseTest {
     fun `test update without permission`() = setupTest{
         coEvery { permissions.hasStoragePermission } returns false
 
-        updateUseCase.update()
+        updater.update(navigator)
         wait()
 
-        coVerify { outBoundary.outHasPermission(false) }
+        coVerify { navigator.showPermission() }
     }
 
 
@@ -92,8 +92,8 @@ class UpdateUseCaseTest {
 
             coEvery { fileSystemInfoProvider.getFileSystemInfo() } returns FileSystemInfo()
 
-            updateUseCase = UpdateUseCase(
-                outBoundary = outBoundary,
+            updater = Updater(
+                outer = outer,
                 coroutineScope = this,
                 mapper = DeleteFormMapper(),
                 garbageFiles = garbageFiles,

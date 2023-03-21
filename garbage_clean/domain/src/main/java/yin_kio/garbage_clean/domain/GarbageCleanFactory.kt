@@ -4,17 +4,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import yin_kio.garbage_clean.domain.entities.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.*
-import yin_kio.garbage_clean.domain.out.OutBoundary
+import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper
+import yin_kio.garbage_clean.domain.use_cases.DeleteUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanUseCases
 import yin_kio.garbage_clean.domain.use_cases.GarbageCleanerUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_cases.Updater
 
 object GarbageCleanFactory {
 
     fun createUseCases(
         files: Files,
-        outBoundary: OutBoundary,
+        outer: Outer,
         coroutineScope: CoroutineScope,
         fileSystemInfoProvider: FileSystemInfoProvider,
         permissions: Permissions,
@@ -23,27 +24,38 @@ object GarbageCleanFactory {
     ) : GarbageCleanUseCases{
         val garbageFiles = GarbageFiles()
         val mapper = DeleteFormMapper()
+        val dispatcher = Dispatchers.IO
+
+        val updater = Updater(
+            outer = outer,
+            coroutineScope = coroutineScope,
+            mapper = mapper,
+            garbageFiles = garbageFiles,
+            files = files,
+            fileSystemInfoProvider = fileSystemInfoProvider,
+            permissions = permissions,
+            dispatcher = dispatcher,
+            noDeletableFiles = noDeletableFiles
+        )
+
+        val deleteUseCase = DeleteUseCase(
+            garbageFiles = garbageFiles,
+            ads = ads,
+            coroutineScope = coroutineScope,
+            dispatcher = dispatcher,
+            files = files,
+            noDeletableFiles = noDeletableFiles,
+            outer = outer,
+        )
 
         return GarbageCleanerUseCasesImpl(
             garbageFiles = garbageFiles,
             mapper = mapper,
-            files = files,
-            outBoundary = outBoundary,
+            outer = outer,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.Default,
-            updateUseCase =  UpdateUseCase(
-                outBoundary = outBoundary,
-                coroutineScope = coroutineScope,
-                mapper = mapper,
-                garbageFiles = garbageFiles,
-                files = files,
-                fileSystemInfoProvider = fileSystemInfoProvider,
-                permissions = permissions,
-                dispatcher = Dispatchers.IO,
-                noDeletableFiles = noDeletableFiles
-            ),
-            ads = ads,
-            noDeletableFiles = noDeletableFiles
+            updater =  updater,
+            deleteUseCase = deleteUseCase
         )
     }
 

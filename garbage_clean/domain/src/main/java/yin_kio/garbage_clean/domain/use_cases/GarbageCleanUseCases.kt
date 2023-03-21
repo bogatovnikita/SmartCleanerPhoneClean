@@ -1,11 +1,12 @@
 package yin_kio.garbage_clean.domain.use_cases
 
 import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.out.Navigator
 
 interface GarbageCleanUseCases {
     fun switchSelectAll()
     fun switchSelection(garbageType: GarbageType)
-    fun deleteIfCan()
-    fun update()
-    fun close()
+    fun deleteIfCan(navigator: Navigator)
+    fun update(navigator: Navigator)
+    fun close(navigator: Navigator)
 }
