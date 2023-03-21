@@ -10,12 +10,12 @@ public class SharedPrefProvider {
     }
 
     //Применяется для сохранения времени в сишной библиотеке
-    public static void saveToPreferences(String fieldName, long time) {
-        UtilsProviderForCLibrary.INSTANCE
-                .getSharedPreferencesProvider()
-                .edit()
-                .putLong(fieldName, time)
-                .apply();
-    }
+//    public static void saveToPreferences(String fieldName, long time) {
+//        UtilsProviderForCLibrary.INSTANCE
+//                .getSharedPreferencesProvider()
+//                .edit()
+//                .putLong(fieldName, time)
+//                .apply();
+//    }
 
 }

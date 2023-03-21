@@ -23,9 +23,12 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun savePowerHighType() = BatteryPrefsProvider.savePowerHighType(context)
 
-    override fun getBatteryType(): String = BatteryPrefsProvider.getBatteryType()
+    override fun getBatteryType(): String = "BatteryPrefsProvider.getBatteryType()"
+//    override fun getBatteryType(): String = BatteryPrefsProvider.getBatteryType()
 
-    override fun saveBatteryType(type: String) = BatteryPrefsProvider.saveBatteryType(type)
+
+    override fun saveBatteryType(type: String){}
+//    override fun saveBatteryType(type: String) = BatteryPrefsProvider.saveBatteryType(type)
 
     override fun setScreenBrightness(value: Int) = realBatteryProvider.setScreenBrightness(value)
 

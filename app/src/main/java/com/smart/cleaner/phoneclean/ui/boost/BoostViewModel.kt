@@ -25,18 +25,10 @@ class BoostViewModel @Inject constructor(
                     freeRam = freeRam,
                     ramPercent = 100 - (freeRam * 100 / totalRam).toInt(),
                     isRamBoosted = boostUseCase.checkRamOverload(),
-                    overloadPercent = boostUseCase.getOverloadedPercents()
                 )
             }
         }
     }
 
     private fun toGb(size: Long): Double = size / 1024.0 / 1024.0 / 1024
-
-    fun boost() {
-        viewModelScope.launch {
-            boostUseCase.boost()
-        }
-    }
-
 }

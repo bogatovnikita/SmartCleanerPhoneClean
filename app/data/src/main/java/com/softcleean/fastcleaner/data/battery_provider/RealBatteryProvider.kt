@@ -1,8 +1,6 @@
 package com.softcleean.fastcleaner.data.battery_provider
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.ActivityManager
 import android.app.Application
 import android.bluetooth.BluetoothManager
 import android.content.Context
@@ -10,10 +8,7 @@ import android.content.Context.BLUETOOTH_SERVICE
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
-import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary.getContentResolver
-import com.softcleean.fastcleaner.data.apps_provider.AppsProvider
 import com.softcleean.fastcleaner.data.kill_background.KillBackgroundProvider
-import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 class RealBatteryProvider @Inject constructor(
@@ -23,7 +18,7 @@ class RealBatteryProvider @Inject constructor(
     fun setScreenBrightness(value: Int) {
         try {
             Settings.System.putInt(
-                getContentResolver(),
+                context.contentResolver,
                 Settings.System.SCREEN_BRIGHTNESS,
                 value
             )

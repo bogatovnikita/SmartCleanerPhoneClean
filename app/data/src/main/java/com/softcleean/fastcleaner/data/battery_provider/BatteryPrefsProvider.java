@@ -2,7 +2,6 @@ package com.softcleean.fastcleaner.data.battery_provider;
 
 import android.content.Context;
 import androidx.annotation.Keep;
-import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary;
 
 @Keep
 public class BatteryPrefsProvider {
@@ -21,11 +20,11 @@ public class BatteryPrefsProvider {
 
     public static native void savePowerHighType(Context context);
 
-    public static void saveBatteryType(String type) {
-        UtilsProviderForCLibrary.INSTANCE.getSharedPreferencesProvider().edit().putString(BATTERY_TYPE, type).apply();
-    }
+//    public static void saveBatteryType(String type) {
+//        UtilsProviderForCLibrary.INSTANCE.getSharedPreferencesProvider().edit().putString(BATTERY_TYPE, type).apply();
+//    }
 
-    public static String getBatteryType() {
-       return UtilsProviderForCLibrary.INSTANCE.getSharedPreferencesProvider().getString(BATTERY_TYPE, "NORMAL");
-    }
+//    public static String getBatteryType() {
+//       return UtilsProviderForCLibrary.INSTANCE.getSharedPreferencesProvider().getString(BATTERY_TYPE, "NORMAL");
+//    }
 }

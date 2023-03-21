@@ -23,9 +23,13 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     private val viewModel: BoostViewModel by viewModels()
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getParams()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getParams()
         initScreenStateObserver()
         setBtnListeners()
         initLocale()
