@@ -41,3 +41,5 @@ include ':language_dialog'
 
 include ':duplicates'
 include ':duplicates:presentation'
+include ':duplicates:data'
+include ':duplicates:domain'
