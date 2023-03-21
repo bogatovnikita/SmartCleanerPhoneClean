@@ -38,3 +38,6 @@ include ':recycler_adapter'
 include ':premium'
 include ':premium:presentation'
 include ':language_dialog'
+
+include ':duplicates'
+include ':duplicates:presentation'
