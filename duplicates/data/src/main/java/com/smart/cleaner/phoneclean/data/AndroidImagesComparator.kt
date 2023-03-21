@@ -4,8 +4,9 @@ import android.graphics.BitmapFactory
 import com.smart.cleaner.phoneclean.domain.gateways.ImagesComparator
 import com.smart.cleaner.phoneclean.domain.models.ImageInfo
 import java.io.File
+import javax.inject.Inject
 
-class AndroidImagesComparator : ImagesComparator {
+class AndroidImagesComparator @Inject constructor(): ImagesComparator {
 
     override fun compareImages(imageFirst: ImageInfo, imageSecond: ImageInfo): Boolean {
         val first = File(imageFirst.path)

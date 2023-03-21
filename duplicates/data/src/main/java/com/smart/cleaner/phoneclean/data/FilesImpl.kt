@@ -6,8 +6,9 @@ import com.smart.cleaner.phoneclean.domain.models.ImageInfo
 import yin_kio.file_utils.FileGroups
 import yin_kio.file_utils.FileUtils
 import java.io.File
+import javax.inject.Inject
 
-class FilesImpl(
+class FilesImpl @Inject constructor(
     private val fileUtils: FileUtils
 ) : Files {
 
@@ -16,6 +17,13 @@ class FilesImpl(
         return fileUtils.getAllFiles(Environment.getExternalStorageDirectory()).filter {
             fileGroups.images[it.extension.uppercase()] != null
         }.map { ImageInfo(it.absolutePath) }
+    }
+
+    override suspend fun getFiles(): List<com.smart.cleaner.phoneclean.domain.models.File> {
+        val fileGroups = FileGroups()
+        return fileUtils.getAllFiles(Environment.getExternalStorageDirectory()).filter {
+            fileGroups.documents[it.extension.uppercase()] != null
+        }.map { com.smart.cleaner.phoneclean.domain.models.File(it.absolutePath) }
     }
 
     override suspend fun delete(path: String) {
