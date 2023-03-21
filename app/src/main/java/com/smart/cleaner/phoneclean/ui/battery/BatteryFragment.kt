@@ -19,6 +19,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bogatovnikita.language_dialog.ui.LocalDialog
+import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.adapters.BatterySaveFunctionRecyclerViewAdapter
 import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar.Companion.EXTRA
@@ -70,6 +72,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initLocale()
         initObserverStateScreen()
         viewModel.getParams()
         initAdapter()
@@ -77,6 +80,10 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         setBtnListeners()
         setOnDialogsCallback()
         checkPermissions()
+    }
+
+    private fun initLocale() {
+        binding.btnChangeLanguage.setImageResource(LocaleProvider(requireContext()).getCurrentLocaleModel().image)
     }
 
     private fun initObserverStateScreen() {
@@ -220,6 +227,10 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
             }
         }
+
+        binding.btnChangeLanguage.setOnClickListener {
+            openLocalDialog()
+        }
     }
 
     private fun renderBtnBoostingBattery(
@@ -250,5 +261,14 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter.submitList(resources.getStringArray(R.array.battery_normal).toList())
+    }
+
+    private fun openLocalDialog() {
+        val dialog = LocalDialog(requireContext()) {
+            val intent: Intent = requireActivity().intent
+            requireActivity().finish()
+            startActivity(intent)
+        }
+        dialog.show()
     }
 }

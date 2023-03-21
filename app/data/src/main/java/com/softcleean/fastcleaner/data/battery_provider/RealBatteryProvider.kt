@@ -12,18 +12,14 @@ import android.os.Build
 import android.provider.Settings
 import com.softcleean.fastcleaner.data.shared_pref.UtilsProviderForCLibrary.getContentResolver
 import com.softcleean.fastcleaner.data.apps_provider.AppsProvider
+import com.softcleean.fastcleaner.data.kill_background.KillBackgroundProvider
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 class RealBatteryProvider @Inject constructor(
-    application: Application,
-    private val appsProvider: AppsProvider
+    private val context: Application,
+    private val killBackgroundProvider: KillBackgroundProvider
 ) {
-
-    private val contextWeakRef = WeakReference(application.applicationContext)
-    private val context: Context
-        get() = contextWeakRef.get()!!
-
     fun setScreenBrightness(value: Int) {
         try {
             Settings.System.putInt(
@@ -55,20 +51,11 @@ class RealBatteryProvider @Inject constructor(
         }
     }
 
-    suspend fun killBackgroundProcessInstalledApps() {
-        val am =
-            context.getSystemService(Activity.ACTIVITY_SERVICE) as ActivityManager
-            appsProvider.getInstalledApp().forEach { app ->
-                am.killBackgroundProcesses(app.packageName)
-            }
-    }
+    suspend fun killBackgroundProcessInstalledApps() =
+        killBackgroundProvider.killBackgroundProcessInstalledApps()
 
-    suspend fun killBackgroundProcessSystemApps() {
-        val am =
-            context.getSystemService(Activity.ACTIVITY_SERVICE) as ActivityManager
-        appsProvider.getSystemApp().forEach { app ->
-            am.killBackgroundProcesses(app.packageName)
-        }
-    }
+
+    suspend fun killBackgroundProcessSystemApps() =
+        killBackgroundProvider.killBackgroundProcessSystemApps()
 
 }

@@ -15,6 +15,7 @@ class LocalDialog(context: Context, private val onLocalChange: () -> Unit) : Ale
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_local)
+
         initLocales()
     }
 
