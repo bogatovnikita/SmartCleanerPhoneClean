@@ -30,5 +30,5 @@ class BoostViewModel @Inject constructor(
         }
     }
 
-    private fun toGb(size: Long): Double = size / 1024.0 / 1024.0 / 1024
+    private fun toGb(size: Long): Double = size / 1000.0 / 1000.0 / 1000
 }

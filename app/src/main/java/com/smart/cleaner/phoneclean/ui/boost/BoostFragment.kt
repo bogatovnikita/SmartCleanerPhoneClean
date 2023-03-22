@@ -61,6 +61,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     private fun setEnableBtn(enable: Boolean) {
         binding.btnBoostBattery.isClickable = enable
         binding.btnBoostBattery.isEnabled = enable
+        binding.descriptionNotOptimize.isVisible = enable
     }
 
     private fun setBtnListeners() {

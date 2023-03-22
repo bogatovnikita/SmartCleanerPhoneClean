@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        app:layout_constraintWidth_percent="0.09"
         android:id="@+id/btn_change_language"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -27,6 +26,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_boost_fun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_boost_fun"
+        app:layout_constraintWidth_percent="0.09"
         tools:src="@drawable/flag" />
 
     <TextView
@@ -34,13 +34,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:text="@string/value_percents"
         android:textAppearance="@style/Text.Medium"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/circular_progress_ram_percent_duplicate"
         app:layout_constraintEnd_toEndOf="@+id/circular_progress_ram_percent_duplicate"
         app:layout_constraintStart_toStartOf="@+id/circular_progress_ram_percent_duplicate"
-        app:layout_constraintTop_toTopOf="@+id/circular_progress_ram_percent_duplicate" />
+        app:layout_constraintTop_toTopOf="@+id/circular_progress_ram_percent_duplicate"
+        tools:text="@string/value_percents" />
 
     <yinkio.android.customView.progressBar.ArcCircleProgressBar
         android:id="@+id/circular_progress_ram_percent_duplicate"
@@ -48,7 +48,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="89dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="17dp"
         app:canalColor="#CCCCCC"
         app:canalHasShadow="false"
         app:canalWidth="12dp"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_boost_fun"
-        app:progress="65" />
+        tools:progress="65" />
 
     <TextView
         android:id="@+id/tv_boost_name"
@@ -83,7 +83,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/ram_unboosted"
         android:textAppearance="@style/Text.Medium.14"
-        android:textColor="@color/red"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_boost_name" />
@@ -93,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:paddingHorizontal="16dp"
         android:text="@string/ram_boosted"
         android:textAppearance="@style/Text.Medium.14"
@@ -207,6 +208,21 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/description_not_optimize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:gravity="center"
+        android:text="@string/boost_description"
+        android:textAppearance="@style/Text.Medium.14"
+        android:textColor="@color/primary"
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_ram" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"

@@ -95,15 +95,16 @@
     <string name="done">Done</string>
     <string name="advice">We strongly recommend performing these optimizations</string>
     <string name="fun_battery">Battery saver</string>
-    <string name="ram_unboosted">Memory is overloaded! Optimization is required!</string>
-    <string name="ram_boosted">Memory is cleared! The phone has been successfully optimized!</string>
+    <string name="ram_unboosted">Optimization is recommended</string>
+    <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
     <string name="ram_usage">RAM Usage</string>
     <string name="used">Used</string>
-    <string name="gb_one_after_dot">%.1f Gb</string>
+    <string name="gb_one_after_dot">%.2f Gb</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="free">Free RAM</string>
     <string name="ram">Total amount of RAM</string>
-    <string name="boosted">Memory is cleared!</string>
+    <string name="boosted">Apps running in the background are closed!</string>
     <string name="boosted_desc">The phone has been successfully optimized</string>
+    <string name="boost_description">Close apps running in the background to free up memory on your device</string>
 
 </resources>
