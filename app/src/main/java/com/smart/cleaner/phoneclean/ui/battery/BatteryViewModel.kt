@@ -7,7 +7,6 @@ import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar.Companion.ULTR
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import com.smart.cleaner.phoneclean.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

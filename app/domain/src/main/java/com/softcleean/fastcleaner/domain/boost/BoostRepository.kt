@@ -6,10 +6,12 @@ interface BoostRepository {
 
     fun getRamUsage(): Long
 
-    fun getOverloadedPercents(): Int
-
     fun boost()
 
     fun checkRamOverload(): Boolean
+
+    suspend fun killBackgroundProcessInstalledApps()
+
+    suspend fun killBackgroundProcessSystemApps()
 
 }

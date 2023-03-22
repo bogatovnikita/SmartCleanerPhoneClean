@@ -32,6 +32,7 @@ class BoostResultFragment : BaseFragmentResult(R.layout.fragment_boost_result) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getParams()
         initLocale()
         initScreenStateObserver()
         initListeners()

@@ -10,10 +10,13 @@ class BoostUseCase @Inject constructor(
 
     fun getRamUsage(): Long = boostRepository.getRamUsage()
 
-    fun getOverloadedPercents(): Int = boostRepository.getOverloadedPercents()
-
     fun boost() = boostRepository.boost()
 
     fun checkRamOverload(): Boolean = boostRepository.checkRamOverload()
 
+    suspend fun killBackgroundProcessInstalledApps() =
+        boostRepository.killBackgroundProcessInstalledApps()
+
+    suspend fun killBackgroundProcessSystemApps() =
+        boostRepository.killBackgroundProcessSystemApps()
 }
