@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/duplicates_graph"
+    app:startDestination="@id/duplicateImagesFragment">
+
+    <fragment
+        android:id="@+id/duplicateImagesFragment"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesFragment"
+        android:label="fragment_duplicate_images"
+        tools:layout="@layout/fragment_duplicate_images" />
+</navigation>

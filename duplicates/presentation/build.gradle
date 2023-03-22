@@ -51,11 +51,6 @@ dependencies {
 
     implementation 'androidx.fragment:fragment-ktx:1.5.5'
 
-
-    // Adaptive dimensions
-    implementation 'com.intuit.sdp:sdp-android:1.1.0'
-    implementation 'com.intuit.ssp:ssp-android:1.1.0'
-
     //Hilt
     api "com.google.dagger:hilt-android:2.45"
     kapt "com.google.dagger:hilt-compiler:2.45"

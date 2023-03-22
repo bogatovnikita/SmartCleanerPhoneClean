@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:paddingHorizontal="16dp"
     tools:context=".ui.duplicate_images.DuplicateImagesFragment">
+
+    <LinearLayout
+        android:id="@+id/container_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_file_group_selected"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="11dp"
+        app:layout_constraintEnd_toStartOf="@+id/container_document"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_image_selected" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            android:text="@string/duplicates_image"
+            android:textAppearance="@style/Text.Medium.12" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_document"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_file_group_not_selected"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/container_image"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_document_not_selected" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/duplicates_files"
+            android:textColor="@color/primary"
+            android:textAppearance="@style/Text.Medium.12" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
