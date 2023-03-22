@@ -1,7 +1,5 @@
 package com.softcleean.fastcleaner.domain.battery
 
-import kotlinx.coroutines.flow.Flow
-
 interface BatteryRepository {
 
     fun checkBatteryDecrease(): Boolean

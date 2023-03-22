@@ -1,34 +1,23 @@
 package com.softcleean.fastcleaner.data.battery_provider
 
 import android.app.Application
-import android.content.Context
+import com.softcleean.fastcleaner.data.shared_pref.SharedPreferencesProvider
 import com.softcleean.fastcleaner.domain.battery.BatteryRepository
-import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 class BatteryRepositoryImpl @Inject constructor(
-    private val application: Application,
+    private val context: Application,
     private val realBatteryProvider: RealBatteryProvider,
-): BatteryRepository {
+    private val sharedPreferencesProvider: SharedPreferencesProvider
+) : BatteryRepository {
 
-    private val contextWeakRef = WeakReference(application.applicationContext)
-    private val context: Context
-        get() = contextWeakRef.get()!!
+    override fun checkBatteryDecrease() = sharedPreferencesProvider.checkBatteryDecrease()
 
-    override fun checkBatteryDecrease(): Boolean = BatteryPrefsProvider.checkBatteryDecrease(context)
+    override fun savePowerLowType() = sharedPreferencesProvider.savePowerLowType()
 
-    override fun savePowerLowType() = BatteryPrefsProvider.savePowerLowType(context)
+    override fun savePowerMediumType() = sharedPreferencesProvider.savePowerMediumType()
 
-    override fun savePowerMediumType() = BatteryPrefsProvider.savePowerMediumType(context)
-
-    override fun savePowerHighType() = BatteryPrefsProvider.savePowerHighType(context)
-
-    override fun getBatteryType(): String = "BatteryPrefsProvider.getBatteryType()"
-//    override fun getBatteryType(): String = BatteryPrefsProvider.getBatteryType()
-
-
-    override fun saveBatteryType(type: String){}
-//    override fun saveBatteryType(type: String) = BatteryPrefsProvider.saveBatteryType(type)
+    override fun savePowerHighType() = sharedPreferencesProvider.savePowerHighType()
 
     override fun setScreenBrightness(value: Int) = realBatteryProvider.setScreenBrightness(value)
 
@@ -36,8 +25,14 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun disableWiFi() = realBatteryProvider.disableWiFi()
 
-    override suspend fun killBackgroundProcessInstalledApps() = realBatteryProvider.killBackgroundProcessInstalledApps()
+    override suspend fun killBackgroundProcessInstalledApps() =
+        realBatteryProvider.killBackgroundProcessInstalledApps()
 
-    override suspend fun killBackgroundProcessSystemApps() = realBatteryProvider.killBackgroundProcessSystemApps()
+    override suspend fun killBackgroundProcessSystemApps() =
+        realBatteryProvider.killBackgroundProcessSystemApps()
+
+    override fun getBatteryType(): String = sharedPreferencesProvider.getBatteryType()
+
+    override fun saveBatteryType(type: String) = sharedPreferencesProvider.saveBatteryType(type)
 
 }
