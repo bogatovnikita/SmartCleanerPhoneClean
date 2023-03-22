@@ -6,4 +6,6 @@
     <string name="duplicates_files">Files</string>
     <string name="duplicates_image">Image</string>
     <string name="duplicates_delete">Delete</string>
+    <string name="duplicates_number_of_duplicate">%d duplicate(s)</string>
+    <string name="duplicates_select_all">Select all</string>
 </resources>
