@@ -1,7 +1,7 @@
 <resources>
     <string name="duplicates_we_need_permission">We need permission</string>
     <string name="duplicates_close">Close</string>
-    <string name="duplicates_allow_string_allow">Allow@string/allow</string>
+    <string name="duplicates_allow_string_allow">Allow</string>
     <string name="duplicate_requires_storage_permission">Our application requires storage permission so that you can view and delete duplicates</string>
     <string name="duplicates_files">Files</string>
     <string name="duplicates_image">Image</string>
