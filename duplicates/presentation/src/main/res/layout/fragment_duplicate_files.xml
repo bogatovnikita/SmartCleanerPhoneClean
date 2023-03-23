@@ -75,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_image"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:listitem="@layout/item_child_file" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"

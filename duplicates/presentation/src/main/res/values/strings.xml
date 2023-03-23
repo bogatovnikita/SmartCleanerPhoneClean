@@ -8,4 +8,5 @@
     <string name="duplicates_delete">Delete</string>
     <string name="duplicates_number_of_duplicate">%d duplicate(s)</string>
     <string name="duplicates_select_all">Select all</string>
+    <string name="duplicates_size_and_path">%d Кб • %s</string>
 </resources>
