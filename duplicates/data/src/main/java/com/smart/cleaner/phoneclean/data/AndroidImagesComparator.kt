@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class AndroidImagesComparator @Inject constructor(): ImagesComparator {
 
-    override fun compareImages(imageFirst: ImageInfo, imageSecond: ImageInfo): Boolean {
+    override fun invoke(imageFirst: ImageInfo, imageSecond: ImageInfo): Boolean {
         val first = File(imageFirst.path)
         val second = File(imageSecond.path)
 

@@ -11,4 +11,5 @@ class PermissionsImpl(
     override val hasStoragePermissions: Boolean
         get() = context.hasStoragePermissions()
 
+
 }
