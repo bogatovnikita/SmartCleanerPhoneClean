@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.presentation.dialogs
+package com.smart.cleaner.phoneclean.presentation.ui.dialogs
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -7,28 +7,24 @@ import android.view.View
 import androidx.fragment.app.DialogFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
-import com.smart.cleaner.phoneclean.presentation.databinding.FragmentRequestStoragePermDialogBinding
+import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDeletionRequestDialogBinding
 
-class RequestStoragePermDialog : DialogFragment(R.layout.fragment_request_storage_perm_dialog) {
+class DeletionRequestDialog : DialogFragment(R.layout.fragment_deletion_request_dialog) {
 
-    private val binding: FragmentRequestStoragePermDialogBinding by viewBinding()
+    private val binding: FragmentDeletionRequestDialogBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NO_TITLE, R.style.DialogStyle)
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogStyle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnOk.setOnClickListener {
+        binding.btnDelete.setOnClickListener {
             sendSuccessResult()
             dismiss()
         }
-        binding.btnCancelDialog.setOnClickListener {
-            sendErrorResult()
-            dismiss()
-        }
-        binding.btnCancel.setOnClickListener {
+        binding.btnClose.setOnClickListener {
             sendErrorResult()
             dismiss()
         }
