@@ -9,7 +9,7 @@
         android:id="@+id/batteryFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryFragment"
         android:label="fragment_battery"
-        tools:layout="@layout/fragment_battery"></fragment>
+        tools:layout="@layout/fragment_battery" />
     <action
         android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
         app:destination="@id/batteryOptimizingFragment" />
@@ -67,8 +67,12 @@
         android:label="PremiumScreenFragment"
         tools:layout="@layout/fragment_premium_screen" />
 
-    <action
-        android:id="@+id/action_to_toolbar_graph"
-        app:destination="@id/toolbar_graph" />
-    <include app:graph="@navigation/toolbar_graph" />
+    <dialog
+        android:id="@+id/localDialog"
+        android:name="com.bogatovnikita.language_dialog.ui.LocalDialog"
+        android:label="LocalDialog"
+        tools:layout="@layout/dialog_local">
+        <deepLink app:uri="myApp://localDialog" />
+    </dialog>
+
 </navigation>

@@ -1,17 +1,17 @@
 package bogatovnikita.toolbar.ui
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton
-
-typealias OnOpenLocaleDialog = () -> Unit
 
 @Singleton
 @AndroidEntryPoint
@@ -26,7 +26,6 @@ class ToolbarView @JvmOverloads constructor(
     lateinit var localeProvider: LocaleProvider
 
     private val binding: ViewToolbarBinding
-    private lateinit var listener: OnOpenLocaleDialog
 
     init {
         val inflater = LayoutInflater.from(context)
@@ -60,18 +59,25 @@ class ToolbarView @JvmOverloads constructor(
         typedArray.recycle()
     }
 
-    fun setListener(onOpenLocaleDialog: OnOpenLocaleDialog) {
-        this.listener = onOpenLocaleDialog
-    }
-
     private fun renderState() {
         binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
     }
 
     private fun initClickListeners() {
+        val uri = Uri.parse("myApp://localDialog")
         binding.btnChangeLanguage.setOnClickListener {
-            listener.invoke()
+            findNavController().navigate(uri)
         }
     }
+
+//    override fun onCreateContextMenu(menu: ContextMenu?) {
+//        super.onCreateContextMenu(menu)
+//        val inflater = MenuInflater(context).inflate(R.menu.menu, menu)
+//    }
+//
+//    override fun setOnCreateContextMenuListener(l: OnCreateContextMenuListener?) {
+//        super.setOnCreateContextMenuListener(l)
+//
+//    }
 
 }

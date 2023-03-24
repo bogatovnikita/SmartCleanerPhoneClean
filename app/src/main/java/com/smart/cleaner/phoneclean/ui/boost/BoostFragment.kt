@@ -64,8 +64,5 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         binding.btnBoostBattery.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_boostOptimizingFragment)
         }
-        binding.customToolbar.setListener {
-            findNavController().navigate(R.id.action_to_toolbar_graph)
-        }
     }
 }
