@@ -4,6 +4,9 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import bogatovnikita.toolbar.R
@@ -68,16 +71,36 @@ class ToolbarView @JvmOverloads constructor(
         binding.btnChangeLanguage.setOnClickListener {
             findNavController().navigate(uri)
         }
+        binding.btnMenu.setOnClickListener {
+            val popupMenu = PopupMenu(context, it)
+            popupMenu.inflate(R.menu.menu)
+            popupMenu.setOnMenuItemClickListener(onMenuItemClickListener())
+            popupMenu.setOnDismissListener { }
+            popupMenu.setForceShowIcon(true)
+            popupMenu.show()
+        }
     }
 
-//    override fun onCreateContextMenu(menu: ContextMenu?) {
-//        super.onCreateContextMenu(menu)
-//        val inflater = MenuInflater(context).inflate(R.menu.menu, menu)
-//    }
-//
-//    override fun setOnCreateContextMenuListener(l: OnCreateContextMenuListener?) {
-//        super.setOnCreateContextMenuListener(l)
-//
-//    }
+    private fun onMenuItemClickListener() =
+        object : PopupMenu.OnMenuItemClickListener {
+            override fun onMenuItemClick(item: MenuItem?): Boolean {
+                when (item?.itemId) {
+                    R.id.share_menu -> {
+                        return true
+                    }
+                    R.id.ads_off_menu -> {
+                        return true
+                    }
+                    R.id.information_menu -> {
+                        return true
+                    }
+                    R.id.restore_purchase_menu -> {
+                        return true
+                    }
+                }
+                return false
+            }
+
+        }
 
 }
