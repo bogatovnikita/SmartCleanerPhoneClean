@@ -1,10 +1,11 @@
 package com.bogatovnikita.language_dialog.utils
 
-import android.content.Context
+import android.app.Application
 import com.bogatovnikita.language_dialog.R
 import java.util.*
+import javax.inject.Inject
 
-class LocaleProvider(private val context: Context) {
+class LocaleProvider @Inject constructor(private val context: Application) {
 
     fun getCurrentLocaleModel(): LocaleModel {
         return LocaleModel.getLocale(PreferencesProvider(context).getLocale())

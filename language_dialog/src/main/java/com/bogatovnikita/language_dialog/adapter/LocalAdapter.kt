@@ -8,7 +8,6 @@ import com.bogatovnikita.language_dialog.R
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import kotlinx.android.synthetic.main.item_locale.view.*
 
-
 class LocalAdapter(private val onLocalSelected: (LocaleProvider.LocaleModel) -> Unit) :
     RecyclerView.Adapter<LocalAdapter.ViewHolder>() {
 

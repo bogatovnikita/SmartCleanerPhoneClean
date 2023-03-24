@@ -6,7 +6,15 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
+import com.bogatovnikita.language_dialog.utils.LocaleProvider
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Singleton
 
+typealias OnOpenLocaleDialog = () -> Unit
+
+@Singleton
+@AndroidEntryPoint
 class ToolbarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -14,13 +22,19 @@ class ToolbarView @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
+    @Inject
+    lateinit var localeProvider: LocaleProvider
+
     private val binding: ViewToolbarBinding
+    private lateinit var listener: OnOpenLocaleDialog
 
     init {
         val inflater = LayoutInflater.from(context)
         inflater.inflate(R.layout.view_toolbar, this, true)
         binding = ViewToolbarBinding.bind(this)
         initializeAttributes(attrs, defStyleAttr, defStyleRes)
+        renderState()
+        initClickListeners()
     }
 
     private fun initializeAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -45,4 +59,19 @@ class ToolbarView @JvmOverloads constructor(
 
         typedArray.recycle()
     }
+
+    fun setListener(onOpenLocaleDialog: OnOpenLocaleDialog) {
+        this.listener = onOpenLocaleDialog
+    }
+
+    private fun renderState() {
+        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
+    }
+
+    private fun initClickListeners() {
+        binding.btnChangeLanguage.setOnClickListener {
+            listener.invoke()
+        }
+    }
+
 }

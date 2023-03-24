@@ -1,32 +1,54 @@
 package com.bogatovnikita.language_dialog.ui
 
-import android.content.Context
+import android.app.Application
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
+import android.view.View
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.R
 import com.bogatovnikita.language_dialog.adapter.LocalAdapter
+import com.bogatovnikita.language_dialog.databinding.DialogLocalBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class LocalDialog(context: Context, private val onLocalChange: () -> Unit) : AlertDialog(context) {
+@AndroidEntryPoint
+class LocalDialog : DialogFragment(R.layout.dialog_local) {
+
+    @Inject
+    lateinit var localeProvider: LocaleProvider
+
+    @Inject
+    lateinit var context: Application
+
+    private val binding: DialogLocalBinding by viewBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_local)
+        setStyle(STYLE_NO_TITLE, R.style.DialogStyle)
+    }
 
+    override fun onResume() {
+        super.onResume()
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initLocales()
     }
 
     private fun initLocales() {
         val adapter = LocalAdapter {
-            LocaleProvider(context).saveNewLocale(it)
-            onLocalChange.invoke()
-            cancel()
+            localeProvider.saveNewLocale(it)
+            dismiss()
+            requireActivity().finish()
+            startActivity(requireActivity().intent)
         }
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView?.layoutManager = GridLayoutManager(context, 3)
-        recyclerView?.adapter = adapter
+        binding.recyclerView.layoutManager = GridLayoutManager(context, 3)
+        binding.recyclerView.adapter = adapter
     }
 }
