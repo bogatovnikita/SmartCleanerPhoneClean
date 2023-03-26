@@ -2,6 +2,7 @@ package com.smart.cleaner.phoneclean.presentation.ui.duplicate_images
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -50,7 +51,15 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
             viewModel.screenState.collect { state ->
                 adapter.submitList(state.duplicates)
                 navigate(state.event)
+                render(state)
             }
+        }
+    }
+
+    private fun render(state: ImagesStateScreen) {
+        with(binding) {
+            groupStartLoading.isVisible = state.isLoading
+            groupStopLoading.isVisible = !state.isLoading
         }
     }
 
