@@ -10,20 +10,23 @@ import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCas
 import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCaseImpl
 import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
 @Module
+@InstallIn(SingletonComponent::class)
 interface BindModule {
 
     @Binds
     fun bindFiles(files: FilesImpl): Files
 
     @Binds
-    fun bindIma(imagesComparator: AndroidImagesComparator): ImagesComparator
+    fun bindImagesComparator(imagesComparator: AndroidImagesComparator): ImagesComparator
 
     @Binds
-    fun bindIma(permissions: PermissionsImpl): Permissions
+    fun bindPermissions(permissions: PermissionsImpl): Permissions
 
     @Binds
-    fun bindIma(UseCase: DuplicateImagesUseCaseImpl): DuplicateImagesUseCase
+    fun bindDuplicateImagesUseCase(UseCase: DuplicateImagesUseCaseImpl): DuplicateImagesUseCase
 
 }

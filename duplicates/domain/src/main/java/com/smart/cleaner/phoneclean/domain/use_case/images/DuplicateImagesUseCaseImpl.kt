@@ -11,13 +11,15 @@ class DuplicateImagesUseCaseImpl @Inject constructor(
     private val files: Files,
     private val permissions: Permissions,
     private val imagesComparator: ImagesComparator,
-): DuplicateImagesUseCase {
+) : DuplicateImagesUseCase {
 
-    override suspend fun getImageDuplicates(): List<List<ImageInfo>>  = files.getImages().findDuplicates(imagesComparator)
+    override suspend fun getImageDuplicates(): List<List<ImageInfo>> =
+        files.getImages().findDuplicates(imagesComparator)
 
-    override suspend fun deleteDuplicates(duplicates: List<ImageInfo>) = duplicates.forEach { image ->
-        files.delete(image.path)
-    }
+    override suspend fun deleteDuplicates(duplicates: List<ImageInfo>) =
+        duplicates.forEach { image ->
+            files.delete(image.path)
+        }
 
     override fun hasStoragePermissions(): Boolean = permissions.hasStoragePermissions
 

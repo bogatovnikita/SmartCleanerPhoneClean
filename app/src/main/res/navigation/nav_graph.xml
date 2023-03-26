@@ -65,5 +65,10 @@
         android:id="@+id/premiumScreenFragment"
         android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"
         android:label="PremiumScreenFragment"
-        tools:layout="@layout/fragment_premium_screen" />
+        tools:layout="@layout/fragment_premium_screen" >
+    </fragment>
+    <action
+        android:id="@+id/action_to_duplicates_graph"
+        app:destination="@id/duplicates_graph" />
+    <include app:graph="@navigation/duplicates_graph" />
 </navigation>

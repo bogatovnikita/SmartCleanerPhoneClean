@@ -9,5 +9,13 @@
         android:id="@+id/duplicateImagesFragment"
         android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesFragment"
         android:label="fragment_duplicate_images"
-        tools:layout="@layout/fragment_duplicate_images" />
+        tools:layout="@layout/fragment_duplicate_images" >
+        <action
+            android:id="@+id/to_requestStoragePermDialog"
+            app:destination="@id/requestStoragePermDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/requestStoragePermDialog"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.RequestStoragePermDialog"
+        android:label="RequestStoragePermDialog" />
 </navigation>

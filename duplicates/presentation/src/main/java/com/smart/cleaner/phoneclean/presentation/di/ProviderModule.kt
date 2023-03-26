@@ -8,7 +8,6 @@ import yin_kio.file_utils.FileUtils
 import yin_kio.file_utils.FileUtilsImpl
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 class ProviderModule {

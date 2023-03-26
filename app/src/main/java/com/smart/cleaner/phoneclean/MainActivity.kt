@@ -1,7 +1,6 @@
 package com.smart.cleaner.phoneclean
 
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -39,15 +38,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onClick(view: View) {
         renderNavBar((view.id))
         when (view.id) {
-            R.id.btn_boost -> navigateAndShowInter(R.id.action_to_boostFragment)
+            R.id.btn_boost -> navigate(R.id.action_to_boostFragment)
             R.id.btn_clean -> {}
-            R.id.btn_duplicate -> {}
-            R.id.btn_battery -> navigateAndShowInter(R.id.action_to_batteryFragment)
-            R.id.btn_paywall -> navigateAndShowInter(R.id.action_to_premiumScreenFragment)
+            R.id.btn_duplicate -> navigate(R.id.action_to_duplicates_graph)
+            R.id.btn_battery -> navigate(R.id.action_to_batteryFragment)
+            R.id.btn_paywall -> navigate(R.id.action_to_premiumScreenFragment)
         }
     }
 
-    private fun navigateAndShowInter(navigateId: Int) {
+    private fun navigate(navigateId: Int) {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
