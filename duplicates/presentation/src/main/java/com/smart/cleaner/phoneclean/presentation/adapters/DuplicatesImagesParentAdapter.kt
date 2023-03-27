@@ -28,7 +28,7 @@ class DuplicatesImagesParentAdapter(private val listener: OnChangeSelectListener
         holder.bind(imageGroup, position)
     }
 
-    class ParentViewHolder(
+    inner class ParentViewHolder(
         private val listener: OnChangeSelectListener,
         private val binding: ItemDuplicatesImageBinding,
     ) :
@@ -55,6 +55,7 @@ class DuplicatesImagesParentAdapter(private val listener: OnChangeSelectListener
                     listener.selectAll(state, true)
                 }
                 adapter.submitList(state.images)
+                separationLine.isVisible = position != currentList.lastIndex
             }
         }
 
