@@ -36,13 +36,35 @@ class DuplicateImagesViewModel @Inject constructor(
     fun obtainEvent(event: ImagesStateScreen.ImageEvent) {
         when (event) {
             is ImagesStateScreen.ImageEvent.SelectImage -> {}
-            is ImagesStateScreen.ImageEvent.SelectAll -> {}
+            is ImagesStateScreen.ImageEvent.SelectAll -> selectAll(event.duplicates, event.isSelected)
             is ImagesStateScreen.ImageEvent.Default -> {}
             is ImagesStateScreen.ImageEvent.Delete -> {}
             is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> {}
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
             is ImagesStateScreen.ImageEvent.CheckPermission -> {}
+        }
+    }
+
+    private fun selectAll(newList: ParentImageItem, isSelected: Boolean) {
+        val updatedList = mutableListOf<ParentImageItem>()
+        screenState.value.duplicates.forEach { oldList ->
+            if (oldList == newList) {
+                updatedList.add(
+                    ParentImageItem(
+                    count = oldList.count,
+                    isAllSelected = isSelected,
+                    images = oldList.images.map { ChildImageItem(isSelected = isSelected, imagesPath = it.imagesPath) }
+                )
+                )
+            } else {
+                updatedList.add(oldList)
+            }
+        }
+        updateState {
+            it.copy(
+                duplicates = updatedList
+            )
         }
     }
 

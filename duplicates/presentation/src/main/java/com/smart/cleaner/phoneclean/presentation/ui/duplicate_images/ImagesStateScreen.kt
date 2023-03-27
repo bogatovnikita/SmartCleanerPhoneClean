@@ -25,13 +25,13 @@ data class ImagesStateScreen(
 
         object Delete : ImageEvent()
         class SelectAll(
-            private val duplicates: List<ChildImageItem>,
-            private val isSelected: Boolean
+            val duplicates: ParentImageItem,
+            val isSelected: Boolean
         ) : ImageEvent()
 
         class SelectImage(
-            private val image: ChildImageItem,
-            private val isSelected: Boolean
+            val image: ChildImageItem,
+            val isSelected: Boolean
         ) : ImageEvent()
 
     }

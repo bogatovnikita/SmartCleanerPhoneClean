@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
-import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemDuplicatesImageBinding
 
@@ -40,19 +39,15 @@ class DuplicatesImagesAdapter(private val listener: OnChangeSelectListener) :
                     R.string.duplicates_number_of_duplicate,
                     state.count
                 )
+                binding.btnSwitchOffAll.isVisible = state.isAllSelected
+                binding.btnSwitchOnAll.isVisible = !state.isAllSelected
                 btnSwitchOffAll.setOnClickListener {
-                    setAllSelected(state.images, false)
+                    listener.selectAll(state, false)
                 }
                 btnSwitchOnAll.setOnClickListener {
-                    setAllSelected(state.images, true)
+                    listener.selectAll(state, true)
                 }
             }
-        }
-
-        private fun setAllSelected(duplicates: List<ChildImageItem>, isSelected: Boolean) {
-            binding.btnSwitchOffAll.isVisible = !isSelected
-            binding.btnSwitchOnAll.isVisible = isSelected
-            listener.selectAll(duplicates, isSelected)
         }
 
     }
