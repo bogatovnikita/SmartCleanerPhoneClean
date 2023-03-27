@@ -1,13 +1,14 @@
 package bogatovnikita.toolbar.ui
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
@@ -86,6 +87,7 @@ class ToolbarView @JvmOverloads constructor(
             override fun onMenuItemClick(item: MenuItem?): Boolean {
                 when (item?.itemId) {
                     R.id.share_menu -> {
+                        shareApp()
                         return true
                     }
                     R.id.ads_off_menu -> {
@@ -102,5 +104,20 @@ class ToolbarView @JvmOverloads constructor(
             }
 
         }
+
+    private fun shareApp() {
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(
+            Intent.EXTRA_TEXT,
+            "http://play.google.com/store/apps/details?id=${context.packageName}"
+        );
+        startActivity(
+            context,
+            Intent.createChooser(shareIntent, context.getString(R.string.look_at_what_a_cool_app)),
+            null
+        )
+    }
 
 }
