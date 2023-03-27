@@ -20,20 +20,20 @@ class PremiumScreenFragment :
     }
 
     private fun initClickListener() {
-        binding.btnStart.setOnClickListener {
-            startSubscription()
-        }
-        binding.privacyPolice.setOnClickListener {
-            // TODO добавить переход
-        }
-
-        binding.restorePurchases.setOnClickListener {
-            // TODO добавить переход
-        }
-
-        binding.termsOfUse.setOnClickListener {
-            // TODO добавить переход
-        }
+//        binding.btnStart.setOnClickListener {
+//            startSubscription()
+//        }
+//        binding.privacyPolice.setOnClickListener {
+//            // TODO добавить переход
+//        }
+//
+//        binding.restorePurchases.setOnClickListener {
+//            // TODO добавить переход
+//        }
+//
+//        binding.termsOfUse.setOnClickListener {
+//            // TODO добавить переход
+//        }
     }
 
     private fun premiumActivated() {
