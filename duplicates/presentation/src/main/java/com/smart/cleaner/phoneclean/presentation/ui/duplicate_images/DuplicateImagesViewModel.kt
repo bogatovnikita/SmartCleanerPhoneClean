@@ -16,10 +16,6 @@ class DuplicateImagesViewModel @Inject constructor(
     private val useCase: DuplicateImagesUseCase,
 ) : BaseViewModel<ImagesStateScreen>(ImagesStateScreen()) {
 
-    init {
-        checkPermission()
-    }
-
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getImageDuplicates()
@@ -90,11 +86,20 @@ class DuplicateImagesViewModel @Inject constructor(
         isCanDelete()
     }
 
-    private fun checkPermission() {
-        if (useCase.hasStoragePermissions()) {
+    fun checkPermission() {
+        val hasPerm = useCase.hasStoragePermissions()
+        var isLoading = false
+        if (hasPerm) {
             getDuplicates()
+            isLoading = true && screenState.value.duplicates.isEmpty()
         } else {
             setEvent(ImagesStateScreen.ImageEvent.OpenPermissionDialog)
+        }
+        updateState {
+            it.copy(
+                hasPermission = hasPerm,
+                isLoading = isLoading
+            )
         }
     }
 
