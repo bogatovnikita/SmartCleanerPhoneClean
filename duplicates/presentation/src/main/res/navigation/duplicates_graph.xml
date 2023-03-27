@@ -10,12 +10,30 @@
         android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesFragment"
         android:label="fragment_duplicate_images"
         tools:layout="@layout/fragment_duplicate_images" >
-        <action
-            android:id="@+id/to_requestStoragePermDialog"
-            app:destination="@id/requestStoragePermDialog" />
     </fragment>
+    <action
+        android:id="@+id/action_to_duplicateImagesFragment"
+        app:destination="@id/duplicateImagesFragment" />
     <dialog
         android:id="@+id/requestStoragePermDialog"
         android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.RequestStoragePermDialog"
         android:label="RequestStoragePermDialog" />
+    <action
+        android:id="@+id/action_to_requestStoragePermDialog"
+        app:destination="@id/requestStoragePermDialog" />
+    <dialog
+        android:id="@+id/deletionRequestDialog"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.DeletionRequestDialog"
+        android:label="DeletionRequestDialog" />
+    <action
+        android:id="@+id/action_to_deletionRequestDialog"
+        app:destination="@id/deletionRequestDialog" />
+    <fragment
+        android:id="@+id/duplicateFilesFragment"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicates_files.DuplicateFilesFragment"
+        android:label="DuplicateFilesFragment" >
+    </fragment>
+    <action
+        android:id="@+id/action_to_duplicateFilesFragment"
+        app:destination="@id/duplicateFilesFragment" />
 </navigation>

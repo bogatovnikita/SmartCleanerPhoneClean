@@ -23,7 +23,6 @@ data class ImagesStateScreen(
 
         object OpenFilesDuplicates : ImageEvent()
 
-        object Delete : ImageEvent()
         class SelectAll(
             val duplicates: ParentImageItem,
             val isSelected: Boolean

@@ -27,7 +27,8 @@ class DuplicateImagesViewModel @Inject constructor(
                 it.copy(
                     duplicates = mapTo(duplicates),
                     isLoading = false,
-                    isNotFound = duplicates.isEmpty()
+                    isNotFound = duplicates.isEmpty(),
+                    isCanDelete = false,
                 )
             }
         }
@@ -43,10 +44,9 @@ class DuplicateImagesViewModel @Inject constructor(
                 event.duplicates,
                 event.isSelected
             )
-            is ImagesStateScreen.ImageEvent.Default -> {}
-            is ImagesStateScreen.ImageEvent.Delete -> {}
+            is ImagesStateScreen.ImageEvent.Default -> setEvent(event)
             is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
-            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> {}
+            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
             is ImagesStateScreen.ImageEvent.CheckPermission -> {}
         }
@@ -68,6 +68,7 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
+        isCanDelete()
     }
 
     private fun selectImage(selectedImage: ChildImageItem, isSelected: Boolean) {
@@ -86,6 +87,7 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
+        isCanDelete()
     }
 
     private fun checkPermission() {
@@ -153,6 +155,25 @@ class DuplicateImagesViewModel @Inject constructor(
             isSelected = isSelected,
             imagePath = it.imagePath
         )
+    }
+
+    private fun isCanDelete() {
+        var isCanDelete = false
+        if (screenState.value.duplicates.any { it.isAllSelected }) {
+            isCanDelete = true
+        } else {
+            screenState.value.duplicates.forEach {images ->
+                if (images.images.any { it.isSelected }) {
+                    isCanDelete = true
+                    return@forEach
+                }
+            }
+        }
+        updateState {
+            it.copy(
+                isCanDelete = isCanDelete
+            )
+        }
     }
 
 }

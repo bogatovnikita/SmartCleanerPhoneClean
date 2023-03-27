@@ -44,6 +44,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+        initListeners()
         initObserverScreenState()
     }
 
@@ -61,25 +62,32 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
         with(binding) {
             groupStartLoading.isVisible = state.isLoading
             groupStopLoading.isVisible = !state.isLoading
+            btnDelete.isEnabled = state.isCanDelete
         }
     }
 
     private fun initAdapter() {
-
         binding.recyclerView.adapter = adapter
-
         val layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recyclerView.layoutManager = layoutManager
-
     }
 
     private fun navigate(event: ImagesStateScreen.ImageEvent) {
         when (event) {
-            is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.to_requestStoragePermDialog)
+            is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)
+            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)
             else -> {}
         }
+        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.Default)
+    }
 
+    private fun initListeners() {
+        with(binding) {
+            btnDelete.setOnClickListener {
+                viewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenConfirmationDialog)
+            }
+        }
     }
 
 }
