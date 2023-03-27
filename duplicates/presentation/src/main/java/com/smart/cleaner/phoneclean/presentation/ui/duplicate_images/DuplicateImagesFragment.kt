@@ -7,11 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
-import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesImagesAdapter
+import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesImagesParentAdapter
 import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
@@ -25,8 +24,8 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     private val binding: FragmentDuplicateImagesBinding by viewBinding()
 
-    private val adapter: DuplicatesImagesAdapter =
-        DuplicatesImagesAdapter(object : OnChangeSelectListener {
+    private val adapter: DuplicatesImagesParentAdapter =
+        DuplicatesImagesParentAdapter(object : OnChangeSelectListener {
             override fun selectAll(duplicates: ParentImageItem, isSelected: Boolean) {
                 viewModel.obtainEvent(
                     ImagesStateScreen.ImageEvent.SelectAll(
