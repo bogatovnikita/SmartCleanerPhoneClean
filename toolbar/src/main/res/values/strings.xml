@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share">Share</string>
+    <string name="ads_off">ADS Off</string>
+    <string name="information">Information</string>
+    <string name="restore_purchase">Restore purchase</string>
+</resources>

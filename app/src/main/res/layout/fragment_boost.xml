@@ -7,27 +7,15 @@
     android:background="@color/background"
     tools:context=".ui.boost.BoostFragment">
 
-    <TextView
-        android:id="@+id/tv_boost_fun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/boosting"
-        android:textAppearance="@style/Text.Medium.24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/btn_change_language"
+    <bogatovnikita.toolbar.ui.ToolbarView
+        android:id="@+id/custom_toolbar"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_boost_fun"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_boost_fun"
-        app:layout_constraintWidth_percent="0.09"
-        tools:src="@drawable/flag" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title_text="@string/boosting" />
 
     <TextView
         android:id="@+id/tv_ram_percents_duplicate"
@@ -59,7 +47,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_boost_fun"
+        app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
         tools:progress="65" />
 
     <TextView
@@ -218,11 +206,11 @@
         android:text="@string/boost_description"
         android:textAppearance="@style/Text.Medium.14"
         android:textColor="@color/primary"
-        app:layout_constraintVertical_bias="0.9"
         app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_ram" />
+        app:layout_constraintTop_toBottomOf="@id/container_ram"
+        app:layout_constraintVertical_bias="0.9" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"

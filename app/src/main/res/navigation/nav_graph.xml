@@ -65,8 +65,14 @@
         android:id="@+id/premiumScreenFragment"
         android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"
         android:label="PremiumScreenFragment"
-        tools:layout="@layout/fragment_premium_screen" >
-    </fragment>
+        tools:layout="@layout/fragment_premium_screen" />
+    <dialog
+        android:id="@+id/localDialog"
+        android:name="com.bogatovnikita.language_dialog.ui.LocalDialog"
+        android:label="LocalDialog"
+        tools:layout="@layout/dialog_local">
+        <deepLink app:uri="myApp://localDialog" />
+    </dialog>
     <action
         android:id="@+id/action_to_duplicates_graph"
         app:destination="@id/duplicates_graph" />
