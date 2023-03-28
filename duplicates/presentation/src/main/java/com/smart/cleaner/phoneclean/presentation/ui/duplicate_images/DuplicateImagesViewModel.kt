@@ -21,12 +21,13 @@ class DuplicateImagesViewModel @Inject constructor(
             val duplicates = useCase.getImageDuplicates()
             updateState {
                 it.copy(
-                    duplicates = mapTo(duplicates),
+                    duplicates = map(duplicates),
                     isLoading = false,
                     isNotFound = duplicates.isEmpty(),
                     isCanDelete = false,
                 )
             }
+            isCanDelete()
         }
     }
 
@@ -41,11 +42,11 @@ class DuplicateImagesViewModel @Inject constructor(
                 event.isSelected
             )
             is ImagesStateScreen.ImageEvent.Default -> setEvent(event)
-            is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
-            is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
+            is ImagesStateScreen.ImageEvent.ConfirmedDeletion -> setEvent(event)
+            else -> {}
         }
     }
 
@@ -121,11 +122,30 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
-    private fun mapTo(duplicates: List<List<ImageInfo>>): List<ParentImageItem> {
+    private fun map(duplicates: List<List<ImageInfo>>): List<ParentImageItem> {
         return duplicates.map { groupDuplicates ->
+            val images = groupDuplicates.map { imageInfo ->
+                var isSelected = false
+                screenState.value.duplicates.forEach { oldList ->
+                    oldList.images.forEach { image ->
+                        if (image.imagePath == imageInfo.path) {
+                            isSelected = image.isSelected
+                            return@forEach
+                        }
+                    }
+                    if (isSelected) {
+                        return@forEach
+                    }
+                }
+                ChildImageItem(
+                    imagePath = imageInfo.path,
+                    isSelected = isSelected
+                )
+            }
             ParentImageItem(
+                isAllSelected = images.none { !it.isSelected },
                 count = groupDuplicates.size,
-                images = groupDuplicates.map { ChildImageItem(imagePath = it.path) }
+                images = images
             )
         }
     }
