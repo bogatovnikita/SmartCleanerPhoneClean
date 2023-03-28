@@ -13,10 +13,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
@@ -24,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton
 
+@Singleton
 @AndroidEntryPoint
 class ToolbarView @JvmOverloads constructor(
     context: Context,
@@ -43,7 +41,7 @@ class ToolbarView @JvmOverloads constructor(
         binding = ViewToolbarBinding.bind(this)
         initializeAttributes(attrs, defStyleAttr, defStyleRes)
 
-        if (binding.btnChangeLanguage.isVisible) renderState()
+        if (binding.btnChangeLanguage.isVisible) renderLanguageFlag()
 
         initClickListeners()
     }
@@ -71,7 +69,7 @@ class ToolbarView @JvmOverloads constructor(
         typedArray.recycle()
     }
 
-    private fun renderState() {
+    private fun renderLanguageFlag() {
         binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
     }
 
@@ -82,10 +80,6 @@ class ToolbarView @JvmOverloads constructor(
 
         binding.btnMenu.setOnClickListener {
             showMenu(it)
-        }
-
-        binding.btnCrossExit.setOnClickListener {
-            findNavController().popBackStack()
         }
     }
 
