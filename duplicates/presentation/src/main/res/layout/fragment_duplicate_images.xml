@@ -102,6 +102,7 @@
         android:id="@+id/group_start_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="lottie_loading, tv_loading_desc" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -109,14 +110,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_image"
         tools:listitem="@layout/item_duplicates_image" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_boost_battery"
+        android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -138,6 +139,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="recycler_view, btn_boost_battery" />
+        app:constraint_referenced_ids="recycler_view, btn_delete" />
+
+    <TextView
+        android:id="@+id/tv_not_found"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:text="@string/duplicates_no_duplicates_found"
+        android:textAppearance="@style/Text.Medium.16"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toTopOf="@id/btn_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_not_found, btn_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

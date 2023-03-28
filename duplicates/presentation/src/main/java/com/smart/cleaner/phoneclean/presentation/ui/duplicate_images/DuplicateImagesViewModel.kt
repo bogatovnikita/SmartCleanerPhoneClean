@@ -16,10 +16,6 @@ class DuplicateImagesViewModel @Inject constructor(
     private val useCase: DuplicateImagesUseCase,
 ) : BaseViewModel<ImagesStateScreen>(ImagesStateScreen()) {
 
-    init {
-        checkPermission()
-    }
-
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getImageDuplicates()
@@ -27,7 +23,8 @@ class DuplicateImagesViewModel @Inject constructor(
                 it.copy(
                     duplicates = mapTo(duplicates),
                     isLoading = false,
-                    isNotFound = duplicates.isEmpty()
+                    isNotFound = duplicates.isEmpty(),
+                    isCanDelete = false,
                 )
             }
         }
@@ -35,14 +32,20 @@ class DuplicateImagesViewModel @Inject constructor(
 
     fun obtainEvent(event: ImagesStateScreen.ImageEvent) {
         when (event) {
-            is ImagesStateScreen.ImageEvent.SelectImage -> {}
-            is ImagesStateScreen.ImageEvent.SelectAll -> selectAll(event.duplicates, event.isSelected)
-            is ImagesStateScreen.ImageEvent.Default -> {}
-            is ImagesStateScreen.ImageEvent.Delete -> {}
+            is ImagesStateScreen.ImageEvent.SelectImage -> selectImage(
+                event.image,
+                event.isSelected
+            )
+            is ImagesStateScreen.ImageEvent.SelectAll -> selectAll(
+                event.duplicates,
+                event.isSelected
+            )
+            is ImagesStateScreen.ImageEvent.Default -> setEvent(event)
             is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
-            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> {}
+            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
-            is ImagesStateScreen.ImageEvent.CheckPermission -> {}
+            is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
+            is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
         }
     }
 
@@ -52,27 +55,53 @@ class DuplicateImagesViewModel @Inject constructor(
             if (oldList == newList) {
                 updatedList.add(
                     ParentImageItem(
-                    count = oldList.count,
-                    isAllSelected = isSelected,
-                    images = oldList.images.map { ChildImageItem(isSelected = isSelected, imagesPath = it.imagesPath) }
-                )
+                        count = oldList.count,
+                        isAllSelected = isSelected,
+                        images = updateAllImagesInList(oldList, isSelected)
+                    )
                 )
             } else {
                 updatedList.add(oldList)
             }
         }
-        updateState {
-            it.copy(
-                duplicates = updatedList
-            )
+        updateList(updatedList)
+        isCanDelete()
+    }
+
+    private fun selectImage(selectedImage: ChildImageItem, isSelected: Boolean) {
+        val updatedList = mutableListOf<ParentImageItem>()
+        screenState.value.duplicates.forEach { oldList ->
+            if (oldList.images.contains(selectedImage)) {
+                updatedList.add(
+                    ParentImageItem(
+                        count = oldList.count,
+                        isAllSelected = isAllSelected(oldList, selectedImage, isSelected),
+                        images = updateSelectedImageInList(oldList, selectedImage, isSelected)
+                    )
+                )
+            } else {
+                updatedList.add(oldList)
+            }
         }
+        updateList(updatedList)
+        isCanDelete()
     }
 
     private fun checkPermission() {
-        if (useCase.hasStoragePermissions()) {
+        val hasPerm = useCase.hasStoragePermissions()
+        var isLoading = false
+        if (hasPerm) {
             getDuplicates()
+            isLoading = true && screenState.value.duplicates.isEmpty()
         } else {
             setEvent(ImagesStateScreen.ImageEvent.OpenPermissionDialog)
+        }
+        updateState {
+            it.copy(
+                hasPermission = hasPerm,
+                isLoading = isLoading,
+                isNotFound = false
+            )
         }
     }
 
@@ -84,11 +113,80 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
+    private fun updateList(list: List<ParentImageItem>) {
+        updateState {
+            it.copy(
+                duplicates = list
+            )
+        }
+    }
+
     private fun mapTo(duplicates: List<List<ImageInfo>>): List<ParentImageItem> {
         return duplicates.map { groupDuplicates ->
             ParentImageItem(
                 count = groupDuplicates.size,
-                images = groupDuplicates.map { ChildImageItem(imagesPath = it.path) }
+                images = groupDuplicates.map { ChildImageItem(imagePath = it.path) }
+            )
+        }
+    }
+
+    private fun isAllSelected(
+        oldList: ParentImageItem,
+        selectedImage: ChildImageItem,
+        isSelected: Boolean
+    ): Boolean = oldList.isAllSelected && isSelected || oldList.images.none {
+        if (it == selectedImage) {
+            !isSelected
+        } else {
+            !it.isSelected
+        }
+    }
+
+    private fun updateSelectedImageInList(
+        oldList: ParentImageItem,
+        selectedImage: ChildImageItem,
+        isSelected: Boolean
+    ) = oldList.images.map { image ->
+        if (image == selectedImage) {
+            ChildImageItem(isSelected = isSelected, imagePath = image.imagePath)
+        } else {
+            image
+        }
+    }
+
+    private fun updateAllImagesInList(
+        oldList: ParentImageItem,
+        isSelected: Boolean
+    ) = oldList.images.map {
+        ChildImageItem(
+            isSelected = isSelected,
+            imagePath = it.imagePath
+        )
+    }
+
+    private fun isCanDelete() {
+        var isCanDelete = false
+        if (screenState.value.duplicates.any { it.isAllSelected }) {
+            isCanDelete = true
+        } else {
+            screenState.value.duplicates.forEach {images ->
+                if (images.images.any { it.isSelected }) {
+                    isCanDelete = true
+                    return@forEach
+                }
+            }
+        }
+        updateState {
+            it.copy(
+                isCanDelete = isCanDelete
+            )
+        }
+    }
+
+    private fun cancelPermissionDialog() {
+        updateState {
+            it.copy(
+                isNotFound = true
             )
         }
     }

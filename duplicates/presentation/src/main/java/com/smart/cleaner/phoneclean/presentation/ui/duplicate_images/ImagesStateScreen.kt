@@ -7,6 +7,7 @@ data class ImagesStateScreen(
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
     val isCanDelete: Boolean = false,
+    val hasPermission: Boolean = false,
     val event: ImageEvent = ImageEvent.CheckPermission,
     val duplicates: List<ParentImageItem> = emptyList(),
 ) {
@@ -17,13 +18,14 @@ data class ImagesStateScreen(
 
         object CheckPermission: ImageEvent()
 
+        object CancelPermissionDialog: ImageEvent()
+
         object OpenPermissionDialog : ImageEvent()
 
         object OpenConfirmationDialog : ImageEvent()
 
         object OpenFilesDuplicates : ImageEvent()
 
-        object Delete : ImageEvent()
         class SelectAll(
             val duplicates: ParentImageItem,
             val isSelected: Boolean

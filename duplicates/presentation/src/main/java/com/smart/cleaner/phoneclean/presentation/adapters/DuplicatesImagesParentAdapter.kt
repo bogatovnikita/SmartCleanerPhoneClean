@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.smart.cleaner.phoneclean.presentation.R
@@ -11,8 +12,8 @@ import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSele
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemDuplicatesImageBinding
 
-class DuplicatesImagesAdapter(private val listener: OnChangeSelectListener) :
-    ListAdapter<ParentImageItem, DuplicatesImagesAdapter.ParentViewHolder>(
+class DuplicatesImagesParentAdapter(private val listener: OnChangeSelectListener) :
+    ListAdapter<ParentImageItem, DuplicatesImagesParentAdapter.ParentViewHolder>(
         ParentImageItemDiffCallback()
     ) {
 
@@ -27,11 +28,17 @@ class DuplicatesImagesAdapter(private val listener: OnChangeSelectListener) :
         holder.bind(imageGroup, position)
     }
 
-    class ParentViewHolder(
+    inner class ParentViewHolder(
         private val listener: OnChangeSelectListener,
         private val binding: ItemDuplicatesImageBinding,
     ) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private val adapter = DuplicatesImagesChildAdapter(listener)
+
+        init {
+            initAdapter()
+        }
 
         fun bind(state: ParentImageItem, position: Int) {
             with(binding) {
@@ -47,7 +54,16 @@ class DuplicatesImagesAdapter(private val listener: OnChangeSelectListener) :
                 btnSwitchOnAll.setOnClickListener {
                     listener.selectAll(state, true)
                 }
+                adapter.submitList(state.images)
+                separationLine.isVisible = position != currentList.lastIndex
             }
+        }
+
+        private fun initAdapter() {
+            binding.recyclerViewImageDuplicates.adapter = adapter
+            val layoutManager =
+                LinearLayoutManager(binding.root.context, LinearLayoutManager.HORIZONTAL, false)
+            binding.recyclerViewImageDuplicates.layoutManager = layoutManager
         }
 
     }
