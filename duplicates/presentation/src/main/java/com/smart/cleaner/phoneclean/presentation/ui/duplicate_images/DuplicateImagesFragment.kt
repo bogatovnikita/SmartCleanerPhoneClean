@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
-    private val viewModel: DuplicateImagesViewModel by viewModels()
+    private val viewModel: DuplicateImagesViewModel by activityViewModels()
 
     private val binding: FragmentDuplicateImagesBinding by viewBinding()
 
@@ -50,11 +50,11 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     override fun onResume() {
         super.onResume()
-        viewModel.checkPermission()
+        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.CheckPermission)
     }
 
     private fun initObserverScreenState() {
-        lifecycleScope.launchWhenCreated {
+        lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 adapter.submitList(state.duplicates)
                 navigate(state.event)
@@ -68,6 +68,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
             groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupStopLoading.isVisible = !state.isLoading && state.hasPermission
             btnDelete.isEnabled = state.isCanDelete
+            groupNotFound.isVisible = state.isNotFound
         }
     }
 

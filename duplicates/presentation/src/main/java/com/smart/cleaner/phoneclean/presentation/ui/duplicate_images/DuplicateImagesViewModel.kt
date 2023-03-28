@@ -44,7 +44,8 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
-            is ImagesStateScreen.ImageEvent.CheckPermission -> {}
+            is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
+            is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
         }
     }
 
@@ -86,7 +87,7 @@ class DuplicateImagesViewModel @Inject constructor(
         isCanDelete()
     }
 
-    fun checkPermission() {
+    private fun checkPermission() {
         val hasPerm = useCase.hasStoragePermissions()
         var isLoading = false
         if (hasPerm) {
@@ -98,7 +99,8 @@ class DuplicateImagesViewModel @Inject constructor(
         updateState {
             it.copy(
                 hasPermission = hasPerm,
-                isLoading = isLoading
+                isLoading = isLoading,
+                isNotFound = false
             )
         }
     }
@@ -177,6 +179,14 @@ class DuplicateImagesViewModel @Inject constructor(
         updateState {
             it.copy(
                 isCanDelete = isCanDelete
+            )
+        }
+    }
+
+    private fun cancelPermissionDialog() {
+        updateState {
+            it.copy(
+                isNotFound = true
             )
         }
     }

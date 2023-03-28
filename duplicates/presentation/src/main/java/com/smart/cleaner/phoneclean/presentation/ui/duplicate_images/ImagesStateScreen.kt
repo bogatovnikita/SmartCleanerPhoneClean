@@ -18,6 +18,8 @@ data class ImagesStateScreen(
 
         object CheckPermission: ImageEvent()
 
+        object CancelPermissionDialog: ImageEvent()
+
         object OpenPermissionDialog : ImageEvent()
 
         object OpenConfirmationDialog : ImageEvent()

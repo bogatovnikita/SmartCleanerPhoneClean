@@ -1,6 +1,7 @@
 package com.smart.cleaner.phoneclean.presentation.ui.dialogs
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,13 +12,21 @@ import android.provider.Settings
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentRequestStoragePermDialogBinding
+import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
+import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.ImagesStateScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class RequestStoragePermDialog : DialogFragment(R.layout.fragment_request_storage_perm_dialog) {
 
     private val binding: FragmentRequestStoragePermDialogBinding by viewBinding()
+
+    private val viewModel: DuplicateImagesViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +45,16 @@ class RequestStoragePermDialog : DialogFragment(R.layout.fragment_request_storag
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.CancelPermissionDialog)
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.CancelPermissionDialog)
     }
 
     private fun requestStoragePermissions() {
