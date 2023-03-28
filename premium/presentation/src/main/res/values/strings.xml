@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="premium_title">Premium</string>
-    <string name="without_banner_ads">Without banner ads</string>
+    <string name="no_banner_ads">No banner ads</string>
     <string name="no_pop_up_ads">No pop-up ads</string>
     <string name="priority_service">Priority service</string>
-    <string name="try_the_trial_version_right_now">Try the trial version right now!</string>
-    <string name="you_can_cancel_your_subscription_at_any_time">You can cancel your subscription at any time</string>
-    <string name="start_a_5_day_free_trial">Start a 5-day free trial</string>
-    <string name="after_cost">After $3.99/month</string>
+    <string name="start_free_trial">Start free trial</string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
     <string name="restore_purchases"><u>Restore purchases</u></string>
     <string name="terms_of_use"><u>Terms of Use</u></string>
-
+    <string name="five_days_for_free">5 days for free. After the end of the free version the price is free per month. Canceled at any time.</string>
+    <string name="description_subscribe">This subscription disables all types of advertising in our entertainment application, and also gives priority service by email if you write to us by mail. After the trial ends, you will be billed $3.99 for a 1-month subscription, which will be automatically renewed for $3.99 each month. By signing up, you agree to our terms and conditions and privacy policy. How to cancel a subscription, you can find out in the Menu - Information.</string>
 </resources>

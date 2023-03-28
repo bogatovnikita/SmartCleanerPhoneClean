@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context="ui.PremiumScreenFragment">
 
     <bogatovnikita.toolbar.ui.ToolbarView
         android:id="@+id/custom_toolbar"
@@ -19,51 +20,166 @@
         app:show_menu="false" />
 
     <ImageView
+        android:id="@+id/diamond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:src="@drawable/ic_premium_diamond"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
 
+    <ImageView
+        android:id="@+id/first_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:src="@drawable/ic_premium_done"
+        app:layout_constraintStart_toStartOf="@id/diamond"
+        app:layout_constraintTop_toBottomOf="@id/diamond" />
 
+    <TextView
+        android:id="@+id/first_done_text"
+        style="@style/Text.Semi_Bold.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:text="@string/no_banner_ads"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="@id/first_done"
+        app:layout_constraintStart_toEndOf="@id/first_done"
+        app:layout_constraintTop_toTopOf="@id/first_done" />
+
+    <ImageView
+        android:id="@+id/second_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:src="@drawable/ic_premium_done"
+        app:layout_constraintStart_toStartOf="@id/first_done"
+        app:layout_constraintTop_toBottomOf="@id/first_done" />
+
+    <TextView
+        android:id="@+id/second_done_text"
+        style="@style/Text.Semi_Bold.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:text="@string/no_pop_up_ads"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="@id/second_done"
+        app:layout_constraintStart_toEndOf="@id/second_done"
+        app:layout_constraintTop_toTopOf="@id/second_done" />
+
+    <ImageView
+        android:id="@+id/third_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:src="@drawable/ic_premium_done"
+        app:layout_constraintStart_toStartOf="@id/second_done"
+        app:layout_constraintTop_toBottomOf="@id/second_done" />
+
+    <TextView
+        android:id="@+id/third_done_text"
+        style="@style/Text.Semi_Bold.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:text="@string/no_pop_up_ads"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toBottomOf="@id/third_done"
+        app:layout_constraintStart_toEndOf="@id/third_done"
+        app:layout_constraintTop_toTopOf="@id/third_done" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_trial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:background="@drawable/bg_paywall_button"
+        android:gravity="center"
+        android:text="@string/start_free_trial"
+        android:textAllCaps="true"
+        android:textAppearance="@style/Text.Medium.18"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/third_done" />
+
+    <TextView
+        android:id="@+id/first_description"
+        style="@style/Text.Regular.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/five_days_for_free"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/start_trial" />
+
+    <TextView
+        android:id="@+id/second_description"
+        style="@style/Text.Medium.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:text="@string/description_subscribe"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/privacy_police"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/privacy_police"
+        style="@style/Text.Medium.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:alpha="0.67"
+        android:text="@string/privacy_policy"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/restore_purchases"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/restore_purchases"
+        style="@style/Text.Medium.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:alpha="0.67"
+        android:text="@string/restore_purchases"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/terms_of_use"
+        app:layout_constraintStart_toEndOf="@id/privacy_police" />
+
+    <TextView
+        android:id="@+id/terms_of_use"
+        style="@style/Text.Medium.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:alpha="0.67"
+        android:text="@string/terms_of_use"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/restore_purchases" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/privacy_police"-->
-    <!--        style="@style/Text.Medium.12"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="@dimen/_16sdp"-->
-    <!--        android:alpha="0.67"-->
-    <!--        android:text="@string/privacy_policy"-->
-    <!--        android:textColor="@color/grey"-->
-    <!--        app:layout_constraintEnd_toStartOf="@id/restore_purchases"-->
-    <!--        app:layout_constraintHorizontal_chainStyle="spread"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/after_coast" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/restore_purchases"-->
-    <!--        style="@style/Text.Medium.12"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="@dimen/_16sdp"-->
-    <!--        android:alpha="0.67"-->
-    <!--        android:text="@string/restore_purchases"-->
-    <!--        android:textColor="@color/grey"-->
-    <!--        app:layout_constraintEnd_toStartOf="@id/terms_of_use"-->
-    <!--        app:layout_constraintStart_toEndOf="@id/privacy_police"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/after_coast" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/terms_of_use"-->
-    <!--        style="@style/Text.Medium.12"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="@dimen/_16sdp"-->
-    <!--        android:alpha="0.67"-->
-    <!--        android:text="@string/terms_of_use"-->
-    <!--        android:textColor="@color/grey"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toEndOf="@id/restore_purchases"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/after_coast" />-->

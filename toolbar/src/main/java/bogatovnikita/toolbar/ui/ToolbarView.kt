@@ -1,15 +1,22 @@
 package bogatovnikita.toolbar.ui
 
+import Const.DEEP_LINK_TO_LANGUAGE_DIALOG
+import Const.DEEP_LINK_TO_PREMIUM_DIALOG
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
@@ -17,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 @AndroidEntryPoint
 class ToolbarView @JvmOverloads constructor(
     context: Context,
@@ -36,7 +42,9 @@ class ToolbarView @JvmOverloads constructor(
         inflater.inflate(R.layout.view_toolbar, this, true)
         binding = ViewToolbarBinding.bind(this)
         initializeAttributes(attrs, defStyleAttr, defStyleRes)
-        renderState()
+
+        if (binding.btnChangeLanguage.isVisible) renderState()
+
         initClickListeners()
     }
 
@@ -68,18 +76,31 @@ class ToolbarView @JvmOverloads constructor(
     }
 
     private fun initClickListeners() {
-        val uri = Uri.parse("myApp://localDialog")
         binding.btnChangeLanguage.setOnClickListener {
-            findNavController().navigate(uri)
+            openLanguageDialog()
         }
+
         binding.btnMenu.setOnClickListener {
-            val popupMenu = PopupMenu(context, it)
-            popupMenu.inflate(R.menu.menu)
-            popupMenu.setOnMenuItemClickListener(onMenuItemClickListener())
-            popupMenu.setOnDismissListener { }
-            popupMenu.setForceShowIcon(true)
-            popupMenu.show()
+            showMenu(it)
         }
+
+        binding.btnCrossExit.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun openLanguageDialog() {
+        val uri = Uri.parse(DEEP_LINK_TO_LANGUAGE_DIALOG)
+        findNavController().navigate(uri)
+    }
+
+    private fun showMenu(it: View) {
+        val popupMenu = PopupMenu(context, it)
+        popupMenu.inflate(R.menu.menu)
+        popupMenu.setOnMenuItemClickListener(onMenuItemClickListener())
+        popupMenu.setOnDismissListener { }
+        popupMenu.setForceShowIcon(true)
+        popupMenu.show()
     }
 
     private fun onMenuItemClickListener() =
@@ -91,6 +112,8 @@ class ToolbarView @JvmOverloads constructor(
                         return true
                     }
                     R.id.ads_off_menu -> {
+                        val uri = Uri.parse(DEEP_LINK_TO_PREMIUM_DIALOG)
+                        findNavController().navigate(uri)
                         return true
                     }
                     R.id.information_menu -> {

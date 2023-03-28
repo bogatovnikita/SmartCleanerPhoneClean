@@ -60,12 +60,16 @@
         app:popUpToInclusive="false" />
     <action
         android:id="@+id/action_to_premiumScreenFragment"
-        app:destination="@id/premiumScreenFragment" />
-    <fragment
+        app:destination="@id/premiumScreenFragment"
+        app:popUpTo="@id/boostFragment"
+        app:popUpToInclusive="false" />
+    <dialog
         android:id="@+id/premiumScreenFragment"
         android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"
         android:label="PremiumScreenFragment"
-        tools:layout="@layout/fragment_premium_screen" />
+        tools:layout="@layout/fragment_premium_screen">
+        <deepLink app:uri="myApp://toPremiumScreenFragment" />
+    </dialog>
     <dialog
         android:id="@+id/localDialog"
         android:name="com.bogatovnikita.language_dialog.ui.LocalDialog"
