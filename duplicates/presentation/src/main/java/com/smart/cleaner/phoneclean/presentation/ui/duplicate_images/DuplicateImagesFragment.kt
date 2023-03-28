@@ -65,10 +65,10 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     private fun render(state: ImagesStateScreen) {
         with(binding) {
-            groupStartLoading.isVisible = state.isLoading && state.hasPermission
-            groupStopLoading.isVisible = !state.isLoading && state.hasPermission
             btnDelete.isEnabled = state.isCanDelete
+            groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupNotFound.isVisible = state.isNotFound
+            groupStopLoading.isVisible = !state.isLoading && state.hasPermission
         }
     }
 
@@ -82,7 +82,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     private fun navigate(event: ImagesStateScreen.ImageEvent) {
         when (event) {
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_requestStoragePermDialog)
-            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)
+            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_imageDeletionRequestDialog)
             else -> {}
         }
         viewModel.obtainEvent(ImagesStateScreen.ImageEvent.Default)

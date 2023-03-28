@@ -41,11 +41,11 @@ class DuplicateImagesViewModel @Inject constructor(
                 event.isSelected
             )
             is ImagesStateScreen.ImageEvent.Default -> setEvent(event)
-            is ImagesStateScreen.ImageEvent.OpenFilesDuplicates -> {}
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
-            is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> {}
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
+            is ImagesStateScreen.ImageEvent.ConfirmedDeletion -> setEvent(event)
+            else -> {}
         }
     }
 
