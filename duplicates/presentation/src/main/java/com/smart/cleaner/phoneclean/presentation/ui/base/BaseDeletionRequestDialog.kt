@@ -27,9 +27,8 @@ abstract class BaseDeletionRequestDialog : DialogFragment(R.layout.fragment_dele
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnDelete.setOnClickListener {
-            findNavController().navigate(R.id.action_to_optimizingFragment)
             onDelete()
-            dismiss()
+            findNavController().navigate(R.id.action_to_optimizingFragment)
         }
         binding.btnClose.setOnClickListener {
             dismiss()

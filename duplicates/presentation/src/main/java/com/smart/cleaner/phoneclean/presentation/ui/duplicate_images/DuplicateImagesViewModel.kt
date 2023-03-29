@@ -45,7 +45,7 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
-            is ImagesStateScreen.ImageEvent.ConfirmedDeletion -> setEvent(event)
+            is ImagesStateScreen.ImageEvent.ConfirmedImageDeletion -> setEvent(event)
             else -> {}
         }
     }

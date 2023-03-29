@@ -8,7 +8,7 @@ class ImageDeletionRequestDialog() : BaseDeletionRequestDialog() {
     override val viewModel: DuplicateImagesViewModel by viewModels()
 
     override fun onDelete() {
-        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.ConfirmedDeletion)
+        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.ConfirmedImageDeletion)
     }
 
 }

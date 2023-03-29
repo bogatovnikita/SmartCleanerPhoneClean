@@ -33,7 +33,7 @@
     <action
         android:id="@+id/action_to_duplicateFilesFragment"
         app:destination="@id/duplicateFilesFragment" />
-    <fragment
+    <dialog
         android:id="@+id/optimizingFragment"
         android:name="com.smart.cleaner.phoneclean.presentation.ui.optimizing.OptimizingFragment"
         android:label="fragment_optimizing"
