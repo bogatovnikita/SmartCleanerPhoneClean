@@ -33,6 +33,6 @@ class BoostRealProvider @Inject constructor(
         sharedPreferencesProvider.saveBoost()
     }
 
-    fun checkRamOverload() = sharedPreferencesProvider.getBoost()
+    fun isRamBoosted() = sharedPreferencesProvider.isRamBoosted()
 
 }

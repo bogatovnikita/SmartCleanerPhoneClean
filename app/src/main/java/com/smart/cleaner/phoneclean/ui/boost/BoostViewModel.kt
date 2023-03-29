@@ -24,7 +24,7 @@ class BoostViewModel @Inject constructor(
                     totalRam = totalRam,
                     freeRam = freeRam,
                     ramPercent = 100 - (freeRam * 100 / totalRam).toInt(),
-                    isRamBoosted = boostUseCase.checkRamOverload(),
+                    isRamBoosted = boostUseCase.isRamBoosted(),
                 )
             }
         }

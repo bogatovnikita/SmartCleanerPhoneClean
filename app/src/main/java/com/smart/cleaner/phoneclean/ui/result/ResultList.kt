@@ -13,7 +13,7 @@ class ResultList @Inject constructor(
 
     fun getList(): List<FunResult> = listOf(
         FunResult(
-            isOptimized = boostUseCase.checkRamOverload(),
+            isOptimized = boostUseCase.isRamBoosted(),
             funName = R.string.boosting,
             funDangerDescription = R.string.boost_danger_desc,
             icon = R.drawable.ic_boost_danger,

@@ -12,7 +12,7 @@ class BoostUseCase @Inject constructor(
 
     fun boost() = boostRepository.boost()
 
-    fun checkRamOverload(): Boolean = boostRepository.checkRamOverload()
+    fun isRamBoosted(): Boolean = boostRepository.isRamBoosted()
 
     suspend fun killBackgroundProcessInstalledApps() =
         boostRepository.killBackgroundProcessInstalledApps()

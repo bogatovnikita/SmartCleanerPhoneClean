@@ -13,7 +13,7 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
         sharedPreferences.edit().putLong(SAVE_BOOST_TIME, System.currentTimeMillis()).apply()
     }
 
-    fun getBoost(): Boolean {
+    fun isRamBoosted(): Boolean {
         val currentTime = System.currentTimeMillis()
         val saveTime = sharedPreferences.getLong(SAVE_BOOST_TIME, 0L)
         return saveTime + TIME_NEED_BOOST > currentTime

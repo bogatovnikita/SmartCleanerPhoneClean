@@ -8,7 +8,7 @@ interface BoostRepository {
 
     fun boost()
 
-    fun checkRamOverload(): Boolean
+    fun isRamBoosted(): Boolean
 
     suspend fun killBackgroundProcessInstalledApps()
 

@@ -15,7 +15,7 @@ class BoostRepositoryImpl @Inject constructor(
 
     override fun boost() = boostRealProvider.boost()
 
-    override fun checkRamOverload(): Boolean = boostRealProvider.checkRamOverload()
+    override fun isRamBoosted(): Boolean = boostRealProvider.isRamBoosted()
 
     override suspend fun killBackgroundProcessInstalledApps() =
         killBackgroundProvider.killBackgroundProcessInstalledApps()
