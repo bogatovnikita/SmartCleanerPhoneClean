@@ -4,6 +4,7 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 
 data class ImagesStateScreen(
+    val totalSize: Long = 0L,
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
     val isCanDelete: Boolean = false,

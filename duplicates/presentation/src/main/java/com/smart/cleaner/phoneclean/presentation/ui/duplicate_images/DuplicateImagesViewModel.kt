@@ -67,6 +67,7 @@ class DuplicateImagesViewModel @Inject constructor(
         }
         updateList(updatedList)
         isCanDelete()
+        updateTotalImageSize()
     }
 
     private fun selectImage(selectedImage: ChildImageItem, isSelected: Boolean) {
@@ -86,6 +87,7 @@ class DuplicateImagesViewModel @Inject constructor(
         }
         updateList(updatedList)
         isCanDelete()
+        updateTotalImageSize()
     }
 
     private fun checkPermission() {
@@ -102,22 +104,6 @@ class DuplicateImagesViewModel @Inject constructor(
                 hasPermission = hasPerm,
                 isLoading = isLoading,
                 isNotFound = false
-            )
-        }
-    }
-
-    private fun setEvent(event: ImagesStateScreen.ImageEvent) {
-        updateState {
-            it.copy(
-                event = event
-            )
-        }
-    }
-
-    private fun updateList(list: List<ParentImageItem>) {
-        updateState {
-            it.copy(
-                duplicates = list
             )
         }
     }
@@ -191,7 +177,7 @@ class DuplicateImagesViewModel @Inject constructor(
         if (screenState.value.duplicates.any { it.isAllSelected }) {
             isCanDelete = true
         } else {
-            screenState.value.duplicates.forEach {images ->
+            screenState.value.duplicates.forEach { images ->
                 if (images.images.any { it.isSelected }) {
                     isCanDelete = true
                     return@forEach
@@ -205,10 +191,41 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
+    private fun updateTotalImageSize() {
+        var totalSize = 0L
+        screenState.value.duplicates.forEach { duplicates ->
+            duplicates.images.forEach { image ->
+                if (image.isSelected)
+                    totalSize += image.size
+            }
+        }
+        updateState {
+            it.copy(
+                totalSize = totalSize
+            )
+        }
+    }
+
     private fun cancelPermissionDialog() {
         updateState {
             it.copy(
                 isNotFound = true
+            )
+        }
+    }
+
+    private fun setEvent(event: ImagesStateScreen.ImageEvent) {
+        updateState {
+            it.copy(
+                event = event
+            )
+        }
+    }
+
+    private fun updateList(list: List<ParentImageItem>) {
+        updateState {
+            it.copy(
+                duplicates = list
             )
         }
     }
