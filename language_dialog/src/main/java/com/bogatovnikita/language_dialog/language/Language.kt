@@ -14,6 +14,8 @@ class Language @Inject constructor(
         setApplicationLanguage(localeProvider.getCurrentLocaleModel().language)
     }
 
+    fun checkLanguage() = localeProvider.getCurrentLocaleModel().name == "DEFAULT"
+
     private fun setApplicationLanguage(localeCode: String) {
         val locale = Locale.forLanguageTag(localeCode)
         val activityRes = context.resources

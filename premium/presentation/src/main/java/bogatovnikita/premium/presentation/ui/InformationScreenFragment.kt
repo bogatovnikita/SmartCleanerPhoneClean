@@ -1,13 +1,14 @@
 package bogatovnikita.premium.presentation.ui
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.viewbinding.BuildConfig
 import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.databinding.FragmentInformationScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -60,8 +61,13 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
         }
 
         binding.privacyPolicy.setOnClickListener {
-            //TODO add link
+            openBrowser("https://smartappscorp.com/smartcleaner/Privacy-Policy.html")
         }
 
+    }
+
+    private fun openBrowser(uri: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        startActivity(browserIntent)
     }
 }

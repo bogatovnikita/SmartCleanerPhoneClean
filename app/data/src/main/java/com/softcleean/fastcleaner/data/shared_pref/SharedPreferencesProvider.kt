@@ -9,6 +9,14 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
     private val sharedPreferences =
         application.getSharedPreferences(APPLICATION_NAME, Context.MODE_PRIVATE)
 
+    fun saveFirstLaunch() {
+        sharedPreferences.edit().putBoolean(FIRST_LAUNCH, false).apply()
+    }
+
+    fun getFirstLaunch(): Boolean {
+        return sharedPreferences.getBoolean(FIRST_LAUNCH, true)
+    }
+
     fun saveBoost() {
         sharedPreferences.edit().putLong(SAVE_BOOST_TIME, System.currentTimeMillis()).apply()
     }
@@ -52,6 +60,7 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
 
     companion object {
         private const val APPLICATION_NAME = "APPLICATION_NAME"
+        private const val FIRST_LAUNCH = "FIRST_LAUNCH"
         private const val SAVE_BOOST_TIME = "SAVE_BOOST_TIME"
         private const val TIME_NEED_BOOST = 900_000L
         private const val BATTERY_TYPE = "BATTERY_TYPE"

@@ -3,18 +3,23 @@ package bogatovnikita.toolbar.ui
 import Const.DEEP_LINK_TO_INFORMATION_DIALOG
 import Const.DEEP_LINK_TO_LANGUAGE_DIALOG
 import Const.DEEP_LINK_TO_PREMIUM_DIALOG
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
@@ -82,11 +87,37 @@ class ToolbarView @JvmOverloads constructor(
         binding.btnMenu.setOnClickListener {
             showMenu(it)
         }
+
+        binding.btnCrossExit.setOnClickListener {
+            findNavController()?.popBackStack()
+        }
     }
+
+    private fun findNavController(): NavController? {
+        val activity = getActivity() as AppCompatActivity
+        activity.supportFragmentManager.fragments.forEach {
+            if (it is NavHostFragment) {
+                return it.findNavController()
+            }
+        }
+        return null
+    }
+
+    private fun View.getActivity(): Activity? {
+        var context = context
+        while (context is ContextWrapper) {
+            if (context is Activity) {
+                return context
+            }
+            context = context.baseContext
+        }
+        return null
+    }
+
 
     private fun openLanguageDialog() {
         val uri = Uri.parse(DEEP_LINK_TO_LANGUAGE_DIALOG)
-        findNavController().navigate(uri)
+        findNavController()?.navigate(uri)
     }
 
     private fun showMenu(it: View) {
@@ -108,15 +139,16 @@ class ToolbarView @JvmOverloads constructor(
                     }
                     R.id.ads_off_menu -> {
                         val uri = Uri.parse(DEEP_LINK_TO_PREMIUM_DIALOG)
-                        findNavController().navigate(uri)
+                        findNavController()?.navigate(uri)
                         return true
                     }
                     R.id.information_menu -> {
                         val uri = Uri.parse(DEEP_LINK_TO_INFORMATION_DIALOG)
-                        findNavController().navigate(uri)
+                        findNavController()?.navigate(uri)
                         return true
                     }
                     R.id.restore_purchase_menu -> {
+                        //TODO добавить ссылку
                         return true
                     }
                 }
@@ -135,7 +167,10 @@ class ToolbarView @JvmOverloads constructor(
         );
         startActivity(
             context,
-            Intent.createChooser(shareIntent, context.getString(R.string.look_at_what_a_cool_app)),
+            Intent.createChooser(
+                shareIntent,
+                context.getString(R.string.look_at_what_a_cool_app)
+            ),
             null
         )
     }

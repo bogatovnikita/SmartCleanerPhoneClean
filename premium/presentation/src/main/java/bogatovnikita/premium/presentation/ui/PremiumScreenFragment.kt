@@ -1,11 +1,11 @@
 package bogatovnikita.premium.presentation.ui
 
 import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.databinding.FragmentPremiumScreenBinding
@@ -35,7 +35,7 @@ class PremiumScreenFragment : DialogFragment(R.layout.fragment_premium_screen) {
             startSubscription()
         }
         binding.privacyPolice.setOnClickListener {
-            // TODO добавить переход
+            openBrowser("https://smartappscorp.com/smartcleaner/Privacy-Policy.html")
         }
 
         binding.restorePurchases.setOnClickListener {
@@ -45,6 +45,11 @@ class PremiumScreenFragment : DialogFragment(R.layout.fragment_premium_screen) {
         binding.termsOfUse.setOnClickListener {
             // TODO добавить переход
         }
+    }
+
+    private fun openBrowser(uri: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        startActivity(browserIntent)
     }
 
     private fun premiumActivated() {
