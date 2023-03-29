@@ -12,9 +12,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.preloadAd
 import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.adapters.HintDecoration
-import com.smart.cleaner.phoneclean.adapters.OptimizingRecyclerAdapter
 import com.smart.cleaner.phoneclean.databinding.FragmentBaseOptimizingBinding
+import com.smart.cleaner.phoneclean.ui_core.adapters.HintDecoration
+import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -25,7 +25,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     private val binding: FragmentBaseOptimizingBinding by viewBinding()
 
-    private lateinit var adapter: OptimizingRecyclerAdapter
+    private lateinit var adapter: OptimizingAdapter
 
     private var isDoneOptimization = false
 
@@ -103,16 +103,16 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     }
 
     private fun initAdapter() {
-        adapter = OptimizingRecyclerAdapter()
+        adapter = OptimizingAdapter()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.addItemDecoration(HintDecoration())
     }
 
     private fun updateList(
-        valueToDelete: Int = 100 / listSize,
         progress: Int,
     ) {
+        val valueToDelete = if (listSize != 0) 100 / listSize else 99
         if (progress != 0 && progress % valueToDelete == 0 && listOptions.isNotEmpty()) {
             val list = mutableListOf<String>()
             listOptions.forEachIndexed { index, s ->

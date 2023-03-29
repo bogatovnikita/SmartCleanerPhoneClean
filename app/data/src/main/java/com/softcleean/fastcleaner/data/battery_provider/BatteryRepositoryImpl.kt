@@ -13,11 +13,7 @@ class BatteryRepositoryImpl @Inject constructor(
 
     override fun checkBatteryDecrease() = sharedPreferencesProvider.checkBatteryDecrease()
 
-    override fun savePowerLowType() = sharedPreferencesProvider.savePowerLowType()
-
-    override fun savePowerMediumType() = sharedPreferencesProvider.savePowerMediumType()
-
-    override fun savePowerHighType() = sharedPreferencesProvider.savePowerHighType()
+    override fun saveTimeBatteryBoost() = sharedPreferencesProvider.saveTimeBatteryBoost()
 
     override fun setScreenBrightness(value: Int) = realBatteryProvider.setScreenBrightness(value)
 

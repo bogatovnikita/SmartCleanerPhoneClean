@@ -7,11 +7,7 @@ class BatteryUseCase @Inject constructor(
 ) {
     fun checkBatteryDecrease(): Boolean = batteryRepository.checkBatteryDecrease()
 
-    fun savePowerLowType() = batteryRepository.savePowerLowType()
-
-    fun savePowerMediumType() = batteryRepository.savePowerMediumType()
-
-    fun savePowerHighType() = batteryRepository.savePowerHighType()
+    fun saveTimeBatteryBoost() = batteryRepository.saveTimeBatteryBoost()
 
     fun getBatteryType(): String = batteryRepository.getBatteryType()
 

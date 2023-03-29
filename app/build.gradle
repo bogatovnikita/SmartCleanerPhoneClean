@@ -46,6 +46,7 @@ dependencies {
     implementation project(":language_dialog")
     implementation project(":toolbar")
     implementation project(":duplicates:presentation")
+    implementation project(":ui_core")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
