@@ -37,8 +37,9 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     }
 
     private fun setGradientColor() {
-        val shader = LinearGradient(0f, 0f, 0f, binding.appName.textSize,
-        intArrayOf( Color.parseColor("#8A99DC"), Color.parseColor("#B9C3F1")),
+        val shader = LinearGradient(
+            0f, 0f, 0f, binding.appName.textSize,
+            intArrayOf(Color.parseColor("#7a8ad5"), Color.parseColor("#BAC4F1")),
             null, Shader.TileMode.CLAMP
         )
         binding.appName.paint.shader = shader

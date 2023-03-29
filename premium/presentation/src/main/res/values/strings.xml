@@ -9,4 +9,11 @@
     <string name="terms_of_use"><u>Terms of Use</u></string>
     <string name="five_days_for_free">5 days for free. After the end of the free version the price is free per month. Canceled at any time.</string>
     <string name="description_subscribe">This subscription disables all types of advertising in our entertainment application, and also gives priority service by email if you write to us by mail. After the trial ends, you will be billed $3.99 for a 1-month subscription, which will be automatically renewed for $3.99 each month. By signing up, you agree to our terms and conditions and privacy policy. How to cancel a subscription, you can find out in the Menu - Information.</string>
+    <string name="information">Information</string>
+    <string name="app_name" translatable="false">Smart Cleaner:\nPhone Clean</string>
+    <string name="version_code_F">v %.1f</string>
+    <string name="how_to_cancel_subscription">How to cancel subscription</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="privacy_policy_not_U">Privacy Policy</string>
+
 </resources>

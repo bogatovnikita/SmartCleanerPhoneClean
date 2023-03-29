@@ -12,19 +12,18 @@
         android:id="@+id/btn_change_language"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_16sdp"
-        tools:src="@drawable/flag"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.09" />
+        app:layout_constraintEnd_toStartOf="@id/guideline_for_flag"
+        app:layout_constraintWidth_percent="0.09"
+        tools:src="@drawable/flag" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/guideline_for_flag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.88" />
+        app:layout_constraintGuide_percent="0.12" />
 
     <TextView
         android:id="@+id/title"
@@ -34,10 +33,17 @@
         android:gravity="center"
         android:textAppearance="@style/Text.Medium.18"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toEndOf="@id/btn_change_language"
+        app:layout_constraintEnd_toStartOf="@id/guideline_for_right_view"
+        app:layout_constraintStart_toEndOf="@id/guideline_for_flag"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Quick optimize" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_for_right_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88" />
 
     <ImageView
         android:id="@+id/btn_menu"
@@ -46,17 +52,17 @@
         android:src="@drawable/ic_menu_burger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/guideline_for_right_view"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btn_cross_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_cross_exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_cross_exit" />
+        app:layout_constraintStart_toEndOf="@id/guideline_for_right_view"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </merge>

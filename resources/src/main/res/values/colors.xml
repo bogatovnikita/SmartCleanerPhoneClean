@@ -12,4 +12,5 @@
     <color name="background">#fafafa</color>
     <color name="yellow">#ffd600</color>
     <color name="light_blue">#abccf4</color>
+    <color name="color_for_gradient_text">#BAC4F1</color>
 </resources>

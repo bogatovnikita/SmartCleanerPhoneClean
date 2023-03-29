@@ -15,6 +15,7 @@
         app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
+        tools:layout="@layout/fragment_base_optimizing"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostOptimizingFragment"
         android:label="BoostOptimizingFragment" />
     <action
@@ -38,10 +39,12 @@
         app:destination="@id/batteryFragment" />
     <dialog
         android:id="@+id/batteryResultFragment"
+        tools:layout="@layout/fragment_battery_result"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryResultFragment"
         android:label="BatteryResultFragment" />
     <dialog
         android:id="@+id/boostResultFragment"
+        tools:layout="@layout/fragment_boost_result"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment" />
     <dialog
@@ -51,6 +54,7 @@
         tools:layout="@layout/fragment_splash" />
     <dialog
         android:id="@+id/batteryOptimizingFragment"
+        tools:layout="@layout/fragment_base_optimizing"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryOptimizingFragment"
         android:label="BatteryOptimizingFragment" />
     <action
@@ -80,4 +84,12 @@
         android:id="@+id/action_to_duplicates_graph"
         app:destination="@id/duplicates_graph" />
     <include app:graph="@navigation/duplicates_graph" />
+
+    <dialog
+        android:id="@+id/informationScreenFragment"
+        tools:layout="@layout/fragment_information_screen"
+        android:name="bogatovnikita.premium.presentation.ui.InformationScreenFragment"
+        android:label="InformationScreenFragment" >
+        <deepLink app:uri="myApp://informationScreenFragment" />
+    </dialog>
 </navigation>

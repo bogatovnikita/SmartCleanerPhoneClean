@@ -1,5 +1,6 @@
 package bogatovnikita.toolbar.ui
 
+import Const.DEEP_LINK_TO_INFORMATION_DIALOG
 import Const.DEEP_LINK_TO_LANGUAGE_DIALOG
 import Const.DEEP_LINK_TO_PREMIUM_DIALOG
 import android.content.Context
@@ -111,6 +112,8 @@ class ToolbarView @JvmOverloads constructor(
                         return true
                     }
                     R.id.information_menu -> {
+                        val uri = Uri.parse(DEEP_LINK_TO_INFORMATION_DIALOG)
+                        findNavController().navigate(uri)
                         return true
                     }
                     R.id.restore_purchase_menu -> {
