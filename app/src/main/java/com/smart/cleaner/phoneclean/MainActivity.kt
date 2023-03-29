@@ -1,9 +1,11 @@
 package com.smart.cleaner.phoneclean
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     }
 
     override fun onClick(view: View) {
-        renderNavBar((view.id))
+        renderNavBar(view.id)
         when (view.id) {
             R.id.btn_boost -> navigate(R.id.action_to_boostFragment)
             R.id.btn_clean -> {}
@@ -68,10 +70,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.boostFragment -> {
-                    renderNavBar(binding.btnBoost.id)
+                    renderNavBar(binding.btnBoost.id, binding.titleBoost.id)
                     checkShowFirstLanguageDialog()
                 }
-                R.id.batteryFragment -> renderNavBar(binding.btnBattery.id)
+                R.id.batteryFragment -> renderNavBar(binding.btnBattery.id, binding.titleBattery.id)
                 R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id)
             }
         }
@@ -84,7 +86,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         }
     }
 
-    private fun renderNavBar(currentDestination: Int) {
+    private fun renderNavBar(currentDestination: Int, currentTitleDestination: Int? = null) {
         val listButton =
             listOf(
                 binding.btnBoost,
@@ -101,6 +103,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 )
             )
         }
+        if (currentTitleDestination != null) renderTextColor(currentTitleDestination)
+    }
+
+    private fun renderTextColor(currentTitleDestination: Int) {
+        val titleList = listOf(
+            binding.titleBoost,
+            binding.titleClean,
+            binding.titleDuplicate,
+            binding.titleBattery,
+            binding.titlePaywall
+        )
+        titleList.forEach {
+            if (currentTitleDestination == it.id) {
+                it.setTextColor(ContextCompat.getColor(this, general.R.color.primary))
+            } else {
+                it.setTextColor(ContextCompat.getColor(this, general.R.color.grey_light))
+            }
+        }
     }
 
     private fun iconId(destination: Int, currentDestination: Int): Int {
@@ -111,7 +131,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 R.id.btn_clean -> R.drawable.ic_clean_danger
                 R.id.btn_duplicate -> R.drawable.ic_duplicate_danger
                 R.id.btn_battery -> R.drawable.ic_battery_danger
-                R.id.btn_paywall -> R.drawable.ic_paywall_on
+                R.id.btn_paywall -> R.drawable.ic_paywall_off
                 else -> R.drawable.ic_clean_danger
             }
         } else {

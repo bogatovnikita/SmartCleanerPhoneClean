@@ -20,49 +20,118 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_navigation_bar"
-        android:orientation="horizontal"
         android:paddingVertical="16dp">
 
         <ImageView
             android:id="@+id/btn_boost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            app:layout_constraintBottom_toTopOf="@id/title_boost"
+            app:layout_constraintEnd_toStartOf="@id/btn_clean"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             app:srcCompat="@drawable/ic_boost_danger" />
+
+        <TextView
+            android:id="@+id/title_boost"
+            style="@style/Text.Regular.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/optimize"
+            android:textColor="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_boost"
+            app:layout_constraintStart_toStartOf="@id/btn_boost"
+            app:layout_constraintTop_toBottomOf="@id/btn_boost" />
 
         <ImageView
             android:id="@+id/btn_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@id/btn_duplicate"
+            app:layout_constraintStart_toEndOf="@id/btn_boost"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_grey_trash" />
+
+        <TextView
+            android:id="@+id/title_clean"
+            style="@style/Text.Regular.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/junk"
+            android:textColor="@color/grey_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_clean"
+            app:layout_constraintStart_toStartOf="@id/btn_clean"
+            app:layout_constraintTop_toBottomOf="@id/btn_clean" />
 
         <ImageView
             android:id="@+id/btn_duplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@id/btn_battery"
+            app:layout_constraintStart_toEndOf="@id/btn_clean"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_grey_duplicate" />
+
+        <TextView
+            android:id="@+id/title_duplicate"
+            style="@style/Text.Regular.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/duplicate"
+            android:textColor="@color/grey_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_duplicate"
+            app:layout_constraintStart_toStartOf="@id/btn_duplicate"
+            app:layout_constraintTop_toBottomOf="@id/btn_duplicate" />
 
         <ImageView
             android:id="@+id/btn_battery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@id/btn_paywall"
+            app:layout_constraintStart_toEndOf="@id/btn_duplicate"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_grey_battery" />
+
+        <TextView
+            android:id="@+id/title_battery"
+            style="@style/Text.Regular.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/energy"
+            android:textColor="@color/grey_light"
+            app:layout_constraintEnd_toEndOf="@id/btn_battery"
+            app:layout_constraintStart_toStartOf="@id/btn_battery"
+            app:layout_constraintTop_toBottomOf="@id/btn_battery" />
 
         <ImageView
             android:id="@+id/btn_paywall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_battery"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_paywall_off" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <TextView
+            android:id="@+id/title_paywall"
+            style="@style/Text.Regular.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ads_off"
+            android:textColor="@color/grey_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btn_paywall"
+            app:layout_constraintStart_toStartOf="@id/btn_paywall"
+            app:layout_constraintTop_toBottomOf="@id/btn_paywall" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

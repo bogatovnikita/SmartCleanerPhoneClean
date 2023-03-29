@@ -76,6 +76,10 @@
     <string name="ultra">Ultra</string>
     <string name="extra">Extra</string>
     <string name="optimize">Optimize</string>
+    <string name="junk">Junk</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="energy">Energy</string>
+    <string name="ads_off">ADS off</string>
     <string name="settings">Setting</string>
     <string name="go_settings_description">To perform this function, you need to give permission in the settings yourself</string>
     <string name="battery_boosted">Optimized!</string>
