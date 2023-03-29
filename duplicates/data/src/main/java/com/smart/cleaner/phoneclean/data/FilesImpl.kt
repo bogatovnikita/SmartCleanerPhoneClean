@@ -16,14 +16,14 @@ class FilesImpl @Inject constructor(
         val fileGroups = FileGroups()
         return fileUtils.getAllFiles(Environment.getExternalStorageDirectory()).filter {
             fileGroups.images[it.extension.uppercase()] != null
-        }.map { ImageInfo(it.absolutePath) }
+        }.map { ImageInfo(path = it.absolutePath, size = it.length())  }
     }
 
     override suspend fun getFiles(): List<com.smart.cleaner.phoneclean.domain.models.File> {
         val fileGroups = FileGroups()
         return fileUtils.getAllFiles(Environment.getExternalStorageDirectory()).filter {
             fileGroups.documents[it.extension.uppercase()] != null
-        }.map { com.smart.cleaner.phoneclean.domain.models.File(it.absolutePath) }
+        }.map { com.smart.cleaner.phoneclean.domain.models.File(path = it.absolutePath, size = it.length()) }
     }
 
     override suspend fun delete(path: String) {

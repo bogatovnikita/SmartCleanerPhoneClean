@@ -139,7 +139,8 @@ class DuplicateImagesViewModel @Inject constructor(
                 }
                 ChildImageItem(
                     imagePath = imageInfo.path,
-                    isSelected = isSelected
+                    isSelected = isSelected,
+                    size = imageInfo.size
                 )
             }
             ParentImageItem(
@@ -168,7 +169,7 @@ class DuplicateImagesViewModel @Inject constructor(
         isSelected: Boolean
     ) = oldList.images.map { image ->
         if (image == selectedImage) {
-            ChildImageItem(isSelected = isSelected, imagePath = image.imagePath)
+            ChildImageItem(isSelected = isSelected, imagePath = image.imagePath, size = image.size)
         } else {
             image
         }
@@ -180,7 +181,8 @@ class DuplicateImagesViewModel @Inject constructor(
     ) = oldList.images.map {
         ChildImageItem(
             isSelected = isSelected,
-            imagePath = it.imagePath
+            imagePath = it.imagePath,
+            size = it.size
         )
     }
 
