@@ -4,11 +4,7 @@ interface BatteryRepository {
 
     fun checkBatteryDecrease(): Boolean
 
-    fun savePowerLowType()
-
-    fun savePowerMediumType()
-
-    fun savePowerHighType()
+    fun saveTimeBatteryBoost()
 
     fun getBatteryType(): String
 

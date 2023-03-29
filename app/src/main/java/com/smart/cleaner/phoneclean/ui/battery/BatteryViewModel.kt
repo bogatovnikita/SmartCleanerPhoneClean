@@ -1,9 +1,6 @@
 package com.smart.cleaner.phoneclean.ui.battery
 
 import androidx.lifecycle.viewModelScope
-import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar.Companion.EXTRA
-import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar.Companion.NORMAL
-import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar.Companion.ULTRA
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import com.smart.cleaner.phoneclean.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,11 +40,7 @@ class BatteryViewModel @Inject constructor(
     fun boostBattery() {
         viewModelScope.launch {
             batteryUseCase.saveBatteryType(screenState.value.batterySaveType)
-            when (screenState.value.batterySaveType) {
-                NORMAL -> batteryUseCase.savePowerLowType()
-                ULTRA -> batteryUseCase.savePowerMediumType()
-                EXTRA -> batteryUseCase.savePowerHighType()
-            }
+            batteryUseCase.saveTimeBatteryBoost()
         }
     }
 

@@ -35,27 +35,17 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
         return sharedPreferences.getString(BATTERY_TYPE, "") ?: ""
     }
 
-    fun savePowerLowType() {
-        sharedPreferences.edit().putLong(POWER_LOW_TYPE, System.currentTimeMillis()).apply()
-    }
-
-    fun savePowerMediumType() {
-        sharedPreferences.edit().putLong(POWER_MEDIUM_TYPE, System.currentTimeMillis()).apply()
-    }
-
-    fun savePowerHighType() {
-        sharedPreferences.edit().putLong(POWER_HIGH_TYPE, System.currentTimeMillis()).apply()
+    fun saveTimeBatteryBoost() {
+        sharedPreferences.edit().putLong(TIME_BATTERY_BOOST, System.currentTimeMillis()).apply()
     }
 
     fun checkBatteryDecrease(): Boolean {
-        return checkTimeDecrease(POWER_LOW_TYPE) || checkTimeDecrease(POWER_MEDIUM_TYPE) || checkTimeDecrease(
-            POWER_HIGH_TYPE
-        )
+        return checkTimeDecrease()
     }
 
-    private fun checkTimeDecrease(type: String): Boolean {
+    private fun checkTimeDecrease(): Boolean {
         val currentTime = System.currentTimeMillis()
-        return sharedPreferences.getLong(type, 0L) + TIME_NEED_BATTERY_SAVE > currentTime
+        return sharedPreferences.getLong(TIME_BATTERY_BOOST, 0L) + TIME_NEED_BATTERY_SAVE > currentTime
     }
 
     companion object {
@@ -64,9 +54,7 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
         private const val SAVE_BOOST_TIME = "SAVE_BOOST_TIME"
         private const val TIME_NEED_BOOST = 900_000L
         private const val BATTERY_TYPE = "BATTERY_TYPE"
-        private const val POWER_LOW_TYPE = "POWER_LOW_TYPE"
-        private const val POWER_MEDIUM_TYPE = "POWER_MEDIUM_TYPE"
-        private const val POWER_HIGH_TYPE = "POWER_HIGH_TYPE"
+        private const val TIME_BATTERY_BOOST = "TIME_BATTERY_BOOST"
         private const val TIME_NEED_BATTERY_SAVE = 720_000L
     }
 }
