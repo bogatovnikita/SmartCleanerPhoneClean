@@ -1,11 +1,11 @@
-package com.smart.cleaner.phoneclean.presentation.adapters
+package com.smart.cleaner.phoneclean.ui_core.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.smart.cleaner.phoneclean.presentation.databinding.ItemOptimizingBinding
+import com.smart.cleaner.phoneclean.ui_core.databinding.ItemOptimizingBinding
 
 class OptimizingAdapter : ListAdapter<String, OptimizingAdapter.OptimizerItemViewHolder>(
     OptimizeFunItemDiffCallback()

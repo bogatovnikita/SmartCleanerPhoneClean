@@ -13,12 +13,12 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.preloadAd
 import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.presentation.R
-import com.smart.cleaner.phoneclean.presentation.adapters.HintDecoration
-import com.smart.cleaner.phoneclean.presentation.adapters.OptimizingAdapter
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentOptimizingBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.ImagesStateScreen
+import com.smart.cleaner.phoneclean.ui_core.adapters.HintDecoration
+import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

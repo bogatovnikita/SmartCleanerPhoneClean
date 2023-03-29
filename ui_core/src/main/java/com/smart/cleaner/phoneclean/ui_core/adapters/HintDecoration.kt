@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.presentation.adapters
+package com.smart.cleaner.phoneclean.ui_core.adapters
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Rect
