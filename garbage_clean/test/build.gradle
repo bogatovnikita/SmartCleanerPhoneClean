@@ -34,8 +34,9 @@ android {
 
 dependencies {
 
-    implementation project(':garbage_clean:presentation')
     implementation project(':ads')
+
+    implementation project(':permissions')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'com.google.android.material:material:1.8.0'
