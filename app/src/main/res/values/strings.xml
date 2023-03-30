@@ -30,7 +30,6 @@
     <string name="type_ultra">Ultra\n+30%</string>
     <string name="finded_junk_file">Trash\nfiles detected</string>
     <string name="cleaning">Cleanup</string>
-    <string name="value_percents">%d %%</string>
     <string name="clean">Clean up</string>
     <string name="clean_junks_safely">Deleting junk\nfiles is absolutely\nsafe</string>
     <string name="cooling_process">Cooling</string>
@@ -92,10 +91,6 @@
     <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
     <string name="cancel">Close</string>
     <string name="allow">Allow</string>
-    <string name="boosting">Quick optimize</string>
-    <string name="boost_danger_desc">Speed up the work of your phone</string>
-    <string name="battery_title">Battery saver</string>
-    <string name="battery_danger_desc">Increase the performance of your phone</string>
     <string name="done">Done</string>
     <string name="advice">We strongly recommend performing these optimizations</string>
     <string name="fun_battery">Battery saver</string>

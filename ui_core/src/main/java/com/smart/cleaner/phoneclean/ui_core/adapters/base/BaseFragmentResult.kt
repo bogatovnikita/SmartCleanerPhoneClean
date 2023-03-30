@@ -12,13 +12,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.smart.cleaner.phoneclean.ui_core.adapters.ResultFunAdapter
+import com.smart.cleaner.phoneclean.ui_core.adapters.ResultList
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 
 abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
 
-    abstract fun setListFun(): List<FunResult>
+    abstract val typeResult: OptimizingType
     abstract fun setRecyclerView(): RecyclerView
+
+    private val resultList: ResultList by lazy { ResultList(requireContext()) }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
@@ -45,8 +48,9 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
         })
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter.submitList(setListFun())
+        adapter.submitList(resultList.getList(typeResult))
     }
+
     private fun navigateWithDeppLink(deepLink: String) {
         val uri = Uri.parse(deepLink)
         findNavController().navigate(uri)

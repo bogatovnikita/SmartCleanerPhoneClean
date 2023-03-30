@@ -44,7 +44,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
             setEnableBtn(!isRamBoosted)
             with(binding) {
                 circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
-                tvRamPercentsDuplicate.text = getString(R.string.value_percents, ramPercent)
+                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
                 tvUsedRam.text = getString(R.string.gb, usedRam)
                 tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
                 tvFreeRam.text = getString(R.string.gb, freeRam)

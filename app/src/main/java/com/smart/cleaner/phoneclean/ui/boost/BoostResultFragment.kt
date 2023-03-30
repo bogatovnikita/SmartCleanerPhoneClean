@@ -9,21 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.databinding.FragmentBoostResultBinding
-import com.smart.cleaner.phoneclean.ui.result.ResultList
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseFragmentResult
-import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class BoostResultFragment : BaseFragmentResult(R.layout.fragment_boost_result) {
+class BoostResultFragment(
+    override val typeResult: OptimizingType = OptimizingType.Boost
+) : BaseFragmentResult(R.layout.fragment_boost_result) {
 
     private val binding: FragmentBoostResultBinding by viewBinding()
-
-    @Inject
-    lateinit var resultList: ResultList
 
     private val viewModel: BoostViewModel by viewModels()
 
@@ -31,7 +27,6 @@ class BoostResultFragment : BaseFragmentResult(R.layout.fragment_boost_result) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getParams()
         initScreenStateObserver()
-        initListeners()
     }
 
     private fun initScreenStateObserver() {
@@ -46,17 +41,10 @@ class BoostResultFragment : BaseFragmentResult(R.layout.fragment_boost_result) {
         with(state) {
             with(binding) {
                 circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
-                tvRamPercentsDuplicate.text = getString(R.string.value_percents, ramPercent)
+                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
             }
         }
     }
-
-    private fun initListeners() {
-        binding.btnGoBack.setOnClickListener { findNavController().popBackStack() }
-    }
-
-    override fun setListFun(): List<FunResult> =
-        resultList.getList().filter { it.type != OptimizingType.Boost }
 
     override fun setRecyclerView(): RecyclerView = binding.recyclerView
 

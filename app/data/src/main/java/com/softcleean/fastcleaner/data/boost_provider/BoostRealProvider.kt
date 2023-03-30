@@ -3,12 +3,13 @@ package com.softcleean.fastcleaner.data.boost_provider
 import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
-import com.softcleean.fastcleaner.data.shared_pref.SharedPreferencesProvider
+import com.smart.cleaner.phoneclean.settings.Settings
+import com.softcleean.fastcleaner.data.shared_pref.BatterySharedPreferences
 import javax.inject.Inject
 
 class BoostRealProvider @Inject constructor(
+    private val settings: Settings,
     private val context: Application,
-    private val sharedPreferencesProvider: SharedPreferencesProvider
 ) {
 
     fun getRamTotal(): Long {
@@ -30,9 +31,9 @@ class BoostRealProvider @Inject constructor(
     }
 
     fun saveTimeRamBoost() {
-        sharedPreferencesProvider.saveTimeRamBoost()
+        settings.saveTimeRamBoost()
     }
 
-    fun isRamBoosted() = sharedPreferencesProvider.isRamBoosted()
+    fun isRamBoosted() = settings.isRamBoosted()
 
 }
