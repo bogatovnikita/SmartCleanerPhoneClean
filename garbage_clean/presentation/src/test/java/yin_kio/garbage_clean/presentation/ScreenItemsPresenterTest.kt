@@ -7,7 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 import yin_kio.garbage_clean.presentation.presenter.ScreenItemsPresenter
 
 @RunWith(RobolectricTestRunner::class)

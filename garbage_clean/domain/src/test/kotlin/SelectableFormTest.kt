@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import yin_kio.garbage_clean.domain.new_entities.selector.BaseSelectableForm
+import yin_kio.garbage_clean.domain.selectable_form.SimpleSelectableForm
 
 class SelectableFormTest {
 
-    private val form = BaseSelectableForm<String>()
+    private val form = SimpleSelectableForm<String>()
 
     @Test
     fun testSwitchItemSelection(){
