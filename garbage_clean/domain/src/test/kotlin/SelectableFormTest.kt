@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import yin_kio.garbage_clean.domain.new_entities.selector.BaseSelectableForm
+import yin_kio.garbage_clean.domain.selector.BaseSelectableForm
 
 class SelectableFormTest {
 

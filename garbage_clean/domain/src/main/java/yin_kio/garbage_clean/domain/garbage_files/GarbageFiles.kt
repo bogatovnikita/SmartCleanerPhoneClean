@@ -2,15 +2,16 @@ package yin_kio.garbage_clean.domain.garbage_files
 
 import yin_kio.garbage_clean.domain.entities.DeleteForm
 import yin_kio.garbage_clean.domain.entities.FormItem
+import yin_kio.garbage_clean.domain.garbage_files.ExtensionsGroups.apks
+import yin_kio.garbage_clean.domain.garbage_files.ExtensionsGroups.rest
+import yin_kio.garbage_clean.domain.garbage_files.ExtensionsGroups.temp
+import yin_kio.garbage_clean.domain.garbage_files.ExtensionsGroups.thumb
 import java.io.File
 
 internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mutableMapOf() {
 
 
-    private val apks = arrayOf(APK)
-    private val temp = arrayOf(TMP, TEMP, TEMP_PATH, TMP_PATH)
-    private val rest = arrayOf(DAT, LOG, LOG_PATH)
-    private val thumb = arrayOf(THUMB, THUMB_PATH, THUMBNAILS_PATH)
+
 
     private var _deleteForm = DeleteForm()
     val deleteForm get() = _deleteForm
@@ -69,20 +70,5 @@ internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mut
         }
     }
 
-    companion object{
-        private val separator = File.separator
-
-        const val APK = ".apk"
-        const val TMP = ".tmp"
-        const val TEMP = ".temp"
-        val TEMP_PATH = "${separator}temp$separator"
-        val TMP_PATH = "${separator}tmp$separator"
-        const val DAT = ".dat"
-        const val LOG = ".log"
-        val LOG_PATH = "${separator}log$separator"
-        const val THUMB = ".thumb"
-        val THUMB_PATH = "${separator}thumb$separator"
-        val THUMBNAILS_PATH = "${separator}thumbnails$separator"
-    }
 
 }

@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.new_entities.selector
+package yin_kio.garbage_clean.domain.selector
 
 interface SelectableForm<T> {
 

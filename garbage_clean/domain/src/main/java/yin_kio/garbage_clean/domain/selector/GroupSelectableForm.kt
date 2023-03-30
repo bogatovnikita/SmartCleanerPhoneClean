@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.new_entities.selector
+package yin_kio.garbage_clean.domain.selector
 
 open class GroupSelectableForm<T> : SelectableForm<SelectableForm<T>> by BaseSelectableForm() {
 
