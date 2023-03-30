@@ -11,7 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.recycler_adapter.recyclerAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 import yin_kio.garbage_clean.presentation.R
 import yin_kio.garbage_clean.presentation.databinding.DialogGarbageCleanDeleteProgressBinding
 import yin_kio.garbage_clean.presentation.databinding.ListOtemDeleteProgressBinding

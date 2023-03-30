@@ -1,6 +1,6 @@
 package yin_kio.garbage_clean.presentation.models
 
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.out.DeleteProgressState
 
 data class ScreenState(

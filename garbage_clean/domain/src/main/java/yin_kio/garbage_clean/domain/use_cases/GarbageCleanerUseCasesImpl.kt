@@ -2,8 +2,8 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import yin_kio.garbage_clean.domain.entities.GarbageFiles
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.out.Navigator
 import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper

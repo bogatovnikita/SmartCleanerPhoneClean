@@ -1,17 +1,19 @@
+package use_cases
+
 import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.spyk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import wait
 import yin_kio.garbage_clean.domain.entities.DeleteRequest
-import yin_kio.garbage_clean.domain.entities.GarbageFiles
-import yin_kio.garbage_clean.domain.entities.GarbageFiles.Companion.APK
-import yin_kio.garbage_clean.domain.entities.GarbageFiles.Companion.TEMP
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles.Companion.APK
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles.Companion.TEMP
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.gateways.Ads
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles

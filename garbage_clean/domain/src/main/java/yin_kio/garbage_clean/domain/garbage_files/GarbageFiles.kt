@@ -1,5 +1,7 @@
-package yin_kio.garbage_clean.domain.entities
+package yin_kio.garbage_clean.domain.garbage_files
 
+import yin_kio.garbage_clean.domain.entities.DeleteForm
+import yin_kio.garbage_clean.domain.entities.FormItem
 import java.io.File
 
 internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mutableMapOf() {
@@ -73,14 +75,14 @@ internal class GarbageFiles : MutableMap<GarbageType, MutableSet<String>> by mut
         const val APK = ".apk"
         const val TMP = ".tmp"
         const val TEMP = ".temp"
-        val TEMP_PATH = "${separator}temp${separator}"
-        val TMP_PATH = "${separator}tmp${separator}"
+        val TEMP_PATH = "${separator}temp$separator"
+        val TMP_PATH = "${separator}tmp$separator"
         const val DAT = ".dat"
         const val LOG = ".log"
-        val LOG_PATH = "${separator}log${separator}"
+        val LOG_PATH = "${separator}log$separator"
         const val THUMB = ".thumb"
-        val THUMB_PATH = "${separator}thumb${separator}"
-        val THUMBNAILS_PATH = "${separator}thumbnails${separator}"
+        val THUMB_PATH = "${separator}thumb$separator"
+        val THUMBNAILS_PATH = "${separator}thumbnails$separator"
     }
 
 }

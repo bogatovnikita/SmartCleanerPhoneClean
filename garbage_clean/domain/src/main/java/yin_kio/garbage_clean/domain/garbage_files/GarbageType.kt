@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.entities
+package yin_kio.garbage_clean.domain.garbage_files
 
 enum class GarbageType {
     Apk,

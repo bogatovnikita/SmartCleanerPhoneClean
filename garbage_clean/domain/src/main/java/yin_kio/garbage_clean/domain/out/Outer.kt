@@ -1,7 +1,7 @@
 package yin_kio.garbage_clean.domain.out
 
 import yin_kio.garbage_clean.domain.entities.FileSystemInfo
-import yin_kio.garbage_clean.domain.entities.GarbageType
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
 
 interface Outer {
 

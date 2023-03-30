@@ -2,7 +2,7 @@ package yin_kio.garbage_clean.domain
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import yin_kio.garbage_clean.domain.entities.GarbageFiles
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.*
 import yin_kio.garbage_clean.domain.out.Outer
 import yin_kio.garbage_clean.domain.services.DeleteFormMapper

@@ -3,7 +3,7 @@ package yin_kio.garbage_clean.domain.use_cases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import yin_kio.garbage_clean.domain.entities.FileSystemInfo
-import yin_kio.garbage_clean.domain.entities.GarbageFiles
+import yin_kio.garbage_clean.domain.garbage_files.GarbageFiles
 import yin_kio.garbage_clean.domain.gateways.FileSystemInfoProvider
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.NoDeletableFiles

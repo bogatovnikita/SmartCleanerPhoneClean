@@ -1,5 +1,7 @@
 package yin_kio.garbage_clean.domain.entities
 
+import yin_kio.garbage_clean.domain.garbage_files.GarbageType
+
 internal data class FormItem(
     val garbageType: GarbageType,
     val size: Long

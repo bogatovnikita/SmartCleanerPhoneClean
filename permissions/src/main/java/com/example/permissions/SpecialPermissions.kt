@@ -72,24 +72,41 @@ fun Activity.requestManageExternalStorage() {
     requestThroughSettings(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
 }
 
+@RequiresApi(Build.VERSION_CODES.R)
+fun Activity.manageExternalStorageIntent() : Intent{
+    return try {
+        specialIntent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+    } catch (ex: Exception){
+        generalIntent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+    }
+}
+
 private fun Activity.requestThroughSettings(action: String) {
     try {
-        val intent = Intent(action)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-        val uri: Uri = Uri.fromParts("package", packageName, null)
-        intent.data = uri
-        intent.putExtra("packageName", packageName)
+        val intent = specialIntent(action)
         startActivity(intent)
     } catch (e: Exception) {
-        val intent = Intent(action)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+        val intent = generalIntent(action)
         startActivity(intent)
     }
 
+}
+
+private fun Activity.specialIntent(action: String): Intent {
+    val intent = Intent(action)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    val uri: Uri = Uri.parse("package:$packageName")
+    intent.data = uri
+    intent.putExtra("packageName", packageName)
+    return intent
+}
+
+private fun generalIntent(action: String): Intent {
+    val intent = Intent(action)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+    intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+    return intent
 }
 
 
