@@ -1,6 +1,6 @@
-package yin_kio.garbage_clean.domain.selector
+package yin_kio.garbage_clean.domain.selectable_form
 
-open class BaseSelectableForm<T> : SelectableForm<T> {
+open class SimpleSelectableForm<T> : SelectableForm<T> {
 
 
 
