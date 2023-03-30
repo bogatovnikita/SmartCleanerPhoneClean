@@ -1,7 +1,6 @@
 package com.smart.cleaner.phoneclean
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -75,6 +74,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 }
                 R.id.batteryFragment -> renderNavBar(binding.btnBattery.id, binding.titleBattery.id)
                 R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id)
+                com.smart.cleaner.phoneclean.presentation.R.id.duplicateImagesFragment,
+                com.smart.cleaner.phoneclean.presentation.R.id.duplicateFilesFragment -> renderNavBar(binding.btnDuplicate.id, binding.titleDuplicate.id)
             }
         }
     }

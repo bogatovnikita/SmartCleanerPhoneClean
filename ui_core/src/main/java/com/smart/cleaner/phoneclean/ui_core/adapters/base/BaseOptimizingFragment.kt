@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.ui.base
+package com.smart.cleaner.phoneclean.ui_core.adapters.base
 
 import android.app.Dialog
 import android.os.Bundle
@@ -11,16 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.preloadAd
 import com.example.ads.showInter
-import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.databinding.FragmentBaseOptimizingBinding
+import com.smart.cleaner.phoneclean.ui_core.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.HintDecoration
 import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
-import dagger.hilt.android.AndroidEntryPoint
+import com.smart.cleaner.phoneclean.ui_core.databinding.FragmentBaseOptimizingBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
 abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_optimizing) {
 
     private val binding: FragmentBaseOptimizingBinding by viewBinding()
@@ -42,7 +40,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     abstract val nextScreenId: Int
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        setStyle(STYLE_NO_FRAME, R.style.Dialog)
+        setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
         return super.onCreateDialog(savedInstanceState)
     }
 
@@ -126,6 +124,6 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     override fun onResume() {
         super.onResume()
         if (isDoneOptimization)
-            findNavController().navigate(R.id.action_batteryOptimizingFragment_to_batteryResultFragment)
+            findNavController().navigate(nextScreenId)
     }
 }

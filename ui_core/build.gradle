@@ -36,6 +36,7 @@ android {
 dependencies {
 
     implementation project(":resources")
+    implementation project(":ads")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -47,4 +48,14 @@ dependencies {
     // Navigation Components
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:6.0.0'
+
+    // Adaptive dimensions
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
+    //ViewBinding
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.6'
 }

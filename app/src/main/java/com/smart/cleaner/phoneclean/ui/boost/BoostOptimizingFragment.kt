@@ -2,7 +2,7 @@ package com.smart.cleaner.phoneclean.ui.boost
 
 import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
+import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
 import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

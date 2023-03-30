@@ -3,7 +3,7 @@ package com.smart.cleaner.phoneclean.ui.battery
 import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
-import com.smart.cleaner.phoneclean.ui.base.BaseOptimizingFragment
+import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
