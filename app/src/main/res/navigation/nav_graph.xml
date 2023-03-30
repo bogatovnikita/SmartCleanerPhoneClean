@@ -17,9 +17,9 @@
         app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
-        tools:layout="@layout/fragment_base_optimizing"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostOptimizingFragment"
-        android:label="BoostOptimizingFragment" />
+        android:label="BoostOptimizingFragment"
+        tools:layout="@layout/fragment_base_optimizing" />
     <action
         android:id="@+id/action_boostOptimizingFragment_to_boostResultFragment"
         app:destination="@id/boostResultFragment"
@@ -43,14 +43,14 @@
         app:destination="@id/batteryFragment" />
     <dialog
         android:id="@+id/batteryResultFragment"
-        tools:layout="@layout/fragment_battery_result"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryResultFragment"
-        android:label="BatteryResultFragment" />
+        android:label="BatteryResultFragment"
+        tools:layout="@layout/fragment_battery_result" />
     <dialog
         android:id="@+id/boostResultFragment"
-        tools:layout="@layout/fragment_boost_result"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostResultFragment"
-        android:label="BoostResultFragment" />
+        android:label="BoostResultFragment"
+        tools:layout="@layout/fragment_boost_result" />
     <dialog
         android:id="@+id/splashFragment"
         android:name="com.smart.cleaner.phoneclean.ui.splash.SplashFragment"
@@ -58,9 +58,9 @@
         tools:layout="@layout/fragment_splash" />
     <dialog
         android:id="@+id/batteryOptimizingFragment"
-        tools:layout="@layout/fragment_base_optimizing"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryOptimizingFragment"
-        android:label="BatteryOptimizingFragment" />
+        android:label="BatteryOptimizingFragment"
+        tools:layout="@layout/fragment_base_optimizing" />
     <action
         android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
         app:destination="@id/batteryResultFragment"
@@ -91,9 +91,9 @@
 
     <dialog
         android:id="@+id/informationScreenFragment"
-        tools:layout="@layout/fragment_information_screen"
         android:name="bogatovnikita.premium.presentation.ui.InformationScreenFragment"
-        android:label="InformationScreenFragment" >
+        android:label="InformationScreenFragment"
+        tools:layout="@layout/fragment_information_screen">
         <deepLink app:uri="myApp://informationScreenFragment" />
     </dialog>
 </navigation>
