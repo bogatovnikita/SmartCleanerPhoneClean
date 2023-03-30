@@ -1,6 +1,5 @@
-package com.smart.cleaner.phoneclean.ui.result
+package com.smart.cleaner.phoneclean.ui_core.adapters.models
 
-import com.smart.cleaner.phoneclean.utils.OptimizingType
 
 data class FunResult(
     val isOptimized: Boolean = false,

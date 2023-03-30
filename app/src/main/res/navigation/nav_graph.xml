@@ -9,7 +9,9 @@
         android:id="@+id/batteryFragment"
         android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryFragment"
         android:label="fragment_battery"
-        tools:layout="@layout/fragment_battery" />
+        tools:layout="@layout/fragment_battery">
+        <deepLink app:uri="myApp://Battery" />
+    </fragment>
     <action
         android:id="@+id/action_batteryFragment_to_batteryOptimizingFragment"
         app:destination="@id/batteryOptimizingFragment" />
@@ -30,7 +32,9 @@
         android:id="@+id/boostFragment"
         android:name="com.smart.cleaner.phoneclean.ui.boost.BoostFragment"
         android:label="fragment_boost"
-        tools:layout="@layout/fragment_boost" />
+        tools:layout="@layout/fragment_boost">
+        <deepLink app:uri="myApp://Boost" />
+    </fragment>
     <action
         android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
         app:destination="@id/boostOptimizingFragment" />

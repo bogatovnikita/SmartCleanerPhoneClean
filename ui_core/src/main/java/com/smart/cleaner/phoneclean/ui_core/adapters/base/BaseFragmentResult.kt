@@ -1,16 +1,19 @@
-package com.smart.cleaner.phoneclean.ui.base
+package com.smart.cleaner.phoneclean.ui_core.adapters.base
 
+import Const.DEEP_LINK_TO_BATTERY
+import Const.DEEP_LINK_TO_BOOST
+import Const.DEEP_LINK_TO_DUPLICATES
 import android.app.Dialog
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.adapters.ResultFunAdapter
-import com.smart.cleaner.phoneclean.ui.result.FunResult
-import com.smart.cleaner.phoneclean.utils.OptimizingType
+import com.smart.cleaner.phoneclean.ui_core.adapters.ResultFunAdapter
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 
 abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
 
@@ -18,7 +21,7 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
     abstract fun setRecyclerView(): RecyclerView
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        setStyle(STYLE_NO_FRAME, R.style.Dialog)
+        setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
         return super.onCreateDialog(savedInstanceState)
     }
 
@@ -32,10 +35,10 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
         val adapter = ResultFunAdapter(object : ResultFunAdapter.ClickOnFunResultListener {
             override fun onFunClick(item: FunResult) {
                 when (item.type) {
-                    OptimizingType.Boost -> findNavController().navigate(R.id.action_to_boostFragment)
+                    OptimizingType.Boost -> navigateWithDeppLink(DEEP_LINK_TO_BOOST)
                     OptimizingType.Clean -> {}
-                    OptimizingType.Cooling -> {}
-                    OptimizingType.Battery -> findNavController().navigate(R.id.action_to_batteryFragment)
+                    OptimizingType.Duplicates -> navigateWithDeppLink(DEEP_LINK_TO_DUPLICATES)
+                    OptimizingType.Battery -> navigateWithDeppLink(DEEP_LINK_TO_BATTERY)
                 }
             }
 
@@ -43,6 +46,10 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter.submitList(setListFun())
+    }
+    private fun navigateWithDeppLink(deepLink: String) {
+        val uri = Uri.parse(deepLink)
+        findNavController().navigate(uri)
     }
 
 }

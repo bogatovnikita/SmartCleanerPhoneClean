@@ -10,6 +10,7 @@
         android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesFragment"
         android:label="fragment_duplicate_images"
         tools:layout="@layout/fragment_duplicate_images" >
+        <deepLink app:uri="myApp://Duplicates" />
     </fragment>
     <action
         android:id="@+id/action_to_imageDeletionRequestDialog"

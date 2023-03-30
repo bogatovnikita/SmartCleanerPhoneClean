@@ -1,8 +1,8 @@
-package com.smart.cleaner.phoneclean.utils
+package com.smart.cleaner.phoneclean.ui_core.adapters.models
 
 sealed class OptimizingType() {
     object Clean: OptimizingType()
     object Boost: OptimizingType()
     object Battery: OptimizingType()
-    object Cooling: OptimizingType()
+    object Duplicates: OptimizingType()
 }

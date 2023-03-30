@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.databinding.FragmentBoostResultBinding
-import com.smart.cleaner.phoneclean.ui.base.BaseFragmentResult
-import com.smart.cleaner.phoneclean.ui.result.FunResult
 import com.smart.cleaner.phoneclean.ui.result.ResultList
-import com.smart.cleaner.phoneclean.utils.OptimizingType
+import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseFragmentResult
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

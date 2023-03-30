@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.adapters
+package com.smart.cleaner.phoneclean.ui_core.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.smart.cleaner.phoneclean.databinding.ItemFunResultBinding
-import com.smart.cleaner.phoneclean.ui.result.FunResult
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
+import com.smart.cleaner.phoneclean.ui_core.databinding.ItemFunResultBinding
 
 
 class ResultFunAdapter(private val listener: ClickOnFunResultListener) :

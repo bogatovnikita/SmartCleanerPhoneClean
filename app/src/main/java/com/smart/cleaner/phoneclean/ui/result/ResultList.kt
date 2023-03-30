@@ -1,7 +1,8 @@
 package com.smart.cleaner.phoneclean.ui.result
 
 import com.smart.cleaner.phoneclean.R
-import com.smart.cleaner.phoneclean.utils.OptimizingType
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import javax.inject.Inject
@@ -25,6 +26,13 @@ class ResultList @Inject constructor(
             funDangerDescription = R.string.battery_danger_desc,
             icon = R.drawable.ic_battery_danger,
             type = OptimizingType.Battery,
+        ),
+        FunResult(
+            isOptimized = true,
+            funName = R.string.battery_title,
+            funDangerDescription = R.string.battery_danger_desc,
+            icon = R.drawable.ic_paywall_off,
+            type = OptimizingType.Duplicates,
         ),
     )
 
