@@ -11,8 +11,8 @@ import com.bogatovnikita.language_dialog.language.Language
 import com.example.ads.initAds
 import com.example.ads.initSubscription
 import com.smart.cleaner.phoneclean.databinding.ActivityMainBinding
+import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phoneclean.ui.dialogs.ShowStartLanguageDialog
-import com.softcleean.fastcleaner.data.shared_pref.SharedPreferencesProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     lateinit var language: Language
 
     @Inject
-    lateinit var sharedPreferencesProvider: SharedPreferencesProvider
+    lateinit var settings: Settings
 
     private val binding: ActivityMainBinding by viewBinding()
 
@@ -81,9 +81,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     }
 
     private fun checkShowFirstLanguageDialog() {
-        if (sharedPreferencesProvider.getFirstLaunch() && language.checkLanguage()) {
+        if (settings.getFirstLaunch() && language.checkLanguage()) {
             ShowStartLanguageDialog().show(supportFragmentManager, "")
-            sharedPreferencesProvider.saveFirstLaunch()
+            settings.saveFirstLaunch()
         }
     }
 

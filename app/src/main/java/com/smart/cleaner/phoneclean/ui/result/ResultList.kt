@@ -21,7 +21,7 @@ class ResultList @Inject constructor(
             type = OptimizingType.Boost,
         ),
         FunResult(
-            isOptimized = batteryUseCase.checkBatteryDecrease(),
+            isOptimized = batteryUseCase.isBatteryBoosted(),
             funName = R.string.battery_title,
             funDangerDescription = R.string.battery_danger_desc,
             icon = R.drawable.ic_battery_danger,

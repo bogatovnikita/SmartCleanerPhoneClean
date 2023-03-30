@@ -5,7 +5,7 @@ import javax.inject.Inject
 class BatteryUseCase @Inject constructor(
     private val batteryRepository: BatteryRepository
 ) {
-    fun checkBatteryDecrease(): Boolean = batteryRepository.checkBatteryDecrease()
+    fun isBatteryBoosted(): Boolean = batteryRepository.isBatteryBoosted()
 
     fun saveTimeBatteryBoost() = batteryRepository.saveTimeBatteryBoost()
 
