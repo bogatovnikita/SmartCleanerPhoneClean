@@ -10,7 +10,7 @@ class BoostUseCase @Inject constructor(
 
     fun getRamUsage(): Long = boostRepository.getRamUsage()
 
-    fun boost() = boostRepository.boost()
+    fun saveTimeRamBoost() = boostRepository.saveTimeRamBoost()
 
     fun isRamBoosted(): Boolean = boostRepository.isRamBoosted()
 

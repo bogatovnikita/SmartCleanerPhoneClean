@@ -13,7 +13,7 @@ class BoostRepositoryImpl @Inject constructor(
 
     override fun getRamUsage(): Long = boostRealProvider.getRamUsage()
 
-    override fun boost() = boostRealProvider.boost()
+    override fun saveTimeRamBoost() = boostRealProvider.saveTimeRamBoost()
 
     override fun isRamBoosted(): Boolean = boostRealProvider.isRamBoosted()
 

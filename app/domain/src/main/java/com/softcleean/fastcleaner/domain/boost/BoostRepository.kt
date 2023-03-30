@@ -6,7 +6,7 @@ interface BoostRepository {
 
     fun getRamUsage(): Long
 
-    fun boost()
+    fun saveTimeRamBoost()
 
     fun isRamBoosted(): Boolean
 

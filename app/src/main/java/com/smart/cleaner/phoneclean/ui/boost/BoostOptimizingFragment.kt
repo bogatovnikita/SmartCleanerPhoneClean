@@ -24,7 +24,7 @@ class BoostOptimizingFragment(
         lifecycleScope.launch(Dispatchers.IO) {
             boostUseCase.killBackgroundProcessInstalledApps()
         }
-        boostUseCase.boost()
+        boostUseCase.saveTimeRamBoost()
     }
 
     override fun getArrayOptimization() {

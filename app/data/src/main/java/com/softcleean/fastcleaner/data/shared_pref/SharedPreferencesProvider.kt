@@ -17,7 +17,7 @@ class SharedPreferencesProvider @Inject constructor(private val application: App
         return sharedPreferences.getBoolean(FIRST_LAUNCH, true)
     }
 
-    fun saveBoost() {
+    fun saveTimeRamBoost() {
         sharedPreferences.edit().putLong(SAVE_BOOST_TIME, System.currentTimeMillis()).apply()
     }
 

@@ -29,8 +29,8 @@ class BoostRealProvider @Inject constructor(
         return getRamTotal() - getRamPart()
     }
 
-    fun boost() {
-        sharedPreferencesProvider.saveBoost()
+    fun saveTimeRamBoost() {
+        sharedPreferencesProvider.saveTimeRamBoost()
     }
 
     fun isRamBoosted() = sharedPreferencesProvider.isRamBoosted()
