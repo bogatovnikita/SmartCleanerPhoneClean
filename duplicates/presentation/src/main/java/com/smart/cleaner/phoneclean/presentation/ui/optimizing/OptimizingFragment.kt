@@ -12,7 +12,7 @@ class OptimizingFragment : BaseOptimizingFragment(){
 
     private val imagesViewModel: DuplicateImagesViewModel by activityViewModels()
 
-    override var nextScreenId = R.id.action_to_duplicateFilesFragment
+    override var nextScreenId = R.id.action_to_duplicatesResultFragment
 
     override fun getArrayOptimization() {
         listOptions = toListString(imagesViewModel.screenState.value.duplicates).toMutableList()
