@@ -20,28 +20,38 @@
         app:show_menu="false"
         app:title_text="@string/information" />
 
-    <ImageView
-        android:id="@+id/icon"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="@dimen/_120sdp"
         android:layout_height="@dimen/_120sdp"
-        android:background="@color/background"
-        android:src="@drawable/ic_launcher_main_foreground"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/_150sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.38">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="@dimen/_165sdp"
+        android:layout_height="@dimen/_165sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/title_name"
         style="@style/Text.Medium.24"
         android:layout_width="0dp"
+        android:layout_marginTop="29dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon" />
+        app:layout_constraintTop_toBottomOf="@id/card_view" />
 
     <TextView
         android:id="@+id/version_code"
@@ -54,14 +64,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_name"
-        tools:text="@string/version_code_F" />
+        tools:text="@string/version_code_S" />
 
     <TextView
         android:id="@+id/cancel_subscription"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center"
         android:text="@string/how_to_cancel_subscription"
         android:textColor="@color/primary"
