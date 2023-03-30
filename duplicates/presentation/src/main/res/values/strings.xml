@@ -14,5 +14,5 @@
     <string name="duplicates_please_wait">Please, wait, we\'re scanning photos and files…</string>
     <string name="duplicates_no_duplicates_found">No duplicates found</string>
     <string name="value_percents">%d %%</string>
-    <string name="duplicates_deletion">Deletion...</string>
+    <string name="duplicates_deletion">Deletion…</string>
 </resources>
