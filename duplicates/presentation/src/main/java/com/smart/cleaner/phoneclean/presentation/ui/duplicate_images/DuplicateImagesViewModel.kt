@@ -46,6 +46,7 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
             is ImagesStateScreen.ImageEvent.ConfirmedImageDeletion -> setEvent(event)
+            is ImagesStateScreen.ImageEvent.Delete -> saveTime(event.time)
             else -> {}
         }
     }
@@ -187,6 +188,14 @@ class DuplicateImagesViewModel @Inject constructor(
         updateState {
             it.copy(
                 isCanDelete = isCanDelete
+            )
+        }
+    }
+
+    private fun saveTime(time: Long) {
+        updateState {
+            it.copy(
+                timeDeletion = time
             )
         }
     }
