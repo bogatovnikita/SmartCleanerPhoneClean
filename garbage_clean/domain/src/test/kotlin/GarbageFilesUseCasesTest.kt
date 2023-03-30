@@ -17,4 +17,11 @@ class GarbageFilesUseCasesTest {
         coVerify { uiOuter.closePermissionDialog() }
     }
 
+    @Test
+    fun testRequestPermission(){
+        useCases.requestPermission()
+
+        coVerify { uiOuter.requestPermission() }
+    }
+
 }

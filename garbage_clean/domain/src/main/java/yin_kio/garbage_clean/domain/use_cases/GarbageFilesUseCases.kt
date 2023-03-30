@@ -10,4 +10,8 @@ class GarbageFilesUseCases(
         uiOuter.closePermissionDialog()
     }
 
+    fun requestPermission(){
+        uiOuter.requestPermission()
+    }
+
 }
