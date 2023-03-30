@@ -7,7 +7,8 @@
     android:background="@drawable/bg_fun_result_item"
     android:elevation="1dp"
     android:paddingStart="22dp"
-    android:paddingEnd="25dp">
+    android:paddingEnd="25dp"
+    android:layout_marginVertical="3dp">
 
     <ImageView
         android:id="@+id/iv_fun"
@@ -51,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/done"
+        android:text="Done"
         android:textAppearance="@style/Text.Regular.14"
         android:textColor="@color/secondary"
         android:visibility="gone"

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="value_percents">%d %%</string>
+    <string name="boosting">Quick optimize</string>
+    <string name="battery_title">Battery saver</string>
+    <string name="duplicate">Duplicate cleaner</string>
+    <string name="boost_danger_desc">Optimize your device</string>
+    <string name="duplicates_danger_desc">Remove duplicate elements</string>
+    <string name="battery_danger_desc">Activate the convenient mode</string>
+</resources>

@@ -128,12 +128,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         val isActive = destination == currentDestination
         return if (isActive) {
             when (destination) {
-                R.id.btn_boost -> R.drawable.ic_boost_danger
-                R.id.btn_clean -> R.drawable.ic_clean_danger
-                R.id.btn_duplicate -> R.drawable.ic_duplicate_danger
-                R.id.btn_battery -> R.drawable.ic_battery_danger
+                R.id.btn_boost -> general.R.drawable.ic_boost_danger
+                R.id.btn_clean -> general.R.drawable.ic_clean_danger
+                R.id.btn_duplicate -> general.R.drawable.ic_duplicate_danger
+                R.id.btn_battery -> general.R.drawable.ic_battery_danger
                 R.id.btn_paywall -> R.drawable.ic_paywall_off
-                else -> R.drawable.ic_clean_danger
+                else -> general.R.drawable.ic_clean_danger
             }
         } else {
 
