@@ -27,7 +27,6 @@ class BoostResultFragment(
         super.onViewCreated(view, savedInstanceState)
         viewModel.getParams()
         initScreenStateObserver()
-        initListeners()
     }
 
     private fun initScreenStateObserver() {
@@ -45,10 +44,6 @@ class BoostResultFragment(
                 tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
             }
         }
-    }
-
-    private fun initListeners() {
-        binding.btnGoBack.setOnClickListener { findNavController().popBackStack() }
     }
 
     override fun setRecyclerView(): RecyclerView = binding.recyclerView
