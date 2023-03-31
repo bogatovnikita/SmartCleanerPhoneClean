@@ -23,4 +23,11 @@ class GarbageFilesUseCases(
         uiOuter.updateGroup(groupIndex)
     }
 
+    fun switchGroupSelection(groupIndex: Int, groupCheckable: Checkable){
+        selector.switchGroupSelected(groupIndex)
+        groupCheckable.setChecked(selector.isGroupSelected(groupIndex))
+        uiOuter.updateGroup(groupIndex)
+
+    }
+
 }

@@ -18,6 +18,7 @@ class GarbageFilesUseCasesTest {
     )
 
     private val itemCheckable: Checkable = spyk()
+    private val groupCheckable: Checkable = spyk()
 
     @Test
     fun testClosePermissionDialog(){
@@ -49,6 +50,25 @@ class GarbageFilesUseCasesTest {
         coVerify {
             selector.switchItemSelection(groupIndex, itemIndex)
             itemCheckable.setChecked(isSelected)
+            uiOuter.updateGroup(groupIndex)
+        }
+    }
+
+    @Test
+    fun testSwitchGroupSelection(){
+        assertPassGroupSelected(true)
+        assertPassGroupSelected(false)
+    }
+
+    private fun assertPassGroupSelected(isGroupSelected: Boolean) {
+        val groupIndex = 0
+        coEvery { selector.isGroupSelected(groupIndex) } returns isGroupSelected
+
+        useCases.switchGroupSelection(groupIndex, groupCheckable)
+
+        coVerify {
+            selector.switchGroupSelected(groupIndex)
+            groupCheckable.setChecked(isGroupSelected)
             uiOuter.updateGroup(groupIndex)
         }
     }
