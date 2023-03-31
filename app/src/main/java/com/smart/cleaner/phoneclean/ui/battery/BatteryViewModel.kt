@@ -21,7 +21,8 @@ class BatteryViewModel @Inject constructor(
         viewModelScope.launch {
             updateState {
                 it.copy(
-                    isBoostedBattery = batteryUseCase.isBatteryBoosted()
+                    isBoostedBattery = batteryUseCase.isBatteryBoosted(),
+                    currentBatteryType = batteryUseCase.getBatteryType()
                 )
             }
         }

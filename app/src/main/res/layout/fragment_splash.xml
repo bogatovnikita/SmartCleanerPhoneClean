@@ -9,8 +9,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_centerHorizontal="true"
         app:cardCornerRadius="@dimen/_150sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +24,7 @@
             android:layout_width="@dimen/_165sdp"
             android:layout_height="@dimen/_165sdp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ico" />
     </androidx.cardview.widget.CardView>
 
     <TextView

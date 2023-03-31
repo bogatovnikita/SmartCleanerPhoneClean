@@ -64,7 +64,7 @@
     <action
         android:id="@+id/action_batteryOptimizingFragment_to_batteryResultFragment"
         app:destination="@id/batteryResultFragment"
-        app:popUpTo="@id/boostFragment"
+        app:popUpTo="@id/batteryFragment"
         app:popUpToInclusive="false" />
     <action
         android:id="@+id/action_to_premiumScreenFragment"

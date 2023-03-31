@@ -31,7 +31,7 @@ class WebViewActivity : AppCompatActivity() {
         }
 
         const val TYPE_PAGE = "TYPE_PAGE"
-        const val PRIVACY_POLICY = "file:///android_assets/PrivacyPolicy.html"
-        const val TERMS_AND_CONDITIONS = "file:///android_assets/TermsConditions.html"
+        const val PRIVACY_POLICY = "file:///android_asset/Privacy_policy.html"
+        const val TERMS_AND_CONDITIONS = "file:///android_asset/Terms_conditions.html"
     }
 }

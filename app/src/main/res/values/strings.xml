@@ -68,12 +68,12 @@
     <string name="type_description_normal">Normal mode activates restrictions:</string>
     <string name="type_description_ultra">Ultra mode activates restrictions:</string>
     <string name="type_description_extra">Extra mode activates restrictions:</string>
-    <string name="ten">+10</string>
-    <string name="thirty">+30</string>
-    <string name="sixty">+60</string>
-    <string name="normal">Normal</string>
-    <string name="ultra">Ultra</string>
-    <string name="extra">Extra</string>
+    <string name="normal">Normal\nmode</string>
+    <string name="ultra">Ultra\nmode</string>
+    <string name="extra">Extra\nmode</string>
+    <string name="normal_mode_activated">Normal mode activated</string>
+    <string name="ultra_mode_activated">Ultra mode activated</string>
+    <string name="extra_mode_activated">Extra mode activated</string>
     <string name="optimize">Optimize</string>
     <string name="junk">Junk</string>
     <string name="duplicate">Duplicate</string>
@@ -92,7 +92,7 @@
     <string name="cancel">Close</string>
     <string name="allow">Allow</string>
     <string name="done">Done</string>
-    <string name="advice">We strongly recommend performing these optimizations</string>
+    <string name="advice">We recommend running these features</string>
     <string name="fun_battery">Battery saver</string>
     <string name="ram_unboosted">Optimization is recommended</string>
     <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
@@ -106,5 +106,6 @@
     <string name="boosted_desc">The phone has been successfully optimized</string>
     <string name="boost_description">Close apps running in the background to free up memory on your device</string>
     <string name="description_start_first_language_dialog">The language of your device is not supported by our application, English is set by default.\n\nYou can change the language right inside the app.</string>
+    <string name="permission_required">Permission required</string>
 
 </resources>
