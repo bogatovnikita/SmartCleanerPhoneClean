@@ -2,10 +2,12 @@ import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
+import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
+import java.io.File
 
 class GarbageFilesUseCasesTest {
 
@@ -43,16 +45,16 @@ class GarbageFilesUseCasesTest {
     }
 
     private fun assertItemSelectionPassed(isSelected: Boolean) {
-        val groupIndex = 0
-        val itemIndex = 0
-        coEvery { garbageSelector.isItemSelected(groupIndex, itemIndex) } returns isSelected
+        val group = GarbageType.Apk
+        val item = File("")
+        coEvery { garbageSelector.isItemSelected(group, item) } returns isSelected
 
-        useCases.switchItemSelection(groupIndex, itemIndex, itemCheckable)
+        useCases.switchItemSelection(group, item, itemCheckable)
 
         coVerifyOrder {
-            garbageSelector.switchItemSelection(groupIndex, itemIndex)
+            garbageSelector.switchFileSelection(group, item)
             itemCheckable.setChecked(isSelected)
-            uiOuter.updateGroup(groupIndex)
+            uiOuter.updateGroup(group)
         }
     }
 
@@ -63,15 +65,15 @@ class GarbageFilesUseCasesTest {
     }
 
     private fun assertPassGroupSelected(isGroupSelected: Boolean) {
-        val groupIndex = 0
-        coEvery { garbageSelector.isGroupSelected(groupIndex) } returns isGroupSelected
+        val group = GarbageType.Apk
+        coEvery { garbageSelector.isGroupSelected(group) } returns isGroupSelected
 
-        useCases.switchGroupSelection(groupIndex, groupCheckable)
+        useCases.switchGroupSelection(group, groupCheckable)
 
         coVerifyOrder {
-            garbageSelector.switchGroupSelected(groupIndex)
+            garbageSelector.switchGroupSelected(group)
             groupCheckable.setChecked(isGroupSelected)
-            uiOuter.updateGroup(groupIndex)
+            uiOuter.updateGroup(group)
         }
     }
 

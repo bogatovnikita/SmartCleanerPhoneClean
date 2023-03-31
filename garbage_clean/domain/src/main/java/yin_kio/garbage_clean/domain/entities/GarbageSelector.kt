@@ -1,13 +1,15 @@
 package yin_kio.garbage_clean.domain.entities
 
+import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
+import java.io.File
 
 interface GarbageSelector {
 
-    fun switchItemSelection(groupIndex: Int, itemIndex: Int)
-    fun isItemSelected(groupIndex: Int, itemIndex: Int) : Boolean
-    fun switchGroupSelected(groupIndex: Int)
-    fun isGroupSelected(groupIndex: Int) : Boolean
+    fun switchFileSelection(group: GarbageType, file: File)
+    fun isItemSelected(group: GarbageType, item: File) : Boolean
+    fun switchGroupSelected(group: GarbageType)
+    fun isGroupSelected(group: GarbageType) : Boolean
 
     fun getGarbage() : List<Garbage>
 
