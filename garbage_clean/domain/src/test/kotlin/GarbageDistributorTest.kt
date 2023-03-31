@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import yin_kio.garbage_clean.domain.garbage_files.GarbageFilesDistributor
-import yin_kio.garbage_clean.domain.garbage_files.GarbageType
+import yin_kio.garbage_clean.domain.entities.garbage_files.GarbageFilesDistributor
+import yin_kio.garbage_clean.domain.entities.garbage_files.GarbageType
 import java.io.File
 
 class GarbageDistributorTest {

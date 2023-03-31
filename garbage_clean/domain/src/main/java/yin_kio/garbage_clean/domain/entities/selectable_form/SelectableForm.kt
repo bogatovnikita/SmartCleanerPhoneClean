@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.selectable_form
+package yin_kio.garbage_clean.domain.entities.selectable_form
 
 interface SelectableForm<T> {
 

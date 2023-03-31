@@ -4,5 +4,6 @@ interface UiOuter {
 
     fun closePermissionDialog()
     fun requestPermission()
+    fun updateGroup(index: Int)
 
 }

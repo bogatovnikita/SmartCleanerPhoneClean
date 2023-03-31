@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.garbage_files
+package yin_kio.garbage_clean.domain.entities.garbage_files
 
 import java.io.File
 
