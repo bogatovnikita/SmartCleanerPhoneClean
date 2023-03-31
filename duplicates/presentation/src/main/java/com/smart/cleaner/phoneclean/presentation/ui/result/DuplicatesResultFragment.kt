@@ -1,6 +1,7 @@
 package com.smart.cleaner.phoneclean.presentation.ui.result
 
 import android.os.Bundle
+import android.text.format.Formatter
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -34,9 +35,8 @@ class DuplicatesResultFragment(
             else toReadableSizeFormat(filesTimeDeletion)
     }
 
-    private fun toReadableSizeFormat(size: Long): String {
-        return  ""
-    }
+    private fun toReadableSizeFormat(size: Long): String =
+        Formatter.formatFileSize(requireContext(), size)
 
     override fun setRecyclerView(): RecyclerView = binding.recyclerView
 
