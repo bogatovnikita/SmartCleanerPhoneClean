@@ -30,6 +30,8 @@ data class ImagesStateScreen(
 
         class Delete(val time: Long) : ImageEvent()
 
+        class DeleteDone() : ImageEvent()
+
         class SelectAll(
             val duplicates: ParentImageItem,
             val isSelected: Boolean

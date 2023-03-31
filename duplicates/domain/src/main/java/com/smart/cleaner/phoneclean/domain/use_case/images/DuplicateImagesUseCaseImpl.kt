@@ -1,6 +1,7 @@
 package com.smart.cleaner.phoneclean.domain.use_case.images
 
 import com.smart.cleaner.phoneclean.domain.extentions.findDuplicates
+import com.smart.cleaner.phoneclean.domain.gateways.DuplicatesSettings
 import com.smart.cleaner.phoneclean.domain.gateways.Files
 import com.smart.cleaner.phoneclean.domain.gateways.ImagesComparator
 import com.smart.cleaner.phoneclean.domain.gateways.Permissions
@@ -10,6 +11,7 @@ import javax.inject.Inject
 class DuplicateImagesUseCaseImpl @Inject constructor(
     private val files: Files,
     private val permissions: Permissions,
+    private val settings: DuplicatesSettings,
     private val imagesComparator: ImagesComparator,
 ) : DuplicateImagesUseCase {
 
@@ -22,5 +24,7 @@ class DuplicateImagesUseCaseImpl @Inject constructor(
         }
 
     override fun hasStoragePermissions(): Boolean = permissions.hasStoragePermissions
+
+    override fun saveDuplicatesDeleteTime() = settings.saveDuplicatesDeleteTime()
 
 }
