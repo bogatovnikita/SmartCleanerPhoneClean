@@ -1,8 +1,11 @@
 import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
+import yin_kio.garbage_clean.domain.services.GarbageFormsCreator
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
+import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -14,11 +17,16 @@ class GarbageFilesUseCasesTest {
     private val uiOuter: UiOuter = spyk()
     private val garbageSelector: GarbageSelector = spyk()
     private val permissions: Permissions = mockk()
+    private val garbageFormsCreator: GarbageFormsCreator = mockk()
+    private val files: Files = mockk()
+
 
     private val useCases = GarbageFilesUseCases(
         uiOuter = uiOuter,
         garbageSelector = garbageSelector,
-        permissions = permissions
+        permissions = permissions,
+        files = files,
+        garbageFormsCreator = garbageFormsCreator
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -84,14 +92,21 @@ class GarbageFilesUseCasesTest {
     }
 
     private fun assertScanIfHasPermission(){
-        val garbage = listOf<Garbage>()
+        val garbageOut = listOf<Garbage>()
+        val garbageForms = mapOf<GarbageType, SelectableForm<File>>()
+        val filesInput = listOf<File>()
+
+        coEvery { files.getAllFiles() } returns filesInput
+        coEvery { garbageFormsCreator.create(filesInput) } returns garbageForms
         coEvery { permissions.hasPermission } returns true
-        coEvery { garbageSelector.getGarbage() } returns garbage
+        coEvery { garbageSelector.getGarbage() } returns garbageOut
+
 
         useCases.scan()
 
         coVerify {
-            uiOuter.outGarbage(garbage)
+            garbageSelector.setGarbage(garbageForms)
+            uiOuter.outGarbage(garbageOut)
         }
     }
 
