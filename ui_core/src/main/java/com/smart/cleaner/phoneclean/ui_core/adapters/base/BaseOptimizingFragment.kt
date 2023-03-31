@@ -31,7 +31,8 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     protected var listOptions: MutableList<String> = mutableListOf()
         set(list) {
-            listSize = list.size
+            if (list.size > field.size)
+                listSize = list.size
             field = list
             adapter.submitList(list)
         }

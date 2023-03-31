@@ -37,7 +37,7 @@ class ResultList constructor(
         ),
         FunResult(
             isOptimized = settings.isDuplicateDelete(),
-            funName = general.R.string.duplicate,
+            funName = general.R.string.duplicate_title,
             funDangerDescription = general.R.string.duplicates_danger_desc,
             icon = general.R.drawable.ic_duplicate_danger,
             type = OptimizingType.Duplicates,
