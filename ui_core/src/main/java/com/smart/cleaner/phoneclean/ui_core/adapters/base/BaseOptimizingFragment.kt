@@ -14,6 +14,7 @@ import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.ui_core.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.HintDecoration
 import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.smart.cleaner.phoneclean.ui_core.databinding.FragmentBaseOptimizingBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -29,14 +30,16 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
 
     private var listSize = 0
 
-    protected var listOptions: MutableList<String> = mutableListOf()
+    protected var listOptions: MutableList<OptimizingItem> = mutableListOf()
         set(list) {
-            listSize = list.size
+            if (list.size > field.size)
+                listSize = list.size
             field = list
             adapter.submitList(list)
         }
 
     private val delayTime = 8000L
+
     abstract val nextScreenId: Int
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -112,7 +115,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     ) {
         val valueToDelete = if (listSize != 0) 100 / listSize else 99
         if (progress != 0 && progress % valueToDelete == 0 && listOptions.isNotEmpty()) {
-            val list = mutableListOf<String>()
+            val list = mutableListOf<OptimizingItem>()
             listOptions.forEachIndexed { index, s ->
                 if (index != 0) list.add(s)
             }
@@ -126,4 +129,5 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         if (isDoneOptimization)
             findNavController().navigate(nextScreenId)
     }
+
 }

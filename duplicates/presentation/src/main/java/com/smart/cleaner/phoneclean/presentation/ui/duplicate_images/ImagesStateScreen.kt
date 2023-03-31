@@ -5,6 +5,7 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 
 data class ImagesStateScreen(
     val totalSize: Long = 0L,
+    val timeDeletion: Long = 0,
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
     val isCanDelete: Boolean = false,
@@ -26,6 +27,10 @@ data class ImagesStateScreen(
         object OpenConfirmationDialog : ImageEvent()
 
         object ConfirmedImageDeletion : ImageEvent()
+
+        class Delete(val time: Long) : ImageEvent()
+
+        class DeleteDone() : ImageEvent()
 
         class SelectAll(
             val duplicates: ParentImageItem,

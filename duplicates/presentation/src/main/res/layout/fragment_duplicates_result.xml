@@ -17,7 +17,7 @@
         app:show_cross="true"
         app:show_flag="true"
         app:show_menu="false"
-        app:title_text="@string/boosting" />
+        app:title_text="@string/duplicate_title" />
 
     <ImageView
         android:id="@+id/iv_done"

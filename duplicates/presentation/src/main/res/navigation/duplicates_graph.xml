@@ -39,10 +39,10 @@
         android:name="com.smart.cleaner.phoneclean.presentation.ui.optimizing.OptimizingFragment"
         android:label="fragment_optimizing"
         tools:layout="@layout/fragment_optimizing" >
-        <action
-            android:id="@+id/action_to_duplicatesResultFragment"
-            app:destination="@id/duplicatesResultFragment" />
     </dialog>
+    <action
+        android:id="@+id/action_to_duplicatesResultFragment"
+        app:destination="@id/duplicatesResultFragment" />
     <action
         android:id="@+id/action_to_optimizingFragment"
         app:destination="@id/optimizingFragment" />
