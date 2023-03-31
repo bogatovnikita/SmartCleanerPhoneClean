@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.entities.garbage_files
+package yin_kio.garbage_clean.domain.services.garbage_files
 
 object ExtensionsGroups {
 

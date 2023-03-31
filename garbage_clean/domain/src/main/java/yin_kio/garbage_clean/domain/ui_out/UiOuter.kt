@@ -5,5 +5,7 @@ interface UiOuter {
     fun closePermissionDialog()
     fun requestPermission()
     fun updateGroup(index: Int)
+    fun showPermissionDialog()
+    fun outGarbage(garbage: List<Garbage>)
 
 }

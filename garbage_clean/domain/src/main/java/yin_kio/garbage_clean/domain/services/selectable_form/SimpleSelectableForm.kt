@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.entities.selectable_form
+package yin_kio.garbage_clean.domain.services.selectable_form
 
 open class SimpleSelectableForm<T> : SelectableForm<T> {
 

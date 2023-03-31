@@ -1,20 +1,22 @@
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.spyk
+import io.mockk.*
 import org.junit.jupiter.api.Test
-import yin_kio.garbage_clean.domain.entities.Selector
+import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.ui_out.Checkable
+import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 
 class GarbageFilesUseCasesTest {
 
     private val uiOuter: UiOuter = spyk()
+    private val garbageSelector: GarbageSelector = spyk()
+    private val permissions: Permissions = mockk()
 
-    private val selector: Selector = spyk()
     private val useCases = GarbageFilesUseCases(
         uiOuter = uiOuter,
-        selector = selector
+        garbageSelector = garbageSelector,
+        permissions = permissions
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -43,12 +45,12 @@ class GarbageFilesUseCasesTest {
     private fun assertItemSelectionPassed(isSelected: Boolean) {
         val groupIndex = 0
         val itemIndex = 0
-        coEvery { selector.isItemSelected(groupIndex, itemIndex) } returns isSelected
+        coEvery { garbageSelector.isItemSelected(groupIndex, itemIndex) } returns isSelected
 
         useCases.switchItemSelection(groupIndex, itemIndex, itemCheckable)
 
-        coVerify {
-            selector.switchItemSelection(groupIndex, itemIndex)
+        coVerifyOrder {
+            garbageSelector.switchItemSelection(groupIndex, itemIndex)
             itemCheckable.setChecked(isSelected)
             uiOuter.updateGroup(groupIndex)
         }
@@ -62,15 +64,41 @@ class GarbageFilesUseCasesTest {
 
     private fun assertPassGroupSelected(isGroupSelected: Boolean) {
         val groupIndex = 0
-        coEvery { selector.isGroupSelected(groupIndex) } returns isGroupSelected
+        coEvery { garbageSelector.isGroupSelected(groupIndex) } returns isGroupSelected
 
         useCases.switchGroupSelection(groupIndex, groupCheckable)
 
-        coVerify {
-            selector.switchGroupSelected(groupIndex)
+        coVerifyOrder {
+            garbageSelector.switchGroupSelected(groupIndex)
             groupCheckable.setChecked(isGroupSelected)
             uiOuter.updateGroup(groupIndex)
         }
+    }
+
+    @Test
+    fun testScan(){
+        assertScanIfHasPermission()
+        assertScanIfHasNotPermission()
+    }
+
+    private fun assertScanIfHasPermission(){
+        val garbage = listOf<Garbage>()
+        coEvery { permissions.hasPermission } returns true
+        coEvery { garbageSelector.getGarbage() } returns garbage
+
+        useCases.scan()
+
+        coVerify {
+            uiOuter.outGarbage(garbage)
+        }
+    }
+
+    private fun assertScanIfHasNotPermission(){
+        coEvery { permissions.hasPermission } returns false
+
+        useCases.scan()
+
+        coVerify { uiOuter.showPermissionDialog() }
     }
 
 }
