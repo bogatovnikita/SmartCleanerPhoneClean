@@ -2,10 +2,8 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
-import yin_kio.garbage_clean.domain.services.GarbageFormsCreator
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
-import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import java.io.File
 
@@ -13,8 +11,7 @@ class GarbageFilesUseCases(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
     private val permissions: Permissions,
-    private val garbageFormsCreator: GarbageFormsCreator,
-    private val garbageOutCreator: GarbageOutCreator
+    private val updateUseCase: UpdateUseCase,
 ) {
 
     fun closePermissionDialog(){
@@ -40,15 +37,7 @@ class GarbageFilesUseCases(
 
     fun scan(){
         if (permissions.hasPermission){
-            uiOuter.showUpdateProgress()
-
-            val forms = garbageFormsCreator.provide()
-
-            garbageSelector.setGarbage(forms)
-
-            val garbage = garbageSelector.getGarbage()
-            val garbageOut = garbageOutCreator.create(garbage)
-            uiOuter.outGarbage(garbageOut)
+            updateUseCase.update()
         } else {
             uiOuter.showPermissionDialog()
         }

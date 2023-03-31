@@ -10,6 +10,7 @@ import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
+import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
 
 class GarbageFilesUseCasesTest {
@@ -17,16 +18,16 @@ class GarbageFilesUseCasesTest {
     private val uiOuter: UiOuter = spyk()
     private val garbageSelector: GarbageSelector = spyk()
     private val permissions: Permissions = mockk()
-    private val garbageFormsProvider: GarbageFormsCreator = mockk()
-    private val garbageOutCreator: GarbageOutCreator = mockk()
+    private val updateUseCase: UpdateUseCase = mockk{
+        coEvery { update() } returns Unit
+    }
 
 
     private val useCases = GarbageFilesUseCases(
         uiOuter = uiOuter,
         garbageSelector = garbageSelector,
         permissions = permissions,
-        garbageFormsCreator = garbageFormsProvider,
-        garbageOutCreator = garbageOutCreator
+        updateUseCase = updateUseCase
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -94,23 +95,9 @@ class GarbageFilesUseCasesTest {
     private fun assertScanIfHasPermission(){
         coEvery { permissions.hasPermission } returns true
 
-
-        val garbageOut = listOf<Garbage>()
-        val garbageForms = mapOf<GarbageType, SelectableForm<File>>()
-
-
-        coEvery { garbageFormsProvider.provide() } returns garbageForms
-        coEvery { garbageSelector.getGarbage() } returns garbageForms
-        coEvery { garbageOutCreator.create(garbageForms) } returns garbageOut
-
-
         useCases.scan()
 
-        coVerifyOrder {
-            uiOuter.showUpdateProgress()
-            garbageSelector.setGarbage(garbageForms)
-            uiOuter.outGarbage(garbageOut)
-        }
+        coVerify { updateUseCase.update() }
     }
 
     private fun assertScanIfHasNotPermission(){
@@ -120,5 +107,7 @@ class GarbageFilesUseCasesTest {
 
         coVerify { uiOuter.showPermissionDialog() }
     }
+
+
 
 }
