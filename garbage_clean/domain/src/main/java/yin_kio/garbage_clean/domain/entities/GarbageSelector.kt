@@ -2,7 +2,6 @@ package yin_kio.garbage_clean.domain.entities
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
-import yin_kio.garbage_clean.domain.ui_out.Garbage
 import java.io.File
 
 interface GarbageSelector {
@@ -14,7 +13,7 @@ interface GarbageSelector {
     fun switchGroupSelected(group: GarbageType)
     fun isGroupSelected(group: GarbageType) : Boolean
 
-    fun getGarbage() : List<Garbage>
+    fun getGarbage() : Map<GarbageType, SelectableForm<File>>
 
 
 

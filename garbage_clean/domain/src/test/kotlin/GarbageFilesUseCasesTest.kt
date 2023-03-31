@@ -1,13 +1,13 @@
 import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.services.GarbageFormsCreator
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.Garbage
+import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 import java.io.File
@@ -17,16 +17,16 @@ class GarbageFilesUseCasesTest {
     private val uiOuter: UiOuter = spyk()
     private val garbageSelector: GarbageSelector = spyk()
     private val permissions: Permissions = mockk()
-    private val garbageFormsCreator: GarbageFormsCreator = mockk()
-    private val files: Files = mockk()
+    private val garbageFormsProvider: GarbageFormsCreator = mockk()
+    private val garbageOutCreator: GarbageOutCreator = mockk()
 
 
     private val useCases = GarbageFilesUseCases(
         uiOuter = uiOuter,
         garbageSelector = garbageSelector,
         permissions = permissions,
-        files = files,
-        garbageFormsCreator = garbageFormsCreator
+        garbageFormsCreator = garbageFormsProvider,
+        garbageOutCreator = garbageOutCreator
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -92,19 +92,22 @@ class GarbageFilesUseCasesTest {
     }
 
     private fun assertScanIfHasPermission(){
+        coEvery { permissions.hasPermission } returns true
+
+
         val garbageOut = listOf<Garbage>()
         val garbageForms = mapOf<GarbageType, SelectableForm<File>>()
-        val filesInput = listOf<File>()
 
-        coEvery { files.getAllFiles() } returns filesInput
-        coEvery { garbageFormsCreator.create(filesInput) } returns garbageForms
-        coEvery { permissions.hasPermission } returns true
-        coEvery { garbageSelector.getGarbage() } returns garbageOut
+
+        coEvery { garbageFormsProvider.provide() } returns garbageForms
+        coEvery { garbageSelector.getGarbage() } returns garbageForms
+        coEvery { garbageOutCreator.create(garbageForms) } returns garbageOut
 
 
         useCases.scan()
 
-        coVerify {
+        coVerifyOrder {
+            uiOuter.showUpdateProgress()
             garbageSelector.setGarbage(garbageForms)
             uiOuter.outGarbage(garbageOut)
         }

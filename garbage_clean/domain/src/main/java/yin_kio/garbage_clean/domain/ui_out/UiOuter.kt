@@ -9,5 +9,6 @@ interface UiOuter {
     fun updateGroup(group: GarbageType)
     fun showPermissionDialog()
     fun outGarbage(garbage: List<Garbage>)
+    fun showUpdateProgress()
 
 }
