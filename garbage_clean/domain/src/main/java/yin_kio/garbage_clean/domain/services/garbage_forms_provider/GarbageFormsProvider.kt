@@ -6,6 +6,6 @@ import java.io.File
 
 interface GarbageFormsProvider {
 
-    fun provide() : Map<GarbageType, SelectableForm<File>>
+    suspend fun provide() : Map<GarbageType, SelectableForm<File>>
 
 }

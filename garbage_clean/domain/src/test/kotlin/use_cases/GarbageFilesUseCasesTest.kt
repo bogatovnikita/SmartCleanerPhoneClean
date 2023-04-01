@@ -3,6 +3,7 @@ package use_cases
 import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -21,6 +22,7 @@ class GarbageFilesUseCasesTest {
         coEvery { update() } returns Unit
     }
     private val storageInfo: StorageInfo = spyk()
+    private val files: Files = spyk()
 
 
 
@@ -29,7 +31,8 @@ class GarbageFilesUseCasesTest {
         garbageSelector = garbageSelector,
         permissions = permissions,
         updateUseCase = updateUseCase,
-        storageInfo = storageInfo
+        storageInfo = storageInfo,
+        files = files
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -134,14 +137,18 @@ class GarbageFilesUseCasesTest {
 
     @Test
     fun testClean(){
+        val selectedFiles = listOf<File>()
         val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
         // Добавить реализацию очистки
+
+        coEvery { garbageSelector.getSelected() } returns selectedFiles
 
         useCases.clean()
 
         coVerifyOrder {
             storageInfo.saveStartVolume()
             uiOuter.showCleanProgress(messages)
+            files.deleteFiles(selectedFiles)
             storageInfo.saveEndVolume()
             storageInfo.calculateEndVolume()
         }

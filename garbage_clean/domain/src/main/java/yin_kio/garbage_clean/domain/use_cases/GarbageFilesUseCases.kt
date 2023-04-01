@@ -1,6 +1,8 @@
 package yin_kio.garbage_clean.domain.use_cases
 
+import kotlinx.coroutines.runBlocking
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -13,7 +15,8 @@ class GarbageFilesUseCases(
     private val garbageSelector: GarbageSelector,
     private val permissions: Permissions,
     private val updateUseCase: UpdateUseCase,
-    private val storageInfo: StorageInfo
+    private val storageInfo: StorageInfo,
+    private val files: Files
 ) {
 
     fun closePermissionDialog(){
@@ -56,9 +59,10 @@ class GarbageFilesUseCases(
 
     }
 
-    fun clean(){
+    fun clean() = runBlocking{
         storageInfo.saveStartVolume()
         uiOuter.showCleanProgress(listOf())
+        files.deleteFiles(garbageSelector.getSelected())
         storageInfo.saveEndVolume()
         storageInfo.calculateEndVolume()
     }

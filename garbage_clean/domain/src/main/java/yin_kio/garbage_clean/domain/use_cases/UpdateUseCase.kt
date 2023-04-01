@@ -1,5 +1,6 @@
 package yin_kio.garbage_clean.domain.use_cases
 
+import kotlinx.coroutines.runBlocking
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProvider
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
@@ -12,7 +13,7 @@ class UpdateUseCase(
     private val garbageOutCreator: GarbageOutCreator,
 ) {
 
-    fun update(){
+    fun update() = runBlocking{
         uiOuter.showUpdateProgress()
 
         val forms = garbageFormsProvider.provide()

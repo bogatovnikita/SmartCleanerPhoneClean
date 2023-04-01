@@ -13,7 +13,7 @@ class GarbageFormsProviderImpl(
 
     private val distributor = GarbageFilesDistributor()
 
-    override fun provide(): Map<GarbageType, SelectableForm<File>> {
+    override suspend fun provide(): Map<GarbageType, SelectableForm<File>> {
         return distributor.distribute(files.getAllFiles()).map {
             val key = it.key
             val form = SimpleSelectableForm<File>()
