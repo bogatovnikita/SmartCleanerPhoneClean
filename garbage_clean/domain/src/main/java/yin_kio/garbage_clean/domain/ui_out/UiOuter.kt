@@ -10,5 +10,6 @@ interface UiOuter {
     fun showPermissionDialog()
     fun outGarbage(garbage: List<Garbage>)
     fun showUpdateProgress()
+    fun showPermissionRequired()
 
 }

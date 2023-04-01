@@ -2,12 +2,8 @@ import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
-import yin_kio.garbage_clean.domain.services.GarbageFormsCreator
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
-import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Checkable
-import yin_kio.garbage_clean.domain.ui_out.Garbage
-import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
@@ -108,6 +104,26 @@ class GarbageFilesUseCasesTest {
         coVerify { uiOuter.showPermissionDialog() }
     }
 
+    @Test
+    fun testStart(){
+        assertStartWithPermission()
+        assertStartWithoutPermission()
+    }
 
+    private fun assertStartWithPermission(){
+        coEvery { permissions.hasPermission } returns true
+
+        useCases.start()
+
+        coVerify { updateUseCase.update() }
+    }
+
+    private fun assertStartWithoutPermission(){
+        coEvery { permissions.hasPermission } returns false
+
+        useCases.start()
+
+        coVerify { uiOuter.showPermissionRequired() }
+    }
 
 }

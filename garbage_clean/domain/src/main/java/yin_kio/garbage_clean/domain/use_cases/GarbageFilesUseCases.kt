@@ -43,4 +43,15 @@ class GarbageFilesUseCases(
         }
     }
 
+    fun start(){
+
+        if (permissions.hasPermission){
+            updateUseCase.update()
+            return
+        }
+
+        uiOuter.showPermissionRequired()
+
+    }
+
 }
