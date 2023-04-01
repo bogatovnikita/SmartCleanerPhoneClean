@@ -35,4 +35,14 @@ class GarbageSelectorImpl : GarbageSelector {
     override fun getGarbage(): Map<GarbageType, SelectableForm<File>> {
         return garbage
     }
+
+    override fun getSelected(): List<File> {
+        val selected = mutableListOf<File>()
+
+        garbage.forEach {
+            selected.addAll(it.value.selected)
+        }
+
+        return selected
+    }
 }

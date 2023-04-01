@@ -15,6 +15,8 @@ interface GarbageSelector {
 
     fun getGarbage() : Map<GarbageType, SelectableForm<File>>
 
+    fun getSelected() : List<File>
+
 
 
 }
