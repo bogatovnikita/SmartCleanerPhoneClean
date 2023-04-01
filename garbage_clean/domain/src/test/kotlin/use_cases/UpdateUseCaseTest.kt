@@ -10,7 +10,7 @@ import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageForms
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Garbage
-import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
+import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
