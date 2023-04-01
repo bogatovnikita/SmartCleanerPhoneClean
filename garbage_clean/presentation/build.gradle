@@ -45,8 +45,11 @@ dependencies {
     implementation project(':garbage_clean:domain')
     implementation project(':garbage_clean:data')
     implementation project(':language_dialog')
+    implementation project(':toolbar')
 
     implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
+
+    implementation 'com.github.pokercc:ExpandableRecyclerView:0.9.3'
 
     implementation presentation.values()
     testImplementation presentation_test.values()

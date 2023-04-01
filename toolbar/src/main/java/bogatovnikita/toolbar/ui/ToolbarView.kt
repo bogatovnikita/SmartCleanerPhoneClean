@@ -4,6 +4,7 @@ import Const.DEEP_LINK_TO_INFORMATION_DIALOG
 import Const.DEEP_LINK_TO_LANGUAGE_DIALOG
 import Const.DEEP_LINK_TO_PREMIUM_DIALOG
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -27,8 +28,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-@AndroidEntryPoint
+
 class ToolbarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -36,8 +36,7 @@ class ToolbarView @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    @Inject
-    lateinit var localeProvider: LocaleProvider
+    private val localeProvider: LocaleProvider by lazy { LocaleProvider(context = context.applicationContext as Application) }
 
     private val binding: ViewToolbarBinding
 
