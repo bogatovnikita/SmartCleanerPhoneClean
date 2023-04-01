@@ -1,3 +1,5 @@
+package yin_kio.garbage_clean.data
+
 import android.content.Context
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.storage_info_provider.StorageInfoProvider

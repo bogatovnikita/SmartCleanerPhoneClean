@@ -1,3 +1,5 @@
+package yin_kio.garbage_clean.data
+
 import android.content.Context
 import com.example.permissions.hasStoragePermissions
 import yin_kio.garbage_clean.domain.gateways.Permissions
