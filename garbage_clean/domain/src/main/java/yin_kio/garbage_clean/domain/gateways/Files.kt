@@ -5,5 +5,6 @@ import java.io.File
 interface Files {
 
     suspend fun getAllFiles() : List<File>
+    suspend fun deleteFiles(files: List<File>)
 
 }

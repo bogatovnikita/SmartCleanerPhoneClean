@@ -10,4 +10,8 @@ class FilesImpl : Files {
     override suspend fun getAllFiles(): List<File> {
         return fileUtils.getAllFiles(Environment.getExternalStorageDirectory())
     }
+
+    override suspend fun deleteFiles(files: List<File>) {
+        fileUtils.deleteFiles(files)
+    }
 }
