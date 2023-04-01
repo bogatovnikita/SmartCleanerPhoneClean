@@ -13,7 +13,7 @@ import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import java.io.File
 import kotlin.coroutines.CoroutineContext
 
-class GarbageFilesUseCasesImpl(
+internal class GarbageFilesUseCasesImpl(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
     private val permissions: Permissions,

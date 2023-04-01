@@ -5,7 +5,7 @@ import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import java.io.File
 
-class GarbageOutCreatorImpl : GarbageOutCreator {
+internal class GarbageOutCreatorImpl : GarbageOutCreator {
 
     override fun create(forms: Map<GarbageType, SelectableForm<File>>): List<Garbage> {
         return forms.map {

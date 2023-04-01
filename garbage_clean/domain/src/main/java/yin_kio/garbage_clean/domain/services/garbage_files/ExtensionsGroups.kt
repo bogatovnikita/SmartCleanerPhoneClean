@@ -1,6 +1,6 @@
 package yin_kio.garbage_clean.domain.services.garbage_files
 
-object ExtensionsGroups {
+internal object ExtensionsGroups {
 
     val apks = arrayOf(Extensions.APK)
     val temp = arrayOf(Extensions.TMP, Extensions.TEMP, Extensions.TEMP_PATH, Extensions.TMP_PATH)

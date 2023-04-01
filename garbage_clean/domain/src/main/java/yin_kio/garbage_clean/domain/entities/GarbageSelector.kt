@@ -4,7 +4,7 @@ import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import java.io.File
 
-interface GarbageSelector {
+internal interface GarbageSelector {
 
     fun setGarbage(garbage: Map<GarbageType, SelectableForm<File>>)
 

@@ -2,7 +2,7 @@ package yin_kio.garbage_clean.domain.services.garbage_files
 
 import java.io.File
 
-object Extensions {
+internal object Extensions {
 
     private val separator = File.separator
 

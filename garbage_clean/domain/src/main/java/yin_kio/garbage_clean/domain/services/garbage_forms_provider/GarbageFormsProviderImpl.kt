@@ -7,7 +7,7 @@ import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.services.selectable_form.SimpleSelectableForm
 import java.io.File
 
-class GarbageFormsProviderImpl(
+ internal class GarbageFormsProviderImpl(
     private val files: Files
 ) : GarbageFormsProvider {
 

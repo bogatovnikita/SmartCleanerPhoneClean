@@ -6,7 +6,7 @@ import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageForms
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 
-class UpdateUseCase(
+internal class UpdateUseCase(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
     private val garbageFormsProvider: GarbageFormsProvider,
