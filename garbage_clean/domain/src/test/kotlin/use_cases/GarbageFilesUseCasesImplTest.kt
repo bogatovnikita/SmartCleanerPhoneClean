@@ -1,6 +1,11 @@
 package use_cases
 
 import io.mockk.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Files
@@ -13,6 +18,8 @@ import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
 
+
+@OptIn(ExperimentalCoroutinesApi::class)
 class GarbageFilesUseCasesImplTest {
 
     private val uiOuter: UiOuter = spyk()
@@ -24,6 +31,8 @@ class GarbageFilesUseCasesImplTest {
     private val storageInfo: StorageInfo = spyk()
     private val files: Files = spyk()
 
+    private val dispatcher = StandardTestDispatcher()
+    private val testScope = TestScope(dispatcher)
 
 
     private val useCases = GarbageFilesUseCasesImpl(
@@ -32,7 +41,9 @@ class GarbageFilesUseCasesImplTest {
         permissions = permissions,
         updateUseCase = updateUseCase,
         storageInfo = storageInfo,
-        files = files
+        files = files,
+        coroutineScope = testScope,
+        dispatcher = dispatcher
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -92,23 +103,25 @@ class GarbageFilesUseCasesImplTest {
     }
 
     @Test
-    fun testScan(){
+    fun testScan() = testScope.runTest {
         assertScanIfHasPermission()
         assertScanIfHasNotPermission()
     }
 
-    private fun assertScanIfHasPermission(){
+    private fun TestScope.assertScanIfHasPermission() {
         coEvery { permissions.hasPermission } returns true
 
         useCases.scan()
+        advanceUntilIdle()
 
         coVerify { updateUseCase.update() }
     }
 
-    private fun assertScanIfHasNotPermission(){
+    private fun TestScope.assertScanIfHasNotPermission() {
         coEvery { permissions.hasPermission } returns false
 
         useCases.scan()
+        advanceUntilIdle()
 
         coVerify { uiOuter.showPermissionDialog() }
     }
@@ -136,7 +149,7 @@ class GarbageFilesUseCasesImplTest {
     }
 
     @Test
-    fun testClean(){
+    fun testClean() = testScope.runTest {
         val selectedFiles = listOf<File>()
         val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
         // Добавить реализацию очистки
@@ -144,6 +157,7 @@ class GarbageFilesUseCasesImplTest {
         coEvery { garbageSelector.getSelected() } returns selectedFiles
 
         useCases.clean()
+        advanceUntilIdle()
 
         coVerifyOrder {
             storageInfo.saveStartVolume()

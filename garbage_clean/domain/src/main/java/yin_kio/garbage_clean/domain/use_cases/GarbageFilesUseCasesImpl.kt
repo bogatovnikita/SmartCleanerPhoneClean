@@ -1,5 +1,7 @@
 package yin_kio.garbage_clean.domain.use_cases
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Files
@@ -9,6 +11,7 @@ import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import java.io.File
+import kotlin.coroutines.CoroutineContext
 
 class GarbageFilesUseCasesImpl(
     private val uiOuter: UiOuter,
@@ -16,7 +19,9 @@ class GarbageFilesUseCasesImpl(
     private val permissions: Permissions,
     private val updateUseCase: UpdateUseCase,
     private val storageInfo: StorageInfo,
-    private val files: Files
+    private val files: Files,
+    private val coroutineScope: CoroutineScope,
+    private val dispatcher: CoroutineContext
 ) : GarbageFilesUseCases {
 
     override fun closePermissionDialog(){
@@ -40,7 +45,7 @@ class GarbageFilesUseCasesImpl(
 
     }
 
-    override fun scan(){
+    override fun scan() = async {
         if (permissions.hasPermission){
             updateUseCase.update()
         } else {
@@ -59,7 +64,7 @@ class GarbageFilesUseCasesImpl(
 
     }
 
-    override fun clean() = runBlocking{
+    override fun clean() = async {
         storageInfo.saveStartVolume()
         uiOuter.showCleanProgress(listOf())
         files.deleteFiles(garbageSelector.getSelected())
@@ -69,6 +74,10 @@ class GarbageFilesUseCasesImpl(
 
     override fun closeInter(){
         uiOuter.showResult(storageInfo.freedVolume)
+    }
+
+    private fun async(block: suspend () -> Unit){
+        coroutineScope.launch(dispatcher) { block() }
     }
 
 }
