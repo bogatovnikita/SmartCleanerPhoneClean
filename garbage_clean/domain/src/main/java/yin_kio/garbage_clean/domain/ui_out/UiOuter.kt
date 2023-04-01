@@ -12,5 +12,6 @@ interface UiOuter {
     fun showUpdateProgress()
     fun showPermissionRequired()
     fun showCleanProgress(messages: List<String>)
+    fun showResult(result: Long)
 
 }

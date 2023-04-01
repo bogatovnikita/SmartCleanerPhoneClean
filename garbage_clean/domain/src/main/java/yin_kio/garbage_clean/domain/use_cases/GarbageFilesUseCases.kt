@@ -58,4 +58,8 @@ class GarbageFilesUseCases(
         uiOuter.showCleanProgress(listOf())
     }
 
+    fun closeInter(){
+        uiOuter.showResult(0L)
+    }
+
 }

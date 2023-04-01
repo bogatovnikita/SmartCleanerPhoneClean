@@ -130,13 +130,21 @@ class GarbageFilesUseCasesTest {
 
     @Test
     fun testClean(){
-        val messages = listOf<String>()
+        val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
 
         useCases.clean()
 
         coVerify {
             uiOuter.showCleanProgress(messages)
         }
+    }
+
+    @Test
+    fun testCloseInter(){
+        val result = 0L
+        useCases.closeInter()
+
+        coVerify { uiOuter.showResult(result) }
     }
 
 }
