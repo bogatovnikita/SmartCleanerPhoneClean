@@ -1,3 +1,5 @@
+package use_cases
+
 import io.mockk.*
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
