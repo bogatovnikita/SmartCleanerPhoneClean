@@ -4,6 +4,6 @@ import java.io.File
 
 interface Files {
 
-    fun getAllFiles() : List<File>
+    suspend fun getAllFiles() : List<File>
 
 }
