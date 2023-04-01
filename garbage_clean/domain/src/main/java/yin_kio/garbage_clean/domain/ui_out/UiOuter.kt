@@ -11,5 +11,6 @@ interface UiOuter {
     fun outGarbage(garbage: List<Garbage>)
     fun showUpdateProgress()
     fun showPermissionRequired()
+    fun showCleanProgress(messages: List<String>)
 
 }

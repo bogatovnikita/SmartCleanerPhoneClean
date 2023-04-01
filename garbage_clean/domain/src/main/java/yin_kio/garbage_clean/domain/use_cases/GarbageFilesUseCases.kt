@@ -54,4 +54,8 @@ class GarbageFilesUseCases(
 
     }
 
+    fun clean(){
+        uiOuter.showCleanProgress(listOf())
+    }
+
 }

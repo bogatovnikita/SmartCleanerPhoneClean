@@ -128,4 +128,15 @@ class GarbageFilesUseCasesTest {
         coVerify { uiOuter.showPermissionRequired() }
     }
 
+    @Test
+    fun testClean(){
+        val messages = listOf<String>()
+
+        useCases.clean()
+
+        coVerify {
+            uiOuter.showCleanProgress(messages)
+        }
+    }
+
 }
