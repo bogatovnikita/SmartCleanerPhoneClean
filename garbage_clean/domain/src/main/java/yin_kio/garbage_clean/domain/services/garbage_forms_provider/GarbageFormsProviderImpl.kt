@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.services
+package yin_kio.garbage_clean.domain.services.garbage_forms_provider
 
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageFilesDistributor
@@ -9,7 +9,7 @@ import java.io.File
 
 class GarbageFormsProviderImpl(
     private val files: Files
-) : GarbageFormsProvider{
+) : GarbageFormsProvider {
 
     private val distributor = GarbageFilesDistributor()
 

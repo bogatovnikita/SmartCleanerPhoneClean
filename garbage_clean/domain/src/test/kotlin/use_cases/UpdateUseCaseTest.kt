@@ -6,7 +6,7 @@ import io.mockk.mockk
 import io.mockk.spyk
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.services.GarbageFormsProvider
+import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProvider
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Garbage

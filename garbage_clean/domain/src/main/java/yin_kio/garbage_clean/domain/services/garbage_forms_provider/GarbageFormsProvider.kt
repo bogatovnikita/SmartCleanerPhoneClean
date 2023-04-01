@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.services
+package yin_kio.garbage_clean.domain.services.garbage_forms_provider
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm

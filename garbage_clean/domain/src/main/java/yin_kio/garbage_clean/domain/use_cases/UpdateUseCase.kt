@@ -1,7 +1,7 @@
 package yin_kio.garbage_clean.domain.use_cases
 
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.services.GarbageFormsProvider
+import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProvider
 import yin_kio.garbage_clean.domain.ui_out.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 
