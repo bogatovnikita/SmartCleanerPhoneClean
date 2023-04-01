@@ -2,6 +2,7 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
+import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -12,6 +13,7 @@ class GarbageFilesUseCases(
     private val garbageSelector: GarbageSelector,
     private val permissions: Permissions,
     private val updateUseCase: UpdateUseCase,
+    private val storageInfo: StorageInfo
 ) {
 
     fun closePermissionDialog(){
@@ -55,11 +57,14 @@ class GarbageFilesUseCases(
     }
 
     fun clean(){
+        storageInfo.saveStartVolume()
         uiOuter.showCleanProgress(listOf())
+        storageInfo.saveEndVolume()
+        storageInfo.calculateEndVolume()
     }
 
     fun closeInter(){
-        uiOuter.showResult(0L)
+        uiOuter.showResult(storageInfo.freedVolume)
     }
 
 }
