@@ -2,7 +2,7 @@ package com.softcleean.fastcleaner.domain.battery
 
 interface BatteryRepository {
 
-    fun checkBatteryDecrease(): Boolean
+    fun isBatteryBoosted(): Boolean
 
     fun saveTimeBatteryBoost()
 
