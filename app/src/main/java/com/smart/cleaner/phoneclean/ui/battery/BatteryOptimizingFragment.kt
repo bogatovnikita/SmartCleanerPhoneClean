@@ -4,6 +4,8 @@ import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.custom.ChoosingTypeBatteryBar
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -20,12 +22,9 @@ class BatteryOptimizingFragment(
 
     override fun getArrayOptimization() {
         listOptions = when (batteryUseCase.getBatteryType()) {
-            ChoosingTypeBatteryBar.NORMAL -> resources.getStringArray(R.array.battery_normal)
-                .toMutableList()
-            ChoosingTypeBatteryBar.ULTRA -> resources.getStringArray(R.array.battery_ultra)
-                .toMutableList()
-            ChoosingTypeBatteryBar.EXTRA -> resources.getStringArray(R.array.battery_extra)
-                .toMutableList()
+            ChoosingTypeBatteryBar.NORMAL -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_normal))
+            ChoosingTypeBatteryBar.ULTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_ultra))
+            ChoosingTypeBatteryBar.EXTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra))
             else -> mutableListOf()
         }
     }
@@ -58,5 +57,13 @@ class BatteryOptimizingFragment(
     }
 
     override fun getFunName(): String = requireContext().getString(R.string.optimization)
+
+    private fun toGeneralOptimizingItemList(list: Array<String>): MutableList<OptimizingItem> {
+        val newList = mutableListOf<OptimizingItem>()
+        list.forEach {
+            newList.add(GeneralOptimizingItem(it))
+        }
+        return newList
+    }
 
 }

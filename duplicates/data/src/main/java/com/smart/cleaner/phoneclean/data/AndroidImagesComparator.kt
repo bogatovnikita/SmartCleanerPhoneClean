@@ -9,13 +9,18 @@ import javax.inject.Inject
 class AndroidImagesComparator @Inject constructor(): ImagesComparator {
 
     override fun invoke(imageFirst: ImageInfo, imageSecond: ImageInfo): Boolean {
-        val first = File(imageFirst.path)
-        val second = File(imageSecond.path)
+        var isContentEquals = false
+        try {
+            val first = File(imageFirst.path)
+            val second = File(imageSecond.path)
 
-        if (first.name == second.name){
-            return isContentEquals(first, second)
+            if (first.name == second.name){
+                isContentEquals = isContentEquals(first, second)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        return false
+        return isContentEquals
     }
 
     private fun isContentEquals(first: File, second: File): Boolean {

@@ -3,6 +3,8 @@ package com.smart.cleaner.phoneclean.presentation.di
 import com.smart.cleaner.phoneclean.data.AndroidImagesComparator
 import com.smart.cleaner.phoneclean.data.FilesImpl
 import com.smart.cleaner.phoneclean.data.PermissionsImpl
+import com.smart.cleaner.phoneclean.data.SettingsImpl
+import com.smart.cleaner.phoneclean.domain.gateways.DuplicatesSettings
 import com.smart.cleaner.phoneclean.domain.gateways.Files
 import com.smart.cleaner.phoneclean.domain.gateways.ImagesComparator
 import com.smart.cleaner.phoneclean.domain.gateways.Permissions
@@ -28,5 +30,8 @@ interface BindModule {
 
     @Binds
     fun bindDuplicateImagesUseCase(UseCase: DuplicateImagesUseCaseImpl): DuplicateImagesUseCase
+
+    @Binds
+    fun bindDuplicatesSettings(settings: SettingsImpl): DuplicatesSettings
 
 }

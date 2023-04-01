@@ -1,13 +1,13 @@
 package bogatovnikita.premium.presentation.ui
 
 import android.app.Dialog
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import bogatovnikita.premium.presentation.R
+import bogatovnikita.premium.presentation.WebViewActivity
+import bogatovnikita.premium.presentation.WebViewActivity.Companion.PRIVACY_POLICY
 import bogatovnikita.premium.presentation.databinding.FragmentPremiumScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.setOnSetupFinished
@@ -35,7 +35,7 @@ class PremiumScreenFragment : DialogFragment(R.layout.fragment_premium_screen) {
             startSubscription()
         }
         binding.privacyPolice.setOnClickListener {
-            openBrowser("https://smartappscorp.com/smartcleaner/Privacy-Policy.html")
+            startActivity(WebViewActivity.getIntent(requireContext(), PRIVACY_POLICY))
         }
 
         binding.restorePurchases.setOnClickListener {
@@ -45,11 +45,6 @@ class PremiumScreenFragment : DialogFragment(R.layout.fragment_premium_screen) {
         binding.termsOfUse.setOnClickListener {
             // TODO добавить переход
         }
-    }
-
-    private fun openBrowser(uri: String) {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-        startActivity(browserIntent)
     }
 
     private fun premiumActivated() {

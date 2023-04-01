@@ -46,6 +46,7 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.38.1"
 
     implementation project(':app:domain')
+    implementation project(':settings')
 
 
 }

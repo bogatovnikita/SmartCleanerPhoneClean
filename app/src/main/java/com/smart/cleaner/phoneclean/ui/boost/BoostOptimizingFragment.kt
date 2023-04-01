@@ -3,6 +3,8 @@ package com.smart.cleaner.phoneclean.ui.boost
 import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.BoostOptimizingItem
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -28,9 +30,19 @@ class BoostOptimizingFragment(
     }
 
     override fun getArrayOptimization() {
-        listOptions = resources.getStringArray(R.array.optimization).toMutableList()
+        listOptions = getBoostOptimizingItem()
     }
 
     override fun getFunName(): String = requireContext().getString(R.string.optimization)
+
+
+    private fun getBoostOptimizingItem(): MutableList<OptimizingItem> {
+        return resources.getStringArray(R.array.optimization).map {
+            BoostOptimizingItem(
+                name = it,
+                icon = R.drawable.ic_duplicate_danger
+            )
+        }.toMutableList()
+    }
 
 }

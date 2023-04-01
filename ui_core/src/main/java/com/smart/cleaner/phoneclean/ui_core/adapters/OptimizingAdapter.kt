@@ -2,12 +2,16 @@ package com.smart.cleaner.phoneclean.ui_core.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.BoostOptimizingItem
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
+import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.smart.cleaner.phoneclean.ui_core.databinding.ItemOptimizingBinding
 
-class OptimizingAdapter : ListAdapter<String, OptimizingAdapter.OptimizerItemViewHolder>(
+class OptimizingAdapter : ListAdapter<OptimizingItem, OptimizingAdapter.OptimizerItemViewHolder>(
     OptimizeFunItemDiffCallback()
 ) {
 
@@ -15,8 +19,15 @@ class OptimizingAdapter : ListAdapter<String, OptimizingAdapter.OptimizerItemVie
         private val binding: ItemOptimizingBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(option: String) {
-            binding.tvOptimizingName.text = option
+        fun bind(option: OptimizingItem) {
+            binding.tvOptimizingName.text = option.name
+            if (option is GeneralOptimizingItem) {
+                binding.ivIcon.isVisible = false
+            }
+            if (option is BoostOptimizingItem) {
+                binding.ivIcon.isVisible = true
+                binding.ivIcon.setImageResource(option.icon)
+            }
         }
     }
 
@@ -31,11 +42,13 @@ class OptimizingAdapter : ListAdapter<String, OptimizingAdapter.OptimizerItemVie
     }
 
 
-    class OptimizeFunItemDiffCallback : DiffUtil.ItemCallback<String>() {
+    class OptimizeFunItemDiffCallback : DiffUtil.ItemCallback<OptimizingItem>() {
 
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+        override fun areItemsTheSame(oldItem: OptimizingItem, newItem: OptimizingItem) =
+            oldItem.name == newItem.name
 
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+        override fun areContentsTheSame(oldItem: OptimizingItem, newItem: OptimizingItem) =
+            oldItem.name == newItem.name
 
     }
 

@@ -10,4 +10,6 @@ interface DuplicateImagesUseCase {
 
     fun hasStoragePermissions(): Boolean
 
+    fun saveDuplicatesDeleteTime()
+
 }

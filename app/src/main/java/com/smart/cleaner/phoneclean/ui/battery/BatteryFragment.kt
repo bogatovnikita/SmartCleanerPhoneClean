@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -67,11 +66,14 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             viewModel.setHasBluetoothPerm(checkBluetoothPermission())
         }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getParams()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObserverStateScreen()
-        viewModel.getParams()
         initAdapter()
         setTypeBoostBattery()
         setBtnListeners()
@@ -100,14 +102,13 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun requestPermForChangingBrightness() {
-        if (hasPermCanWrite()) return
         startActivityForResultWriteSettings.launch(Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS).apply {
             data = Uri.parse("package:" + requireActivity().packageName)
         })
     }
 
     private fun hasPermCanWrite(): Boolean =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) Settings.System.canWrite(requireContext()) else true
+        Settings.System.canWrite(requireContext())
 
     private fun requestPermForBluetooth() {
         startActivityForResultBluetooth.launch(arrayOf(Manifest.permission.BLUETOOTH_CONNECT))
@@ -142,7 +143,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun renderState(batteryStateScreen: BatteryStateScreen) {
         with(batteryStateScreen) {
-            setBatteryStatus(isBoostedBattery)
+            setBatteryStatus(isBoostedBattery, currentBatteryType)
             batterySavingTypeProcessing(batterySaveType)
             with(binding) {
                 choosingTypeBar.setSaveTypeBattery(batterySaveType)
@@ -151,25 +152,24 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 }
             }
             renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
+            binding.permissionRequired.isVisible = !isCanWriteSettings
         }
     }
 
-    private fun setBatteryStatus(isBoostedBattery: Boolean) {
+    private fun setBatteryStatus(isBoostedBattery: Boolean, currentBatteryType: String) {
 
         val ivId = if (isBoostedBattery) R.drawable.battery_normal else R.drawable.battery_low
         binding.ivBatteryStatus.setImageResource(ivId)
-
-        val descriptionStrId =
-            if (isBoostedBattery) R.string.battery_boosted else R.string.battery_unboosted
-        val descriptionColorId = if (isBoostedBattery) general.R.color.secondary else R.color.red
-        binding.tvBatteryStatus.setText(descriptionStrId)
-        binding.tvBatteryStatus.setTextColor(
-            AppCompatResources.getColorStateList(
-                requireContext(),
-                descriptionColorId
-            )
-        )
-
+        binding.tvBatteryStatus.isVisible = isBoostedBattery
+        if (isBoostedBattery) {
+            val descriptionStrId = when (currentBatteryType) {
+                NORMAL -> R.string.normal_mode_activated
+                ULTRA -> R.string.ultra_mode_activated
+                EXTRA -> R.string.extra_mode_activated
+                else -> R.string.normal_mode_activated
+            }
+            binding.tvBatteryStatus.text = getString(descriptionStrId)
+        }
     }
 
     private fun batterySavingTypeProcessing(type: String) {

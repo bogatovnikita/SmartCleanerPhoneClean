@@ -21,7 +21,7 @@ class DuplicateImagesViewModel @Inject constructor(
             val duplicates = useCase.getImageDuplicates()
             updateState {
                 it.copy(
-                    duplicates = map(duplicates),
+                    duplicates = mapUiModel(duplicates),
                     isLoading = false,
                     isNotFound = duplicates.isEmpty(),
                     isCanDelete = false,
@@ -46,6 +46,8 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
             is ImagesStateScreen.ImageEvent.ConfirmedImageDeletion -> setEvent(event)
+            is ImagesStateScreen.ImageEvent.Delete -> saveTimeAndDelete(event.time)
+            is ImagesStateScreen.ImageEvent.DeleteDone -> updateListAfterDeleting()
             else -> {}
         }
     }
@@ -108,35 +110,6 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
-    private fun map(duplicates: List<List<ImageInfo>>): List<ParentImageItem> {
-        return duplicates.map { groupDuplicates ->
-            val images = groupDuplicates.map { imageInfo ->
-                var isSelected = false
-                screenState.value.duplicates.forEach { oldList ->
-                    oldList.images.forEach { image ->
-                        if (image.imagePath == imageInfo.path) {
-                            isSelected = image.isSelected
-                            return@forEach
-                        }
-                    }
-                    if (isSelected) {
-                        return@forEach
-                    }
-                }
-                ChildImageItem(
-                    imagePath = imageInfo.path,
-                    isSelected = isSelected,
-                    size = imageInfo.size
-                )
-            }
-            ParentImageItem(
-                isAllSelected = images.none { !it.isSelected },
-                count = groupDuplicates.size,
-                images = images
-            )
-        }
-    }
-
     private fun isAllSelected(
         oldList: ParentImageItem,
         selectedImage: ChildImageItem,
@@ -191,6 +164,18 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
+    private fun saveTimeAndDelete(time: Long) {
+        useCase.saveDuplicatesDeleteTime()
+        updateState {
+            it.copy(
+                timeDeletion = time
+            )
+        }
+        viewModelScope.launch {
+            useCase.deleteDuplicates(getListForDelete())
+        }
+    }
+
     private fun updateTotalImageSize() {
         var totalSize = 0L
         screenState.value.duplicates.forEach { duplicates ->
@@ -227,6 +212,67 @@ class DuplicateImagesViewModel @Inject constructor(
             it.copy(
                 duplicates = list
             )
+        }
+    }
+
+    private fun mapUiModel(duplicates: List<List<ImageInfo>>): List<ParentImageItem> {
+        return duplicates.map { groupDuplicates ->
+            val images = groupDuplicates.map { imageInfo ->
+                var isSelected = false
+                screenState.value.duplicates.forEach { oldList ->
+                    oldList.images.forEach { image ->
+                        if (image.imagePath == imageInfo.path) {
+                            isSelected = image.isSelected
+                            return@forEach
+                        }
+                    }
+                    if (isSelected) {
+                        return@forEach
+                    }
+                }
+                ChildImageItem(
+                    imagePath = imageInfo.path,
+                    isSelected = isSelected,
+                    size = imageInfo.size
+                )
+            }
+            ParentImageItem(
+                isAllSelected = images.none { !it.isSelected },
+                count = groupDuplicates.size,
+                images = images
+            )
+        }
+    }
+
+    private fun getListForDelete(): List<ImageInfo> {
+        val listForDelete = mutableListOf<ImageInfo>()
+        screenState.value.duplicates.forEach { duplicates ->
+            duplicates.images.forEach { image ->
+                if (image.isSelected) {
+                    listForDelete.add(ImageInfo(image.imagePath, 0))
+                }
+            }
+        }
+        return listForDelete
+    }
+
+    private fun updateListAfterDeleting() {
+        viewModelScope.launch(Dispatchers.Default) {
+            val updatedList = mutableListOf<ParentImageItem>()
+            screenState.value.duplicates.forEach { duplicates ->
+                updatedList.add(
+                    ParentImageItem(
+                        count = duplicates.images.filter { !it.isSelected }.size,
+                        isAllSelected = duplicates.images.none { !it.isSelected },
+                        images = duplicates.images.filter { !it.isSelected },
+                    )
+                )
+            }
+            updateState {
+                it.copy(
+                    duplicates = updatedList
+                )
+            }
         }
     }
 
