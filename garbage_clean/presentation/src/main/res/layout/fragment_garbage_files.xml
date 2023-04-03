@@ -49,6 +49,7 @@
 
 
     <TextView
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_marginBottom="3dp"
         style="@style/Button.Main"/>

@@ -3,5 +3,6 @@
 
     <string name="garbage_clean_title">Junk cleaner</string>
     <string name="permission_required">Permission required</string>
+    <string name="scan">Scan</string>
 
 </resources>

@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -50,6 +52,10 @@ dependencies {
     implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
 
     implementation 'com.github.pokercc:ExpandableRecyclerView:0.9.3'
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
 
     implementation presentation.values()
     testImplementation presentation_test.values()

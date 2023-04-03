@@ -28,7 +28,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
+@Singleton
+@AndroidEntryPoint
 class ToolbarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -36,7 +37,8 @@ class ToolbarView @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private val localeProvider: LocaleProvider by lazy { LocaleProvider(context = context.applicationContext as Application) }
+    @Inject
+    lateinit var localeProvider: LocaleProvider
 
     private val binding: ViewToolbarBinding
 
@@ -75,7 +77,7 @@ class ToolbarView @JvmOverloads constructor(
     }
 
     private fun renderLanguageFlag() {
-        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
+//        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
     }
 
     private fun initClickListeners() {

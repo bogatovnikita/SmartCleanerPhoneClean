@@ -3,7 +3,9 @@ package yin_kio.garbage_clean.test
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ads.initAds
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 
