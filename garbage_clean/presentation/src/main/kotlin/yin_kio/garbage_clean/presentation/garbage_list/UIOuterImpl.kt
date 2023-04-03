@@ -12,11 +12,11 @@ class UIOuterImpl(
     var viewModel: ViewModel? = null
 
     override fun closePermissionDialog() {
-//        TODO("Not yet implemented")
+        viewModel?.sendCommand(Command.ClosePermissionDialog)
     }
 
     override fun requestPermission() {
-//        TODO("Not yet implemented")
+        viewModel?.sendCommand(Command.RequestPermission)
     }
 
     override fun updateGroup(group: GarbageType) {
@@ -24,7 +24,7 @@ class UIOuterImpl(
     }
 
     override fun showPermissionDialog() {
-        viewModel?.sendCommand(Command.ShowDialog)
+        viewModel?.sendCommand(Command.ShowPermissionDialog)
     }
 
     override fun outGarbage(garbage: List<Garbage>) {

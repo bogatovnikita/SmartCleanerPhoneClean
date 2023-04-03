@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/garbageFilesFragment"
         android:name="yin_kio.garbage_clean.presentation.garbage_list.GarbageFilesFragment"
-        android:label="GarbageFilesFragment" />
+        android:label="GarbageFilesFragment" >
+        <action
+            android:id="@+id/toPermissionDialog"
+            app:destination="@id/permissionDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/permissionDialog"
+        android:name="yin_kio.garbage_clean.presentation.permission_dialog.PermissionDialog"
+        android:label="PermissionDialog" />
 </navigation>

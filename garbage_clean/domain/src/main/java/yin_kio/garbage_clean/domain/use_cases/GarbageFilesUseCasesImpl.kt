@@ -57,14 +57,13 @@ internal class GarbageFilesUseCasesImpl(
         }
     }
 
-    override fun start(){
+    override fun start() = async{
 
         if (permissions.hasPermission){
             updateUseCase.update()
-            return
+        } else {
+            uiOuter.showPermissionRequired()
         }
-
-        uiOuter.showPermissionRequired()
 
     }
 
