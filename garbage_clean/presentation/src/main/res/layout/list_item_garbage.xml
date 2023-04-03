@@ -21,12 +21,14 @@
         android:layout_marginStart="8dp">
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Text.Regular.14"
             tools:text="Name"/>
 
         <TextView
+            android:id="@+id/size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Text.Light.12"
@@ -35,11 +37,11 @@
     </LinearLayout>
 
 
-    <ImageView
+    <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bg_checkbox_unchecked"
+        android:button="@drawable/bg_checkbox"
         android:layout_marginHorizontal="32dp"/>
 
 

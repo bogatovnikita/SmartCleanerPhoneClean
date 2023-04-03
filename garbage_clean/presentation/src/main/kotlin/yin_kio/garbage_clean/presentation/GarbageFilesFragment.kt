@@ -8,11 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import jamycake.lifecycle_aware.LifecycleAware
 import jamycake.lifecycle_aware.lifecycleAware
 import yin_kio.garbage_clean.data.FilesImpl
 import yin_kio.garbage_clean.data.PermissionsImpl
 import yin_kio.garbage_clean.data.StorageInfoImpl
 import yin_kio.garbage_clean.domain.GarbageFilesFactory
+import yin_kio.garbage_clean.presentation.adapter.GarbageAdapter
 import yin_kio.garbage_clean.presentation.databinding.FragmentGarbageFilesBinding
 
 
@@ -20,37 +22,26 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
 
     private val binding: FragmentGarbageFilesBinding by viewBinding()
-    private val viewModel: ViewModel by lifecycleAware {
-        val context = requireContext().applicationContext
+    private val viewModel: ViewModel by lifecycleAware { createViewModel() }
 
-        val uiOuter =  UIOuterImpl(
-            presenter = Presenter(context)
-        )
+    private val adapter = GarbageAdapter(
+        onItemUpdate = {_,_,_ ->},
+        onGroupUpdate = {_,_ ->}
+    )
 
-        val useCases = GarbageFilesFactory.createGarbageFilesUseCases(
-            uiOuter = uiOuter,
-            permissions = PermissionsImpl(context),
-            files = FilesImpl(),
-            storageInfo = StorageInfoImpl(context),
-            coroutineScope = viewModelScope
-        )
-
-        val viewModel = ViewModel(
-            useCases = useCases,
-            coroutineScope = viewModelScope
-        )
-
-        uiOuter.viewModel = viewModel
-
-        viewModel
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.recycler.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect{
                 binding.size.text = it.size
                 binding.button.text = it.buttonText
+
+                adapter.garbage = it.garbage
+
+
+                adapter.notifyDataSetChanged()
 
             }
         }
@@ -71,5 +62,32 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     override fun onStart() {
         super.onStart()
         viewModel.start()
+    }
+
+
+
+    private fun LifecycleAware.createViewModel(): ViewModel {
+        val context = requireContext().applicationContext
+
+        val uiOuter = UIOuterImpl(
+            presenter = Presenter(context)
+        )
+
+        val useCases = GarbageFilesFactory.createGarbageFilesUseCases(
+            uiOuter = uiOuter,
+            permissions = PermissionsImpl(context),
+            files = FilesImpl(),
+            storageInfo = StorageInfoImpl(context),
+            coroutineScope = viewModelScope
+        )
+
+        val viewModel = ViewModel(
+            useCases = useCases,
+            coroutineScope = viewModelScope
+        )
+
+        uiOuter.viewModel = viewModel
+
+        return viewModel
     }
 }

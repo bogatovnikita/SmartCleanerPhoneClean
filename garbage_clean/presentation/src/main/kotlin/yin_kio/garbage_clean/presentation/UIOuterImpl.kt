@@ -39,7 +39,8 @@ class UIOuterImpl(
     override fun showPermissionRequired() {
         viewModel?.update { it.copy(
             size = presenter.presentUnknownSize(),
-            buttonText = presenter.presentButtonText(false)
+            buttonText = presenter.presentButtonText(false),
+            garbage = presenter.presentGarbageWithoutPermission()
         ) }
     }
 
