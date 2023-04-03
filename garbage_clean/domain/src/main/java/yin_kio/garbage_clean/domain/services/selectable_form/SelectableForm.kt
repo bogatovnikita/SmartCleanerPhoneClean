@@ -1,6 +1,6 @@
-package yin_kio.garbage_clean.domain.selectable_form
+package yin_kio.garbage_clean.domain.services.selectable_form
 
-interface SelectableForm<T> {
+internal interface SelectableForm<T> {
 
     var content: Collection<T>
     val selected: Collection<T>

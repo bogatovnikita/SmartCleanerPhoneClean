@@ -1,17 +1,16 @@
 package yin_kio.garbage_clean.domain.use_cases
 
-import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
+import yin_kio.garbage_clean.domain.ui_out.Checkable
+import java.io.File
 
-class GarbageFilesUseCases(
-    private val uiOuter: UiOuter
-) {
-
-    fun closePermissionDialog(){
-        uiOuter.closePermissionDialog()
-    }
-
-    fun requestPermission(){
-        uiOuter.requestPermission()
-    }
-
+interface GarbageFilesUseCases {
+    fun closePermissionDialog()
+    fun requestPermission()
+    fun switchItemSelection(group: GarbageType, file: File, itemCheckable: Checkable)
+    fun switchGroupSelection(group: GarbageType, groupCheckable: Checkable)
+    fun scan()
+    fun start()
+    fun clean()
+    fun closeInter()
 }

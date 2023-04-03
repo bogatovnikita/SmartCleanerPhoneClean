@@ -1,8 +1,8 @@
-package yin_kio.garbage_clean.domain.garbage_files
+package yin_kio.garbage_clean.domain.services.garbage_files
 
 import java.io.File
 
-class GarbageFilesDistributor {
+internal class GarbageFilesDistributor {
 
     fun distribute(files: List<File>) : Map<GarbageType, List<File>>{
         val distributed = mutableMapOf<GarbageType, List<File>>()
