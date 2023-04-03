@@ -65,6 +65,8 @@ class GarbageFilesUseCasesImplTest {
 
     @Test
     fun testSwitchItemSelection(){
+        coEvery { permissions.hasPermission } returns true
+
         assertItemSelectionPassed(true)
         assertItemSelectionPassed(false)
     }
@@ -85,6 +87,8 @@ class GarbageFilesUseCasesImplTest {
 
     @Test
     fun testSwitchGroupSelection(){
+        coEvery { permissions.hasPermission } returns true
+
         assertPassGroupSelected(true)
         assertPassGroupSelected(false)
     }
