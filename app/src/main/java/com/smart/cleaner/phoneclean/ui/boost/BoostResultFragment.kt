@@ -40,8 +40,8 @@ class BoostResultFragment(
     private fun renderState(state: BoostScreenState) {
         with(state) {
             with(binding) {
-                circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
-                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
+//                circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
+//                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
             }
         }
     }

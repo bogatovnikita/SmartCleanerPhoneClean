@@ -1,6 +1,7 @@
 package com.smart.cleaner.phoneclean.ui.boost
 
 import androidx.lifecycle.viewModelScope
+import com.smart.cleaner.phoneclean.models.BackgroundApp
 import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import com.smart.cleaner.phoneclean.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,16 +18,27 @@ class BoostViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val usedRam = toGb(boostUseCase.getRamUsage())
             val totalRam = toGb(boostUseCase.getTotalRam())
-            val freeRam = totalRam - usedRam
             updateState {
                 it.copy(
                     usedRam = usedRam,
                     totalRam = totalRam,
-                    freeRam = freeRam,
-                    ramPercent = 100 - (freeRam * 100 / totalRam).toInt(),
                     isRamBoosted = boostUseCase.isRamBoosted(),
+                    listBackgroundApp = mapToBackgroundApp(boostUseCase.getRunningApps())
                 )
             }
+        }
+    }
+
+    private fun mapToBackgroundApp(oldList: List<com.softcleean.fastcleaner.domain.models.BackgroundApp>) =
+        oldList.map {
+            BackgroundApp(name = it.name, icon = it.icon, packageName = it.packageName)
+        }
+
+    fun setUsageStatePermission(permissionGiven: Boolean) {
+        updateState {
+            it.copy(
+                permissionGiven = permissionGiven
+            )
         }
     }
 

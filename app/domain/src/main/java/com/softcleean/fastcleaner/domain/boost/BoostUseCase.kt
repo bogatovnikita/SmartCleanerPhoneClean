@@ -1,5 +1,6 @@
 package com.softcleean.fastcleaner.domain.boost
 
+import com.softcleean.fastcleaner.domain.models.BackgroundApp
 import javax.inject.Inject
 
 class BoostUseCase @Inject constructor(
@@ -19,4 +20,6 @@ class BoostUseCase @Inject constructor(
 
     suspend fun killBackgroundProcessSystemApps() =
         boostRepository.killBackgroundProcessSystemApps()
+
+    fun getRunningApps(): List<BackgroundApp> = boostRepository.getRunningApps()
 }

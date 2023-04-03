@@ -26,7 +26,7 @@
         android:layout_marginTop="@dimen/_24sdp"
         android:background="@drawable/bg_boost_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.26"
+        app:layout_constraintHeight_percent="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
 
@@ -36,12 +36,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:text="@string/device_information"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/phone_model"
         app:layout_constraintEnd_toEndOf="@id/background_description"
         app:layout_constraintStart_toStartOf="@id/background_description"
-        app:layout_constraintTop_toTopOf="@id/background_description" />
+        app:layout_constraintTop_toTopOf="@id/background_description"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/phone_model"
@@ -50,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
         android:textColor="@color/grey"
+        app:layout_constraintBottom_toTopOf="@id/separation_line_first"
         app:layout_constraintEnd_toEndOf="@id/background_description"
         app:layout_constraintStart_toStartOf="@id/device_info"
         app:layout_constraintTop_toBottomOf="@id/device_info"
@@ -62,6 +65,7 @@
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@color/card"
+        app:layout_constraintBottom_toTopOf="@id/total_amount_ram"
         app:layout_constraintEnd_toEndOf="@id/background_description"
         app:layout_constraintStart_toStartOf="@id/background_description"
         app:layout_constraintTop_toBottomOf="@id/phone_model" />
@@ -72,8 +76,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
         android:text="@string/ram"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/separation_line_second"
+        app:layout_constraintEnd_toStartOf="@id/total_amount_ram_count"
         app:layout_constraintStart_toStartOf="@id/device_info"
         app:layout_constraintTop_toBottomOf="@id/separation_line_first" />
 
@@ -95,18 +102,23 @@
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@color/card"
+        app:layout_constraintBottom_toTopOf="@id/used_ram_tv"
         app:layout_constraintEnd_toEndOf="@id/background_description"
         app:layout_constraintStart_toStartOf="@id/background_description"
         app:layout_constraintTop_toBottomOf="@id/total_amount_ram" />
 
     <TextView
-        android:id="@+id/used_ram"
+        android:id="@+id/used_ram_tv"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:text="@string/used"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/background_description"
+        app:layout_constraintEnd_toStartOf="@id/used_ram_count"
         app:layout_constraintStart_toStartOf="@id/device_info"
         app:layout_constraintTop_toBottomOf="@id/separation_line_second" />
 
@@ -116,9 +128,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/grey"
-        app:layout_constraintBottom_toBottomOf="@id/used_ram"
+        app:layout_constraintBottom_toBottomOf="@id/used_ram_tv"
         app:layout_constraintEnd_toEndOf="@id/device_info"
-        app:layout_constraintTop_toTopOf="@id/used_ram"
+        app:layout_constraintTop_toTopOf="@id/used_ram_tv"
         tools:text="@string/gb_one_after_dot" />
 
     <androidx.constraintlayout.widget.Group
@@ -134,22 +146,10 @@
         android:layout_marginTop="@dimen/_24sdp"
         android:background="@drawable/bg_boost_apps"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintHeight_percent="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_description"
         app:layout_constraintWidth_percent="0.45" />
-
-    <TextView
-        android:id="@+id/text_apps"
-        style="@style/Text.Medium.18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/apps"
-        app:layout_constraintBottom_toBottomOf="@id/background_apps"
-        app:layout_constraintEnd_toEndOf="@id/background_apps"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="@id/background_apps"
-        app:layout_constraintTop_toTopOf="@id/background_apps" />
 
     <TextView
         android:id="@+id/count_apps"
@@ -157,14 +157,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="top"
         android:textColor="@color/red"
         android:textSize="@dimen/_24ssp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/background_apps"
         app:layout_constraintEnd_toStartOf="@id/text_apps"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/background_apps"
         app:layout_constraintTop_toTopOf="@id/background_apps"
-        app:layout_constraintVertical_bias="0.1"
-        tools:text="5" />
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/text_apps"
+        style="@style/Text.Medium.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0.6"
+        android:text="@string/apps"
+        app:layout_constraintBottom_toBottomOf="@id/background_apps"
+        app:layout_constraintEnd_toEndOf="@id/background_apps"
+        app:layout_constraintStart_toEndOf="@id/count_apps"
+        app:layout_constraintTop_toTopOf="@id/background_apps" />
 
     <TextView
         android:id="@+id/count_description"
