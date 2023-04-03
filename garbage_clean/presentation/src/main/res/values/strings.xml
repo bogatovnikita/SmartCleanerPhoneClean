@@ -10,6 +10,9 @@
     <string name="residual_files">Residual files</string>
     <string name="empty_filders">Empty folders</string>
     <string name="miniatures">Miniatures</string>
-
+    <string name="we_need_permission">We need permission</string>
+    <string name="storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
+    <string name="close">Close</string>
+    <string name="allow">Allow</string>
 
 </resources>
