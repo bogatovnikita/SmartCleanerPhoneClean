@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -25,9 +24,7 @@ import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 @AndroidEntryPoint
 class ToolbarView @JvmOverloads constructor(
     context: Context,
@@ -46,9 +43,6 @@ class ToolbarView @JvmOverloads constructor(
         inflater.inflate(R.layout.view_toolbar, this, true)
         binding = ViewToolbarBinding.bind(this)
         initializeAttributes(attrs, defStyleAttr, defStyleRes)
-
-        if (binding.btnChangeLanguage.isVisible) renderLanguageFlag()
-
         initClickListeners()
     }
 
@@ -71,6 +65,9 @@ class ToolbarView @JvmOverloads constructor(
 
         val showMenuToolbar = typedArray.getBoolean(R.styleable.ToolbarView_show_menu, true)
         binding.btnMenu.visibility = if (showMenuToolbar) VISIBLE else GONE
+
+        val isLoadLanguage = typedArray.getBoolean(R.styleable.ToolbarView_is_load_language, true)
+        if (isLoadLanguage) renderLanguageFlag()
 
         typedArray.recycle()
     }

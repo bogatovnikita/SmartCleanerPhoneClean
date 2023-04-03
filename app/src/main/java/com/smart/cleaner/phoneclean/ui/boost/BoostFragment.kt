@@ -43,13 +43,13 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         with(state) {
             setEnableBtn(!isRamBoosted)
             with(binding) {
-                circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
-                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
-                tvUsedRam.text = getString(R.string.gb, usedRam)
-                tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
-                tvFreeRam.text = getString(R.string.gb, freeRam)
-                tvRamBoosted.isVisible = isRamBoosted
-                tvRamUnboosted.isVisible = !isRamBoosted
+//                circularProgressRamPercentDuplicate.progress = ramPercent.toFloat()
+//                tvRamPercentsDuplicate.text = getString(general.R.string.value_percents, ramPercent)
+//                tvUsedRam.text = getString(R.string.gb, usedRam)
+//                tvTotalRam.text = getString(R.string.gb_one_after_dot, totalRam)
+//                tvFreeRam.text = getString(R.string.gb, freeRam)
+//                tvRamBoosted.isVisible = isRamBoosted
+//                tvRamUnboosted.isVisible = !isRamBoosted
             }
         }
     }
@@ -57,7 +57,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     private fun setEnableBtn(enable: Boolean) {
         binding.btnBoostBattery.isClickable = enable
         binding.btnBoostBattery.isEnabled = enable
-        binding.descriptionNotOptimize.isVisible = enable
+//        binding.descriptionNotOptimize.isVisible = enable
     }
 
     private fun setBtnListeners() {

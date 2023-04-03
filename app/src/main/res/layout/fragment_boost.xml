@@ -10,207 +10,198 @@
     <bogatovnikita.toolbar.ui.ToolbarView
         android:id="@+id/custom_toolbar"
         android:layout_width="0dp"
-        android:layout_marginTop="@dimen/_8sdp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:is_load_language="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title_text="@string/boosting" />
 
-    <TextView
-        android:id="@+id/tv_ram_percents_duplicate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAppearance="@style/Text.Medium"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="@+id/circular_progress_ram_percent_duplicate"
-        app:layout_constraintEnd_toEndOf="@+id/circular_progress_ram_percent_duplicate"
-        app:layout_constraintStart_toStartOf="@+id/circular_progress_ram_percent_duplicate"
-        app:layout_constraintTop_toTopOf="@+id/circular_progress_ram_percent_duplicate"
-        tools:text="@string/value_percents" />
-
-    <yinkio.android.customView.progressBar.ArcCircleProgressBar
-        android:id="@+id/circular_progress_ram_percent_duplicate"
+    <View
+        android:id="@+id/background_description"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="89dp"
-        android:layout_marginTop="17dp"
-        app:canalColor="#CCCCCC"
-        app:canalHasShadow="false"
-        app:canalWidth="12dp"
-        app:indicatorColor="@color/primary"
-        app:indicatorEndAngle="270"
-        app:indicatorStartAngle="-90"
-        app:indicatorWidth="12dp"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:background="@drawable/bg_boost_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.26"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
-        tools:progress="65" />
+        app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
 
     <TextView
-        android:id="@+id/tv_boost_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/ram_usage"
-        android:textAppearance="@style/Text.Regular"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circular_progress_ram_percent_duplicate" />
-
-    <TextView
-        android:id="@+id/tv_ram_unboosted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/ram_unboosted"
-        android:textAppearance="@style/Text.Medium.14"
-        android:textColor="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_boost_name" />
-
-    <TextView
-        android:id="@+id/tv_ram_boosted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:paddingHorizontal="16dp"
-        android:text="@string/ram_boosted"
-        android:textAppearance="@style/Text.Medium.14"
-        android:textColor="@color/secondary"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_boost_name" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tv_ram_boosted, tv_ram_unboosted" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_ram"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_main_for_params"
-        android:paddingVertical="12dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/barrier">
-
-        <TextView
-            android:id="@+id/tv_used_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/used"
-            android:textAppearance="@style/Text.Medium.16"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_used_ram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gb_fraction"
-            android:textAppearance="@style/Text.Medium.16"
-            android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_used_title"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/separation_line_ram_one"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="-5dp"
-            android:background="@color/card"
-            app:layout_constraintEnd_toEndOf="@id/tv_used_ram"
-            app:layout_constraintStart_toStartOf="@id/tv_used_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_used_title" />
-
-        <TextView
-            android:id="@+id/tv_free_ram_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/free"
-            android:textAppearance="@style/Text.Medium.16"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/separation_line_ram_one" />
-
-        <TextView
-            android:id="@+id/tv_free_ram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gb_fraction"
-            android:textAppearance="@style/Text.Medium.16"
-            android:textColor="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@id/tv_free_ram_title"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/separation_line_ram_two"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="-5dp"
-            android:background="@color/card"
-            app:layout_constraintEnd_toEndOf="@id/tv_used_ram"
-            app:layout_constraintStart_toStartOf="@id/tv_used_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_free_ram_title" />
-
-        <TextView
-            android:id="@+id/tv_ram_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/ram"
-            android:textAppearance="@style/Text.Medium.16"
-            android:textColor="@color/primary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/separation_line_ram_two" />
-
-        <TextView
-            android:id="@+id/tv_total_ram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gb_one_after_dot"
-            android:textAppearance="@style/Text.Medium.16"
-            android:textColor="@color/primary"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ram_title"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/description_not_optimize"
+        android:id="@+id/device_info"
+        style="@style/Text.Medium.20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        android:gravity="center"
-        android:text="@string/boost_description"
-        android:textAppearance="@style/Text.Medium.14"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/device_information"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/background_description"
+        app:layout_constraintStart_toStartOf="@id/background_description"
+        app:layout_constraintTop_toTopOf="@id/background_description" />
+
+    <TextView
+        android:id="@+id/phone_model"
+        style="@style/Text.Medium.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="@id/background_description"
+        app:layout_constraintStart_toStartOf="@id/device_info"
+        app:layout_constraintTop_toBottomOf="@id/device_info"
+        tools:text="Google Pixel 3" />
+
+    <View
+        android:id="@+id/separation_line_first"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/card"
+        app:layout_constraintEnd_toEndOf="@id/background_description"
+        app:layout_constraintStart_toStartOf="@id/background_description"
+        app:layout_constraintTop_toBottomOf="@id/phone_model" />
+
+    <TextView
+        android:id="@+id/total_amount_ram"
+        style="@style/Text.Medium.16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/ram"
         android:textColor="@color/primary"
-        app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
+        app:layout_constraintStart_toStartOf="@id/device_info"
+        app:layout_constraintTop_toBottomOf="@id/separation_line_first" />
+
+    <TextView
+        android:id="@+id/total_amount_ram_count"
+        style="@style/Text.Medium.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="@id/total_amount_ram"
+        app:layout_constraintEnd_toEndOf="@id/device_info"
+        app:layout_constraintTop_toTopOf="@id/total_amount_ram"
+        tools:text="@string/gb_one_after_dot" />
+
+    <View
+        android:id="@+id/separation_line_second"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/card"
+        app:layout_constraintEnd_toEndOf="@id/background_description"
+        app:layout_constraintStart_toStartOf="@id/background_description"
+        app:layout_constraintTop_toBottomOf="@id/total_amount_ram" />
+
+    <TextView
+        android:id="@+id/used_ram"
+        style="@style/Text.Medium.16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/used"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/device_info"
+        app:layout_constraintTop_toBottomOf="@id/separation_line_second" />
+
+    <TextView
+        android:id="@+id/used_ram_count"
+        style="@style/Text.Medium.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@id/used_ram"
+        app:layout_constraintEnd_toEndOf="@id/device_info"
+        app:layout_constraintTop_toTopOf="@id/used_ram"
+        tools:text="@string/gb_one_after_dot" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_not_optimized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description" />
+
+    <View
+        android:id="@+id/background_apps"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:background="@drawable/bg_boost_apps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_description"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <TextView
+        android:id="@+id/text_apps"
+        style="@style/Text.Medium.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apps"
+        app:layout_constraintBottom_toBottomOf="@id/background_apps"
+        app:layout_constraintEnd_toEndOf="@id/background_apps"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@id/background_apps"
+        app:layout_constraintTop_toTopOf="@id/background_apps" />
+
+    <TextView
+        android:id="@+id/count_apps"
+        style="@style/Text.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_24ssp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/background_apps"
+        app:layout_constraintEnd_toStartOf="@id/text_apps"
+        app:layout_constraintTop_toTopOf="@id/background_apps"
+        app:layout_constraintVertical_bias="0.1"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/count_description"
+        style="@style/Text.Regular.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:text="@string/count_of_applications_running_in_the_background"
+        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_ram"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintTop_toBottomOf="@id/background_apps" />
+
+    <TextView
+        android:id="@+id/description_optimize_btn"
+        style="@style/Text.Medium.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:gravity="center"
+        android:text="@string/send_command_to_close_applications_running_in_the_background"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
+        app:layout_constraintEnd_toEndOf="@id/btn_boost_battery"
+        app:layout_constraintStart_toStartOf="@id/btn_boost_battery" />
+
+    <ImageView
+        android:id="@+id/boost_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:src="@drawable/ic_boost_done"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_description" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"
@@ -228,5 +219,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/permission_required"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/permission_required"
+        android:textAppearance="@style/Text.Medium.12"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_boost_battery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
