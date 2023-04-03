@@ -1,6 +1,5 @@
-package yin_kio.garbage_clean.presentation
+package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter

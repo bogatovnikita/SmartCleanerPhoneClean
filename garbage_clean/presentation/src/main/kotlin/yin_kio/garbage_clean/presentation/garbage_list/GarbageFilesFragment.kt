@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.presentation
+package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import jamycake.lifecycle_aware.LifecycleAware
 import jamycake.lifecycle_aware.lifecycleAware
@@ -14,7 +13,8 @@ import yin_kio.garbage_clean.data.FilesImpl
 import yin_kio.garbage_clean.data.PermissionsImpl
 import yin_kio.garbage_clean.data.StorageInfoImpl
 import yin_kio.garbage_clean.domain.GarbageFilesFactory
-import yin_kio.garbage_clean.presentation.adapter.GarbageAdapter
+import yin_kio.garbage_clean.presentation.R
+import yin_kio.garbage_clean.presentation.garbage_list.adapter.GarbageAdapter
 import yin_kio.garbage_clean.presentation.databinding.FragmentGarbageFilesBinding
 
 
@@ -32,6 +32,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.recycler.adapter = adapter
+
+        binding.button.setOnClickListener { viewModel.scan() }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect{

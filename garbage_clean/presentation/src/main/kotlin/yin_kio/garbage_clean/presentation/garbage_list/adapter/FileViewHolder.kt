@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.presentation.adapter
+package yin_kio.garbage_clean.presentation.garbage_list.adapter
 
 import android.text.format.Formatter.formatFileSize
 import android.view.LayoutInflater
@@ -35,7 +35,7 @@ class FileViewHolder private constructor(
             parent: ViewGroup,
             onClick: (GarbageType, File, Checkable) -> Unit,
             onUpdate: (GarbageType, File, Checkable) -> Unit
-        ) : FileViewHolder{
+        ) : FileViewHolder {
             val binding = ListItemGarbageBinding.inflate(LayoutInflater.from(parent.context))
             return FileViewHolder(binding, onUpdate, onClick)
         }

@@ -1,10 +1,10 @@
-package yin_kio.garbage_clean.presentation.adapter
+package yin_kio.garbage_clean.presentation.garbage_list.adapter
 
 import android.view.ViewGroup
 import pokercc.android.expandablerecyclerview.ExpandableAdapter
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
-import yin_kio.garbage_clean.presentation.adapter.models.GarbageGroup
+import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGroup
 import java.io.File
 
 class GarbageAdapter(

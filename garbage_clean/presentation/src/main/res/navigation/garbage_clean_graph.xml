@@ -5,6 +5,6 @@
     app:startDestination="@id/garbageFilesFragment">
     <fragment
         android:id="@+id/garbageFilesFragment"
-        android:name="yin_kio.garbage_clean.presentation.GarbageFilesFragment"
+        android:name="yin_kio.garbage_clean.presentation.garbage_list.GarbageFilesFragment"
         android:label="GarbageFilesFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.presentation
+package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope

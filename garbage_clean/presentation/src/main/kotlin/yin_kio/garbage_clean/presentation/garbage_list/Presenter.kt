@@ -1,9 +1,10 @@
-package yin_kio.garbage_clean.presentation
+package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.content.Context
 import android.text.format.Formatter.formatFileSize
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
-import yin_kio.garbage_clean.presentation.adapter.models.GarbageGroup
+import yin_kio.garbage_clean.presentation.R
+import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGroup
 
 class Presenter(
     private val context: Context

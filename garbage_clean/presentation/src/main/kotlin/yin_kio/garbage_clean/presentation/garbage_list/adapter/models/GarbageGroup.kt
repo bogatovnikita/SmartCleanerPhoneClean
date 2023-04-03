@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.presentation.adapter.models
+package yin_kio.garbage_clean.presentation.garbage_list.adapter.models
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import java.io.File
