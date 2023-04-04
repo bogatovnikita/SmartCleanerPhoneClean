@@ -9,6 +9,7 @@ import com.smart.cleaner.phoneclean.presentation.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,15 +20,17 @@ class DuplicateImagesViewModel @Inject constructor(
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getImageDuplicates()
-            updateState {
-                it.copy(
-                    duplicates = mapUiModel(duplicates),
-                    isLoading = false,
-                    isNotFound = duplicates.isEmpty(),
-                    isCanDelete = false,
-                )
+            withContext(Dispatchers.Main) {
+                updateState {
+                    it.copy(
+                        duplicates = mapUiModel(duplicates),
+                        isLoading = false,
+                        isNotFound = duplicates.isEmpty(),
+                        isCanDelete = false,
+                    )
+                }
+                isCanDelete()
             }
-            isCanDelete()
         }
     }
 
