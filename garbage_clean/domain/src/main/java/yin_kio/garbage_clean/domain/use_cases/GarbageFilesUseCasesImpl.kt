@@ -3,7 +3,6 @@ package yin_kio.garbage_clean.domain.use_cases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -18,10 +17,10 @@ internal class GarbageFilesUseCasesImpl(
     private val permissions: Permissions,
     private val updateUseCase: UpdateUseCase,
     private val storageInfo: StorageInfo,
-    private val files: Files,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
-    private val cleanUseCase: CleanUseCase
+    private val cleanUseCase: CleanUseCase,
+    private val scanUseCase: ScanUseCase
 ) : GarbageFilesUseCases {
 
     override fun closePermissionDialog(){
@@ -50,11 +49,7 @@ internal class GarbageFilesUseCasesImpl(
     }
 
     override fun scan() = async {
-        if (permissions.hasPermission){
-            updateUseCase.update()
-        } else {
-            uiOuter.showPermissionDialog()
-        }
+        scanUseCase.scan()
     }
 
     override fun start() = async{

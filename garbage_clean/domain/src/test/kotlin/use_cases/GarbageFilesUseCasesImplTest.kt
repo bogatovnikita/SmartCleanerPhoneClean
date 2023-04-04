@@ -8,7 +8,6 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -16,6 +15,7 @@ import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
+import yin_kio.garbage_clean.domain.use_cases.ScanUseCase
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
 
@@ -33,10 +33,13 @@ class GarbageFilesUseCasesImplTest {
         coEvery { clean() } returns Unit
     }
     private val storageInfo: StorageInfo = spyk()
-    private val files: Files = spyk()
 
     private val dispatcher = StandardTestDispatcher()
     private val testScope = TestScope(dispatcher)
+
+    private val scanUseCase: ScanUseCase = mockk{
+        coEvery { scan() } returns Unit
+    }
 
 
     private val useCases = GarbageFilesUseCasesImpl(
@@ -45,10 +48,10 @@ class GarbageFilesUseCasesImplTest {
         permissions = permissions,
         updateUseCase = updateUseCase,
         storageInfo = storageInfo,
-        files = files,
         coroutineScope = testScope,
         dispatcher = dispatcher,
-        cleanUseCase = cleanUseCase
+        cleanUseCase = cleanUseCase,
+        scanUseCase = scanUseCase
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -113,26 +116,10 @@ class GarbageFilesUseCasesImplTest {
 
     @Test
     fun testScan() = testScope.runTest {
-        assertScanIfHasPermission()
-        assertScanIfHasNotPermission()
-    }
-
-    private fun TestScope.assertScanIfHasPermission() {
-        coEvery { permissions.hasPermission } returns true
-
         useCases.scan()
         advanceUntilIdle()
 
-        coVerify { updateUseCase.update() }
-    }
-
-    private fun TestScope.assertScanIfHasNotPermission() {
-        coEvery { permissions.hasPermission } returns false
-
-        useCases.scan()
-        advanceUntilIdle()
-
-        coVerify { uiOuter.showPermissionDialog() }
+        coVerify { scanUseCase.scan() }
     }
 
     @Test
