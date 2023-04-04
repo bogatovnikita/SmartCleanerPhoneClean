@@ -4,7 +4,9 @@ import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.mockk
 import io.mockk.spyk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProvider
@@ -30,8 +32,9 @@ class UpdateUseCaseTest {
         garbageOutCreator = garbageOutCreator,
     )
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun testUpdate() = runBlocking{
+    fun testUpdate() = runTest{
 
         val garbageOut = listOf<Garbage>()
         val garbageForms = mapOf<GarbageType, SelectableForm<File>>()
