@@ -33,15 +33,17 @@ class UIOuterImpl(
             buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
+            buttonOpacity = 1f
         ) }
     }
 
     override fun showUpdateProgress() {
         viewModel?.update { it.copy(
             size = presenter.presentProgressSize(),
-            buttonText = presenter.presentButtonText(false),
+            buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbageForProgress(),
-            isShowPermissionRequired = false
+            isShowPermissionRequired = false,
+            buttonOpacity = 0.5f
         ) }
     }
 

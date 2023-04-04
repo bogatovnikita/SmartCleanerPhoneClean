@@ -6,5 +6,6 @@ data class ScreenState(
     val size: String = "",
     val buttonText: String = "",
     val garbage: List<GarbageGroup> = listOf(),
-    val isShowPermissionRequired: Boolean = false
+    val isShowPermissionRequired: Boolean = false,
+    val buttonOpacity: Float = 1f
 )

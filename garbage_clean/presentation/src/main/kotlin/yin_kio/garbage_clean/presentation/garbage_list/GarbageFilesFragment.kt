@@ -62,6 +62,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                 adapter.garbage = it.garbage
                 binding.permissionRequired.isInvisible = !it.isShowPermissionRequired
 
+                binding.button.alpha = it.buttonOpacity
+
 
                 adapter.notifyDataSetChanged()
 
