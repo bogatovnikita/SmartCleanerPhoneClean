@@ -15,6 +15,7 @@ class BoostViewModel @Inject constructor(
 ) : BaseViewModel<BoostScreenState>(BoostScreenState()) {
 
     fun getParams() {
+        updateState { it.copy(isLoadUseCase = false) }
         viewModelScope.launch(Dispatchers.IO) {
             val usedRam = toGb(boostUseCase.getRamUsage())
             val totalRam = toGb(boostUseCase.getTotalRam())
