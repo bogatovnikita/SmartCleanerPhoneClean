@@ -14,6 +14,7 @@ import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
@@ -27,6 +28,9 @@ class GarbageFilesUseCasesImplTest {
     private val permissions: Permissions = mockk()
     private val updateUseCase: UpdateUseCase = mockk{
         coEvery { update() } returns Unit
+    }
+    private val cleanUseCase: CleanUseCase = mockk{
+        coEvery { clean() } returns Unit
     }
     private val storageInfo: StorageInfo = spyk()
     private val files: Files = spyk()
@@ -43,7 +47,8 @@ class GarbageFilesUseCasesImplTest {
         storageInfo = storageInfo,
         files = files,
         coroutineScope = testScope,
-        dispatcher = dispatcher
+        dispatcher = dispatcher,
+        cleanUseCase = cleanUseCase
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -156,22 +161,10 @@ class GarbageFilesUseCasesImplTest {
 
     @Test
     fun testClean() = testScope.runTest {
-        val selectedFiles = listOf<File>()
-        val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
-        // Добавить реализацию очистки
-
-        coEvery { garbageSelector.getSelected() } returns selectedFiles
-
         useCases.clean()
         advanceUntilIdle()
 
-        coVerifyOrder {
-            storageInfo.saveStartVolume()
-            uiOuter.showCleanProgress(messages)
-            files.deleteFiles(selectedFiles)
-            storageInfo.saveEndVolume()
-            storageInfo.calculateEndVolume()
-        }
+        coVerify { cleanUseCase.clean() }
     }
 
     @Test

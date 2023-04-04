@@ -9,6 +9,7 @@ import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProviderImpl
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreatorImpl
+import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
@@ -32,6 +33,13 @@ object GarbageFilesFactory {
             garbageOutCreator = GarbageOutCreatorImpl()
         )
 
+        val cleanUseCase = CleanUseCase(
+            storageInfo = storageInfo,
+            uiOuter = uiOuter,
+            files = files,
+            garbageSelector = garbageSelector
+        )
+
         return GarbageFilesUseCasesImpl(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
@@ -40,7 +48,8 @@ object GarbageFilesFactory {
             storageInfo = storageInfo,
             files = files,
             coroutineScope = coroutineScope,
-            dispatcher = Dispatchers.IO
+            dispatcher = Dispatchers.IO,
+            cleanUseCase = cleanUseCase
         )
 
     }

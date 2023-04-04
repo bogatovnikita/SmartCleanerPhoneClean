@@ -20,7 +20,8 @@ internal class GarbageFilesUseCasesImpl(
     private val storageInfo: StorageInfo,
     private val files: Files,
     private val coroutineScope: CoroutineScope,
-    private val dispatcher: CoroutineContext
+    private val dispatcher: CoroutineContext,
+    private val cleanUseCase: CleanUseCase
 ) : GarbageFilesUseCases {
 
     override fun closePermissionDialog(){
@@ -67,11 +68,7 @@ internal class GarbageFilesUseCasesImpl(
     }
 
     override fun clean() = async {
-        storageInfo.saveStartVolume()
-        uiOuter.showCleanProgress(listOf())
-        files.deleteFiles(garbageSelector.getSelected())
-        storageInfo.saveEndVolume()
-        storageInfo.calculateEndVolume()
+        cleanUseCase.clean()
     }
 
     override fun closeInter(){
