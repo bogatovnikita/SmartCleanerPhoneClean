@@ -1,6 +1,5 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -8,10 +7,17 @@ import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 
 class ViewModel(
     private val useCases: GarbageFilesUseCases,
-    private val coroutineScope: CoroutineScope
+    private val coroutineScope: CoroutineScope,
+    private val presenter: Presenter
 ) : GarbageFilesUseCases by useCases{
 
-    private val _state = MutableStateFlow(ScreenState())
+
+    private val _state = MutableStateFlow(ScreenState(
+        size = presenter.presentUnknownSize(),
+        buttonText = presenter.presentButtonText(false),
+        garbage = presenter.presentGarbageWithoutPermission(),
+        isShowPermissionRequired = false
+    ))
     val state: StateFlow<ScreenState> = _state.asStateFlow()
 
     private val _commands = MutableSharedFlow<Command>()
@@ -19,7 +25,6 @@ class ViewModel(
 
 
     fun update(newState: (oldState: ScreenState) -> ScreenState){
-        Log.d("!!!", "update")
         _state.value = newState(_state.value)
     }
 

@@ -128,8 +128,9 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     private fun LifecycleAware.createViewModel(): ViewModel {
         val context = requireContext().applicationContext
 
+        val presenter = Presenter(context)
         val uiOuter = UIOuterImpl(
-            presenter = Presenter(context)
+            presenter = presenter
         )
 
         val useCases = GarbageFilesFactory.createGarbageFilesUseCases(
@@ -142,7 +143,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val viewModel = ViewModel(
             useCases = useCases,
-            coroutineScope = viewModelScope
+            coroutineScope = viewModelScope,
+            presenter = presenter
         )
 
         uiOuter.viewModel = viewModel
