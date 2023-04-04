@@ -24,6 +24,8 @@ data class ImagesStateScreen(
 
         object OpenPermissionDialog : ImageEvent()
 
+        object OpenDuplicatesFile : ImageEvent()
+
         object OpenConfirmationDialog : ImageEvent()
 
         object ConfirmedImageDeletion : ImageEvent()

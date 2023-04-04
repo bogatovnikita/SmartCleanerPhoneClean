@@ -84,6 +84,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
         when (event) {
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_requestStoragePermDialog)
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_imageDeletionRequestDialog)
+            is ImagesStateScreen.ImageEvent.OpenDuplicatesFile -> findNavController().navigate(R.id.action_to_duplicateFilesFragment)
             else -> {}
         }
         viewModel.obtainEvent(ImagesStateScreen.ImageEvent.Default)
@@ -93,6 +94,9 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
         with(binding) {
             btnDelete.setOnClickListener {
                 viewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenConfirmationDialog)
+            }
+            containerDocument.setOnClickListener {
+                viewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenDuplicatesFile)
             }
         }
     }

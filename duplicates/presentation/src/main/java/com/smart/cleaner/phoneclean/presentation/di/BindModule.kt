@@ -2,6 +2,8 @@ package com.smart.cleaner.phoneclean.presentation.di
 
 import com.smart.cleaner.phoneclean.data.*
 import com.smart.cleaner.phoneclean.domain.gateways.*
+import com.smart.cleaner.phoneclean.domain.use_case.files.DuplicateFilesUseCase
+import com.smart.cleaner.phoneclean.domain.use_case.files.DuplicateFilesUseCaseImpl
 import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCase
 import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCaseImpl
 import dagger.Binds
@@ -27,6 +29,9 @@ interface BindModule {
 
     @Binds
     fun bindDuplicateImagesUseCase(UseCase: DuplicateImagesUseCaseImpl): DuplicateImagesUseCase
+
+    @Binds
+    fun bindDuplicateFilesUseCase(UseCase: DuplicateFilesUseCaseImpl): DuplicateFilesUseCase
 
     @Binds
     fun bindDuplicatesSettings(settings: SettingsImpl): DuplicatesSettings

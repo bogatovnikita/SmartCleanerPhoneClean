@@ -10,7 +10,6 @@ import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,17 +20,15 @@ class DuplicateImagesViewModel @Inject constructor(
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getImageDuplicates()
-            withContext(Dispatchers.Main) {
-                updateState {
-                    it.copy(
-                        duplicates = mapUiModel(duplicates),
-                        isLoading = false,
-                        isNotFound = duplicates.isEmpty(),
-                        isCanDelete = false,
-                    )
-                }
-                isCanDelete()
+            updateState {
+                it.copy(
+                    duplicates = mapUiModel(duplicates),
+                    isLoading = false,
+                    isNotFound = duplicates.isEmpty(),
+                    isCanDelete = false,
+                )
             }
+            isCanDelete()
         }
     }
 
@@ -52,6 +49,7 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.ConfirmedImageDeletion -> setEvent(event)
             is ImagesStateScreen.ImageEvent.Delete -> saveTimeAndDelete(event.time)
             is ImagesStateScreen.ImageEvent.DeleteDone -> updateListAfterDeleting()
+            is ImagesStateScreen.ImageEvent.OpenDuplicatesFile -> setEvent(event)
             else -> {}
         }
     }
