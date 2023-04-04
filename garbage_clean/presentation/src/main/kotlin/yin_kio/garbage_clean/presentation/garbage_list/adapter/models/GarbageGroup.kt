@@ -7,5 +7,6 @@ data class GarbageGroup(
     val type: GarbageType = GarbageType.Apk,
     val name: String = "",
     val files: List<File> = listOf(),
-    val alpha: Float = 0.5f
+    val alpha: Float = 0.5f,
+    val isInProgress: Boolean = false
 )

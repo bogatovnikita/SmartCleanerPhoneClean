@@ -40,7 +40,7 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.presentProgressSize(),
             buttonText = presenter.presentButtonText(false),
-            garbage = presenter.presentGarbageWithoutPermission(),
+            garbage = presenter.presentGarbageForProgress(),
             isShowPermissionRequired = false
         ) }
     }

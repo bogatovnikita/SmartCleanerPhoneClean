@@ -38,6 +38,18 @@ class Presenter(
         }
     }
 
+    fun presentGarbageForProgress() : List<GarbageGroup>{
+        return GarbageType.values().map {
+            GarbageGroup(
+                type = it,
+                name = presentGarbageName(it),
+                files = listOf(),
+                isInProgress = true,
+                alpha = 1.0f
+            )
+        }
+    }
+
     private fun presentGarbageName(garbageType: GarbageType) : String{
 
         val resId = when(garbageType){
