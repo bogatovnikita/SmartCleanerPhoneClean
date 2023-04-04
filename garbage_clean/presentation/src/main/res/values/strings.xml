@@ -14,5 +14,6 @@
     <string name="storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
     <string name="close">Close</string>
     <string name="allow">Allow</string>
+    <string name="clean">Clean</string>
 
 </resources>

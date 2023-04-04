@@ -25,7 +25,11 @@ class Presenter(
     }
 
     fun presentButtonText(hasPermission: Boolean) : String{
-        return context.getString(R.string.scan)
+        return if (hasPermission){
+            context.getString(R.string.clean)
+        } else {
+            context.getString(R.string.scan)
+        }
     }
 
     fun presentGarbageWithoutPermission() : List<GarbageGroup>{

@@ -32,7 +32,7 @@ class UIOuterImpl(
             size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
             buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbage(garbage),
-            isShowPermissionRequired = false
+            isShowPermissionRequired = false,
         ) }
     }
 
