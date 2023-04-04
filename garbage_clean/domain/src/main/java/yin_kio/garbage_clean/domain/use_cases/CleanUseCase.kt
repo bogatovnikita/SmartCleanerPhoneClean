@@ -13,9 +13,12 @@ internal class CleanUseCase(
 ) {
 
     suspend fun clean(){
+        val selected = garbageSelector.getSelected()
+        if (selected.isEmpty()) return
+
         storageInfo.saveStartVolume()
         uiOuter.showCleanProgress(listOf())
-        files.deleteFiles(garbageSelector.getSelected())
+        files.deleteFiles(selected)
         storageInfo.saveEndVolume()
         storageInfo.calculateEndVolume()
     }

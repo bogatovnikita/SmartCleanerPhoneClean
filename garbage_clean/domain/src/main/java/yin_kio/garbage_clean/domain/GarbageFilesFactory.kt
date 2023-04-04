@@ -9,8 +9,8 @@ import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProviderImpl
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreatorImpl
+import yin_kio.garbage_clean.domain.use_cases.*
 import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 
@@ -26,11 +26,14 @@ object GarbageFilesFactory {
 
         val garbageSelector = GarbageSelectorImpl()
 
+        val updateState = UpdateStateHolder()
+
         val updateUseCase = UpdateUseCase(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             garbageFormsProvider = GarbageFormsProviderImpl(files),
-            garbageOutCreator = GarbageOutCreatorImpl()
+            garbageOutCreator = GarbageOutCreatorImpl(),
+            updateState = updateState
         )
 
         val cleanUseCase = CleanUseCase(
@@ -40,16 +43,24 @@ object GarbageFilesFactory {
             garbageSelector = garbageSelector
         )
 
+
+        val scanUseCase = ScanUseCase(
+            permissions = permissions,
+            updateUseCase = updateUseCase,
+            uiOuter = uiOuter,
+        )
+
         return GarbageFilesUseCasesImpl(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             permissions = permissions,
             updateUseCase = updateUseCase,
             storageInfo = storageInfo,
-            files = files,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.IO,
-            cleanUseCase = cleanUseCase
+            cleanUseCase = cleanUseCase,
+            scanUseCase = scanUseCase,
+            updateState = updateState
         )
 
     }

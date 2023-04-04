@@ -15,6 +15,8 @@ import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import yin_kio.garbage_clean.domain.use_cases.UpdateState
+import yin_kio.garbage_clean.domain.use_cases.UpdateStateHolder
 import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
 import java.io.File
 
@@ -24,12 +26,14 @@ class UpdateUseCaseTest {
     private val garbageSelector: GarbageSelector = spyk()
     private val garbageFormsProvider: GarbageFormsProvider = mockk()
     private val garbageOutCreator: GarbageOutCreator = mockk()
+    private val updateStateHolder: UpdateStateHolder = spyk()
 
     private val useCase = UpdateUseCase(
         uiOuter = uiOuter,
         garbageSelector = garbageSelector,
         garbageFormsProvider = garbageFormsProvider,
         garbageOutCreator = garbageOutCreator,
+        updateState = updateStateHolder
     )
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -50,6 +54,7 @@ class UpdateUseCaseTest {
             uiOuter.showUpdateProgress()
             garbageSelector.setGarbage(garbageForms)
             uiOuter.outGarbage(garbageOut)
+            updateStateHolder.updateState = UpdateState.Successful
         }
     }
 

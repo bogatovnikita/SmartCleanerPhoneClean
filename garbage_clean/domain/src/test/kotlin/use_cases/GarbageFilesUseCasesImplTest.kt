@@ -13,10 +13,7 @@ import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
-import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.ScanUseCase
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_cases.*
 import java.io.File
 
 
@@ -40,6 +37,7 @@ class GarbageFilesUseCasesImplTest {
     private val scanUseCase: ScanUseCase = mockk{
         coEvery { scan() } returns Unit
     }
+    private val updateState: UpdateStateHolder = mockk()
 
 
     private val useCases = GarbageFilesUseCasesImpl(
@@ -51,7 +49,8 @@ class GarbageFilesUseCasesImplTest {
         coroutineScope = testScope,
         dispatcher = dispatcher,
         cleanUseCase = cleanUseCase,
-        scanUseCase = scanUseCase
+        scanUseCase = scanUseCase,
+        updateState = updateState
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -115,11 +114,27 @@ class GarbageFilesUseCasesImplTest {
     }
 
     @Test
-    fun testScan() = testScope.runTest {
-        useCases.scan()
+    fun testScanOrClean() = testScope.runTest {
+        assertUnsuccessfullScan()
+        assertSuccesfullScan()
+    }
+
+    private fun TestScope.assertUnsuccessfullScan() {
+        coEvery { updateState.updateState } returns UpdateState.Progress
+
+        useCases.scanOrClean()
         advanceUntilIdle()
 
         coVerify { scanUseCase.scan() }
+    }
+
+    private fun TestScope.assertSuccesfullScan() {
+        coEvery { updateState.updateState } returns UpdateState.Successful
+
+        useCases.scanOrClean()
+        advanceUntilIdle()
+
+        coVerify { cleanUseCase.clean() }
     }
 
     @Test
@@ -146,13 +161,6 @@ class GarbageFilesUseCasesImplTest {
         coVerify { uiOuter.showPermissionRequired() }
     }
 
-    @Test
-    fun testClean() = testScope.runTest {
-        useCases.clean()
-        advanceUntilIdle()
-
-        coVerify { cleanUseCase.clean() }
-    }
 
     @Test
     fun testCloseInter(){

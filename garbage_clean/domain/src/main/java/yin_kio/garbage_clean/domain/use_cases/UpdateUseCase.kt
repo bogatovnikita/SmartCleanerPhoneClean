@@ -11,13 +11,12 @@ internal class UpdateUseCase(
     private val garbageSelector: GarbageSelector,
     private val garbageFormsProvider: GarbageFormsProvider,
     private val garbageOutCreator: GarbageOutCreator,
+    private val updateState: UpdateStateHolder
 ) {
 
-    private var isInProgress = false
-
     suspend fun update() {
-        if (isInProgress) return
-        isInProgress = true
+        if (updateState.updateState == UpdateState.Progress) return
+        updateState.updateState = UpdateState.Progress
 
         uiOuter.showUpdateProgress()
 
@@ -30,7 +29,7 @@ internal class UpdateUseCase(
         val garbage = garbageSelector.getGarbage()
         val garbageOut = garbageOutCreator.create(garbage)
         uiOuter.outGarbage(garbageOut)
-        isInProgress = false
+        updateState.updateState = UpdateState.Successful
     }
 
 }

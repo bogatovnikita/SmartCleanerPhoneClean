@@ -9,8 +9,7 @@ interface GarbageFilesUseCases {
     fun requestPermission()
     fun switchItemSelection(group: GarbageType, file: File, itemCheckable: Checkable)
     fun switchGroupSelection(group: GarbageType, groupCheckable: Checkable)
-    fun scan()
+    fun scanOrClean()
     fun start()
-    fun clean()
     fun closeInter()
 }

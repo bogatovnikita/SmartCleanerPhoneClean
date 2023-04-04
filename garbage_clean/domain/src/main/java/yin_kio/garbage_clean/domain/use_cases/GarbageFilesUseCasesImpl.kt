@@ -20,7 +20,8 @@ internal class GarbageFilesUseCasesImpl(
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
     private val cleanUseCase: CleanUseCase,
-    private val scanUseCase: ScanUseCase
+    private val scanUseCase: ScanUseCase,
+    private val updateState: UpdateStateHolder
 ) : GarbageFilesUseCases {
 
     override fun closePermissionDialog(){
@@ -48,8 +49,12 @@ internal class GarbageFilesUseCasesImpl(
 
     }
 
-    override fun scan() = async {
-        scanUseCase.scan()
+    override fun scanOrClean() = async {
+        if (updateState.updateState == UpdateState.Successful){
+            cleanUseCase.clean()
+        } else {
+            scanUseCase.scan()
+        }
     }
 
     override fun start() = async{
@@ -60,10 +65,6 @@ internal class GarbageFilesUseCasesImpl(
             uiOuter.showPermissionRequired()
         }
 
-    }
-
-    override fun clean() = async {
-        cleanUseCase.clean()
     }
 
     override fun closeInter(){
