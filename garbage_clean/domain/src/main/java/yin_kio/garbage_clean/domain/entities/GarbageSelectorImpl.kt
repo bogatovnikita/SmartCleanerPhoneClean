@@ -18,7 +18,7 @@ internal class GarbageSelectorImpl : GarbageSelector {
     }
 
     override fun isItemSelected(group: GarbageType, item: File): Boolean {
-        assert(garbage[group] != null)
+        if (garbage[group] == null) return false
         return garbage[group]!!.isItemSelected(item)
     }
 
@@ -28,7 +28,7 @@ internal class GarbageSelectorImpl : GarbageSelector {
     }
 
     override fun isGroupSelected(group: GarbageType): Boolean {
-        assert(garbage[group] != null)
+        if (garbage[group] == null) return false
         return garbage[group]!!.isAllSelected
     }
 

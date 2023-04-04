@@ -20,7 +20,7 @@ class UIOuterImpl(
     }
 
     override fun updateGroup(group: GarbageType) {
-//        TODO("Not yet implemented")
+        viewModel?.sendCommand(Command.UpdateGroup(group))
     }
 
     override fun showPermissionDialog() {
@@ -33,7 +33,7 @@ class UIOuterImpl(
             buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
-            buttonOpacity = 1f
+            buttonOpacity = 0.5f
         ) }
     }
 
@@ -62,5 +62,9 @@ class UIOuterImpl(
 
     override fun showResult(result: Long) {
 //        TODO("Not yet implemented")
+    }
+
+    override fun updateChildrenAndGroup(group: GarbageType) {
+        viewModel?.sendCommand(Command.UpdateChildrenAndGroup(group))
     }
 }

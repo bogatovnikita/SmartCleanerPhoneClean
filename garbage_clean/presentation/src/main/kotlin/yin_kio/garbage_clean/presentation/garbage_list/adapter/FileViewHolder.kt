@@ -24,7 +24,7 @@ class FileViewHolder private constructor(
         binding.size.text = formatFileSize(binding.root.context, file.length())
         binding.name.text = file.name
 
-        binding.root.setOnClickListener {
+        binding.checkbox.setOnClickListener {
             onClick(garbageType, file, checkboxWrapper)
         }
     }
@@ -37,7 +37,11 @@ class FileViewHolder private constructor(
             onUpdate: (GarbageType, File, Checkable) -> Unit
         ) : FileViewHolder {
             val binding = ListItemGarbageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return FileViewHolder(binding, onUpdate, onClick)
+            return FileViewHolder(
+                binding = binding,
+                onUpdate = onUpdate,
+                onClick = onClick
+            )
         }
 
     }

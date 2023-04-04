@@ -109,7 +109,7 @@ class GarbageFilesUseCasesImplTest {
         coVerifyOrder {
             garbageSelector.switchGroupSelected(group)
             groupCheckable.setChecked(isGroupSelected)
-            uiOuter.updateGroup(group)
+            uiOuter.updateChildrenAndGroup(group)
         }
     }
 

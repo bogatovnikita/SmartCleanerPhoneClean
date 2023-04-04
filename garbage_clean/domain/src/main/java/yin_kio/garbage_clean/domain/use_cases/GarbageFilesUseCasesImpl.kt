@@ -45,8 +45,16 @@ internal class GarbageFilesUseCasesImpl(
 
         garbageSelector.switchGroupSelected(group)
         groupCheckable.setChecked(garbageSelector.isGroupSelected(group))
-        uiOuter.updateGroup(group)
+        uiOuter.updateChildrenAndGroup(group)
 
+    }
+
+    override fun updateItemSelection(group: GarbageType, file: File, itemCheckable: Checkable) {
+        itemCheckable.setChecked(garbageSelector.isItemSelected(group, file))
+    }
+
+    override fun updateGroupSelection(group: GarbageType, groupCheckable: Checkable) {
+        groupCheckable.setChecked(garbageSelector.isGroupSelected(group))
     }
 
     override fun scanOrClean() = async {

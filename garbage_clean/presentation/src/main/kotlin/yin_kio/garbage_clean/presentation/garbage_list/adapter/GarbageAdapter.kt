@@ -10,7 +10,9 @@ import java.io.File
 
 class GarbageAdapter(
     private val onItemUpdate: (GarbageType, file: File, Checkable) -> Unit,
-    private val onGroupUpdate: (GarbageType, Checkable) -> Unit
+    private val onGroupUpdate: (GarbageType, Checkable) -> Unit,
+    private val onItemClick: (GarbageType, file: File, Checkable) -> Unit,
+    private val onGroupClick: (GarbageType, Checkable) -> Unit
 ) : ExpandableAdapter<ExpandableAdapter.ViewHolder>() {
 
     var garbage: List<GarbageGroup> = listOf()
@@ -54,7 +56,7 @@ class GarbageAdapter(
     override fun onCreateChildViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         return FileViewHolder.from(
             parent = viewGroup,
-            onClick = onItemUpdate,
+            onClick = onItemClick,
             onUpdate = onItemUpdate
         )
     }
@@ -63,7 +65,7 @@ class GarbageAdapter(
         return GarbageViewHolder.from(
             parent = viewGroup,
             onUpdate = onGroupUpdate,
-            onClick = onGroupUpdate
+            onClick = onGroupClick
         )
     }
 

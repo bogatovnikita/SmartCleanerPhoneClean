@@ -3,6 +3,7 @@ package use_cases
 import io.mockk.coEvery
 import io.mockk.coVerifyOrder
 import io.mockk.spyk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
@@ -12,6 +13,8 @@ import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
 import java.io.File
 
+
+@OptIn(ExperimentalCoroutinesApi::class)
 class CleanUseCaseTest {
 
     private val uiOuter: UiOuter = spyk()
@@ -29,7 +32,7 @@ class CleanUseCaseTest {
 
     @Test
     fun testClean() = runTest{
-        val selectedFiles = listOf<File>()
+        val selectedFiles = listOf(File(""))
         val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
         // Добавить реализацию очистки
 

@@ -1,12 +1,12 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -22,6 +22,7 @@ import yin_kio.garbage_clean.data.FilesImpl
 import yin_kio.garbage_clean.data.PermissionsImpl
 import yin_kio.garbage_clean.data.StorageInfoImpl
 import yin_kio.garbage_clean.domain.GarbageFilesFactory
+import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.presentation.R
 import yin_kio.garbage_clean.presentation.databinding.FragmentGarbageFilesBinding
 import yin_kio.garbage_clean.presentation.garbage_list.adapter.GarbageAdapter
@@ -38,21 +39,24 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     ){
         if (it[Manifest.permission.READ_EXTERNAL_STORAGE]!!
             && it[Manifest.permission.WRITE_EXTERNAL_STORAGE]!!){
-            viewModel.scan()
+            viewModel.scanOrClean()
         }
     }
 
     private val adapter = GarbageAdapter(
-        onItemUpdate = {_,_,_ ->},
-        onGroupUpdate = {_,_ ->}
+        onItemUpdate = {a, b, c -> viewModel.updateItemSelection(a, b, c)},
+        onGroupUpdate = {a, b,-> viewModel.updateGroupSelection(a, b)},
+        onGroupClick = {a,b -> viewModel.switchGroupSelection(a, b)},
+        onItemClick = {a,b,c -> viewModel.switchItemSelection(a, b, c)}
     )
 
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.recycler.adapter = adapter
 
-        binding.button.setOnClickListener { viewModel.scan() }
+        binding.button.setOnClickListener { viewModel.scanOrClean() }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect{
@@ -71,22 +75,35 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.commands.collect{
-                when(it){
-                    Command.ShowPermissionDialog -> {
-                        findNavController().navigate(R.id.toPermissionDialog)
-                    }
-                    Command.ClosePermissionDialog -> {
-                        findNavController().navigateUp()
-                    }
+            viewModel.commands.collect{ command ->
+                when(command){
+                    Command.ShowPermissionDialog -> findNavController().navigate(R.id.toPermissionDialog)
+                    Command.ClosePermissionDialog ->  findNavController().navigateUp()
                     Command.RequestPermission -> {
                         requestStoragePermissions()
                         findNavController().navigateUp()
                     }
+                    is Command.UpdateGroup -> {
+                        adapter.notifyGroupChange(groupPosition(command.garbageType))
+                    }
+                    is Command.UpdateChildrenAndGroup -> updateChildrenAndGroup(command)
                 }
             }
         }
 
+    }
+
+    private fun groupPosition(group: GarbageType) =
+        adapter.garbage.indexOfFirst { it.type == group }
+
+    private fun updateChildrenAndGroup(command: Command.UpdateChildrenAndGroup) {
+
+        val groupPosition = groupPosition(command.garbageType)
+        adapter.notifyGroupChange(groupPosition)
+
+        for (childPosition in adapter.garbage[groupPosition].files.indices) {
+            adapter.notifyChildChange(groupPosition, childPosition)
+        }
     }
 
     private fun requestStoragePermissions() {
@@ -120,13 +137,6 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     }
 
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.start()
-    }
-
-
-
     private fun LifecycleAware.createViewModel(): ViewModel {
         val context = requireContext().applicationContext
 
@@ -150,6 +160,9 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         )
 
         uiOuter.viewModel = viewModel
+
+
+        viewModel.start()
 
         return viewModel
     }

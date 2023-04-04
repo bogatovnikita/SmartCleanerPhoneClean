@@ -10,6 +10,7 @@ class CheckboxWrapper(
 
     override fun setChecked(isChecked: Boolean) {
         checkbox.isChecked = isChecked
+        checkbox.setOnCheckedChangeListener { buttonView, isChecked ->  }
     }
 
 }

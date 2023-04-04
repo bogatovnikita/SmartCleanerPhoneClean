@@ -14,7 +14,7 @@ import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGro
 class GarbageViewHolder private constructor(
     val binding: HeaderGarbageBinding,
     private val onUpdate: (GarbageType, Checkable) -> Unit,
-    private val onClick: (GarbageType, Checkable) -> Unit
+    private val onCheckboxClick: (GarbageType, Checkable) -> Unit
 ) : ExpandableAdapter.ViewHolder(binding.root) {
 
     private val checkboxWrapper = CheckboxWrapper(binding.checkbox)
@@ -34,8 +34,12 @@ class GarbageViewHolder private constructor(
         binding.checkbox.isVisible = !garbage.isInProgress
         binding.expand.isVisible = !garbage.isInProgress
 
-        binding.checkbox.setOnClickListener{ onClick(garbage.type, checkboxWrapper) }
-        binding.expand.setOnClickListener { onExpandClick() }
+        binding.checkbox.setOnClickListener{
+            onCheckboxClick(garbage.type, checkboxWrapper)
+        }
+        binding.expand.setOnClickListener {
+            onExpandClick()
+        }
     }
 
     private fun startProgressAnimationIfNeed(garbage: GarbageGroup) {
@@ -61,7 +65,11 @@ class GarbageViewHolder private constructor(
             onClick: (GarbageType, Checkable) -> Unit
         ) : GarbageViewHolder {
             val binding = HeaderGarbageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return GarbageViewHolder(binding, onUpdate, onClick)
+            return GarbageViewHolder(
+                binding = binding,
+                onUpdate = onUpdate,
+                onCheckboxClick = onClick
+            )
         }
 
     }
