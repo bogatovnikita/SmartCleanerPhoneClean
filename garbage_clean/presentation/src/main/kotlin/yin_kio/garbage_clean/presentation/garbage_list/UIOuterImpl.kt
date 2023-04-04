@@ -37,7 +37,12 @@ class UIOuterImpl(
     }
 
     override fun showUpdateProgress() {
-//        TODO("Not yet implemented")
+        viewModel?.update { it.copy(
+            size = presenter.presentProgressSize(),
+            buttonText = presenter.presentButtonText(false),
+            garbage = presenter.presentGarbageWithoutPermission(),
+            isShowPermissionRequired = false
+        ) }
     }
 
     override fun showPermissionRequired() {

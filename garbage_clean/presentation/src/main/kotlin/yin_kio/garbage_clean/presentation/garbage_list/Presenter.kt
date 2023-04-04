@@ -19,6 +19,11 @@ class Presenter(
         return formatFileSize(context, 0L).replace("0", "(?)")
     }
 
+    fun presentProgressSize() : String{
+        return formatFileSize(context, 10_000_000).replace("10,00", "...")
+            .replace("10.00", "...")
+    }
+
     fun presentButtonText(hasPermission: Boolean) : String{
         return context.getString(R.string.scan)
     }
