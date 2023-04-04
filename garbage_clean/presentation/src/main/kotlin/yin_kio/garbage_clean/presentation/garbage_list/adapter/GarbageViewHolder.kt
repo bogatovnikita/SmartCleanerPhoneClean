@@ -9,22 +9,21 @@ import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGro
 import yin_kio.garbage_clean.presentation.databinding.HeaderGarbageBinding
 
 class GarbageViewHolder private constructor(
-    private val binding: HeaderGarbageBinding,
+    val binding: HeaderGarbageBinding,
     private val onUpdate: (GarbageType, Checkable) -> Unit,
     private val onClick: (GarbageType, Checkable) -> Unit
 ) : ExpandableAdapter.ViewHolder(binding.root) {
 
     private val checkboxWrapper = CheckboxWrapper(binding.checkbox)
 
-    fun bind(garbage: GarbageGroup){
+    fun bind(garbage: GarbageGroup, onExpandClick: () -> Unit){
         onUpdate(garbage.type, checkboxWrapper)
 
         binding.name.text = garbage.name
         binding.root.alpha = garbage.alpha
 
-        binding.root.setOnClickListener{
-            onClick(garbage.type, checkboxWrapper)
-        }
+        binding.checkbox.setOnClickListener{ onClick(garbage.type, checkboxWrapper) }
+        binding.expand.setOnClickListener { onExpandClick() }
     }
 
     companion object{

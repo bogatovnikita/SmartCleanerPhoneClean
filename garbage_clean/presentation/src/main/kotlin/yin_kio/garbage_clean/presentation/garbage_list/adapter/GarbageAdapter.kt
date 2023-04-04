@@ -1,5 +1,6 @@
 package yin_kio.garbage_clean.presentation.garbage_list.adapter
 
+import android.animation.ValueAnimator
 import android.view.ViewGroup
 import pokercc.android.expandablerecyclerview.ExpandableAdapter
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -39,7 +40,15 @@ class GarbageAdapter(
         expand: Boolean,
         payloads: List<Any>
     ) {
-        (holder as? GarbageViewHolder)?.bind(garbage[groupPosition])
+        (holder as? GarbageViewHolder)?.bind(garbage[groupPosition],
+            onExpandClick = {
+                if (isExpand(groupPosition)){
+                    collapseGroup(groupPosition, true)
+                } else {
+                    expandGroup(groupPosition, true)
+                }
+            }
+        )
     }
 
     override fun onCreateChildViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -64,6 +73,10 @@ class GarbageAdapter(
         animDuration: Long,
         expand: Boolean
     ) {
+
+        val rotation = if (expand) 180f else 0f
+
+        (holder as? GarbageViewHolder)?.binding?.expand?.rotation = rotation
 
     }
 }
