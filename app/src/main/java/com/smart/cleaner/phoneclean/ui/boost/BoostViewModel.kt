@@ -23,7 +23,8 @@ class BoostViewModel @Inject constructor(
                     usedRam = usedRam,
                     totalRam = totalRam,
                     isRamBoosted = boostUseCase.isRamBoosted(),
-                    listBackgroundApp = mapToBackgroundApp(boostUseCase.getRunningApps())
+                    listBackgroundApp = mapToBackgroundApp(boostUseCase.getRunningApps()),
+                    isLoadUseCase = true
                 )
             }
         }

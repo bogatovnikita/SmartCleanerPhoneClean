@@ -7,5 +7,6 @@ data class BoostScreenState(
     val totalRam: Double = 0.0,
     val isRamBoosted: Boolean = false,
     val permissionGiven: Boolean = false,
-    val listBackgroundApp: List<BackgroundApp> = emptyList()
+    val listBackgroundApp: List<BackgroundApp> = emptyList(),
+    val isLoadUseCase: Boolean = false
 )

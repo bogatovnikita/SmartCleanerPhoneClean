@@ -82,6 +82,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun renderState(state: BoostScreenState) {
+        if(!state.isLoadUseCase) return
         with(state) {
             setEnableBtn(isRamBoosted)
             with(binding) {
