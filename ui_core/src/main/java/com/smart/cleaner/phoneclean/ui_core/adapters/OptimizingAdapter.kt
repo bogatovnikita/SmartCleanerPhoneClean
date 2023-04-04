@@ -26,7 +26,7 @@ class OptimizingAdapter : ListAdapter<OptimizingItem, OptimizingAdapter.Optimize
             }
             if (option is BoostOptimizingItem) {
                 binding.ivIcon.isVisible = true
-                binding.ivIcon.setImageResource(option.icon)
+                binding.ivIcon.setImageDrawable(option.icon)
             }
         }
     }
@@ -51,6 +51,5 @@ class OptimizingAdapter : ListAdapter<OptimizingItem, OptimizingAdapter.Optimize
             oldItem.name == newItem.name
 
     }
-
 
 }

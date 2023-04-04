@@ -2,8 +2,8 @@ package com.smart.cleaner.phoneclean.ui.boost
 
 import androidx.lifecycle.viewModelScope
 import com.smart.cleaner.phoneclean.models.BackgroundApp
-import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import com.smart.cleaner.phoneclean.ui.base.BaseViewModel
+import com.softcleean.fastcleaner.domain.boost.BoostUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,4 +44,5 @@ class BoostViewModel @Inject constructor(
     }
 
     private fun toGb(size: Long): Double = size / 1000.0 / 1000.0 / 1000
+
 }

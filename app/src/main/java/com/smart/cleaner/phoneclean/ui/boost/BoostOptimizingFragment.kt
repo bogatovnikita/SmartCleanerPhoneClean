@@ -5,7 +5,7 @@ import com.smart.cleaner.phoneclean.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.BoostOptimizingItem
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
-import com.softcleean.fastcleaner.domain.boost.BoostUseCase
+import com.softcleean.fastcleaner.domain.boost.BoostUseCaseImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ class BoostOptimizingFragment(
 ) : BaseOptimizingFragment() {
 
     @Inject
-    lateinit var boostUseCase: BoostUseCase
+    lateinit var boostUseCase: BoostUseCaseImpl
 
     override fun startOptimizationFun() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -37,10 +37,10 @@ class BoostOptimizingFragment(
 
 
     private fun getBoostOptimizingItem(): MutableList<OptimizingItem> {
-        return resources.getStringArray(R.array.optimization).map {
+        return boostUseCase.getCachedApps().map {
             BoostOptimizingItem(
-                name = it,
-                icon = R.drawable.ic_duplicate_danger
+                name = it.name,
+                icon = it.icon
             )
         }.toMutableList()
     }

@@ -28,4 +28,5 @@ class BoostRepositoryImpl @Inject constructor(
         killBackgroundProvider.killBackgroundProcessSystemApps()
 
     override fun getRunningApps(): List<BackgroundApp> = backgroundApps.getRunningApps()
+
 }
