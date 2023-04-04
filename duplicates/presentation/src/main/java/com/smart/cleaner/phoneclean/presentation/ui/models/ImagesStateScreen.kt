@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.presentation.ui.duplicate_images
+package com.smart.cleaner.phoneclean.presentation.ui.models
 
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem

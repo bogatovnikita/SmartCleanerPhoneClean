@@ -9,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicatesResultBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
-import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.ImagesStateScreen
+import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseFragmentResult
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 import dagger.hilt.android.AndroidEntryPoint

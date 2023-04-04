@@ -15,6 +15,7 @@ import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSele
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateImagesBinding
+import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
