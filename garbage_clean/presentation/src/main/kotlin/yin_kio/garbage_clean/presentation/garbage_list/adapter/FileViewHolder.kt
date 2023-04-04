@@ -36,7 +36,7 @@ class FileViewHolder private constructor(
             onClick: (GarbageType, File, Checkable) -> Unit,
             onUpdate: (GarbageType, File, Checkable) -> Unit
         ) : FileViewHolder {
-            val binding = ListItemGarbageBinding.inflate(LayoutInflater.from(parent.context))
+            val binding = ListItemGarbageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return FileViewHolder(binding, onUpdate, onClick)
         }
 
