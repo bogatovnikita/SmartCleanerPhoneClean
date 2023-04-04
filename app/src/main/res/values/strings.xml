@@ -113,4 +113,5 @@
     <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
     <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
+<string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
 </resources>

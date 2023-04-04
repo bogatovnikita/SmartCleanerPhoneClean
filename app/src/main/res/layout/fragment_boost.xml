@@ -137,6 +137,7 @@
         android:id="@+id/group_not_optimized"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description" />
 
     <View
@@ -173,12 +174,12 @@
         style="@style/Text.Medium.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.6"
         android:text="@string/apps"
         app:layout_constraintBottom_toBottomOf="@id/background_apps"
         app:layout_constraintEnd_toEndOf="@id/background_apps"
         app:layout_constraintStart_toEndOf="@id/count_apps"
-        app:layout_constraintTop_toTopOf="@id/background_apps" />
+        app:layout_constraintTop_toTopOf="@id/background_apps"
+        app:layout_constraintVertical_bias="0.6" />
 
     <TextView
         android:id="@+id/count_description"
@@ -247,5 +248,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_boost_battery" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/load_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description,permission_required,btn_boost_battery,description_optimize_btn" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/loader_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="loader_description,loader_icon" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loader_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/loader_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_description"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loader" />
+
+    <TextView
+        android:id="@+id/loader_description"
+        style="@style/Text.Regular.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/please_wait_the_download_is_in_progress"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loader_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,35 +82,48 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun renderState(state: BoostScreenState) {
-        if(!state.isLoadUseCase) return
         with(state) {
-            setEnableBtn(isRamBoosted)
+            setEnableBtn(state)
+            setVisibility(state)
+            setCountApp(state)
+            setPermissionDescription(state)
             with(binding) {
                 totalAmountRamCount.text = getString(R.string.gb_one_after_dot, totalRam)
                 usedRamCount.text = getString(R.string.gb_one_after_dot, usedRam)
                 phoneModel.text = getPhoneModel()
-                groupNotOptimized.isVisible = !isRamBoosted
-                boostDone.isVisible = isRamBoosted
-                setCountApp(permissionGiven)
-                setPermissionDescription(permissionGiven)
             }
+        }
+    }
+
+    private fun BoostScreenState.setVisibility(state: BoostScreenState) {
+        if (state.isRamBoosted) {
+            binding.boostDone.isVisible = isRamBoosted
+            binding.groupNotOptimized.isVisible = !isRamBoosted
+            binding.loaderGroup.isVisible = !isRamBoosted
+            binding.loadGroup.isVisible = !isRamBoosted
+        } else {
+            binding.loaderGroup.isVisible = !isLoadUseCase
+            binding.loadGroup.isVisible = isLoadUseCase
+        }
+    }
+
+    private fun setCountApp(state: BoostScreenState) {
+        if (state.permissionGiven && state.isLoadUseCase) {
+            binding.countApps.text = state.listBackgroundApp.size.toString()
+        } else {
+            binding.countApps.text = "?"
         }
     }
 
     private fun getPhoneModel() = Build.MANUFACTURER.toString() + " " + Build.MODEL.toString()
 
-    private fun setEnableBtn(enable: Boolean) {
-        binding.btnBoostBattery.isClickable = !enable
-        binding.btnBoostBattery.isEnabled = !enable
+    private fun setEnableBtn(state: BoostScreenState) {
+        binding.btnBoostBattery.isClickable = !state.isRamBoosted
+        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
     }
 
-    private fun setCountApp(enable: Boolean) {
-        binding.countApps.text =
-            if (enable) viewModel.screenState.value.listBackgroundApp.size.toString() else "?"
-    }
-
-    private fun setPermissionDescription(enable: Boolean) {
-        binding.permissionRequired.isVisible = !enable
+    private fun setPermissionDescription(state: BoostScreenState) {
+        binding.permissionRequired.isVisible = !state.permissionGiven
     }
 
     private fun setBtnListeners() {
