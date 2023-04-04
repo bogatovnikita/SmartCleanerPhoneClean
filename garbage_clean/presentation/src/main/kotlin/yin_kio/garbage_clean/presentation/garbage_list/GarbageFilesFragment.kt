@@ -9,6 +9,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
@@ -59,6 +60,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                 binding.button.text = it.buttonText
 
                 adapter.garbage = it.garbage
+                binding.permissionRequired.isInvisible = !it.isShowPermissionRequired
 
 
                 adapter.notifyDataSetChanged()

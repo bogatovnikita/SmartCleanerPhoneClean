@@ -5,5 +5,6 @@ import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGro
 data class ScreenState(
     val size: String = "",
     val buttonText: String = "",
-    val garbage: List<GarbageGroup> = listOf()
+    val garbage: List<GarbageGroup> = listOf(),
+    val isShowPermissionRequired: Boolean = false
 )

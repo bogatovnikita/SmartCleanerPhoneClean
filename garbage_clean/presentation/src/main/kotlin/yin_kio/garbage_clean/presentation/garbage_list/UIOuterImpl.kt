@@ -28,7 +28,12 @@ class UIOuterImpl(
     }
 
     override fun outGarbage(garbage: List<Garbage>) {
-//        TODO("Not yet implemented")
+        viewModel?.update { it.copy(
+            size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
+            buttonText = presenter.presentButtonText(true),
+            garbage = presenter.presentGarbage(garbage),
+            isShowPermissionRequired = false
+        ) }
     }
 
     override fun showUpdateProgress() {
@@ -39,7 +44,8 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.presentUnknownSize(),
             buttonText = presenter.presentButtonText(false),
-            garbage = presenter.presentGarbageWithoutPermission()
+            garbage = presenter.presentGarbageWithoutPermission(),
+            isShowPermissionRequired = true
         ) }
     }
 
