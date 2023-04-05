@@ -4,7 +4,6 @@ import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import com.smart.cleaner.phoneclean.settings.Settings
-import com.softcleean.fastcleaner.data.shared_pref.BatterySharedPreferences
 import javax.inject.Inject
 
 class BoostRealProvider @Inject constructor(

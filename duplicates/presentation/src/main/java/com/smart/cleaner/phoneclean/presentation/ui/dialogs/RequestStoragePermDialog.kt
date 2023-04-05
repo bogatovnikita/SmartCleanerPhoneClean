@@ -17,7 +17,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentRequestStoragePermDialogBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
-import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.ImagesStateScreen
+import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 

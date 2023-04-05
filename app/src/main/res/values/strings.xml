@@ -106,6 +106,12 @@
     <string name="boosted_desc">The phone has been successfully optimized</string>
     <string name="boost_description">Close apps running in the background to free up memory on your device</string>
     <string name="description_start_first_language_dialog">The language of your device is not supported by our application, English is set by default.\n\nYou can change the language right inside the app.</string>
+    <string name="usage_state_description">Our application requires permissions so that you can view count of apps running in the background</string>
     <string name="permission_required">Permission required</string>
-
+    <string name="device_information">Device Information</string>
+    <string name="apps">Apps</string>
+    <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
+<string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
 </resources>

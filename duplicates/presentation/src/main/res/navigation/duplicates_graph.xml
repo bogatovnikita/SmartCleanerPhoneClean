@@ -48,7 +48,7 @@
         app:destination="@id/optimizingFragment" />
     <dialog
         android:id="@+id/imageDeletionRequestDialog"
-        android:name="com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.ImageDeletionRequestDialog"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.ImageDeletionRequestDialog"
         android:label="ImageDeletionRequestDialog" />
     <dialog
         android:id="@+id/duplicatesResultFragment"

@@ -1,22 +1,23 @@
 package com.softcleean.fastcleaner.domain.boost
 
-import javax.inject.Inject
+import com.softcleean.fastcleaner.domain.models.BackgroundApp
 
-class BoostUseCase @Inject constructor(
-    private val boostRepository: BoostRepository
-) {
+interface BoostUseCase {
 
-    fun getTotalRam(): Long = boostRepository.getTotalRam()
+    fun getCachedApps(): List<BackgroundApp>
 
-    fun getRamUsage(): Long = boostRepository.getRamUsage()
+    fun getTotalRam(): Long
 
-    fun saveTimeRamBoost() = boostRepository.saveTimeRamBoost()
+    fun getRamUsage(): Long
 
-    fun isRamBoosted(): Boolean = boostRepository.isRamBoosted()
+    fun saveTimeRamBoost()
 
-    suspend fun killBackgroundProcessInstalledApps() =
-        boostRepository.killBackgroundProcessInstalledApps()
+    fun isRamBoosted(): Boolean
 
-    suspend fun killBackgroundProcessSystemApps() =
-        boostRepository.killBackgroundProcessSystemApps()
+    suspend fun killBackgroundProcessInstalledApps()
+
+    suspend fun killBackgroundProcessSystemApps()
+
+    fun getRunningApps(): List<BackgroundApp>
+
 }

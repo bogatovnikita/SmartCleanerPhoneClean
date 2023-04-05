@@ -1,15 +1,12 @@
 package com.smart.cleaner.phoneclean.ui.boost
 
+import com.smart.cleaner.phoneclean.models.BackgroundApp
+
 data class BoostScreenState(
     val usedRam: Double = 0.0,
     val totalRam: Double = 0.0,
-    val freeRam: Double = 0.0,
-    val ramPercent: Int = 60,
     val isRamBoosted: Boolean = false,
-    val usedMemory: Double = 0.0,
-    val totalMemory: Double = 0.0,
-    val freeMemory: Double = 0.0,
-    val memoryPercent: Int = 60,
-    val isMemoryBoosted: Boolean = false,
-    val overloadPercent: Int = 0,
+    val permissionGiven: Boolean = false,
+    val listBackgroundApp: List<BackgroundApp> = emptyList(),
+    val isLoadUseCase: Boolean = false
 )

@@ -14,6 +14,8 @@
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+
     <application
         android:name="com.smart.cleaner.phoneclean.App"
         android:allowBackup="false"

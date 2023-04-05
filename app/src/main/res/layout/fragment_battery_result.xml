@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         app:title_text="@string/battery_title"
         app:show_cross="true"
+        app:is_load_language="true"
         app:show_flag="true"
         app:show_menu="false"
         android:layout_marginTop="10dp"
