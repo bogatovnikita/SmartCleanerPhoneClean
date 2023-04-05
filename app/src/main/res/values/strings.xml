@@ -1,45 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="temperature_cpu">Processor\ntemperature</string>
-    <string name="working_time">%d hours %d minutes</string>
-    <string name="gb_fraction_garbage">/%.1f GB</string>
-    <string name="clean_danger_title">Cleanup required!</string>
-    <string name="garbage_not_found">No junk files\ndetected</string>
-    <string name="mb">%dMb</string>
-    <string name="type_extra">Extra\n+60%</string>
-    <string name="normal_mode">Normal mode:</string>
-    <string name="type_normal">Normal\n+10%</string>
-    <string name="degree">%d℃</string>
-    <string name="coolling_done">CPU cooled,\ntemperature normalized</string>
-    <string name="free_memory_size">The storage is free\n%.1f GB</string>
-    <string name="cooling">Cool</string>
-    <string name="normal_temperature">Normal processor\ntemperature is 25–30℃</string>
-    <string name="cleared">Cleaned</string>
-    <string name="improve_working_time_by_percent">Phone uptime \nincreased by %d %%</string>
-    <string name="boost_danger_title">Memory Overloaded!\nneeds speeding up!</string>
-    <string name="clean_danger_desc">Free memory from junk</string>
-    <string name="cooling_danger_title">Processor overheated!\nCooling required!</string>
-    <string name="storage">Storage</string>
-    <string name="clean_done">Garbage files deleted.</string>
-    <string name="cooling_danger_desc">Close background applications</string>
-    <string name="ready">Done!</string>
-    <string name="boost_battery">Keep your phone up and running</string>
-    <string name="gb">%.2f GB</string>
-    <string name="battery_boost">Extend</string>
-    <string name="type_save_battery_title">Extend work modes:</string>
-    <string name="type_ultra">Ultra\n+30%</string>
-    <string name="finded_junk_file">Trash\nfiles detected</string>
-    <string name="cleaning">Cleanup</string>
-    <string name="clean">Clean up</string>
-    <string name="clean_junks_safely">Deleting junk\nfiles is absolutely\nsafe</string>
-    <string name="cooling_process">Cooling</string>
-    <string name="danger_boost_off">Freed up %.2f GB\nPhone is faster by %d %%</string>
-    <string name="description_go_settings">To perform this function, we need permission to change system settings</string>
-    <string name="privacy_policy"><u>Privacy policy</u></string>
-    <string name="boost">Speed up your phone</string>
-
-    <!--  new  -->
-
     <array name="battery_normal">
         <item>Reduces brightness by 70%</item>
     </array>
@@ -114,4 +74,13 @@
     <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
     <string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
+    <string name="mb">%dMb</string>
+    <string name="normal_mode">Normal mode:</string>
+    <string name="cleared">Cleaned</string>
+    <string name="storage">Storage</string>
+    <string name="clean_done">Garbage files deleted.</string>
+    <string name="gb">%.2f GB</string>
+    <string name="privacy_policy"><u>Privacy policy</u></string>
+    <string name="cleaning">Cleanup</string>
+    <string name="clean">Clean up</string>
 </resources>
