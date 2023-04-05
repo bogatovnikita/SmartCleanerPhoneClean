@@ -79,4 +79,8 @@ class Presenter(
         }
     }
 
+    fun presentButtonOpacity(hasSelected: Boolean) : Float{
+        return if (hasSelected) 1f else 0.5f
+    }
+
 }

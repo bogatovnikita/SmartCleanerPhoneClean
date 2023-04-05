@@ -45,4 +45,12 @@ internal class GarbageSelectorImpl : GarbageSelector {
 
         return selected
     }
+
+    override val hasSelected: Boolean
+        get() {
+            garbage.forEach {
+                if (it.value.selected.isNotEmpty()) return  true
+            }
+            return false
+        }
 }

@@ -37,7 +37,7 @@ internal class GarbageFilesUseCasesImpl(
 
         garbageSelector.switchFileSelection(group, file)
         itemCheckable.setChecked(garbageSelector.isItemSelected(group, file))
-        uiOuter.updateGroup(group)
+        uiOuter.updateGroup(group, garbageSelector.hasSelected)
     }
 
     override fun switchGroupSelection(group: GarbageType, groupCheckable: Checkable){
@@ -45,7 +45,7 @@ internal class GarbageFilesUseCasesImpl(
 
         garbageSelector.switchGroupSelected(group)
         groupCheckable.setChecked(garbageSelector.isGroupSelected(group))
-        uiOuter.updateChildrenAndGroup(group)
+        uiOuter.updateChildrenAndGroup(group, garbageSelector.hasSelected)
 
     }
 

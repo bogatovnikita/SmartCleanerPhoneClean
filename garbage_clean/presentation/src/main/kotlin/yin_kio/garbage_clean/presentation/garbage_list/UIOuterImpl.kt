@@ -19,8 +19,9 @@ class UIOuterImpl(
         viewModel?.sendCommand(Command.RequestPermission)
     }
 
-    override fun updateGroup(group: GarbageType) {
+    override fun updateGroup(group: GarbageType, hasSelected: Boolean) {
         viewModel?.sendCommand(Command.UpdateGroup(group))
+        updateButtonOpacity(hasSelected)
     }
 
     override fun showPermissionDialog() {
@@ -64,7 +65,16 @@ class UIOuterImpl(
 //        TODO("Not yet implemented")
     }
 
-    override fun updateChildrenAndGroup(group: GarbageType) {
+    override fun updateChildrenAndGroup(group: GarbageType, hasSelected: Boolean) {
         viewModel?.sendCommand(Command.UpdateChildrenAndGroup(group))
+        updateButtonOpacity(hasSelected)
+    }
+
+    private fun updateButtonOpacity(hasSelected: Boolean) {
+        viewModel?.update {
+            it.copy(
+                buttonOpacity = presenter.presentButtonOpacity(hasSelected)
+            )
+        }
     }
 }

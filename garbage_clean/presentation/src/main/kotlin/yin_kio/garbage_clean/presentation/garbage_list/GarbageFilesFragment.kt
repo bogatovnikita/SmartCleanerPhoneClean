@@ -58,8 +58,14 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         binding.button.setOnClickListener { viewModel.scanOrClean() }
 
+        setupStateObserver()
+        setupCommandsObserver()
+
+    }
+
+    private fun setupStateObserver() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.state.collect{
+            viewModel.state.collect {
                 binding.size.text = it.size
                 binding.button.text = it.buttonText
 
@@ -73,12 +79,14 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
             }
         }
+    }
 
+    private fun setupCommandsObserver() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.commands.collect{ command ->
-                when(command){
+            viewModel.commands.collect { command ->
+                when (command) {
                     Command.ShowPermissionDialog -> findNavController().navigate(R.id.toPermissionDialog)
-                    Command.ClosePermissionDialog ->  findNavController().navigateUp()
+                    Command.ClosePermissionDialog -> findNavController().navigateUp()
                     Command.RequestPermission -> {
                         requestStoragePermissions()
                         findNavController().navigateUp()
@@ -90,7 +98,6 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                 }
             }
         }
-
     }
 
     private fun groupPosition(group: GarbageType) =

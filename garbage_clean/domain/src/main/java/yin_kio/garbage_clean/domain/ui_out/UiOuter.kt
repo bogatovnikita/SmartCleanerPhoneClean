@@ -6,8 +6,8 @@ interface UiOuter {
 
     fun closePermissionDialog()
     fun requestPermission()
-    fun updateGroup(group: GarbageType)
-    fun updateChildrenAndGroup(group: GarbageType)
+    fun updateGroup(group: GarbageType, hasSelected: Boolean)
+    fun updateChildrenAndGroup(group: GarbageType, hasSelected: Boolean)
     fun showPermissionDialog()
     fun outGarbage(garbage: List<Garbage>)
     fun showUpdateProgress()

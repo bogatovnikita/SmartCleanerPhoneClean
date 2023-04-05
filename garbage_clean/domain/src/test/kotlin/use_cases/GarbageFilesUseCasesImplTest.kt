@@ -82,13 +82,14 @@ class GarbageFilesUseCasesImplTest {
         val group = GarbageType.Apk
         val item = File("")
         coEvery { garbageSelector.isItemSelected(group, item) } returns isSelected
+        coEvery {  garbageSelector.hasSelected } returns isSelected
 
         useCases.switchItemSelection(group, item, itemCheckable)
 
         coVerifyOrder {
             garbageSelector.switchFileSelection(group, item)
             itemCheckable.setChecked(isSelected)
-            uiOuter.updateGroup(group)
+            uiOuter.updateGroup(group, isSelected)
         }
     }
 
@@ -103,13 +104,15 @@ class GarbageFilesUseCasesImplTest {
     private fun assertPassGroupSelected(isGroupSelected: Boolean) {
         val group = GarbageType.Apk
         coEvery { garbageSelector.isGroupSelected(group) } returns isGroupSelected
+        coEvery { garbageSelector.hasSelected } returns isGroupSelected
+
 
         useCases.switchGroupSelection(group, groupCheckable)
 
         coVerifyOrder {
             garbageSelector.switchGroupSelected(group)
             groupCheckable.setChecked(isGroupSelected)
-            uiOuter.updateChildrenAndGroup(group)
+            uiOuter.updateChildrenAndGroup(group, isGroupSelected)
         }
     }
 
