@@ -74,7 +74,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun initScreenStateObserver() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             viewModel.screenState.collect { state ->
                 renderState(state)
             }
