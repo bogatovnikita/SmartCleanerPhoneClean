@@ -75,7 +75,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 R.id.batteryFragment -> renderNavBar(binding.btnBattery.id, binding.titleBattery.id)
                 R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id)
                 com.smart.cleaner.phoneclean.presentation.R.id.duplicateImagesFragment,
-                com.smart.cleaner.phoneclean.presentation.R.id.duplicateFilesFragment -> renderNavBar(binding.btnDuplicate.id, binding.titleDuplicate.id)
+                com.smart.cleaner.phoneclean.presentation.R.id.duplicateFilesFragment -> renderNavBar(
+                    binding.btnDuplicate.id,
+                    binding.titleDuplicate.id
+                )
             }
         }
     }
