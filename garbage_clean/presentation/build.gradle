@@ -49,8 +49,8 @@ dependencies {
     implementation project(':language_dialog')
     implementation project(':permissions')
     implementation project(':toolbar')
+    implementation project(':ui_core')
 
-    implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
 
     implementation 'com.github.pokercc:ExpandableRecyclerView:0.9.3'
 

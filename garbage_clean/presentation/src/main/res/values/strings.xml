@@ -15,5 +15,6 @@
     <string name="close">Close</string>
     <string name="allow">Allow</string>
     <string name="clean">Clean</string>
+    <string name="optimization_clean">Clean...</string>
 
 </resources>

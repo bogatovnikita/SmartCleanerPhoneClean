@@ -1,6 +1,7 @@
 package yin_kio.garbage_clean.domain.ui_out
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
+import java.io.File
 
 interface UiOuter {
 
@@ -12,7 +13,8 @@ interface UiOuter {
     fun outGarbage(garbage: List<Garbage>)
     fun showUpdateProgress()
     fun showPermissionRequired()
-    fun showCleanProgress(messages: List<String>)
+    fun showCleanProgress(messages: List<File>)
     fun showResult(result: Long)
+    fun removeCleanProgressItem()
 
 }

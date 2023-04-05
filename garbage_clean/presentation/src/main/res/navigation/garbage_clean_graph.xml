@@ -10,9 +10,16 @@
         <action
             android:id="@+id/toPermissionDialog"
             app:destination="@id/permissionDialog" />
+        <action
+            android:id="@+id/toCleanProgress"
+            app:destination="@id/optimizationFragment" />
     </fragment>
     <dialog
         android:id="@+id/permissionDialog"
         android:name="yin_kio.garbage_clean.presentation.permission_dialog.PermissionDialog"
         android:label="PermissionDialog" />
+    <fragment
+        android:id="@+id/optimizationFragment"
+        android:name="yin_kio.garbage_clean.presentation.optimization.OptimizationFragment"
+        android:label="OptimizationFragment" />
 </navigation>

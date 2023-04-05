@@ -59,4 +59,7 @@ dependencies {
 
     //ViewBinding
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.6'
+
+
+    implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
 }

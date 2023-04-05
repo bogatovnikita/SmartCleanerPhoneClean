@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -95,6 +96,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                         adapter.notifyGroupChange(groupPosition(command.garbageType))
                     }
                     is Command.UpdateChildrenAndGroup -> updateChildrenAndGroup(command)
+                    Command.ShowCleanProgress -> findNavController().navigate(R.id.toCleanProgress)
+                    else -> {}
                 }
             }
         }

@@ -1,8 +1,10 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
+import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import java.io.File
 
 class UIOuterImpl(
     private val presenter: Presenter
@@ -57,12 +59,19 @@ class UIOuterImpl(
         ) }
     }
 
-    override fun showCleanProgress(messages: List<String>) {
-//        TODO("Not yet implemented")
+    override fun showCleanProgress(files: List<File>) {
+        viewModel?.update { it.copy(
+            cleanMessages = presenter.presentCleanProgressMessages(files)
+        ) }
+        viewModel?.sendCommand(Command.ShowCleanProgress)
     }
 
     override fun showResult(result: Long) {
-//        TODO("Not yet implemented")
+        Log.d("!!!", "showResult")
+        viewModel?.update { it.copy(
+            freedSpace = presenter.presentFreedSpace(result)
+        ) }
+        viewModel?.sendCommand(Command.ShowResult)
     }
 
     override fun updateChildrenAndGroup(group: GarbageType, hasSelected: Boolean) {
@@ -76,5 +85,11 @@ class UIOuterImpl(
                 buttonOpacity = presenter.presentButtonOpacity(hasSelected)
             )
         }
+    }
+
+    override fun removeCleanProgressItem() {
+        viewModel?.update { it.copy(
+            cleanMessages = it.cleanMessages
+        ) }
     }
 }

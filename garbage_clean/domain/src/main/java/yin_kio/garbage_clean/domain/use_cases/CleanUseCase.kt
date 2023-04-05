@@ -1,5 +1,6 @@
 package yin_kio.garbage_clean.domain.use_cases
 
+import kotlinx.coroutines.delay
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
@@ -17,10 +18,15 @@ internal class CleanUseCase(
         if (selected.isEmpty()) return
 
         storageInfo.saveStartVolume()
-        uiOuter.showCleanProgress(listOf())
+
+        uiOuter.showCleanProgress(selected)
         files.deleteFiles(selected)
         storageInfo.saveEndVolume()
         storageInfo.calculateEndVolume()
+
+        delay(8000)
+
+        uiOuter.showResult(storageInfo.freedVolume)
     }
 
 }
