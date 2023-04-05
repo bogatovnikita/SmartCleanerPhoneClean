@@ -8,10 +8,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:name=".App"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.Dark">
+        android:theme="@style/Theme.Material3.DayNight">
         <activity
             android:name=".MainActivity"
             android:exported="true">

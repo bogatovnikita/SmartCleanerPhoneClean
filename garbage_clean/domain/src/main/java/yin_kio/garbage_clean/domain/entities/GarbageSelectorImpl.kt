@@ -4,7 +4,7 @@ import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
 import java.io.File
 
-class GarbageSelectorImpl : GarbageSelector {
+internal class GarbageSelectorImpl : GarbageSelector {
 
     private var garbage: Map<GarbageType, SelectableForm<File>> = mapOf()
 
@@ -18,7 +18,7 @@ class GarbageSelectorImpl : GarbageSelector {
     }
 
     override fun isItemSelected(group: GarbageType, item: File): Boolean {
-        assert(garbage[group] != null)
+        if (garbage[group] == null) return false
         return garbage[group]!!.isItemSelected(item)
     }
 
@@ -28,7 +28,7 @@ class GarbageSelectorImpl : GarbageSelector {
     }
 
     override fun isGroupSelected(group: GarbageType): Boolean {
-        assert(garbage[group] != null)
+        if (garbage[group] == null) return false
         return garbage[group]!!.isAllSelected
     }
 
@@ -45,4 +45,12 @@ class GarbageSelectorImpl : GarbageSelector {
 
         return selected
     }
+
+    override val hasSelected: Boolean
+        get() {
+            garbage.forEach {
+                if (it.value.selected.isNotEmpty()) return  true
+            }
+            return false
+        }
 }

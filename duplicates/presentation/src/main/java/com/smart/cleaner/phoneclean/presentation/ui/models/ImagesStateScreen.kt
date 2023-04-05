@@ -1,4 +1,4 @@
-package com.smart.cleaner.phoneclean.presentation.ui.duplicate_images
+package com.smart.cleaner.phoneclean.presentation.ui.models
 
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
@@ -23,6 +23,8 @@ data class ImagesStateScreen(
         object CancelPermissionDialog: ImageEvent()
 
         object OpenPermissionDialog : ImageEvent()
+
+        object OpenDuplicatesFile : ImageEvent()
 
         object OpenConfirmationDialog : ImageEvent()
 

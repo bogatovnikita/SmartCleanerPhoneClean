@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="garbage_clean_title">Очистка мусора</string>
-    <string name="internal_storage">Внутренняя память</string>
-    <string name="occupied">Занято</string>
-    <string name="available">Доступно</string>
-    <string name="total_storage_space">Общий объём внутренней памяти</string>
-    <string name="garbage_files">Мусорные файлы</string>
-    <string name="select_all">Выбрать все</string>
-    <string name="can_free">Можно освободить %s</string>
-    <string name="go_back">Назад</string>
-    <string name="apk_files">APK файлы</string>
-    <string name="temp_files">Временные файлы</string>
-    <string name="rest_files">Остаточные файлы</string>
-    <string name="empty_folders">Пустые папки</string>
-    <string name="miniatures">Миниатюры</string>
-    <string name="delete">Удалить</string>
-    <string name="delete_progress_title">Удаляем мусорные файлы</string>
-    <string name="your_phone_is_clean">Ваш телефон чист\n\nОчищайте свой телефон регулярно, чтобы не засорять память и обеспечить быструю работу устройства</string>
-    <string name="go_to_main_screen">На главный экран</string>
-    <string name="device_scanning">Сканируем устройство...</string>
-    <string name="your_phone_is_cleaned">Ваш телефон очищен</string>
-    <string name="freed">Освобождено %s</string>
+    <string name="garbage_clean_title">Junk cleaner</string>
+    <string name="permission_required">Permission required</string>
+    <string name="scan">Scan</string>
+
+    <string name="apk">APK</string>
+    <string name="temp_files">Temporary files</string>
+    <string name="residual_files">Residual files</string>
+    <string name="empty_filders">Empty folders</string>
+    <string name="miniatures">Miniatures</string>
+    <string name="we_need_permission">We need permission</string>
+    <string name="storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
+    <string name="close">Close</string>
+    <string name="allow">Allow</string>
+    <string name="clean">Clean</string>
 
 </resources>

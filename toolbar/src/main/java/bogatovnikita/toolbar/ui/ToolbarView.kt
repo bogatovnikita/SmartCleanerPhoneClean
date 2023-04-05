@@ -4,6 +4,7 @@ import Const.DEEP_LINK_TO_INFORMATION_DIALOG
 import Const.DEEP_LINK_TO_LANGUAGE_DIALOG
 import Const.DEEP_LINK_TO_PREMIUM_DIALOG
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -73,7 +74,7 @@ class ToolbarView @JvmOverloads constructor(
     }
 
     private fun renderLanguageFlag() {
-        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
+//        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
     }
 
     private fun initClickListeners() {

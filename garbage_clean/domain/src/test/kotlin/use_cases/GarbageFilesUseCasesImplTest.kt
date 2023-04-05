@@ -8,14 +8,12 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
-import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_cases.*
 import java.io.File
 
 
@@ -28,11 +26,18 @@ class GarbageFilesUseCasesImplTest {
     private val updateUseCase: UpdateUseCase = mockk{
         coEvery { update() } returns Unit
     }
+    private val cleanUseCase: CleanUseCase = mockk{
+        coEvery { clean() } returns Unit
+    }
     private val storageInfo: StorageInfo = spyk()
-    private val files: Files = spyk()
 
     private val dispatcher = StandardTestDispatcher()
     private val testScope = TestScope(dispatcher)
+
+    private val scanUseCase: ScanUseCase = mockk{
+        coEvery { scan() } returns Unit
+    }
+    private val updateState: UpdateStateHolder = mockk()
 
 
     private val useCases = GarbageFilesUseCasesImpl(
@@ -41,9 +46,11 @@ class GarbageFilesUseCasesImplTest {
         permissions = permissions,
         updateUseCase = updateUseCase,
         storageInfo = storageInfo,
-        files = files,
         coroutineScope = testScope,
-        dispatcher = dispatcher
+        dispatcher = dispatcher,
+        cleanUseCase = cleanUseCase,
+        scanUseCase = scanUseCase,
+        updateState = updateState
     )
 
     private val itemCheckable: Checkable = spyk()
@@ -65,6 +72,8 @@ class GarbageFilesUseCasesImplTest {
 
     @Test
     fun testSwitchItemSelection(){
+        coEvery { permissions.hasPermission } returns true
+
         assertItemSelectionPassed(true)
         assertItemSelectionPassed(false)
     }
@@ -73,18 +82,21 @@ class GarbageFilesUseCasesImplTest {
         val group = GarbageType.Apk
         val item = File("")
         coEvery { garbageSelector.isItemSelected(group, item) } returns isSelected
+        coEvery {  garbageSelector.hasSelected } returns isSelected
 
         useCases.switchItemSelection(group, item, itemCheckable)
 
         coVerifyOrder {
             garbageSelector.switchFileSelection(group, item)
             itemCheckable.setChecked(isSelected)
-            uiOuter.updateGroup(group)
+            uiOuter.updateGroup(group, isSelected)
         }
     }
 
     @Test
     fun testSwitchGroupSelection(){
+        coEvery { permissions.hasPermission } returns true
+
         assertPassGroupSelected(true)
         assertPassGroupSelected(false)
     }
@@ -92,81 +104,66 @@ class GarbageFilesUseCasesImplTest {
     private fun assertPassGroupSelected(isGroupSelected: Boolean) {
         val group = GarbageType.Apk
         coEvery { garbageSelector.isGroupSelected(group) } returns isGroupSelected
+        coEvery { garbageSelector.hasSelected } returns isGroupSelected
+
 
         useCases.switchGroupSelection(group, groupCheckable)
 
         coVerifyOrder {
             garbageSelector.switchGroupSelected(group)
             groupCheckable.setChecked(isGroupSelected)
-            uiOuter.updateGroup(group)
+            uiOuter.updateChildrenAndGroup(group, isGroupSelected)
         }
     }
 
     @Test
-    fun testScan() = testScope.runTest {
-        assertScanIfHasPermission()
-        assertScanIfHasNotPermission()
+    fun testScanOrClean() = testScope.runTest {
+        assertUnsuccessfullScan()
+        assertSuccesfullScan()
     }
 
-    private fun TestScope.assertScanIfHasPermission() {
-        coEvery { permissions.hasPermission } returns true
+    private fun TestScope.assertUnsuccessfullScan() {
+        coEvery { updateState.updateState } returns UpdateState.Progress
 
-        useCases.scan()
+        useCases.scanOrClean()
         advanceUntilIdle()
 
-        coVerify { updateUseCase.update() }
+        coVerify { scanUseCase.scan() }
     }
 
-    private fun TestScope.assertScanIfHasNotPermission() {
-        coEvery { permissions.hasPermission } returns false
+    private fun TestScope.assertSuccesfullScan() {
+        coEvery { updateState.updateState } returns UpdateState.Successful
 
-        useCases.scan()
+        useCases.scanOrClean()
         advanceUntilIdle()
 
-        coVerify { uiOuter.showPermissionDialog() }
+        coVerify { cleanUseCase.clean() }
     }
 
     @Test
-    fun testStart(){
+    fun testStart() = testScope.runTest{
         assertStartWithPermission()
         assertStartWithoutPermission()
     }
 
-    private fun assertStartWithPermission(){
+    private fun TestScope.assertStartWithPermission(){
         coEvery { permissions.hasPermission } returns true
 
         useCases.start()
+        advanceUntilIdle()
 
         coVerify { updateUseCase.update() }
     }
 
-    private fun assertStartWithoutPermission(){
+    private fun TestScope.assertStartWithoutPermission(){
         coEvery { permissions.hasPermission } returns false
 
         useCases.start()
+        advanceUntilIdle()
 
         coVerify { uiOuter.showPermissionRequired() }
     }
 
-    @Test
-    fun testClean() = testScope.runTest {
-        val selectedFiles = listOf<File>()
-        val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
-        // Добавить реализацию очистки
-
-        coEvery { garbageSelector.getSelected() } returns selectedFiles
-
-        useCases.clean()
-        advanceUntilIdle()
-
-        coVerifyOrder {
-            storageInfo.saveStartVolume()
-            uiOuter.showCleanProgress(messages)
-            files.deleteFiles(selectedFiles)
-            storageInfo.saveEndVolume()
-            storageInfo.calculateEndVolume()
-        }
-    }
 
     @Test
     fun testCloseInter(){

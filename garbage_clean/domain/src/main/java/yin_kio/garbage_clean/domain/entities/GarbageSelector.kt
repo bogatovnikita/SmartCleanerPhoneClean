@@ -17,6 +17,8 @@ internal interface GarbageSelector {
 
     fun getSelected() : List<File>
 
+    val hasSelected: Boolean
+
 
 
 }

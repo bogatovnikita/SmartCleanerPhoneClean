@@ -1,13 +1,9 @@
 package com.smart.cleaner.phoneclean.presentation.di
 
-import com.smart.cleaner.phoneclean.data.AndroidImagesComparator
-import com.smart.cleaner.phoneclean.data.FilesImpl
-import com.smart.cleaner.phoneclean.data.PermissionsImpl
-import com.smart.cleaner.phoneclean.data.SettingsImpl
-import com.smart.cleaner.phoneclean.domain.gateways.DuplicatesSettings
-import com.smart.cleaner.phoneclean.domain.gateways.Files
-import com.smart.cleaner.phoneclean.domain.gateways.ImagesComparator
-import com.smart.cleaner.phoneclean.domain.gateways.Permissions
+import com.smart.cleaner.phoneclean.data.*
+import com.smart.cleaner.phoneclean.domain.gateways.*
+import com.smart.cleaner.phoneclean.domain.use_case.files.DuplicateFilesUseCase
+import com.smart.cleaner.phoneclean.domain.use_case.files.DuplicateFilesUseCaseImpl
 import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCase
 import com.smart.cleaner.phoneclean.domain.use_case.images.DuplicateImagesUseCaseImpl
 import dagger.Binds
@@ -26,10 +22,16 @@ interface BindModule {
     fun bindImagesComparator(imagesComparator: AndroidImagesComparator): ImagesComparator
 
     @Binds
+    fun bindIFilesComparator(filesComparator: FileComparatorImpl): FilesComparator
+
+    @Binds
     fun bindPermissions(permissions: PermissionsImpl): Permissions
 
     @Binds
     fun bindDuplicateImagesUseCase(UseCase: DuplicateImagesUseCaseImpl): DuplicateImagesUseCase
+
+    @Binds
+    fun bindDuplicateFilesUseCase(UseCase: DuplicateFilesUseCaseImpl): DuplicateFilesUseCase
 
     @Binds
     fun bindDuplicatesSettings(settings: SettingsImpl): DuplicatesSettings
