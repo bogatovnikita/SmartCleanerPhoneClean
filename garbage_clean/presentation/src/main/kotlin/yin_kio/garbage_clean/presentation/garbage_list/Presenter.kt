@@ -93,4 +93,12 @@ class Presenter(
         return formatFileSize(context, space)
     }
 
+    fun presentMessage(hasPermission: Boolean) : String{
+        return context.getString(R.string.garbage_amount_message)
+    }
+
+    fun presentMessageColor(hasPermission: Boolean) : Int{
+        return context.getColor(general.R.color.primary)
+    }
+
 }

@@ -73,6 +73,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                 binding.permissionRequired.isInvisible = !it.isShowPermissionRequired
 
                 binding.button.alpha = it.buttonOpacity
+                binding.message.text = it.message
+                binding.message.setTextColor(it.messageColor)
 
 
                 adapter.notifyDataSetChanged()

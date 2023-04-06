@@ -18,5 +18,6 @@
     <string name="optimization_clean">Clean...</string>
     <string name="result_recommendation">We recommend running these features</string>
     <string name="cleaning_result_message">The phone has been successfully cleared of unnecessary files</string>
+    <string name="garbage_amount_message">The amount of garbage on your device</string>
 
 </resources>

@@ -55,7 +55,9 @@ class UIOuterImpl(
             size = presenter.presentUnknownSize(),
             buttonText = presenter.presentButtonText(false),
             garbage = presenter.presentGarbageWithoutPermission(),
-            isShowPermissionRequired = true
+            isShowPermissionRequired = true,
+            message = presenter.presentMessage(false),
+            messageColor = presenter.presentMessageColor(false)
         ) }
     }
 

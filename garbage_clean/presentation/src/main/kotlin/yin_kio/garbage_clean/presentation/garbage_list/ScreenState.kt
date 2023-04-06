@@ -10,5 +10,8 @@ data class ScreenState(
     val isShowPermissionRequired: Boolean = false,
     val buttonOpacity: Float = 1f,
     val cleanMessages: List<GeneralOptimizingItem> = listOf(),
-    val freedSpace: String = ""
+    val freedSpace: String = "",
+    val message: String = "",
+    val messageColor: Int = 0x000000
+
 )
