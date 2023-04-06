@@ -48,6 +48,7 @@ dependencies {
     implementation project(":duplicates:presentation")
     implementation project(":ui_core")
     implementation project(":settings")
+    implementation project(':garbage_clean:presentation')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
