@@ -67,7 +67,6 @@ class UIOuterImpl(
     }
 
     override fun showResult(result: Long) {
-        Log.d("!!!", "showResult")
         viewModel?.update { it.copy(
             freedSpace = presenter.presentFreedSpace(result)
         ) }

@@ -50,4 +50,18 @@ class StorageInfoProvider(
            statFs().totalBytes
         }
     }
+
+    fun getOccupied() : Long {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val ssm = storageStatsManager()
+            val total = ssm.getTotalBytes(StorageManager.UUID_DEFAULT)
+            val free = ssm.getFreeBytes(StorageManager.UUID_DEFAULT)
+            total - free
+        } else {
+            val ssm = statFs()
+            val total = ssm.totalBytes
+            val free = ssm.freeBytes
+            total - free
+        }
+    }
 }

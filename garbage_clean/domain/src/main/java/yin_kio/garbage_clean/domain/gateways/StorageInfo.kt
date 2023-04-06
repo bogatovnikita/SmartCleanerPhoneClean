@@ -4,7 +4,7 @@ interface StorageInfo {
 
     fun saveStartVolume()
     fun saveEndVolume()
-    fun calculateEndVolume()
+    fun calculateFreedVolume()
     val freedVolume: Long
 
 }

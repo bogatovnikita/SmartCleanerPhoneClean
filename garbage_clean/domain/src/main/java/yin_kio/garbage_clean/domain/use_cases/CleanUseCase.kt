@@ -22,9 +22,11 @@ internal class CleanUseCase(
         uiOuter.showCleanProgress(selected)
         files.deleteFiles(selected)
         storageInfo.saveEndVolume()
-        storageInfo.calculateEndVolume()
+        storageInfo.calculateFreedVolume()
 
         delay(8000)
+
+        println("=============================${storageInfo.freedVolume / 1000000}")
 
         uiOuter.showResult(storageInfo.freedVolume)
     }

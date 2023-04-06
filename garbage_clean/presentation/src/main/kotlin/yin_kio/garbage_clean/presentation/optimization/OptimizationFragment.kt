@@ -1,17 +1,22 @@
 package yin_kio.garbage_clean.presentation.optimization
 
+import android.animation.Animator
 import android.animation.ValueAnimator
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
 import com.smart.cleaner.phoneclean.ui_core.databinding.FragmentBaseOptimizingBinding
 import jamycake.lifecycle_aware.previousBackStackEntry
+import kotlinx.coroutines.NonCancellable.start
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -20,7 +25,7 @@ import yin_kio.garbage_clean.presentation.garbage_list.Command
 import yin_kio.garbage_clean.presentation.garbage_list.ViewModel
 import kotlin.math.roundToInt
 
-class OptimizationFragment : Fragment(com.smart.cleaner.phoneclean.ui_core.R.layout.fragment_base_optimizing) {
+class OptimizationFragment : DialogFragment(com.smart.cleaner.phoneclean.ui_core.R.layout.fragment_base_optimizing) {
 
     private val binding: FragmentBaseOptimizingBinding by viewBinding()
 
@@ -28,6 +33,13 @@ class OptimizationFragment : Fragment(com.smart.cleaner.phoneclean.ui_core.R.lay
 
     private val adapter by lazy { OptimizingAdapter() }
     private var items = mutableListOf<GeneralOptimizingItem>()
+
+    private val animator = getAnimator()
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
+        return super.onCreateDialog(savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.tvOptimizationTitle.text = getString(R.string.optimization_clean)
@@ -43,7 +55,7 @@ class OptimizationFragment : Fragment(com.smart.cleaner.phoneclean.ui_core.R.lay
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.commands.collect {
                 if (it == Command.ShowResult) {
-                    Log.d("!!!", "Command.ShowResult")
+                    findNavController().navigate(R.id.toResult)
                 }
             }
         }
@@ -71,14 +83,24 @@ class OptimizationFragment : Fragment(com.smart.cleaner.phoneclean.ui_core.R.lay
             }
         }
 
-        ValueAnimator.ofFloat(0f, 100f).apply {
+
+        animator.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        animator.cancel()
+    }
+
+    private fun getAnimator() : Animator {
+        return ValueAnimator.ofFloat(0f, 100f).apply {
             duration = 8500L
 
             addUpdateListener {
                 val percent = ((it.animatedValue as Float)).roundToInt()
-                binding.tvProgressPercents.text = getString(general.R.string.value_percents, percent)
+                binding.tvProgressPercents.text =
+                    getString(general.R.string.value_percents, percent)
             }
-            start()
         }
     }
 
