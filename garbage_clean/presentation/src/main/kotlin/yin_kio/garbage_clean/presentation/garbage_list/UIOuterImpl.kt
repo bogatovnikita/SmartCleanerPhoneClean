@@ -36,7 +36,9 @@ class UIOuterImpl(
             buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
-            buttonOpacity = 0.5f
+            buttonOpacity = 0.5f,
+            message = presenter.presentMessage(garbage),
+            messageColor = presenter.presentMessageColor(garbage),
         ) }
     }
 

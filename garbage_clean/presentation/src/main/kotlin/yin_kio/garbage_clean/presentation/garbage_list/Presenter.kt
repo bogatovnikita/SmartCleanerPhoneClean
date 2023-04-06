@@ -102,6 +102,24 @@ class Presenter(
         return context.getString(id)
     }
 
+    fun presentMessage(garbage: List<Garbage>) : String{
+        val id = if (garbage.isEmpty()){
+            R.string.cleaning_result_message
+        } else {
+            R.string.message_clean_recomendation
+        }
+        return context.getString(id)
+    }
+
+    fun presentMessageColor(garbage: List<Garbage>) : Int{
+        val id = if (garbage.isEmpty()){
+            general.R.color.secondary
+        } else {
+            general.R.color.error
+        }
+        return context.getColor(id)
+    }
+
     fun presentMessageColor(hasPermission: Boolean) : Int{
         val id = if (hasPermission){
             general.R.color.error
