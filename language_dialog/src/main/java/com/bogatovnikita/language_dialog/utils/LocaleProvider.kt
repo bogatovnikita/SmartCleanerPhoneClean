@@ -1,6 +1,5 @@
 package com.bogatovnikita.language_dialog.utils
 
-import android.app.Application
 import com.bogatovnikita.language_dialog.R
 import java.util.*
 import javax.inject.Inject
