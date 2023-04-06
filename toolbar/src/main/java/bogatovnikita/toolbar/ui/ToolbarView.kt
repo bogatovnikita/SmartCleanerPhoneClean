@@ -74,7 +74,7 @@ class ToolbarView @JvmOverloads constructor(
     }
 
     private fun renderLanguageFlag() {
-//        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
+        binding.btnChangeLanguage.setImageResource(localeProvider.getCurrentLocaleModel().image)
     }
 
     private fun initClickListeners() {

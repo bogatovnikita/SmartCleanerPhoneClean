@@ -5,16 +5,18 @@ import com.bogatovnikita.language_dialog.R
 import java.util.*
 import javax.inject.Inject
 
-class LocaleProvider @Inject constructor(private val context: Application) {
+class LocaleProvider @Inject constructor(
+    private val preferencesProvider: PreferencesProvider
+) {
 
     fun getCurrentLocaleModel(): LocaleModel {
-        return LocaleModel.getLocale(PreferencesProvider(context).getLocale())
+        return LocaleModel.getLocale(preferencesProvider.getLocale())
     }
 
     fun saveNewLocale(localeModel: LocaleModel) {
         val map = mutableMapOf<String, Any>()
         map["locale"] = localeModel.country
-        PreferencesProvider(context).saveNewLocale(localeModel.country)
+        preferencesProvider.saveNewLocale(localeModel.country)
     }
 
     enum class LocaleModel(val country: String, val language: String, val image: Int) {
