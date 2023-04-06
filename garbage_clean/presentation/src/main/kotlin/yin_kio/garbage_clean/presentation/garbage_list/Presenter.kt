@@ -94,11 +94,21 @@ class Presenter(
     }
 
     fun presentMessage(hasPermission: Boolean) : String{
-        return context.getString(R.string.garbage_amount_message)
+        val id = if (hasPermission){
+            R.string.message_clean_recomendation
+        } else {
+            R.string.garbage_amount_message
+        }
+        return context.getString(id)
     }
 
     fun presentMessageColor(hasPermission: Boolean) : Int{
-        return context.getColor(general.R.color.primary)
+        val id = if (hasPermission){
+            general.R.color.error
+        } else {
+            general.R.color.primary
+        }
+        return context.getColor(id)
     }
 
 }
