@@ -14,7 +14,7 @@ interface UiOuter {
     fun showUpdateProgress()
     fun showPermissionRequired()
     fun hidePermissionRequired()
-    fun showCleanProgress(messages: List<File>)
+    fun showCleanProgress(files: List<File>)
     fun showResult(result: Long)
     fun removeCleanProgressItem()
 

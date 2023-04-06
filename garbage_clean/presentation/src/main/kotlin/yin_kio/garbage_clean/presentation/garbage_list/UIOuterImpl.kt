@@ -1,6 +1,5 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -39,6 +38,7 @@ class UIOuterImpl(
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(garbage),
             messageColor = presenter.presentMessageColor(garbage),
+            sizeMessageColor = presenter.presentSizeMessageColor(garbage)
         ) }
     }
 
@@ -50,7 +50,8 @@ class UIOuterImpl(
             isShowPermissionRequired = false,
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(true),
-            messageColor = presenter.presentMessageColor(true)
+            messageColor = presenter.presentMessageColor(true),
+            sizeMessageColor = presenter.presentProgressSizeMessageColor()
         ) }
     }
 

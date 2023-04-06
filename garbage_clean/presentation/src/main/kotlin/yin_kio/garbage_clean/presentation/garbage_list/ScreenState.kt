@@ -12,6 +12,7 @@ data class ScreenState(
     val cleanMessages: List<GeneralOptimizingItem> = listOf(),
     val freedSpace: String = "",
     val message: String = "",
-    val messageColor: Int = 0x000000
+    val messageColor: Int = 0x000000,
+    val sizeMessageColor: Int = 0x00000
 
 )

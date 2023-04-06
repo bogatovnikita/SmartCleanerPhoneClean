@@ -3,6 +3,7 @@ package yin_kio.garbage_clean.presentation.garbage_list
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -56,7 +57,6 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     }
 
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.recycler.adapter = adapter
@@ -68,20 +68,23 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
     }
 
+
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupStateObserver() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
-                binding.size.text = it.size
-                binding.button.text = it.buttonText
+                binding.apply {
+                    size.text = it.size
+                    button.text = it.buttonText
+                    permissionRequired.isInvisible = !it.isShowPermissionRequired
+                    button.alpha = it.buttonOpacity
+                    message.text = it.message
+                    message.setTextColor(it.messageColor)
+                    size.setTextColor(it.sizeMessageColor)
+                    sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
+                }
 
                 adapter.garbage = it.garbage
-                binding.permissionRequired.isInvisible = !it.isShowPermissionRequired
-
-                binding.button.alpha = it.buttonOpacity
-                binding.message.text = it.message
-                binding.message.setTextColor(it.messageColor)
-
-
                 adapter.notifyDataSetChanged()
 
             }

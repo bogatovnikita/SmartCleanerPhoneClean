@@ -129,4 +129,17 @@ class Presenter(
         return context.getColor(id)
     }
 
+    fun presentSizeMessageColor(garbage: List<Garbage>) : Int{
+        val id = if (garbage.isEmpty()){
+            general.R.color.secondary
+        } else {
+            general.R.color.error
+        }
+        return context.getColor(id)
+    }
+
+    fun presentProgressSizeMessageColor() : Int{
+        return context.getColor(general.R.color.error)
+    }
+
 }
