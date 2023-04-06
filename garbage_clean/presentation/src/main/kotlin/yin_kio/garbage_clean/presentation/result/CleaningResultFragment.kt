@@ -1,5 +1,8 @@
 package yin_kio.garbage_clean.presentation.result
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +22,14 @@ class CleaningResultFragment : BaseFragmentResult(R.layout.fragment_cleaning_res
     private val binding: FragmentCleaningResultBinding by viewBinding()
 
     private val viewModel: ViewModel by previousBackStackEntry()
+
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
+        return super.onCreateDialog(savedInstanceState).apply {
+            this.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+        }
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

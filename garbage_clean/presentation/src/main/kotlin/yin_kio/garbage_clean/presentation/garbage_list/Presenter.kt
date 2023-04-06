@@ -28,7 +28,7 @@ class Presenter(
 
     fun presentButtonText(hasPermission: Boolean) : String{
         return if (hasPermission){
-            context.getString(R.string.clean)
+            context.getString(R.string.garbage_clean_button)
         } else {
             context.getString(R.string.scan)
         }

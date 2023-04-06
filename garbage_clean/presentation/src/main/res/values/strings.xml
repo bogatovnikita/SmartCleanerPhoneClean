@@ -14,7 +14,7 @@
     <string name="storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
     <string name="close">Close</string>
     <string name="allow">Allow</string>
-    <string name="clean">Clean</string>
+    <string name="garbage_clean_button">Clean</string>
     <string name="optimization_clean">Clean...</string>
     <string name="result_recommendation">We recommend running these features</string>
     <string name="cleaning_result_message">The phone has been successfully cleared of unnecessary files</string>
