@@ -175,4 +175,26 @@ class GarbageFilesUseCasesImplTest {
         coVerify { uiOuter.showResult(result) }
     }
 
+    @Test
+    fun testCheckPermission(){
+        assertShowPermission()
+        assertHidePermission()
+    }
+
+    private fun assertHidePermission(){
+        coEvery { permissions.hasPermission } returns false
+
+        useCases.checkPermission()
+
+        coVerify { uiOuter.showPermissionRequired() }
+    }
+
+    private fun assertShowPermission(){
+        coEvery { permissions.hasPermission } returns true
+
+        useCases.checkPermission()
+
+        coVerify { uiOuter.hidePermissionRequired() }
+    }
+
 }

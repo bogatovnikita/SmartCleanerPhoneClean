@@ -95,4 +95,10 @@ class UIOuterImpl(
             cleanMessages = it.cleanMessages
         ) }
     }
+
+    override fun hidePermissionRequired() {
+        viewModel?.update { it.copy(
+            isShowPermissionRequired = false
+        ) }
+    }
 }

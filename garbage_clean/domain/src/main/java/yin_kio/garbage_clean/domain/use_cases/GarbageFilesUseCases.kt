@@ -15,4 +15,5 @@ interface GarbageFilesUseCases {
     fun scanOrClean()
     fun update()
     fun closeInter()
+    fun checkPermission()
 }

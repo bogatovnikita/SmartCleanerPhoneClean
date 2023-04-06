@@ -75,6 +75,14 @@ internal class GarbageFilesUseCasesImpl(
 
     }
 
+    override fun checkPermission() {
+        if (permissions.hasPermission){
+            uiOuter.hidePermissionRequired()
+        } else {
+            uiOuter.showPermissionRequired()
+        }
+    }
+
     override fun closeInter(){
         uiOuter.showResult(storageInfo.freedVolume)
     }

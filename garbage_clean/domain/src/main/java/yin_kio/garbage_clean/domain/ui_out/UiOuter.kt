@@ -13,6 +13,7 @@ interface UiOuter {
     fun outGarbage(garbage: List<Garbage>)
     fun showUpdateProgress()
     fun showPermissionRequired()
+    fun hidePermissionRequired()
     fun showCleanProgress(messages: List<File>)
     fun showResult(result: Long)
     fun removeCleanProgressItem()

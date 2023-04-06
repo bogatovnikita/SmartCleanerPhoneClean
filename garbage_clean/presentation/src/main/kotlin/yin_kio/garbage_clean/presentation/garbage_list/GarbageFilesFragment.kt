@@ -50,6 +50,11 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         onItemClick = {a,b,c -> viewModel.switchItemSelection(a, b, c)}
     )
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.checkPermission()
+    }
+
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
