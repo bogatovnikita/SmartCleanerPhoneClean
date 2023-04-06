@@ -25,10 +25,8 @@ class DuplicateImagesViewModel @Inject constructor(
                     duplicates = mapUiModel(duplicates),
                     isLoading = false,
                     isNotFound = duplicates.isEmpty(),
-                    isCanDelete = false,
                 )
             }
-            isCanDelete()
         }
     }
 
@@ -70,7 +68,6 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
-        isCanDelete()
         updateTotalImageSize()
     }
 
@@ -90,7 +87,6 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
-        isCanDelete()
         updateTotalImageSize()
     }
 
@@ -145,25 +141,6 @@ class DuplicateImagesViewModel @Inject constructor(
             imagePath = it.imagePath,
             size = it.size
         )
-    }
-
-    private fun isCanDelete() {
-        var isCanDelete = false
-        if (screenState.value.duplicates.any { it.isAllSelected }) {
-            isCanDelete = true
-        } else {
-            screenState.value.duplicates.forEach { images ->
-                if (images.images.any { it.isSelected }) {
-                    isCanDelete = true
-                    return@forEach
-                }
-            }
-        }
-        updateState {
-            it.copy(
-                isCanDelete = isCanDelete
-            )
-        }
     }
 
     private fun saveTimeAndDelete(time: Long) {

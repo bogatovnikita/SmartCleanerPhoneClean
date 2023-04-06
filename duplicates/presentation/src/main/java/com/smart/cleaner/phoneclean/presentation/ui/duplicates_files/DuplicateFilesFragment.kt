@@ -9,15 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesFilesParentAdapter
-import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesImagesParentAdapter
 import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnFileChangeSelectListener
-import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildFileItem
-import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
-import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateFilesBinding
-import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
+import com.smart.cleaner.phoneclean.presentation.ui.models.FilesStateScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,11 +26,11 @@ class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
     private val adapter: DuplicatesFilesParentAdapter =
         DuplicatesFilesParentAdapter(object : OnFileChangeSelectListener {
             override fun selectAll(duplicates: ParentFileItem, isSelected: Boolean) {
-                TODO("Not yet implemented")
+                viewModel.obtainEvent(FilesStateScreen.FileEvent.SelectAll(duplicates, isSelected))
             }
 
-            override fun selectFile(image: ChildFileItem, isSelected: Boolean) {
-                TODO("Not yet implemented")
+            override fun selectFile(file: ChildFileItem, isSelected: Boolean) {
+                viewModel.obtainEvent(FilesStateScreen.FileEvent.SelectFile(file, isSelected))
             }
 
         })

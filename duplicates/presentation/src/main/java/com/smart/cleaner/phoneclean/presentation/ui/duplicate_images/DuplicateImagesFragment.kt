@@ -66,7 +66,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     private fun render(state: ImagesStateScreen) {
         with(binding) {
-            btnDelete.isEnabled = state.isCanDelete
+            btnDelete.isEnabled = state.totalSize != 0L
             groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupNotFound.isVisible = state.isNotFound
             groupStopLoading.isVisible = !state.isLoading && state.hasPermission

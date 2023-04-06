@@ -1,5 +1,6 @@
 package com.smart.cleaner.phoneclean.presentation.ui.models
 
+import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildFileItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
 
 data class FilesStateScreen(
@@ -7,7 +8,6 @@ data class FilesStateScreen(
     val timeDeletion: Long = 0,
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
-    val isCanDelete: Boolean = false,
     val hasPermission: Boolean = false,
     val event: FileEvent = FileEvent.Default,
     val duplicates: List<ParentFileItem> = emptyList(),
@@ -32,12 +32,12 @@ data class FilesStateScreen(
         class DeleteDone() : FileEvent()
 
         class SelectAll(
-            val duplicates: Any,
+            val duplicates: ParentFileItem,
             val isSelected: Boolean
         ) : FileEvent()
 
         class SelectFile(
-            val file: Any,
+            val file: ChildFileItem,
             val isSelected: Boolean
         ) : FileEvent()
 

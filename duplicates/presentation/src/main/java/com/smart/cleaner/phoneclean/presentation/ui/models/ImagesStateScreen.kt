@@ -8,7 +8,6 @@ data class ImagesStateScreen(
     val timeDeletion: Long = 0,
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
-    val isCanDelete: Boolean = false,
     val hasPermission: Boolean = false,
     val event: ImageEvent = ImageEvent.CheckPermission,
     val duplicates: List<ParentImageItem> = emptyList(),

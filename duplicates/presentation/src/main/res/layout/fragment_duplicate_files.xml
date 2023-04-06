@@ -40,13 +40,13 @@
         android:id="@+id/container_document"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_btn_file_group_selected"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="11dp"
-        android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/container_image"
         app:layout_constraintTop_toTopOf="parent">
@@ -66,21 +66,75 @@
 
     </LinearLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="124dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_image"
+        app:layout_constraintVertical_bias="0.33"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/lottie_optimization"
+        app:lottie_renderMode="automatic"
+        app:lottie_repeatMode="restart" />
+
+    <TextView
+        android:id="@+id/tv_loading_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="26dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/duplicates_please_wait"
+        android:textAppearance="@style/Text.Regular.16"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_loading" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_start_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="lottie_loading, tv_loading_desc" />
+
+    <TextView
+        android:id="@+id/tv_not_found"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:text="@string/duplicates_no_duplicates_found"
+        android:textAppearance="@style/Text.Medium.16"
+        android:textColor="@color/grey"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btn_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginVertical="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_image"
         tools:listitem="@layout/item_parent_files" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_boost_battery"
+        android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/bg_main_button"
         android:gravity="center"
@@ -90,7 +144,6 @@
         android:textAppearance="@style/Text.Medium.18"
         android:textColor="@color/white"
         android:visibility="visible"
-        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
