@@ -40,6 +40,7 @@ class Presenter(
                 type = it,
                 name = presentGarbageName(it),
                 files = listOf(),
+                isEnabled = false
             )
         }
     }
@@ -51,7 +52,8 @@ class Presenter(
                 name = presentGarbageName(it),
                 files = listOf(),
                 isInProgress = true,
-                alpha = 1.0f
+                alpha = 1.0f,
+                isEnabled = false
             )
         }
     }
@@ -71,12 +73,25 @@ class Presenter(
     }
 
     fun presentGarbage(garbage: List<Garbage>) : List<GarbageGroup>{
+        if (garbage.isEmpty()){
+            return GarbageType.values().map {
+                GarbageGroup(
+                    type = it,
+                    name = presentGarbageName(it),
+                    files = emptyList(),
+                    alpha = 0.5f,
+                    isEnabled = false
+                )
+            }
+        }
+
         return garbage.map {
             GarbageGroup(
                 type = it.type,
                 name = presentGarbageName(it.type),
                 files = it.files,
-                alpha = 1.0f
+                alpha = 1.0f,
+                isEnabled = true
             )
         }
     }

@@ -34,11 +34,13 @@ class GarbageViewHolder private constructor(
         binding.checkbox.isVisible = !garbage.isInProgress
         binding.expand.isVisible = !garbage.isInProgress
 
+        binding.checkbox.isEnabled = garbage.isEnabled
+
         binding.checkbox.setOnClickListener{
             onCheckboxClick(garbage.type, checkboxWrapper)
         }
         binding.expand.setOnClickListener {
-            onExpandClick()
+            if (garbage.isEnabled) onExpandClick()
         }
     }
 

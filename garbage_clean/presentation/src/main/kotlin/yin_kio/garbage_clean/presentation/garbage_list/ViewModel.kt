@@ -15,7 +15,7 @@ class ViewModel(
     private val _state = MutableStateFlow(ScreenState(
         size = presenter.presentUnknownSize(),
         buttonText = presenter.presentButtonText(false),
-        garbage = presenter.presentGarbageWithoutPermission(),
+        garbageGroups = presenter.presentGarbageWithoutPermission(),
         isShowPermissionRequired = false
     ))
     val state: StateFlow<ScreenState> = _state.asStateFlow()

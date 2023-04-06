@@ -33,12 +33,13 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
             buttonText = presenter.presentButtonText(true),
-            garbage = presenter.presentGarbage(garbage),
+            garbageGroups = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(garbage),
             messageColor = presenter.presentProgressMessageColor(garbage, wasClean),
-            sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean)
+            sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean),
+            isExpandEnabled = garbage.isNotEmpty()
         ) }
     }
 
@@ -46,7 +47,7 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.persentProgressSize(),
             buttonText = presenter.presentButtonText(true),
-            garbage = presenter.presentGarbageForProgress(),
+            garbageGroups = presenter.presentGarbageForProgress(),
             isShowPermissionRequired = false,
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(true),
@@ -59,7 +60,7 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.presentUnknownSize(),
             buttonText = presenter.presentButtonText(false),
-            garbage = presenter.presentGarbageWithoutPermission(),
+            garbageGroups = presenter.presentGarbageWithoutPermission(),
             isShowPermissionRequired = true,
             message = presenter.presentMessage(false),
             messageColor = presenter.presentNoPermissionMessageColor()

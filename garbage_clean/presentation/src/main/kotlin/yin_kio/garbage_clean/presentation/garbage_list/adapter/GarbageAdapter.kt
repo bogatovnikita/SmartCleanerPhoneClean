@@ -16,6 +16,8 @@ class GarbageAdapter(
 
     var garbage: List<GarbageGroup> = listOf()
 
+    var onExpandListenerEnabled: Boolean = true
+
     override fun getChildCount(groupPosition: Int): Int {
         if (garbage.isEmpty()) return 0
         return garbage[groupPosition].files.size
@@ -74,10 +76,9 @@ class GarbageAdapter(
         animDuration: Long,
         expand: Boolean
     ) {
-
-        val rotation = if (expand) 180f else 0f
-
-        (holder as? GarbageViewHolder)?.binding?.expand?.rotation = rotation
-
+        if (onExpandListenerEnabled){
+            val rotation = if (expand) 180f else 0f
+            (holder as? GarbageViewHolder)?.binding?.expand?.rotation = rotation
+        }
     }
 }

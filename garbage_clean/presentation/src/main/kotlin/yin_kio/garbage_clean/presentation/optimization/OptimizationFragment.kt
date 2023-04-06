@@ -50,7 +50,7 @@ class OptimizationFragment : DialogFragment(com.smart.cleaner.phoneclean.ui_core
                 return false
             }
         }
-
+        binding.recyclerView.itemAnimator = null
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.commands.collect {

@@ -83,9 +83,10 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                     message.setTextColor(it.messageColor)
                     size.setTextColor(it.sizeMessageColor)
                     sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
+                    adapter.onExpandListenerEnabled = it.isExpandEnabled
                 }
 
-                adapter.garbage = it.garbage
+                adapter.garbage = it.garbageGroups
                 adapter.notifyDataSetChanged()
 
             }
