@@ -29,7 +29,7 @@ class UIOuterImpl(
         viewModel?.sendCommand(Command.ShowPermissionDialog)
     }
 
-    override fun outGarbage(garbage: List<Garbage>) {
+    override fun outGarbage(garbage: List<Garbage>, wasClean: Boolean) {
         viewModel?.update { it.copy(
             size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
             buttonText = presenter.presentButtonText(true),
@@ -37,21 +37,21 @@ class UIOuterImpl(
             isShowPermissionRequired = false,
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(garbage),
-            messageColor = presenter.presentMessageColor(garbage),
-            sizeMessageColor = presenter.presentSizeMessageColor(garbage)
+            messageColor = presenter.presentProgressMessageColor(garbage, wasClean),
+            sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean)
         ) }
     }
 
-    override fun showUpdateProgress() {
+    override fun showUpdateProgress(wasClean: Boolean) {
         viewModel?.update { it.copy(
-            size = presenter.presentProgressSize(),
+            size = presenter.persentProgressSize(),
             buttonText = presenter.presentButtonText(true),
             garbage = presenter.presentGarbageForProgress(),
             isShowPermissionRequired = false,
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(true),
-            messageColor = presenter.presentMessageColor(true),
-            sizeMessageColor = presenter.presentProgressSizeMessageColor()
+            messageColor = presenter.presentProgressMessageColor(wasClean),
+            sizeMessageColor = presenter.presentProgressSizeMessageColor(wasClean)
         ) }
     }
 
@@ -62,7 +62,7 @@ class UIOuterImpl(
             garbage = presenter.presentGarbageWithoutPermission(),
             isShowPermissionRequired = true,
             message = presenter.presentMessage(false),
-            messageColor = presenter.presentMessageColor(false)
+            messageColor = presenter.presentNoPermissionMessageColor()
         ) }
     }
 

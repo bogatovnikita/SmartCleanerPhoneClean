@@ -2,6 +2,7 @@ package yin_kio.garbage_clean.domain.use_cases
 
 import kotlinx.coroutines.delay
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.CleanTime
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -10,7 +11,8 @@ internal class CleanUseCase(
     private val storageInfo: StorageInfo,
     private val uiOuter: UiOuter,
     private val files: Files,
-    private val garbageSelector: GarbageSelector
+    private val garbageSelector: GarbageSelector,
+    private val cleanTime: CleanTime
 ) {
 
     suspend fun clean(){
@@ -26,9 +28,8 @@ internal class CleanUseCase(
 
         delay(8000)
 
-        println("=============================${storageInfo.freedVolume / 1000000}")
-
         uiOuter.showResult(storageInfo.freedVolume)
+        cleanTime.saveLastCleanTime()
     }
 
 }

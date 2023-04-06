@@ -21,7 +21,7 @@ class Presenter(
         return formatFileSize(context, 0L).replace("0", "(?)")
     }
 
-    fun presentProgressSize() : String{
+    fun persentProgressSize() : String{
         return formatFileSize(context, 10_000_000).replace("10,00", "...")
             .replace("10.00", "...")
     }
@@ -111,7 +111,9 @@ class Presenter(
         return context.getString(id)
     }
 
-    fun presentMessageColor(garbage: List<Garbage>) : Int{
+    fun presentProgressMessageColor(garbage: List<Garbage>, wasClean: Boolean) : Int{
+        if (wasClean) return wasCleanColor()
+
         val id = if (garbage.isEmpty()){
             general.R.color.secondary
         } else {
@@ -120,16 +122,23 @@ class Presenter(
         return context.getColor(id)
     }
 
-    fun presentMessageColor(hasPermission: Boolean) : Int{
-        val id = if (hasPermission){
-            general.R.color.error
+
+    fun presentProgressMessageColor(wasClean: Boolean) : Int{
+        val id = if (wasClean){
+            general.R.color.secondary
         } else {
-            general.R.color.primary
+            general.R.color.error
         }
         return context.getColor(id)
     }
 
-    fun presentSizeMessageColor(garbage: List<Garbage>) : Int{
+    fun presentNoPermissionMessageColor() : Int{
+        return context.getColor(general.R.color.primary)
+    }
+
+    fun presentSizeMessageColor(garbage: List<Garbage>, wasClean: Boolean) : Int{
+        if (wasClean) return wasCleanColor()
+
         val id = if (garbage.isEmpty()){
             general.R.color.secondary
         } else {
@@ -138,7 +147,12 @@ class Presenter(
         return context.getColor(id)
     }
 
-    fun presentProgressSizeMessageColor() : Int{
+
+    private fun wasCleanColor() = context.getColor(general.R.color.secondary)
+
+    fun presentProgressSizeMessageColor(wasClean: Boolean) : Int{
+        if (wasClean) return wasCleanColor()
+
         return context.getColor(general.R.color.error)
     }
 

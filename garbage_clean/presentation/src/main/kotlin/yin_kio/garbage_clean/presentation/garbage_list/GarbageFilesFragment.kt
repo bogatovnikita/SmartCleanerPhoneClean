@@ -19,6 +19,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.permissions.requestManageExternalStorage
 import jamycake.lifecycle_aware.LifecycleAware
 import jamycake.lifecycle_aware.currentBackStackEntry
+import yin_kio.garbage_clean.data.CleanTimeImpl
 import yin_kio.garbage_clean.data.FilesImpl
 import yin_kio.garbage_clean.data.PermissionsImpl
 import yin_kio.garbage_clean.data.StorageInfoImpl
@@ -169,7 +170,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
             permissions = PermissionsImpl(context),
             files = FilesImpl(),
             storageInfo = StorageInfoImpl(context),
-            coroutineScope = viewModelScope
+            coroutineScope = viewModelScope,
+            cleanTime = CleanTimeImpl(context)
         )
 
         val viewModel = ViewModel(
