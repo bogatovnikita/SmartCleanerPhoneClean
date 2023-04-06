@@ -45,8 +45,7 @@ class LocalDialog : DialogFragment(R.layout.dialog_local) {
         val adapter = LocalAdapter {
             localeProvider.saveNewLocale(it)
             dismiss()
-            requireActivity().finish()
-            startActivity(requireActivity().intent)
+            requireActivity().recreate()
         }
         binding.recyclerView.layoutManager = GridLayoutManager(context, 3)
         binding.recyclerView.adapter = adapter

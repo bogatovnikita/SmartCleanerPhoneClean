@@ -1,34 +1,26 @@
 package com.bogatovnikita.language_dialog.language
 
-import android.app.Application
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
+import com.bogatovnikita.language_dialog.utils.PreferencesProvider
 import java.util.*
-import javax.inject.Inject
 
-class Language @Inject constructor(
-    private val context: Application,
-    private val localeProvider: LocaleProvider
-) {
+class Language(private val context: Context) {
+    private val preferencesProvider = PreferencesProvider(context)
+    private val localeProvider = LocaleProvider(preferencesProvider)
 
-    fun changeLanguage() {
-        setApplicationLanguage(localeProvider.getCurrentLocaleModel().language)
+    fun changeLanguage(): Context {
+        return setApplicationLanguage(localeProvider.getCurrentLocaleModel().language)
     }
 
     fun checkLanguage() = localeProvider.getCurrentLocaleModel().name == "DEFAULT"
 
-    private fun setApplicationLanguage(localeCode: String) {
-        val locale = Locale.forLanguageTag(localeCode)
-        val activityRes = context.resources
-        val activityConf = activityRes.configuration
-        activityConf.setLocale(locale)
-        activityRes.updateConfiguration(activityConf, activityRes.displayMetrics)
-
-        val applicationRes = context.resources
-        val applicationConf = applicationRes.configuration
-        applicationConf.setLocale(locale)
-        applicationRes.updateConfiguration(
-            applicationConf,
-            applicationRes.displayMetrics
-        )
+    private fun setApplicationLanguage(localeCode: String): Context {
+        val res: Resources = context.resources
+        val conf: Configuration = res.configuration
+        conf.setLocale(Locale(localeCode))
+        return context.createConfigurationContext(conf)
     }
 }

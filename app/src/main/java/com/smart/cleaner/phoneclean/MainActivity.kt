@@ -1,5 +1,6 @@
 package com.smart.cleaner.phoneclean
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -20,16 +21,19 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
 
     @Inject
-    lateinit var language: Language
-
-    @Inject
     lateinit var settings: Settings
+
+    private lateinit var language: Language
 
     private val binding: ActivityMainBinding by viewBinding()
 
+    override fun attachBaseContext(newBase: Context) {
+        language = Language(newBase)
+        super.attachBaseContext(language.changeLanguage())
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        language.changeLanguage()
         initSubscription()
         initAds()
         initListeners()
