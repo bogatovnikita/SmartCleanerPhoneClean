@@ -63,7 +63,8 @@ class UIOuterImpl(
             garbageGroups = presenter.presentGarbageWithoutPermission(),
             isShowPermissionRequired = true,
             message = presenter.presentMessage(false),
-            messageColor = presenter.presentNoPermissionMessageColor()
+            messageColor = presenter.presentNoPermissionMessageColor(),
+            sizeMessageColor = presenter.presentNoPermissionSizeMessageColor()
         ) }
     }
 

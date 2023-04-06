@@ -162,6 +162,10 @@ class Presenter(
         return context.getColor(id)
     }
 
+    fun presentNoPermissionSizeMessageColor() : Int {
+        return context.getColor(general.R.color.error)
+    }
+
 
     private fun wasCleanColor() = context.getColor(general.R.color.secondary)
 
