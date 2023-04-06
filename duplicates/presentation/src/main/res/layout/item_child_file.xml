@@ -16,26 +16,42 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="-7dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginEnd="42dp"
         android:text="Name of document.doc"
+        app:layout_constraintHorizontal_bias="0"
         android:textAppearance="@style/Text.Medium.14"
         app:layout_constraintStart_toEndOf="@id/iv_document"
+        app:layout_constraintEnd_toEndOf="@id/barrier"
         app:layout_constraintTop_toTopOf="@id/iv_document" />
 
     <TextView
         android:id="@+id/tv_size_and_path"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="-3dp"
         android:text="@string/duplicates_size_and_path"
         android:textAppearance="@style/Text.Regular.12"
         android:textColor="@color/grey"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginEnd="42dp"
         app:layout_constraintBottom_toBottomOf="@id/iv_document"
-        app:layout_constraintStart_toEndOf="@id/iv_document" />
+        app:layout_constraintStart_toEndOf="@id/iv_document"
+        app:layout_constraintEnd_toEndOf="@id/barrier"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="btn_switch_off_file, btn_switch_on_file" />
 
     <ImageView
         android:id="@+id/btn_switch_off_file"

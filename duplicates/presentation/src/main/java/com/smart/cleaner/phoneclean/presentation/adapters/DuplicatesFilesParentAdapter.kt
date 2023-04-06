@@ -25,7 +25,7 @@ class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListe
 
     override fun onBindViewHolder(holder: ParentFileViewHolder, position: Int) {
         val fileGroup = getItem(position)
-        holder.bind(fileGroup, position)
+        holder.bind(fileGroup, position, currentList.size)
     }
 
     inner class ParentFileViewHolder(
@@ -40,7 +40,7 @@ class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListe
             initAdapter()
         }
 
-        fun bind(state: ParentFileItem, position: Int) {
+        fun bind(state: ParentFileItem, position: Int, generalListSize: Int) {
             with(binding) {
                 tvNumberDuplicates.text = binding.root.context.getString(
                     R.string.duplicates_number_of_duplicate,
@@ -48,6 +48,7 @@ class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListe
                 )
                 binding.btnSwitchOffAll.isVisible = state.isAllSelected
                 binding.btnSwitchOnAll.isVisible = !state.isAllSelected
+                separationLine.isVisible = position == generalListSize
                 btnSwitchOffAll.setOnClickListener {
                     listener.selectAll(state, false)
                 }

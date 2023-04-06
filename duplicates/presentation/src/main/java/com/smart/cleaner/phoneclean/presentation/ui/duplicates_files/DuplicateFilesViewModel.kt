@@ -1,8 +1,10 @@
 package com.smart.cleaner.phoneclean.presentation.ui.duplicates_files
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.smart.cleaner.phoneclean.domain.models.File
 import com.smart.cleaner.phoneclean.domain.use_case.files.DuplicateFilesUseCase
+import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildFileItem
+import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
 import com.smart.cleaner.phoneclean.presentation.ui.base.BaseViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.models.FilesStateScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,7 +24,26 @@ class DuplicateFilesViewModel @Inject constructor(
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getFileDuplicates()
-            Log.e("!!!", duplicates.toString())
+            updateState {
+                it.copy(
+                    duplicates = map(duplicates)
+                )
+            }
+        }
+    }
+
+    private fun map(list: List<List<File>>): List<ParentFileItem> {
+        return list.map { duplicates ->
+            ParentFileItem(
+                count = duplicates.size,
+                isAllSelected = false,
+                files = duplicates.map { ChildFileItem(
+                    isSelected = false,
+                    filePath = it.path,
+                    fileName = it.name,
+                    size = it.size
+                ) }
+            )
         }
     }
 
