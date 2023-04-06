@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesImagesParentAdapter
-import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
+import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateImagesBinding
@@ -26,7 +26,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     private val binding: FragmentDuplicateImagesBinding by viewBinding()
 
     private val adapter: DuplicatesImagesParentAdapter =
-        DuplicatesImagesParentAdapter(object : OnChangeSelectListener {
+        DuplicatesImagesParentAdapter(object : OnImageChangeSelectListener {
             override fun selectAll(duplicates: ParentImageItem, isSelected: Boolean) {
                 viewModel.obtainEvent(
                     ImagesStateScreen.ImageEvent.SelectAll(

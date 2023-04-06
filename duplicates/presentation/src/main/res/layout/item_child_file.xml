@@ -38,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@id/iv_document" />
 
     <ImageView
-        android:id="@+id/btn_switch_off_all"
+        android:id="@+id/btn_switch_off_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/btn_switch_on_all"
+        android:id="@+id/btn_switch_on_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"

@@ -8,14 +8,12 @@
     <string name="duplicates_delete">Delete</string>
     <string name="duplicates_number_of_duplicate">%d duplicate(s)</string>
     <string name="duplicates_select_all">Select all</string>
-    <string name="duplicates_size_and_path">%d Кб • %s</string>
+    <string name="duplicates_size_and_path">%s Кб • %s</string>
     <string name="duplicates_deleting_files">Deleting Files</string>
     <string name="duplicates_are_you_sure_you_want_to_delete">Are you sure you want to delete the selected files? The files will be permanently deleted</string>
     <string name="duplicates_please_wait">Please, wait, we\'re scanning photos and files…</string>
     <string name="duplicates_no_duplicates_found">No duplicates found</string>
     <string name="duplicates_deletion">Deletion…</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="duplicates_desc_done">The phone has been successfully cleared of duplicates</string>
     <string name="duplicates_recommendation">We recommend running these features</string>
 </resources>

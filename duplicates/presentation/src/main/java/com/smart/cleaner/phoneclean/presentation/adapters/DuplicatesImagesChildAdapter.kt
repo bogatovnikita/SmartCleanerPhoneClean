@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
+import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemImageBinding
 
-class DuplicatesImagesChildAdapter(private val listener: OnChangeSelectListener) :
+class DuplicatesImagesChildAdapter(private val listener: OnImageChangeSelectListener) :
     ListAdapter<ChildImageItem, DuplicatesImagesChildAdapter.ChildViewHolder>(
         ChildImageItemDiffCallback()
     ) {
@@ -28,7 +28,7 @@ class DuplicatesImagesChildAdapter(private val listener: OnChangeSelectListener)
     }
 
     class ChildViewHolder(
-        private val listener: OnChangeSelectListener,
+        private val listener: OnImageChangeSelectListener,
         private val binding: ItemImageBinding,
     ) :
         RecyclerView.ViewHolder(binding.root) {
