@@ -37,7 +37,7 @@ class ToolbarView @JvmOverloads constructor(
     @Inject
     lateinit var localeProvider: LocaleProvider
 
-    private val binding: ViewToolbarBinding
+    val binding: ViewToolbarBinding
 
     init {
         val inflater = LayoutInflater.from(context)

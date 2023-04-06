@@ -3,6 +3,7 @@ package yin_kio.garbage_clean.presentation.result
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseFragmentResult
@@ -22,6 +23,12 @@ class CleaningResultFragment : BaseFragmentResult(R.layout.fragment_cleaning_res
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.binding.btnCrossExit.setOnClickListener {
+            findNavController().navigateUp()
+            viewModel.update()
+        }
+
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect{
                 binding.size.text = it.freedSpace

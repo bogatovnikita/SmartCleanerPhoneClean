@@ -13,6 +13,6 @@ interface GarbageFilesUseCases {
     fun updateGroupSelection(group: GarbageType, groupCheckable: Checkable)
 
     fun scanOrClean()
-    fun start()
+    fun update()
     fun closeInter()
 }

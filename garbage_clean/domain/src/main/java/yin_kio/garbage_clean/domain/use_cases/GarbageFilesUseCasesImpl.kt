@@ -65,7 +65,7 @@ internal class GarbageFilesUseCasesImpl(
         }
     }
 
-    override fun start() = async{
+    override fun update() = async{
 
         if (permissions.hasPermission){
             updateUseCase.update()
