@@ -9,7 +9,7 @@
 
     <bogatovnikita.toolbar.ui.ToolbarView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         app:title_text="@string/garbage_clean_title"/>
 
     <LinearLayout
