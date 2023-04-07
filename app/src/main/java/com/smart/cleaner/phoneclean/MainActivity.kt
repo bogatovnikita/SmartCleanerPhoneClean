@@ -86,6 +86,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                     binding.btnDuplicate.id,
                     binding.titleDuplicate.id
                 )
+                yin_kio.garbage_clean.presentation.R.id.garbageFilesFragment -> {
+                    renderNavBar(
+                        binding.btnClean.id,
+                        binding.titleClean.id
+                    )
+                }
             }
         }
     }
