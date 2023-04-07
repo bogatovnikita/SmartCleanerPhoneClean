@@ -38,7 +38,7 @@ class DuplicateFilesViewModel @Inject constructor(
             is FilesStateScreen.FileEvent.OpenConfirmationDialog -> setEvent(event)
             is FilesStateScreen.FileEvent.Default -> setEvent(event)
             is FilesStateScreen.FileEvent.CancelPermissionDialog -> cancelPermissionDialog()
-            is FilesStateScreen.FileEvent.Delete -> saveTimeAndDelete(event.time)
+            is FilesStateScreen.FileEvent.Delete -> saveTimeAndDelete()
             is FilesStateScreen.FileEvent.OpenDuplicatesImages -> setEvent(event)
             is FilesStateScreen.FileEvent.DeleteDone -> updateListAfterDeleting()
             else -> {}
@@ -185,13 +185,8 @@ class DuplicateFilesViewModel @Inject constructor(
         }
     }
 
-    private fun saveTimeAndDelete(time: Long) {
+    private fun saveTimeAndDelete() {
         useCase.saveDuplicatesDeleteTime()
-        updateState {
-            it.copy(
-                timeDeletion = time
-            )
-        }
         viewModelScope.launch {
             useCase.deleteDuplicates(getListForDelete())
         }

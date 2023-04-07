@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicatesResultBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
+import com.smart.cleaner.phoneclean.presentation.ui.duplicates_files.DuplicateFilesViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseFragmentResult
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
@@ -23,6 +24,8 @@ class DuplicatesResultFragment(
 
     private val imagesViewModel: DuplicateImagesViewModel by activityViewModels()
 
+    private val filesViewModel: DuplicateFilesViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         renderState()
@@ -31,7 +34,7 @@ class DuplicatesResultFragment(
 
     private fun renderState() {
         val imagesSize = imagesViewModel.screenState.value.totalSize
-        val filesSize = imagesViewModel.screenState.value.totalSize
+        val filesSize = filesViewModel.screenState.value.totalSize
         binding.tvSize.text = toReadableSizeFormat(imagesSize + filesSize)
     }
 

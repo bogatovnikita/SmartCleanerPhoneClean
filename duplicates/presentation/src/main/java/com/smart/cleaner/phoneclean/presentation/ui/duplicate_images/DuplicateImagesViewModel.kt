@@ -44,7 +44,7 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
-            is ImagesStateScreen.ImageEvent.Delete -> saveTimeAndDelete(event.time)
+            is ImagesStateScreen.ImageEvent.Delete -> saveTimeAndDelete()
             is ImagesStateScreen.ImageEvent.DeleteDone -> updateListAfterDeleting()
             is ImagesStateScreen.ImageEvent.OpenDuplicatesFile -> setEvent(event)
             else -> {}
@@ -142,13 +142,8 @@ class DuplicateImagesViewModel @Inject constructor(
         )
     }
 
-    private fun saveTimeAndDelete(time: Long) {
+    private fun saveTimeAndDelete() {
         useCase.saveDuplicatesDeleteTime()
-        updateState {
-            it.copy(
-                timeDeletion = time
-            )
-        }
         viewModelScope.launch {
             useCase.deleteDuplicates(getListForDelete())
         }

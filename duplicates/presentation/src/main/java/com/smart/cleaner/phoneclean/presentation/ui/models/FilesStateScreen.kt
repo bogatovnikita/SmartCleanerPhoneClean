@@ -5,7 +5,6 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
 
 data class FilesStateScreen(
     val totalSize: Long = 0L,
-    val timeDeletion: Long = 0,
     val isLoading: Boolean = true,
     val isNotFound: Boolean = false,
     val hasPermission: Boolean = false,
@@ -27,7 +26,7 @@ data class FilesStateScreen(
 
         object OpenDuplicatesImages : FileEvent()
 
-        class Delete(val time: Long) : FileEvent()
+        class Delete() : FileEvent()
 
         class DeleteDone() : FileEvent()
 
