@@ -7,4 +7,6 @@
     <string name="duplicate_title">Duplicate cleaner</string>
     <string name="duplicates_danger_desc">Remove duplicate elements</string>
     <string name="battery_danger_desc">Activate the convenient mode</string>
+    <string name="permission_required">Permission required</string>
+    <string name="allow">Allow</string>
 </resources>

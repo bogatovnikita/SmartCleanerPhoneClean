@@ -50,7 +50,6 @@
     <string name="get_permission">We need permission</string>
     <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
     <string name="cancel">Close</string>
-    <string name="allow">Allow</string>
     <string name="done">Done</string>
     <string name="advice">We recommend running these features</string>
     <string name="fun_battery">Battery saver</string>
@@ -67,7 +66,6 @@
     <string name="boost_description">Close apps running in the background to free up memory on your device</string>
     <string name="description_start_first_language_dialog">The language of your device is not supported by our application, English is set by default.\n\nYou can change the language right inside the app.</string>
     <string name="usage_state_description">Our application requires permissions so that you can view count of apps running in the background</string>
-    <string name="permission_required">Permission required</string>
     <string name="device_information">Device Information</string>
     <string name="apps">Apps</string>
     <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>

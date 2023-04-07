@@ -28,9 +28,9 @@ class ScreenItemsPresenterTest {
     @Test
     fun `test presentName`(){
         assertEquals(context.getString(R.string.apk_files), presenter.presentName(GarbageType.Apk))
-        assertEquals(context.getString(R.string.temp_files), presenter.presentName(GarbageType.Temp))
+        assertEquals(context.getString(R.string.junk_clean_temp_files), presenter.presentName(GarbageType.Temp))
         assertEquals(context.getString(R.string.rest_files), presenter.presentName(GarbageType.RestFiles))
-        assertEquals(context.getString(R.string.miniatures), presenter.presentName(GarbageType.Thumbnails))
+        assertEquals(context.getString(R.string.junk_clean_miniatures), presenter.presentName(GarbageType.Thumbnails))
         assertEquals(context.getString(R.string.empty_folders), presenter.presentName(GarbageType.EmptyFolders))
     }
 

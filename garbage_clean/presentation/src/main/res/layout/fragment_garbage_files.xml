@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         app:is_load_language="true"
-        app:title_text="@string/garbage_clean_title"/>
+        app:title_text="@string/junk_clean_title"/>
 
     <LinearLayout
         android:layout_width="match_parent"

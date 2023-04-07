@@ -4,10 +4,8 @@ import android.animation.Animator
 import android.animation.ValueAnimator
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +14,6 @@ import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
 import com.smart.cleaner.phoneclean.ui_core.databinding.FragmentBaseOptimizingBinding
 import jamycake.lifecycle_aware.previousBackStackEntry
-import kotlinx.coroutines.NonCancellable.start
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -43,7 +40,7 @@ class OptimizationFragment : DialogFragment(com.smart.cleaner.phoneclean.ui_core
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.tvOptimizationTitle.text = getString(R.string.optimization_clean)
+        binding.tvOptimizationTitle.text = getString(R.string.junk_clean_progress)
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = object : LinearLayoutManager(requireContext()){

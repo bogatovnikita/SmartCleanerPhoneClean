@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        app:title_text="@string/garbage_clean_title"
+        app:title_text="@string/junk_clean_title"
         app:is_load_language="true"
         app:show_menu="false"
         app:show_cross="true" />
@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cleaning_result_message"
+        android:text="@string/junk_clean_cleaning_result_message"
         android:layout_marginHorizontal="40dp"
         android:gravity="center"
         android:textAppearance="@style/Text.Medium.14"
@@ -60,7 +60,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/result_recommendation"
+        android:text="@string/junk_clean_result_recommendation"
         android:layout_marginHorizontal="24dp"
         android:gravity="center"
         android:textAppearance="@style/Text.Medium.16"

@@ -28,9 +28,9 @@ class Presenter(
 
     fun presentButtonText(hasPermission: Boolean) : String{
         return if (hasPermission){
-            context.getString(R.string.garbage_clean_button)
+            context.getString(R.string.junk_clean_button)
         } else {
-            context.getString(R.string.scan)
+            context.getString(R.string.junk_clean_scan)
         }
     }
 
@@ -61,11 +61,11 @@ class Presenter(
     private fun presentGarbageName(garbageType: GarbageType) : String{
 
         val resId = when(garbageType){
-            GarbageType.Apk -> R.string.apk
-            GarbageType.Temp -> R.string.temp_files
-            GarbageType.RestFiles -> R.string.residual_files
-            GarbageType.EmptyFolders -> R.string.empty_filders
-            GarbageType.Thumbnails -> R.string.miniatures
+            GarbageType.Apk -> R.string.junk_clean_apk
+            GarbageType.Temp -> R.string.junk_clean_temp_files
+            GarbageType.RestFiles -> R.string.junk_clean_residual_files
+            GarbageType.EmptyFolders -> R.string.junk_clean_empty_filders
+            GarbageType.Thumbnails -> R.string.junk_clean_miniatures
         }
 
         return context.getString(resId)
@@ -110,18 +110,18 @@ class Presenter(
 
     fun presentMessage(hasPermission: Boolean) : String{
         val id = if (hasPermission){
-            R.string.message_clean_recomendation
+            R.string.junk_clean_recomendation
         } else {
-            R.string.garbage_amount_message
+            R.string.junk_clean_amount_message
         }
         return context.getString(id)
     }
 
     fun presentMessage(garbage: List<Garbage>) : String{
         val id = if (garbage.isEmpty()){
-            R.string.cleaning_result_message
+            R.string.junk_clean_cleaning_result_message
         } else {
-            R.string.message_clean_recomendation
+            R.string.junk_clean_recomendation
         }
         return context.getString(id)
     }
