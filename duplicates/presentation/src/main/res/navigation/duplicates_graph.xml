@@ -39,10 +39,14 @@
     </dialog>
     <action
         android:id="@+id/action_to_duplicatesResultFragment"
-        app:destination="@id/duplicatesResultFragment" />
+        app:destination="@id/duplicatesResultFragment"
+        app:popUpToInclusive="false"
+        app:popUpTo="@+id/duplicateImagesFragment"/>
     <action
         android:id="@+id/action_to_optimizingFragment"
-        app:destination="@id/optimizingFragment" />
+        app:destination="@id/optimizingFragment"
+        app:popUpToInclusive="false"
+        app:popUpTo="@+id/duplicateImagesFragment"/>
     <dialog
         android:id="@+id/duplicatesResultFragment"
         android:name="com.smart.cleaner.phoneclean.presentation.ui.result.DuplicatesResultFragment"
