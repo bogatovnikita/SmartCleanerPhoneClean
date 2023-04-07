@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="garbage_clean_title">Junk cleaner</string>
-    <string name="permission_required">Permission required</string>
-    <string name="scan">Scan</string>
+    <string name="junk_clean_title">Junk cleaner</string>
+    <string name="junk_clean_scan">Scan</string>
 
-    <string name="apk">APK</string>
-    <string name="temp_files">Temporary files</string>
-    <string name="residual_files">Residual files</string>
-    <string name="empty_filders">Empty folders</string>
-    <string name="miniatures">Miniatures</string>
-    <string name="we_need_permission">We need permission</string>
-    <string name="storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
-    <string name="close">Close</string>
-    <string name="allow">Allow</string>
-    <string name="clean">Clean</string>
+    <string name="junk_clean_apk">APK</string>
+    <string name="junk_clean_temp_files">Temporary files</string>
+    <string name="junk_clean_residual_files">Residual files</string>
+    <string name="junk_clean_empty_filders">Empty folders</string>
+    <string name="junk_clean_miniatures">Miniatures</string>
+    <string name="junk_clean_we_need_permission">We need permission</string>
+    <string name="junk_clean_storage_permission_description">Our application requires storage permission so that you can view and delete unnecessary files</string>
+    <string name="junk_clean_close">Close</string>
+    <string name="junk_clean_button">Clean</string>
+    <string name="junk_clean_progress">Clean...</string>
+    <string name="junk_clean_result_recommendation">We recommend running these features</string>
+    <string name="junk_clean_cleaning_result_message">The phone has been successfully cleared of unnecessary files</string>
+    <string name="junk_clean_amount_message">The amount of garbage on your device</string>
+    <string name="junk_clean_recomendation">It is recommended to clean the phone from unnecessary files</string>
 
 </resources>

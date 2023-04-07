@@ -149,7 +149,7 @@ class GarbageFilesUseCasesImplTest {
     private fun TestScope.assertStartWithPermission(){
         coEvery { permissions.hasPermission } returns true
 
-        useCases.start()
+        useCases.update()
         advanceUntilIdle()
 
         coVerify { updateUseCase.update() }
@@ -158,7 +158,7 @@ class GarbageFilesUseCasesImplTest {
     private fun TestScope.assertStartWithoutPermission(){
         coEvery { permissions.hasPermission } returns false
 
-        useCases.start()
+        useCases.update()
         advanceUntilIdle()
 
         coVerify { uiOuter.showPermissionRequired() }
@@ -173,6 +173,28 @@ class GarbageFilesUseCasesImplTest {
         useCases.closeInter()
 
         coVerify { uiOuter.showResult(result) }
+    }
+
+    @Test
+    fun testCheckPermission(){
+        assertShowPermission()
+        assertHidePermission()
+    }
+
+    private fun assertHidePermission(){
+        coEvery { permissions.hasPermission } returns false
+
+        useCases.checkPermission()
+
+        coVerify { uiOuter.showPermissionRequired() }
+    }
+
+    private fun assertShowPermission(){
+        coEvery { permissions.hasPermission } returns true
+
+        useCases.checkPermission()
+
+        coVerify { uiOuter.hidePermissionRequired() }
     }
 
 }

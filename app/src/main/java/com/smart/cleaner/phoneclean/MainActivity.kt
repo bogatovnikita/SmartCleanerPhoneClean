@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         initSubscription()
         initAds()
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         renderNavBar(view.id)
         when (view.id) {
             R.id.btn_boost -> navigate(R.id.action_to_boostFragment)
-            R.id.btn_clean -> {}
+            R.id.btn_clean -> navigate(R.id.action_to_garbage_clean_graph)
             R.id.btn_duplicate -> navigate(R.id.action_to_duplicates_graph)
             R.id.btn_battery -> navigate(R.id.action_to_batteryFragment)
             R.id.btn_paywall -> navigate(R.id.action_to_premiumScreenFragment)
@@ -83,6 +86,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                     binding.btnDuplicate.id,
                     binding.titleDuplicate.id
                 )
+                yin_kio.garbage_clean.presentation.R.id.garbageFilesFragment -> {
+                    renderNavBar(
+                        binding.btnClean.id,
+                        binding.titleClean.id
+                    )
+                }
             }
         }
     }

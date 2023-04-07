@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import pokercc.android.expandablerecyclerview.ExpandableAdapter
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
-import yin_kio.garbage_clean.presentation.databinding.HeaderGarbageBinding
+import yin_kio.garbage_clean.presentation.R
 import yin_kio.garbage_clean.presentation.databinding.ListItemGarbageBinding
 import java.io.File
 
@@ -23,9 +23,18 @@ class FileViewHolder private constructor(
 
         binding.size.text = formatFileSize(binding.root.context, file.length())
         binding.name.text = file.name
+        binding.icon.setImageResource(iconRes(file))
 
         binding.checkbox.setOnClickListener {
             onClick(garbageType, file, checkboxWrapper)
+        }
+    }
+
+    private fun iconRes(file: File) : Int {
+        return if (file.isDirectory) {
+            R.drawable.ic_folder
+        } else {
+            R.drawable.ic_document
         }
     }
 

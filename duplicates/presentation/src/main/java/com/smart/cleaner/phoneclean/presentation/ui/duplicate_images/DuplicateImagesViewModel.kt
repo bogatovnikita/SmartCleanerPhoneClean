@@ -25,10 +25,8 @@ class DuplicateImagesViewModel @Inject constructor(
                     duplicates = mapUiModel(duplicates),
                     isLoading = false,
                     isNotFound = duplicates.isEmpty(),
-                    isCanDelete = false,
                 )
             }
-            isCanDelete()
         }
     }
 
@@ -46,7 +44,6 @@ class DuplicateImagesViewModel @Inject constructor(
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> setEvent(event)
             is ImagesStateScreen.ImageEvent.CheckPermission -> checkPermission()
             is ImagesStateScreen.ImageEvent.CancelPermissionDialog -> cancelPermissionDialog()
-            is ImagesStateScreen.ImageEvent.ConfirmedImageDeletion -> setEvent(event)
             is ImagesStateScreen.ImageEvent.Delete -> saveTimeAndDelete(event.time)
             is ImagesStateScreen.ImageEvent.DeleteDone -> updateListAfterDeleting()
             is ImagesStateScreen.ImageEvent.OpenDuplicatesFile -> setEvent(event)
@@ -70,7 +67,6 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
-        isCanDelete()
         updateTotalImageSize()
     }
 
@@ -90,7 +86,6 @@ class DuplicateImagesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
-        isCanDelete()
         updateTotalImageSize()
     }
 
@@ -145,25 +140,6 @@ class DuplicateImagesViewModel @Inject constructor(
             imagePath = it.imagePath,
             size = it.size
         )
-    }
-
-    private fun isCanDelete() {
-        var isCanDelete = false
-        if (screenState.value.duplicates.any { it.isAllSelected }) {
-            isCanDelete = true
-        } else {
-            screenState.value.duplicates.forEach { images ->
-                if (images.images.any { it.isSelected }) {
-                    isCanDelete = true
-                    return@forEach
-                }
-            }
-        }
-        updateState {
-            it.copy(
-                isCanDelete = isCanDelete
-            )
-        }
     }
 
     private fun saveTimeAndDelete(time: Long) {
@@ -246,12 +222,12 @@ class DuplicateImagesViewModel @Inject constructor(
         }
     }
 
-    private fun getListForDelete(): List<ImageInfo> {
-        val listForDelete = mutableListOf<ImageInfo>()
+    private fun getListForDelete(): List<String> {
+        val listForDelete = mutableListOf<String>()
         screenState.value.duplicates.forEach { duplicates ->
             duplicates.images.forEach { image ->
                 if (image.isSelected) {
-                    listForDelete.add(ImageInfo(image.imagePath, 0))
+                    listForDelete.add(image.imagePath)
                 }
             }
         }

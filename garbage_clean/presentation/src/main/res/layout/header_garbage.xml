@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:button="@drawable/bg_checkbox"
+        android:buttonTint="@color/checkbox"
         android:layout_marginHorizontal="16dp"/>
 
     <ImageView

@@ -13,9 +13,6 @@
         <deepLink app:uri="myApp://Duplicates" />
     </fragment>
     <action
-        android:id="@+id/action_to_imageDeletionRequestDialog"
-        app:destination="@id/imageDeletionRequestDialog" />
-    <action
         android:id="@+id/action_to_duplicateImagesFragment"
         app:destination="@id/duplicateImagesFragment" />
     <dialog
@@ -42,16 +39,23 @@
     </dialog>
     <action
         android:id="@+id/action_to_duplicatesResultFragment"
-        app:destination="@id/duplicatesResultFragment" />
+        app:destination="@id/duplicatesResultFragment"
+        app:popUpToInclusive="false"
+        app:popUpTo="@+id/duplicateImagesFragment"/>
     <action
         android:id="@+id/action_to_optimizingFragment"
-        app:destination="@id/optimizingFragment" />
-    <dialog
-        android:id="@+id/imageDeletionRequestDialog"
-        android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.ImageDeletionRequestDialog"
-        android:label="ImageDeletionRequestDialog" />
+        app:destination="@id/optimizingFragment"
+        app:popUpToInclusive="false"
+        app:popUpTo="@+id/duplicateImagesFragment"/>
     <dialog
         android:id="@+id/duplicatesResultFragment"
         android:name="com.smart.cleaner.phoneclean.presentation.ui.result.DuplicatesResultFragment"
         android:label="DuplicatesResultFragment" />
+    <dialog
+        android:id="@+id/deletionRequestDialog"
+        android:name="com.smart.cleaner.phoneclean.presentation.ui.dialogs.DeletionRequestDialog"
+        android:label="DeletionRequestDialog" />
+    <action
+        android:id="@+id/action_to_deletionRequestDialog"
+        app:destination="@id/deletionRequestDialog" />
 </navigation>

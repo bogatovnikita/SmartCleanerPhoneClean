@@ -65,7 +65,7 @@ internal class GarbageFilesUseCasesImpl(
         }
     }
 
-    override fun start() = async{
+    override fun update() = async{
 
         if (permissions.hasPermission){
             updateUseCase.update()
@@ -73,6 +73,14 @@ internal class GarbageFilesUseCasesImpl(
             uiOuter.showPermissionRequired()
         }
 
+    }
+
+    override fun checkPermission() {
+        if (permissions.hasPermission){
+            uiOuter.hidePermissionRequired()
+        } else {
+            uiOuter.showPermissionRequired()
+        }
     }
 
     override fun closeInter(){

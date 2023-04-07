@@ -16,15 +16,15 @@ class StorageInfoImpl(
     private val storageInfoProvider = StorageInfoProvider(context)
 
     override fun saveStartVolume() {
-        startVolume = storageInfoProvider.getTotal()
+        startVolume = storageInfoProvider.getOccupied()
     }
 
     override fun saveEndVolume() {
-        endVolume = storageInfoProvider.getTotal()
+        endVolume = storageInfoProvider.getOccupied()
     }
 
-    override fun calculateEndVolume() {
-        _freedVolume = endVolume - startVolume
+    override fun calculateFreedVolume() {
+        _freedVolume = startVolume - endVolume
     }
 
     override val freedVolume: Long

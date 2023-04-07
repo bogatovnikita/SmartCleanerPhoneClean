@@ -8,5 +8,6 @@ data class GarbageGroup(
     val name: String = "",
     val files: List<File> = listOf(),
     val alpha: Float = 0.5f,
-    val isInProgress: Boolean = false
+    val isInProgress: Boolean = false,
+    val isEnabled: Boolean = false
 )

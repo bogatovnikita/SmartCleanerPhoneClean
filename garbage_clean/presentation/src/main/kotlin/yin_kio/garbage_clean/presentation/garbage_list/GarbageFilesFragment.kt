@@ -3,6 +3,7 @@ package yin_kio.garbage_clean.presentation.garbage_list
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -18,6 +19,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.permissions.requestManageExternalStorage
 import jamycake.lifecycle_aware.LifecycleAware
 import jamycake.lifecycle_aware.currentBackStackEntry
+import yin_kio.garbage_clean.data.CleanTimeImpl
 import yin_kio.garbage_clean.data.FilesImpl
 import yin_kio.garbage_clean.data.PermissionsImpl
 import yin_kio.garbage_clean.data.StorageInfoImpl
@@ -50,8 +52,12 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         onItemClick = {a,b,c -> viewModel.switchItemSelection(a, b, c)}
     )
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.checkPermission()
+    }
 
-    @SuppressLint("NotifyDataSetChanged")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.recycler.adapter = adapter
@@ -63,18 +69,24 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
     }
 
+
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupStateObserver() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
-                binding.size.text = it.size
-                binding.button.text = it.buttonText
+                binding.apply {
+                    size.text = it.size
+                    button.text = it.buttonText
+                    permissionRequired.isInvisible = !it.isShowPermissionRequired
+                    button.alpha = it.buttonOpacity
+                    message.text = it.message
+                    message.setTextColor(it.messageColor)
+                    size.setTextColor(it.sizeMessageColor)
+                    sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
+                    adapter.onExpandListenerEnabled = it.isExpandEnabled
+                }
 
-                adapter.garbage = it.garbage
-                binding.permissionRequired.isInvisible = !it.isShowPermissionRequired
-
-                binding.button.alpha = it.buttonOpacity
-
-
+                adapter.garbage = it.garbageGroups
                 adapter.notifyDataSetChanged()
 
             }
@@ -95,6 +107,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                         adapter.notifyGroupChange(groupPosition(command.garbageType))
                     }
                     is Command.UpdateChildrenAndGroup -> updateChildrenAndGroup(command)
+                    Command.ShowCleanProgress -> findNavController().navigate(R.id.toCleanProgress)
+                    else -> {}
                 }
             }
         }
@@ -157,7 +171,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
             permissions = PermissionsImpl(context),
             files = FilesImpl(),
             storageInfo = StorageInfoImpl(context),
-            coroutineScope = viewModelScope
+            coroutineScope = viewModelScope,
+            cleanTime = CleanTimeImpl(context)
         )
 
         val viewModel = ViewModel(
@@ -169,7 +184,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         uiOuter.viewModel = viewModel
 
 
-        viewModel.start()
+        viewModel.update()
 
         return viewModel
     }

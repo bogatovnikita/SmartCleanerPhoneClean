@@ -7,6 +7,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
+import yin_kio.garbage_clean.domain.gateways.CleanTime
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -21,31 +22,34 @@ class CleanUseCaseTest {
     private val garbageSelector: GarbageSelector = spyk()
     private val storageInfo: StorageInfo = spyk()
     private val files: Files = spyk()
-
+    private val cleanTime: CleanTime = spyk()
 
     private val useCase = CleanUseCase(
         uiOuter = uiOuter,
         garbageSelector = garbageSelector,
         storageInfo = storageInfo,
         files = files,
+        cleanTime = cleanTime
     )
 
     @Test
     fun testClean() = runTest{
         val selectedFiles = listOf(File(""))
-        val messages = listOf<String>() // Уточнить, какие сообщения передавать на прогресс
         // Добавить реализацию очистки
 
         coEvery { garbageSelector.getSelected() } returns selectedFiles
+        coEvery { storageInfo.freedVolume } returns 0
 
         useCase.clean()
 
         coVerifyOrder {
             storageInfo.saveStartVolume()
-            uiOuter.showCleanProgress(messages)
+            uiOuter.showCleanProgress(selectedFiles)
             files.deleteFiles(selectedFiles)
             storageInfo.saveEndVolume()
-            storageInfo.calculateEndVolume()
+            storageInfo.calculateFreedVolume()
+            uiOuter.showResult(0)
+            cleanTime.saveLastCleanTime()
         }
     }
 

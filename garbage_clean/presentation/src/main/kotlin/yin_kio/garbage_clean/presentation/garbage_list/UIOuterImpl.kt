@@ -3,6 +3,7 @@ package yin_kio.garbage_clean.presentation.garbage_list
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import java.io.File
 
 class UIOuterImpl(
     private val presenter: Presenter
@@ -28,23 +29,30 @@ class UIOuterImpl(
         viewModel?.sendCommand(Command.ShowPermissionDialog)
     }
 
-    override fun outGarbage(garbage: List<Garbage>) {
+    override fun outGarbage(garbage: List<Garbage>, wasClean: Boolean) {
         viewModel?.update { it.copy(
             size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
             buttonText = presenter.presentButtonText(true),
-            garbage = presenter.presentGarbage(garbage),
+            garbageGroups = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
-            buttonOpacity = 0.5f
+            buttonOpacity = 0.5f,
+            message = presenter.presentMessage(garbage),
+            messageColor = presenter.presentProgressMessageColor(garbage, wasClean),
+            sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean),
+            isExpandEnabled = garbage.isNotEmpty()
         ) }
     }
 
-    override fun showUpdateProgress() {
+    override fun showUpdateProgress(wasClean: Boolean) {
         viewModel?.update { it.copy(
-            size = presenter.presentProgressSize(),
+            size = presenter.persentProgressSize(),
             buttonText = presenter.presentButtonText(true),
-            garbage = presenter.presentGarbageForProgress(),
+            garbageGroups = presenter.presentGarbageForProgress(),
             isShowPermissionRequired = false,
-            buttonOpacity = 0.5f
+            buttonOpacity = 0.5f,
+            message = presenter.presentMessage(true),
+            messageColor = presenter.presentProgressMessageColor(wasClean),
+            sizeMessageColor = presenter.presentProgressSizeMessageColor(wasClean)
         ) }
     }
 
@@ -52,17 +60,26 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             size = presenter.presentUnknownSize(),
             buttonText = presenter.presentButtonText(false),
-            garbage = presenter.presentGarbageWithoutPermission(),
-            isShowPermissionRequired = true
+            garbageGroups = presenter.presentGarbageWithoutPermission(),
+            isShowPermissionRequired = true,
+            message = presenter.presentMessage(false),
+            messageColor = presenter.presentNoPermissionMessageColor(),
+            sizeMessageColor = presenter.presentNoPermissionSizeMessageColor()
         ) }
     }
 
-    override fun showCleanProgress(messages: List<String>) {
-//        TODO("Not yet implemented")
+    override fun showCleanProgress(files: List<File>) {
+        viewModel?.update { it.copy(
+            cleanMessages = presenter.presentCleanProgressMessages(files)
+        ) }
+        viewModel?.sendCommand(Command.ShowCleanProgress)
     }
 
     override fun showResult(result: Long) {
-//        TODO("Not yet implemented")
+        viewModel?.update { it.copy(
+            freedSpace = presenter.presentFreedSpace(result)
+        ) }
+        viewModel?.sendCommand(Command.ShowResult)
     }
 
     override fun updateChildrenAndGroup(group: GarbageType, hasSelected: Boolean) {
@@ -76,5 +93,17 @@ class UIOuterImpl(
                 buttonOpacity = presenter.presentButtonOpacity(hasSelected)
             )
         }
+    }
+
+    override fun removeCleanProgressItem() {
+        viewModel?.update { it.copy(
+            cleanMessages = it.cleanMessages
+        ) }
+    }
+
+    override fun hidePermissionRequired() {
+        viewModel?.update { it.copy(
+            isShowPermissionRequired = false
+        ) }
     }
 }

@@ -3,9 +3,11 @@ package yin_kio.garbage_clean.domain
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import yin_kio.garbage_clean.domain.entities.GarbageSelectorImpl
+import yin_kio.garbage_clean.domain.gateways.CleanTime
 import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
+import yin_kio.garbage_clean.domain.services.CleanTracker
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProviderImpl
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreatorImpl
@@ -21,6 +23,7 @@ object GarbageFilesFactory {
         permissions: Permissions,
         files: Files,
         storageInfo: StorageInfo,
+        cleanTime: CleanTime,
         coroutineScope: CoroutineScope,
     ) : GarbageFilesUseCases{
 
@@ -33,14 +36,16 @@ object GarbageFilesFactory {
             garbageSelector = garbageSelector,
             garbageFormsProvider = GarbageFormsProviderImpl(files),
             garbageOutCreator = GarbageOutCreatorImpl(),
-            updateState = updateState
+            updateState = updateState,
+            cleanTracker = CleanTracker(cleanTime)
         )
 
         val cleanUseCase = CleanUseCase(
             storageInfo = storageInfo,
             uiOuter = uiOuter,
             files = files,
-            garbageSelector = garbageSelector
+            garbageSelector = garbageSelector,
+            cleanTime = cleanTime
         )
 
 

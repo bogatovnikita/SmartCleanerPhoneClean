@@ -23,7 +23,7 @@ internal class GarbageSelectorImpl : GarbageSelector {
     }
 
     override fun switchGroupSelected(group: GarbageType) {
-        assert(garbage[group] != null)
+        if (garbage[group] == null) return
         garbage[group]!!.switchAllSelection()
     }
 

@@ -96,4 +96,10 @@
         tools:layout="@layout/fragment_information_screen">
         <deepLink app:uri="myApp://informationScreenFragment" />
     </dialog>
+
+    <action
+        android:id="@+id/action_to_garbage_clean_graph"
+        app:destination="@id/garbage_clean_graph" />
+
+    <include app:graph="@navigation/garbage_clean_graph"/>
 </navigation>

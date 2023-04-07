@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.smart.cleaner.phoneclean.presentation.R
-import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
+import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemDuplicatesImageBinding
 
-class DuplicatesImagesParentAdapter(private val listener: OnChangeSelectListener) :
+class DuplicatesImagesParentAdapter(private val listener: OnImageChangeSelectListener) :
     ListAdapter<ParentImageItem, DuplicatesImagesParentAdapter.ParentViewHolder>(
         ParentImageItemDiffCallback()
     ) {
@@ -29,7 +29,7 @@ class DuplicatesImagesParentAdapter(private val listener: OnChangeSelectListener
     }
 
     inner class ParentViewHolder(
-        private val listener: OnChangeSelectListener,
+        private val listener: OnImageChangeSelectListener,
         private val binding: ItemDuplicatesImageBinding,
     ) :
         RecyclerView.ViewHolder(binding.root) {

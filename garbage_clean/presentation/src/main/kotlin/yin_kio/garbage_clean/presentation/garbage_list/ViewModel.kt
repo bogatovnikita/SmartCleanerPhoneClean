@@ -8,14 +8,14 @@ import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
 class ViewModel(
     private val useCases: GarbageFilesUseCases,
     private val coroutineScope: CoroutineScope,
-    private val presenter: Presenter
+    presenter: Presenter
 ) : GarbageFilesUseCases by useCases{
 
 
     private val _state = MutableStateFlow(ScreenState(
         size = presenter.presentUnknownSize(),
         buttonText = presenter.presentButtonText(false),
-        garbage = presenter.presentGarbageWithoutPermission(),
+        garbageGroups = presenter.presentGarbageWithoutPermission(),
         isShowPermissionRequired = false
     ))
     val state: StateFlow<ScreenState> = _state.asStateFlow()

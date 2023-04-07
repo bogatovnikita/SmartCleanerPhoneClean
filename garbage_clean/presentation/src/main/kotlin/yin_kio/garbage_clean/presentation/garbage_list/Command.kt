@@ -7,6 +7,8 @@ sealed interface Command{
     object ShowPermissionDialog : Command
     object ClosePermissionDialog : Command
     object RequestPermission: Command
+    object ShowCleanProgress: Command
+    object ShowResult : Command
     data class UpdateGroup(val garbageType: GarbageType): Command
     data class UpdateChildrenAndGroup(val garbageType: GarbageType) : Command
 

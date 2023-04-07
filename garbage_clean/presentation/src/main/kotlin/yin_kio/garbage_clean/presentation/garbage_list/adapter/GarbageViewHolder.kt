@@ -19,13 +19,17 @@ class GarbageViewHolder private constructor(
 
     private val checkboxWrapper = CheckboxWrapper(binding.checkbox)
 
-    fun bind(garbage: GarbageGroup, onExpandClick: () -> Unit){
+    fun bind(garbage: GarbageGroup,
+             isExpand: Boolean,
+             onExpandClick: () -> Unit
+    ){
         onUpdate(garbage.type, checkboxWrapper)
 
         binding.name.text = garbage.name
         binding.root.alpha = garbage.alpha
 
         binding.progress.isVisible = garbage.isInProgress
+        binding.expand.rotation = if (isExpand) 180f else 0f
 
 
 
@@ -34,11 +38,13 @@ class GarbageViewHolder private constructor(
         binding.checkbox.isVisible = !garbage.isInProgress
         binding.expand.isVisible = !garbage.isInProgress
 
+        binding.checkbox.isEnabled = garbage.isEnabled
+
         binding.checkbox.setOnClickListener{
             onCheckboxClick(garbage.type, checkboxWrapper)
         }
         binding.expand.setOnClickListener {
-            onExpandClick()
+            if (garbage.isEnabled) onExpandClick()
         }
     }
 
