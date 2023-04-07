@@ -44,6 +44,7 @@ class GarbageAdapter(
         payloads: List<Any>
     ) {
         (holder as? GarbageViewHolder)?.bind(garbage[groupPosition],
+            isExpand = expand,
             onExpandClick = {
                 if (isExpand(groupPosition)){
                     collapseGroup(groupPosition, true)
