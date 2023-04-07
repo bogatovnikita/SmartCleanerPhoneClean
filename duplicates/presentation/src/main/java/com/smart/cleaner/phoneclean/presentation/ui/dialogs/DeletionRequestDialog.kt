@@ -1,23 +1,30 @@
-package com.smart.cleaner.phoneclean.presentation.ui.base
+package com.smart.cleaner.phoneclean.presentation.ui.dialogs
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDeletionRequestDialogBinding
+import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
+import com.smart.cleaner.phoneclean.presentation.ui.duplicates_files.DuplicateFilesViewModel
+import com.smart.cleaner.phoneclean.presentation.ui.models.FilesStateScreen
+import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Calendar
 
 @AndroidEntryPoint
-abstract class BaseDeletionRequestDialog : DialogFragment(R.layout.fragment_deletion_request_dialog) {
+class DeletionRequestDialog : DialogFragment(R.layout.fragment_deletion_request_dialog) {
+
+    private val imageViewModel: DuplicateImagesViewModel by activityViewModels()
+
+    private val fileViewModel: DuplicateFilesViewModel by activityViewModels()
 
     private val binding: FragmentDeletionRequestDialogBinding by viewBinding()
-
-    abstract val viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +47,10 @@ abstract class BaseDeletionRequestDialog : DialogFragment(R.layout.fragment_dele
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
-    abstract fun onDelete()
+    private fun onDelete() {
+        val time = Calendar.getInstance().timeInMillis
+        imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.Delete(time))
+        fileViewModel.obtainEvent(FilesStateScreen.FileEvent.Delete(time))
+    }
 
 }

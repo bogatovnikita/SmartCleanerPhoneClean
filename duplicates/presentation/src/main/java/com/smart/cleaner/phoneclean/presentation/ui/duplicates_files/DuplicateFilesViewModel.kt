@@ -15,18 +15,16 @@ import javax.inject.Inject
 @HiltViewModel
 class DuplicateFilesViewModel @Inject constructor(
     private val useCase: DuplicateFilesUseCase
-): BaseViewModel<FilesStateScreen>(FilesStateScreen()) {
-
-    init {
-        getDuplicates()
-    }
+) : BaseViewModel<FilesStateScreen>(FilesStateScreen()) {
 
     private fun getDuplicates() {
         viewModelScope.launch(Dispatchers.IO) {
             val duplicates = useCase.getFileDuplicates()
             updateState {
                 it.copy(
-                    duplicates = map(duplicates)
+                    duplicates = mapUiModel(duplicates),
+                    isLoading = false,
+                    isNotFound = duplicates.isEmpty(),
                 )
             }
         }
@@ -36,7 +34,32 @@ class DuplicateFilesViewModel @Inject constructor(
         when (event) {
             is FilesStateScreen.FileEvent.SelectFile -> selectFile(event.file, event.isSelected)
             is FilesStateScreen.FileEvent.SelectAll -> selectAll(event.duplicates, event.isSelected)
+            is FilesStateScreen.FileEvent.CheckPermission -> checkPermission()
+            is FilesStateScreen.FileEvent.OpenConfirmationDialog -> setEvent(event)
+            is FilesStateScreen.FileEvent.Default -> setEvent(event)
+            is FilesStateScreen.FileEvent.CancelPermissionDialog -> cancelPermissionDialog()
+            is FilesStateScreen.FileEvent.Delete -> saveTimeAndDelete(event.time)
+            is FilesStateScreen.FileEvent.OpenDuplicatesImages -> setEvent(event)
+            is FilesStateScreen.FileEvent.DeleteDone -> updateListAfterDeleting()
             else -> {}
+        }
+    }
+
+    private fun checkPermission() {
+        val hasPerm = useCase.hasStoragePermissions()
+        var isLoading = false
+        if (hasPerm) {
+            getDuplicates()
+            isLoading = true && screenState.value.duplicates.isEmpty()
+        } else {
+            setEvent(FilesStateScreen.FileEvent.OpenPermissionDialog)
+        }
+        updateState {
+            it.copy(
+                hasPermission = hasPerm,
+                isLoading = isLoading,
+                isNotFound = false
+            )
         }
     }
 
@@ -65,7 +88,12 @@ class DuplicateFilesViewModel @Inject constructor(
         isSelected: Boolean
     ) = oldList.files.map { file ->
         if (file == selectedImage) {
-            ChildFileItem(isSelected = isSelected, filePath = file.filePath, size = file.size, fileName = file.fileName)
+            ChildFileItem(
+                isSelected = isSelected,
+                filePath = file.filePath,
+                size = file.size,
+                fileName = file.fileName
+            )
         } else {
             file
         }
@@ -99,7 +127,6 @@ class DuplicateFilesViewModel @Inject constructor(
             }
         }
         updateList(updatedList)
-//        isCanDelete()
         updateTotalFileSize()
     }
 
@@ -138,17 +165,109 @@ class DuplicateFilesViewModel @Inject constructor(
         )
     }
 
-    private fun map(list: List<List<File>>): List<ParentFileItem> {
-        return list.map { duplicates ->
+    private fun updateListAfterDeleting() {
+        viewModelScope.launch(Dispatchers.Default) {
+            val updatedList = mutableListOf<ParentFileItem>()
+            screenState.value.duplicates.forEach { duplicates ->
+                updatedList.add(
+                    ParentFileItem(
+                        count = duplicates.files.filter { !it.isSelected }.size,
+                        isAllSelected = duplicates.files.none { !it.isSelected },
+                        files = duplicates.files.filter { !it.isSelected },
+                    )
+                )
+            }
+            updateState {
+                it.copy(
+                    duplicates = updatedList
+                )
+            }
+        }
+    }
+
+    private fun saveTimeAndDelete(time: Long) {
+        useCase.saveDuplicatesDeleteTime()
+        updateState {
+            it.copy(
+                timeDeletion = time
+            )
+        }
+        viewModelScope.launch {
+            useCase.deleteDuplicates(getListForDelete())
+        }
+    }
+
+    private fun setEvent(event: FilesStateScreen.FileEvent) {
+        updateState {
+            it.copy(
+                event = event
+            )
+        }
+    }
+
+    private fun cancelPermissionDialog() {
+        updateState {
+            it.copy(
+                isNotFound = true
+            )
+        }
+    }
+
+    private fun getListForDelete(): List<String> {
+        val listForDelete = mutableListOf<String>()
+        screenState.value.duplicates.forEach { duplicates ->
+            duplicates.files.forEach { image ->
+                if (image.isSelected) {
+                    listForDelete.add(image.filePath)
+                }
+            }
+        }
+        return listForDelete
+    }
+
+//    private fun map(list: List<List<File>>): List<ParentFileItem> {
+//        return list.map { duplicates ->
+//            ParentFileItem(
+//                count = duplicates.size,
+//                isAllSelected = false,
+//                files = duplicates.map {
+//                    ChildFileItem(
+//                        isSelected = false,
+//                        filePath = it.path,
+//                        fileName = it.name,
+//                        size = it.size
+//                    )
+//                }
+//            )
+//        }
+//    }
+
+    private fun mapUiModel(duplicates: List<List<File>>): List<ParentFileItem> {
+        return duplicates.map { groupDuplicates ->
+            val files = groupDuplicates.map { fileInfo ->
+                var isSelected = false
+                screenState.value.duplicates.forEach { oldList ->
+                    oldList.files.forEach { image ->
+                        if (image.filePath == fileInfo.path) {
+                            isSelected = image.isSelected
+                            return@forEach
+                        }
+                    }
+                    if (isSelected) {
+                        return@forEach
+                    }
+                }
+                ChildFileItem(
+                    filePath = fileInfo.path,
+                    isSelected = isSelected,
+                    size = fileInfo.size,
+                    fileName = fileInfo.name
+                )
+            }
             ParentFileItem(
-                count = duplicates.size,
-                isAllSelected = false,
-                files = duplicates.map { ChildFileItem(
-                    isSelected = false,
-                    filePath = it.path,
-                    fileName = it.name,
-                    size = it.size
-                ) }
+                isAllSelected = files.none { !it.isSelected },
+                count = groupDuplicates.size,
+                files = files
             )
         }
     }

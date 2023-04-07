@@ -25,7 +25,7 @@ data class FilesStateScreen(
 
         object OpenConfirmationDialog : FileEvent()
 
-        object ConfirmedImageDeletion : FileEvent()
+        object OpenDuplicatesImages : FileEvent()
 
         class Delete(val time: Long) : FileEvent()
 

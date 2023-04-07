@@ -27,11 +27,9 @@ data class ImagesStateScreen(
 
         object OpenConfirmationDialog : ImageEvent()
 
-        object ConfirmedImageDeletion : ImageEvent()
-
         class Delete(val time: Long) : ImageEvent()
 
-        class DeleteDone() : ImageEvent()
+        class DeleteDone : ImageEvent()
 
         class SelectAll(
             val duplicates: ParentImageItem,

@@ -7,6 +7,6 @@ interface OnFileChangeSelectListener {
 
     fun selectAll(duplicates: ParentFileItem, isSelected: Boolean)
 
-    fun selectFile(image: ChildFileItem, isSelected: Boolean)
+    fun selectFile(file: ChildFileItem, isSelected: Boolean)
 
 }

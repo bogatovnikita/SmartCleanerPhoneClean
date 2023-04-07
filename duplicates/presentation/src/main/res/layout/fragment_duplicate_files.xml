@@ -148,4 +148,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_not_found, btn_delete" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_stop_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="recycler_view, btn_delete" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
