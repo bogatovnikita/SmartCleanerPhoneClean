@@ -23,7 +23,7 @@ class FilesImpl @Inject constructor(
         val fileGroups = FileGroups()
         return fileUtils.getAllFiles(Environment.getExternalStorageDirectory()).filter {
             fileGroups.documents[it.extension.uppercase()] != null
-        }.map { com.smart.cleaner.phoneclean.domain.models.File(path = it.absolutePath, size = it.length()) }
+        }.map { com.smart.cleaner.phoneclean.domain.models.File(path = it.absolutePath, size = it.length(), name = it.name) }
     }
 
     override suspend fun delete(path: String) {

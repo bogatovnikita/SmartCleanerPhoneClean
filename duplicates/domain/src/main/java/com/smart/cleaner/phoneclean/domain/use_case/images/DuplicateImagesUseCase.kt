@@ -6,7 +6,7 @@ interface DuplicateImagesUseCase {
 
     suspend fun getImageDuplicates(): List<List<ImageInfo>>
 
-    suspend fun deleteDuplicates(duplicates: List<ImageInfo>)
+    suspend fun deleteDuplicates(duplicates: List<String>)
 
     fun hasStoragePermissions(): Boolean
 

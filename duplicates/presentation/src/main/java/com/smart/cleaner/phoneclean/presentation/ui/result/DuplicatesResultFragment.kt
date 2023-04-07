@@ -30,11 +30,9 @@ class DuplicatesResultFragment(
     }
 
     private fun renderState() {
-        val imagesTimeDeletion = imagesViewModel.screenState.value.timeDeletion
-        val filesTimeDeletion = 0L
-        binding.tvSize.text =
-            if (imagesTimeDeletion > filesTimeDeletion) toReadableSizeFormat(imagesViewModel.screenState.value.totalSize)
-            else toReadableSizeFormat(filesTimeDeletion)
+        val imagesSize = imagesViewModel.screenState.value.totalSize
+        val filesSize = imagesViewModel.screenState.value.totalSize
+        binding.tvSize.text = toReadableSizeFormat(imagesSize + filesSize)
     }
 
     private fun toReadableSizeFormat(size: Long): String =

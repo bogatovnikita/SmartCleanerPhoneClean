@@ -11,24 +11,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.adapters.DuplicatesImagesParentAdapter
-import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnChangeSelectListener
+import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateImagesBinding
+import com.smart.cleaner.phoneclean.presentation.ui.duplicates_files.DuplicateFilesViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
-    private val viewModel: DuplicateImagesViewModel by activityViewModels()
+    private val imageViewModel: DuplicateImagesViewModel by activityViewModels()
+
+    private val fileViewModel: DuplicateFilesViewModel by activityViewModels()
 
     private val binding: FragmentDuplicateImagesBinding by viewBinding()
 
     private val adapter: DuplicatesImagesParentAdapter =
-        DuplicatesImagesParentAdapter(object : OnChangeSelectListener {
+        DuplicatesImagesParentAdapter(object : OnImageChangeSelectListener {
             override fun selectAll(duplicates: ParentImageItem, isSelected: Boolean) {
-                viewModel.obtainEvent(
+                imageViewModel.obtainEvent(
                     ImagesStateScreen.ImageEvent.SelectAll(
                         duplicates,
                         isSelected
@@ -37,7 +40,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
             }
 
             override fun selectImage(image: ChildImageItem, isSelected: Boolean) {
-                viewModel.obtainEvent(ImagesStateScreen.ImageEvent.SelectImage(image, isSelected))
+                imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.SelectImage(image, isSelected))
             }
 
         })
@@ -51,12 +54,12 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     override fun onResume() {
         super.onResume()
-        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.CheckPermission)
+        imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.CheckPermission)
     }
 
     private fun initObserverScreenState() {
         lifecycleScope.launchWhenResumed {
-            viewModel.screenState.collect { state ->
+            imageViewModel.screenState.collect { state ->
                 adapter.submitList(state.duplicates)
                 navigate(state.event)
                 render(state)
@@ -66,7 +69,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     private fun render(state: ImagesStateScreen) {
         with(binding) {
-            btnDelete.isEnabled = state.isCanDelete
+            btnDelete.isEnabled = (state.totalSize + fileViewModel.screenState.value.totalSize) != 0L
             groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupNotFound.isVisible = state.isNotFound
             groupStopLoading.isVisible = !state.isLoading && state.hasPermission
@@ -83,20 +86,20 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     private fun navigate(event: ImagesStateScreen.ImageEvent) {
         when (event) {
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_requestStoragePermDialog)
-            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_imageDeletionRequestDialog)
+            is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)
             is ImagesStateScreen.ImageEvent.OpenDuplicatesFile -> findNavController().navigate(R.id.action_to_duplicateFilesFragment)
             else -> {}
         }
-        viewModel.obtainEvent(ImagesStateScreen.ImageEvent.Default)
+        imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.Default)
     }
 
     private fun initListeners() {
         with(binding) {
             btnDelete.setOnClickListener {
-                viewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenConfirmationDialog)
+                imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenConfirmationDialog)
             }
             containerDocument.setOnClickListener {
-                viewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenDuplicatesFile)
+                imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.OpenDuplicatesFile)
             }
         }
     }
