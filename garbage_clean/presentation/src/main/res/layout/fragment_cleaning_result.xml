@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"
         app:title_text="@string/garbage_clean_title"
+        app:is_load_language="true"
         app:show_menu="false"
         app:show_cross="true" />
 
