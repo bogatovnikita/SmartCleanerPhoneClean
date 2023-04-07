@@ -38,6 +38,7 @@ class OptimizationFragment : DialogFragment(com.smart.cleaner.phoneclean.ui_core
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
+        isCancelable = false
         return super.onCreateDialog(savedInstanceState)
     }
 
