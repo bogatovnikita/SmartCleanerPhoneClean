@@ -34,6 +34,8 @@ import com.smart.cleaner.phoneclean.ui.dialogs.DialogRequestWriteSetting.Compani
 import com.smart.cleaner.phoneclean.ui.dialogs.DialogRequestWriteSetting.Companion.RESULT_WRITE_SETTING
 import com.smart.cleaner.phoneclean.ui.dialogs.DialogRequestWriteSetting.Companion.TAG_WRITE_SETTING
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class BatteryFragment : Fragment(R.layout.fragment_battery) {
@@ -47,6 +49,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     private val startActivityForResultWiFi =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
+            updateState()
         }
 
     private val startActivityForResultWriteSettings =
@@ -157,7 +160,6 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun setBatteryStatus(isBoostedBattery: Boolean, currentBatteryType: String) {
-
         val ivId = if (isBoostedBattery) R.drawable.battery_normal else R.drawable.battery_low
         binding.ivBatteryStatus.setImageResource(ivId)
         binding.tvBatteryStatus.isVisible = isBoostedBattery
@@ -218,6 +220,7 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 openActivityToDisableWifi()
             } else {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
+                updateState()
             }
         }
     }
@@ -250,5 +253,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter.submitList(resources.getStringArray(R.array.battery_normal).toList())
+    }
+
+    private fun updateState() {
+        lifecycleScope.launch {
+            delay(1000)
+            viewModel.getParams()
+        }
     }
 }
