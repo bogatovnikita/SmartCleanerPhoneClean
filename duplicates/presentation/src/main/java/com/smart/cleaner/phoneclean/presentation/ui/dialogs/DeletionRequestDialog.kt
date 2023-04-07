@@ -48,9 +48,8 @@ class DeletionRequestDialog : DialogFragment(R.layout.fragment_deletion_request_
     }
 
     private fun onDelete() {
-        val time = Calendar.getInstance().timeInMillis
-        imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.Delete(time))
-        fileViewModel.obtainEvent(FilesStateScreen.FileEvent.Delete(time))
+        imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.Delete())
+        fileViewModel.obtainEvent(FilesStateScreen.FileEvent.Delete())
     }
 
 }
