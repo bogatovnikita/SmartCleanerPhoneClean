@@ -61,7 +61,7 @@ class DuplicatesFilesChildAdapter(private val listener: OnFileChangeSelectListen
     class ChildFileItemDiffCallback : DiffUtil.ItemCallback<ChildFileItem>() {
 
         override fun areItemsTheSame(oldItem: ChildFileItem, newItem: ChildFileItem) =
-            newItem.filePath == oldItem.filePath
+            newItem.isSelected == oldItem.isSelected
 
         override fun areContentsTheSame(oldItem: ChildFileItem, newItem: ChildFileItem) =
             newItem == oldItem
