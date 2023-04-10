@@ -12,7 +12,7 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="@dimen/_150sdp"
+        app:cardCornerRadius="@dimen/_24sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
