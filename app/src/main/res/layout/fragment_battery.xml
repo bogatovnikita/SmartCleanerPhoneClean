@@ -59,10 +59,10 @@
         android:background="@drawable/bg_description_type_list"
         android:elevation="2dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/description_go_settings"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
         app:layout_constraintTop_toBottomOf="@+id/choosing_type_bar"
-        app:layout_constraintVertical_bias="0"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintVertical_bias="0">
 
         <TextView
             android:id="@+id/title_list"
