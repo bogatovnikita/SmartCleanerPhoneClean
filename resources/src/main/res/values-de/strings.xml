@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_danger_desc">Entfernen Sie doppelte Elemente</string>
+    <string name="allow">Erlauben</string>
+    <string name="duplicate_title">Duplikatreiniger</string>
+    <string name="boosting">Schnelle Optimierung</string>
+    <string name="value_percents">%d %%%</string>
+    <string name="boost_danger_desc">Optimieren Sie Ihr Gerät</string>
+    <string name="battery_danger_desc">Aktivieren Sie den praktischen Modus</string>
+    <string name="battery_title">Energiesparer</string>
+    <string name="permission_required">Erlaubnis erforderlich</string>
+</resources>
