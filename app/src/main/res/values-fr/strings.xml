@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Fermer</string>
+    <string name="ads_off">Annoncer</string>
+    <string name="boosted_desc">Le téléphone a été optimisé avec succès</string>
+    <string name="used">Utilisé</string>
+    <string name="gb_one_after_dot">%.2f Go</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">La commande pour fermer les applications exécutées en arrière-plan a été envoyée</string>
+    <string name="ultra">Ultra\nmode</string>
+    <string name="normal_mode_activated">Mode normal activé</string>
+    <string name="gb_fraction">/ %.2f Go</string>
+    <string name="type_description_extra">Le mode supplémentaire active les restrictions:</string>
+    <string name="optimize">Optimiser</string>
+    <string name="optimization">Optimisation…</string>
+    <string name="mb">%d Mo</string>
+    <string name="normal_mode">Mode normal:</string>
+    <string name="energy">Énergie</string>
+    <string name="ram">Quantité totale de RAM</string>
+    <string name="settings">Paramètre</string>
+    <string name="fun_battery">Économiseur de batterie</string>
+    <string name="please_wait_the_download_is_in_progress">S\'il vous plaît, attendez, le téléchargement est en cours</string>
+    <string name="get_permission">Nous avons besoin de permission</string>
+    <string name="duplicate">Dupliquer</string>
+    <string name="done">Fait</string>
+    <string name="extra_mode_activated">Mode supplémentaire activé</string>
+    <string name="device_information">Informations sur l\'appareil</string>
+    <string name="usage_state_description">Notre application nécessite des autorisations afin que vous puissiez afficher le nombre d\'applications en arrière-plan</string>
+    <string name="cleared">Nettoyé</string>
+    <string name="ultra_mode_activated">Ultra Mode activé</string>
+    <string name="type_description_normal">Le mode normal active les restrictions:</string>
+    <string name="advice">Nous vous recommandons d\'exécuter ces fonctionnalités</string>
+    <string name="count_of_applications_running_in_the_background">Compte d\'applications exécutées en arrière-plan</string>
+    <string name="battery_boosted">Optimisé!</string>
+    <string name="storage">Stockage</string>
+    <string name="clean_done">Fichiers à ordures supprimés.</string>
+    <string name="battery_unboosted">Vous devez augmenter le temps de travail du téléphone!</string>
+    <string name="type_description_ultra">Le mode ultra active les restrictions:</string>
+    <string name="dialog_write_setting_description">Nous avons besoin de l\'autorisation pour modifier les paramètres du système afin que nous puissions augmenter le temps de fonctionnement de votre appareil</string>
+    <string name="ram_usage">Utilisation de la RAM</string>
+    <string name="extra">Extra\nmode</string>
+    <string name="ram_unboosted">L\'optimisation est recommandée</string>
+    <string name="gb">%.2f Go</string>
+    <string name="ram_boosted">Les applications exécutées en arrière-plan sont fermées! Le téléphone a été optimisé avec succès!</string>
+    <string name="free">Bélier gratuit</string>
+    <string name="boosted">Les applications exécutées en arrière-plan sont fermées!</string>
+    <string name="go_settings_description">Pour remplir cette fonction, vous devez donner une permission dans les paramètres vous-même</string>
+    <string name="apps">applications</string>
+    <string name="cleaning">Nettoyer</string>
+    <string name="normal">Normal\nmode</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Envoyer la commande pour fermer les applications en cours d\'exécution</string>
+    <string name="boost_description">Fermer les applications en arrière-plan pour libérer de la mémoire sur votre appareil</string>
+    <string name="title_dialog_bluetooth">Pour le mode supplémentaire, vous avez besoin d\'accéder aux paramètres Bluetooth</string>
+    <string name="clean">Nettoyer</string>
+    <string name="dialog_bluetooth_description">Permettez à l\'application d\'accéder aux paramètres Bluetooth pour augmenter la durée de vie de la batterie</string>
+    <string name="btn_continue">Suivant</string>
+    <string name="description_start_first_language_dialog">La langue de votre appareil n\'est pas prise en charge par notre application, l\'anglais est défini par défaut.</string>
+    <string name="privacy_policy"><u>Privacy Policy</u></string>
+    <string name="junk">Jonque</string>
+    <array name="battery_ultra">
+        <item>Réduit la luminosité de 80%</item>
+        <item>Ferme les applications d\'arrière-plan</item>
+    </array>
+    <array name="battery_extra">
+        <item>Réduit la luminosité de 90%</item>
+        <item>Ferme les applications d\'arrière-plan</item>
+        <item>Désactiver le Wi-Fi</item>
+        <item>Désactiver Bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Suppression des processus d\'arrière-plan ...</item>
+        <item>Effacer les chemins du système ...</item>
+        <item>Réglage des clés du système ...</item>
+        <item>Vérification des composants inutilisés ...</item>
+        <item>Se déconnecter des tours GPS inutiles ...</item>
+    </array>
+    <array name="battery_normal">
+        <item>Réduit la luminosité de 70%</item>
+    </array>
+</resources>

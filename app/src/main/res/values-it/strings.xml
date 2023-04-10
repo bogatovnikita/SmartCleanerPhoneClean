@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Vicino</string>
+    <string name="ads_off">Annunci off</string>
+    <string name="boosted_desc">Il telefono è stato ottimizzato con successo</string>
+    <string name="used">Usato</string>
+    <string name="gb_one_after_dot">%.2f GB</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">È stato inviato il comando di chiudere le applicazioni in esecuzione in background</string>
+    <string name="ultra">Ultra\nMode</string>
+    <string name="normal_mode_activated">Modalità normale attivata</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="type_description_extra">La modalità extra attiva le restrizioni:</string>
+    <string name="optimize">Ottimizzare</string>
+    <string name="optimization">Ottimizzazione…</string>
+    <string name="mb">%d MB</string>
+    <string name="normal_mode">Modalità normale:</string>
+    <string name="energy">Energia</string>
+    <string name="ram">Importo totale di RAM</string>
+    <string name="settings">Collocamento</string>
+    <string name="fun_battery">Saver batteria</string>
+    <string name="please_wait_the_download_is_in_progress">Per favore, aspetta, il download è in corso</string>
+    <string name="get_permission">Abbiamo bisogno del permesso</string>
+    <string name="duplicate">Duplicare</string>
+    <string name="done">Fatto</string>
+    <string name="extra_mode_activated">Modalità extra attivata</string>
+    <string name="device_information">Informazioni sul dispositivo</string>
+    <string name="usage_state_description">La nostra applicazione richiede autorizzazioni in modo da poter visualizzare il conteggio delle app in esecuzione in background</string>
+    <string name="cleared">Puliti</string>
+    <string name="ultra_mode_activated">Modalità ultra attivata</string>
+    <string name="type_description_normal">La modalità normale attiva le restrizioni:</string>
+    <string name="advice">Ti consigliamo di eseguire queste funzionalità</string>
+    <string name="count_of_applications_running_in_the_background">Conteggio delle applicazioni in esecuzione in background</string>
+    <string name="battery_boosted">Ottimizzato!</string>
+    <string name="storage">Magazzinaggio</string>
+    <string name="clean_done">File di immondizia eliminati.</string>
+    <string name="battery_unboosted">Devi aumentare il tempo di lavoro del telefono!</string>
+    <string name="type_description_ultra">La modalità Ultra attiva le restrizioni:</string>
+    <string name="dialog_write_setting_description">Abbiamo bisogno dell\'autorizzazione per modificare le impostazioni del sistema in modo da poter aumentare il tempo operativo del dispositivo</string>
+    <string name="ram_usage">Utilizzo di RAM</string>
+    <string name="extra">Extra\nMode</string>
+    <string name="ram_unboosted">Si consiglia l\'ottimizzazione</string>
+    <string name="gb">%.2f GB</string>
+    <string name="ram_boosted">Le app in esecuzione in background sono chiuse! Il telefono è stato ottimizzato con successo!</string>
+    <string name="free">RAM GRATUITO</string>
+    <string name="boosted">Le app in esecuzione in background sono chiuse!</string>
+    <string name="go_settings_description">Per eseguire questa funzione, devi dare il permesso alle impostazioni da solo</string>
+    <string name="apps">App</string>
+    <string name="cleaning">Ripulire</string>
+    <string name="normal">Normale\nMode</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Invia comando per chiudere le applicazioni in esecuzione in background</string>
+    <string name="boost_description">Chiudi le app in esecuzione in background per liberare la memoria sul dispositivo</string>
+    <string name="title_dialog_bluetooth">Per una modalità extra, è necessario accedere alle impostazioni Bluetooth</string>
+    <string name="clean">Ripulire</string>
+    <string name="dialog_bluetooth_description">Consenti all\'app di accedere alle impostazioni Bluetooth per aumentare la durata della batteria</string>
+    <string name="btn_continue">Prossimo</string>
+    <string name="description_start_first_language_dialog">La lingua del dispositivo non è supportata dalla nostra applicazione, l\'inglese è impostato per impostazione predefinita.\n\n Puoi cambiare la lingua direttamente all\'interno dell\'app.</string>
+    <string name="privacy_policy"><u> PRIVITAZIONE PRIVIDAZIONE</u></string>
+    <string name="junk">Robaccia</string>
+    <array name="battery_ultra">
+        <item>Riduce la luminosità dell\'80%</item>
+        <item>Chiude le app di background</item>
+    </array>
+    <array name="battery_extra">
+        <item>Riduce la luminosità del 90%</item>
+        <item>Chiude le app di background</item>
+        <item>Disabilita Wi-Fi</item>
+        <item>Disabilita il Bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Eliminazione dei processi di fondo ...</item>
+        <item>Percorsi di spoting del sistema ...</item>
+        <item>Regolazione dei tasti del sistema ...</item>
+        <item>Controllare i componenti inutilizzati ...</item>
+        <item>Scollegare da inutili torri GPS ...</item>
+    </array>
+    <array name="battery_normal">
+        <item>Riduce la luminosità del 70%</item>
+    </array>
+</resources>

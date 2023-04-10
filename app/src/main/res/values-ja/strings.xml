@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">近い</string>
+    <string name="ads_off">広告オフ</string>
+    <string name="boosted_desc">電話は正常に最適化されています</string>
+    <string name="used">使用済み</string>
+    <string name="gb_one_after_dot">%.2f GB</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">バックグラウンドで実行されているアプリケーションを閉じるコマンドが送信されました</string>
+    <string name="ultra">ultra\nmode</string>
+    <string name="normal_mode_activated">通常モードがアクティブ化されています</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="type_description_extra">追加モードは制限をアクティブにします：</string>
+    <string name="optimize">最適化</string>
+    <string name="optimization">最適化…</string>
+    <string name="mb">%dMB</string>
+    <string name="normal_mode">ノーマルモード：</string>
+    <string name="energy">エネルギー</string>
+    <string name="ram">RAMの総量</string>
+    <string name="settings">設定</string>
+    <string name="fun_battery">バッテリーセーバー</string>
+    <string name="please_wait_the_download_is_in_progress">待ってください、ダウンロードが進行中です</string>
+    <string name="get_permission">許可が必要です</string>
+    <string name="duplicate">複製</string>
+    <string name="done">終わり</string>
+    <string name="extra_mode_activated">エクストラモードがアクティブ化されています</string>
+    <string name="device_information">デバイス情報</string>
+    <string name="usage_state_description">私たちのアプリケーションでは、バックグラウンドで実行されているアプリの数を表示できるようにアクセス許可が必要です</string>
+    <string name="cleared">掃除</string>
+    <string name="ultra_mode_activated">ウルトラモードがアクティブ化されています</string>
+    <string name="type_description_normal">通常モードは制限をアクティブにします：</string>
+    <string name="advice">これらの機能を実行することをお勧めします</string>
+    <string name="count_of_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションのカウント</string>
+    <string name="battery_boosted">最適化されました！</string>
+    <string name="storage">保管所</string>
+    <string name="clean_done">ガベージファイルが削除されました。</string>
+    <string name="battery_unboosted">電話の作業時間を増やす必要があります！</string>
+    <string name="type_description_ultra">ウルトラモードは制限をアクティブにします：</string>
+    <string name="dialog_write_setting_description">デバイスの動作時間を増やすことができるように、システム設定を変更する許可が必要です</string>
+    <string name="ram_usage">ラムの使用</string>
+    <string name="extra">Extra\nMode</string>
+    <string name="ram_unboosted">最適化をお勧めします</string>
+    <string name="gb">%.2f GB</string>
+    <string name="ram_boosted">バックグラウンドで実行されているアプリは閉じられています！電話は正常に最適化されています！</string>
+    <string name="free">無料のラム</string>
+    <string name="boosted">バックグラウンドで実行されているアプリは閉じられています！</string>
+    <string name="go_settings_description">この関数を実行するには、設定で自分で許可を与える必要があります</string>
+    <string name="apps">アプリ</string>
+    <string name="cleaning">掃除</string>
+    <string name="normal">Normal\nMode</string>
+    <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためにコマンドを送信します</string>
+    <string name="boost_description">バックグラウンドで実行されているアプリを閉じて、デバイスでメモリを解放します</string>
+    <string name="title_dialog_bluetooth">追加モードの場合、Bluetooth設定にアクセスする必要があります</string>
+    <string name="clean">掃除</string>
+    <string name="dialog_bluetooth_description">アプリがBluetoothの設定にアクセスしてバッテリー寿命を延ばすことを許可します</string>
+    <string name="btn_continue">次</string>
+    <string name="description_start_first_language_dialog">デバイスの言語はアプリケーションによってサポートされていません。英語はデフォルトで設定されます。\n\nは、アプリ内の言語を変更できます。</string>
+    <string name="privacy_policy"><u>Privacy Policy</u></string>
+    <string name="junk">ジャンク</string>
+    <array name="battery_ultra">
+        <item>明るさを80％減らす</item>
+        <item>背景アプリを閉じます</item>
+    </array>
+    <array name="battery_extra">
+        <item>明るさを90％減らす</item>
+        <item>背景アプリを閉じます</item>
+        <item>Wi-Fiを無効にします</item>
+        <item>Bluetoothを無効にします</item>
+    </array>
+    <array name="optimization">
+        <item>背景プロセスの削除...</item>
+        <item>システムパスのクリア...</item>
+        <item>システムキーの調整...</item>
+        <item>未使用のコンポーネントのチェック...</item>
+        <item>不要なGPSタワーから切断します...</item>
+    </array>
+    <array name="battery_normal">
+        <item>明るさを70％減らす</item>
+    </array>
+</resources>

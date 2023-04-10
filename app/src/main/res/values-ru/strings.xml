@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="cancel">Закрыть</string>
+    <string name="ads_off">ADS выключен</string>
+    <string name="boosted_desc">Телефон был успешно оптимизирован</string>
+    <string name="used">Использованный</string>
+    <string name="gb_one_after_dot">%.2f Гб</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">Отправлена команда на закрытие приложений, работающих в фоновом режиме</string>
+    <string name="ultra">Ultra\nmode</string>
+    <string name="normal_mode_activated">Активирован нормальный режим</string>
+    <string name="gb_fraction">/%.2f ГБ</string>
+    <string name="type_description_extra">Дополнительный режим активирует ограничения:</string>
+    <string name="optimize">Оптимизация</string>
+    <string name="optimization">Оптимизация...</string>
+    <string name="mb">%d Мб</string>
+    <string name="normal_mode">Обычный режим:</string>
+    <string name="energy">Энергия</string>
+    <string name="ram">Общий объем оперативной памяти</string>
+    <string name="settings">Настройка</string>
+    <string name="fun_battery">Экономия заряда батареи</string>
+    <string name="please_wait_the_download_is_in_progress">Пожалуйста, подождите, идет загрузка</string>
+    <string name="get_permission">Нам нужно разрешение</string>
+    <string name="duplicate">Дублировать</string>
+    <string name="done">Готово</string>
+    <string name="extra_mode_activated">Активирован дополнительный режим</string>
+    <string name="device_information">Информация об устройстве</string>
+    <string name="usage_state_description">Наше приложение требует разрешения, чтобы вы могли просмотреть количество приложений, запущенных в фоновом режиме</string>
+    <string name="cleared">Очищено</string>
+    <string name="ultra_mode_activated">Активирован ультрарежим</string>
+    <string name="type_description_normal">В обычном режиме активированы ограничения:</string>
+    <string name="advice">Мы рекомендуем запустить эти функции</string>
+    <string name="count_of_applications_running_in_the_background">Подсчет приложений, запущенных в фоновом режиме</string>
+    <string name="battery_boosted">Оптимизировано!</string>
+    <string name="storage">Хранилище</string>
+    <string name="clean_done">Удалены мусорные файлы.</string>
+    <string name="battery_unboosted">Необходимо увеличить время работы телефона!</string>
+    <string name="type_description_ultra">Ультрарежим активирует ограничения:</string>
+    <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы увеличить время работы вашего устройства</string>
+    <string name="ram_usage">Использование оперативной памяти</string>
+    <string name="extra">Режим Extra\n</string>
+    <string name="ram_unboosted">Рекомендуется оптимизация</string>
+    <string name="gb">%.2f ГБ</string>
+    <string name="ram_boosted">Приложения, работающие в фоновом режиме, закрыты! Телефон успешно оптимизирован!</string>
+    <string name="free">Свободная оперативная память</string>
+    <string name="boosted">Приложения, работающие в фоновом режиме, закрыты!</string>
+    <string name="go_settings_description">Для выполнения этой функции необходимо самостоятельно дать разрешение в настройках</string>
+    <string name="apps">Приложения</string>
+    <string name="cleaning">Очистка</string>
+    <string name="normal">Режим Normal\nmode</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Отправка команды на закрытие приложений, работающих в фоновом режиме</string>
+    <string name="boost_description">Закрытие приложений, работающих в фоновом режиме, для освобождения памяти на вашем устройстве</string>
+    <string name="title_dialog_bluetooth">Для работы в режиме Extra необходим доступ к настройкам bluetooth</string>
+    <string name="clean">Очистка</string>
+    <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth, чтобы увеличить время работы от батареи</string>
+    <string name="btn_continue">Далее</string>
+    <string name="description_start_first_language_dialog">Язык вашего устройства не поддерживается нашим приложением, по умолчанию установлен английский.\n\nВы можете изменить язык прямо в приложении.</string>
+    <string name="privacy_policy"><u>Политика конфиденциальности</u></string>
+    <string name="junk">Мусор</string>
+    <array name="battery_ultra">
+        <item>Уменьшает яркость на 80%</item>
+        <item>Закрывает фоновые приложения</item>
+    </array>
+    <array name="battery_extra">
+        <item>Уменьшает яркость на 90%</item>
+        <item>Закрывает фоновые приложения</item>
+        <item>Отключить Wi-Fi</item>
+        <item>Отключить Bluetooth</item>
+    </array>
+    <array name="optimization">
+        <item>Удаление фоновых процессов...</item>
+        <item>Очистка системных путей...</item>
+        <item>Настройка системных клавиш...</item>
+        <item>Проверка неиспользуемых компонентов...</item>
+        <item>Отключение от ненужных GPS-вышек...</item>
+    </array>
+    <array name="battery_normal">
+        <item>Снижение яркости на 70%</item>
+    </array>
+</resources>
