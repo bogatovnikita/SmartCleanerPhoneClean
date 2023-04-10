@@ -153,9 +153,9 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
                 if (hasBluetoothPerm) {
                     descriptionGoSettings.isVisible = false
                 }
+                permissionRequired.isVisible = !isCanWriteSettings
             }
             renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
-            binding.permissionRequired.isVisible = !isCanWriteSettings
         }
     }
 

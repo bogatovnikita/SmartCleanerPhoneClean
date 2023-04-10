@@ -14,7 +14,7 @@ class BatterySharedPreferences @Inject constructor(private val application: Appl
     }
 
     fun getBatteryType(): String {
-        return sharedPreferences.getString(BATTERY_TYPE, "") ?: ""
+        return sharedPreferences.getString(BATTERY_TYPE, "NORMAL") ?: "NORMAL"
     }
 
     companion object {
