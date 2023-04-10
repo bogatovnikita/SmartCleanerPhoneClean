@@ -31,7 +31,12 @@ class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
     private val adapter: DuplicatesFilesParentAdapter =
         DuplicatesFilesParentAdapter(object : OnFileChangeSelectListener {
             override fun selectAll(duplicates: ParentFileItem, isSelected: Boolean) {
-                fileViewModel.obtainEvent(FilesStateScreen.FileEvent.SelectAll(duplicates, isSelected))
+                fileViewModel.obtainEvent(
+                    FilesStateScreen.FileEvent.SelectAll(
+                        duplicates,
+                        isSelected
+                    )
+                )
             }
 
             override fun selectFile(file: ChildFileItem, isSelected: Boolean) {
@@ -55,7 +60,7 @@ class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
     private fun initObserverScreenState() {
         lifecycleScope.launchWhenResumed {
             fileViewModel.screenState.collect { state ->
-                adapter.submitList(state.duplicates)
+                adapter.setData(state.duplicates)
                 navigate(state.event)
                 render(state)
             }
@@ -74,7 +79,8 @@ class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
 
     private fun render(state: FilesStateScreen) {
         with(binding) {
-            btnDelete.isEnabled = (state.totalSize + imageViewModel.screenState.value.totalSize) != 0L
+            btnDelete.isEnabled =
+                (state.totalSize + imageViewModel.screenState.value.totalSize) != 0L
             groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupNotFound.isVisible = state.isNotFound
             groupStopLoading.isVisible = !state.isLoading && state.hasPermission

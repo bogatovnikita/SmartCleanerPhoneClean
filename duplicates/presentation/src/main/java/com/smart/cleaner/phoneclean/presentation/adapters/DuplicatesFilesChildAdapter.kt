@@ -13,9 +13,14 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildFileItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemChildFileBinding
 
 class DuplicatesFilesChildAdapter(private val listener: OnFileChangeSelectListener) :
-    ListAdapter<ChildFileItem, DuplicatesFilesChildAdapter.ChildFileViewHolder>(
-        ChildFileItemDiffCallback()
-    ) {
+    RecyclerView.Adapter<DuplicatesFilesChildAdapter.ChildFileViewHolder>() {
+
+    private var items: List<ChildFileItem> = emptyList()
+
+    fun submitList(list: List<ChildFileItem>) {
+        items = list
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildFileViewHolder {
         val binding =
@@ -24,47 +29,37 @@ class DuplicatesFilesChildAdapter(private val listener: OnFileChangeSelectListen
     }
 
     override fun onBindViewHolder(holder: ChildFileViewHolder, position: Int) {
-        val image = getItem(position)
-        holder.bind(image)
+        val item = items[position]
+        holder.bind(item)
     }
+
+    override fun getItemCount(): Int = items.size
 
     class ChildFileViewHolder(
         private val listener: OnFileChangeSelectListener,
-        private val binding: ItemChildFileBinding,
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+        private val binding: ItemChildFileBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(state: ChildFileItem) {
+        fun bind(item: ChildFileItem) {
             with(binding) {
-                tvName.text = state.fileName
-                tvSizeAndPath.text = binding.root.context.getString(
+                tvName.text = item.fileName
+                tvSizeAndPath.text = root.context.getString(
                     R.string.duplicates_size_and_path,
-                    Formatter.formatFileSize(binding.root.context, state.size),
-                    state.filePath
+                    Formatter.formatFileSize(root.context, item.size),
+                    item.filePath
                 )
-                btnSwitchOffFile.isVisible = state.isSelected
-                btnSwitchOnFile.isVisible = !state.isSelected
+                btnSwitchOffFile.isVisible = item.isSelected
+                btnSwitchOnFile.isVisible = !item.isSelected
                 btnSwitchOnFile.setOnClickListener {
-                    listener.selectFile(state, true)
+                    listener.selectFile(item, true)
                 }
                 btnSwitchOffFile.setOnClickListener {
-                    listener.selectFile(state, false)
+                    listener.selectFile(item, false)
                 }
-                binding.root.setOnClickListener {
-                    listener.selectFile(state, !state.isSelected)
+                root.setOnClickListener {
+                    listener.selectFile(item, !item.isSelected)
                 }
             }
         }
-
-    }
-
-    class ChildFileItemDiffCallback : DiffUtil.ItemCallback<ChildFileItem>() {
-
-        override fun areItemsTheSame(oldItem: ChildFileItem, newItem: ChildFileItem) =
-            newItem.filePath == oldItem.filePath
-
-        override fun areContentsTheSame(oldItem: ChildFileItem, newItem: ChildFileItem) =
-            newItem == oldItem
-
     }
 }

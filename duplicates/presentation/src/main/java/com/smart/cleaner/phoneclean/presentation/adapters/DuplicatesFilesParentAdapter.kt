@@ -13,23 +13,30 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemParentFilesBinding
 
 class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListener) :
-    ListAdapter<ParentFileItem, DuplicatesFilesParentAdapter.ParentFileViewHolder>(
-        ParentFileItemDiffCallback()
-    ) {
+    RecyclerView.Adapter<DuplicatesFilesParentAdapter.ParentFileViewHolder>() {
+
+    private val items = mutableListOf<ParentFileItem>()
+
+    fun setData(data: List<ParentFileItem>) {
+        items.clear()
+        items.addAll(data)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentFileViewHolder {
         val binding =
             ItemParentFilesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ParentFileViewHolder(listener, binding)
+        return ParentFileViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ParentFileViewHolder, position: Int) {
-        val fileGroup = getItem(position)
-        holder.bind(fileGroup, position, currentList.size)
+        val fileGroup = items[position]
+        holder.bind(fileGroup, position, items.size)
     }
 
+    override fun getItemCount() = items.size
+
     inner class ParentFileViewHolder(
-        private val listener: OnFileChangeSelectListener,
         private val binding: ItemParentFilesBinding,
     ) :
         RecyclerView.ViewHolder(binding.root) {
@@ -56,7 +63,7 @@ class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListe
                     listener.selectAll(state, true)
                 }
                 adapter.submitList(state.files)
-                separationLine.isVisible = position != currentList.lastIndex
+                separationLine.isVisible = position != items.lastIndex
             }
         }
 
@@ -66,14 +73,6 @@ class DuplicatesFilesParentAdapter(private val listener: OnFileChangeSelectListe
                 LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
             binding.childRecyclerView.layoutManager = layoutManager
         }
-
-    }
-
-    class ParentFileItemDiffCallback : DiffUtil.ItemCallback<ParentFileItem>() {
-
-        override fun areItemsTheSame(oldItem: ParentFileItem, newItem: ParentFileItem) = newItem.count == oldItem.count
-
-        override fun areContentsTheSame(oldItem: ParentFileItem, newItem: ParentFileItem) = oldItem == newItem
 
     }
 
