@@ -71,7 +71,7 @@ class DuplicateFilesViewModel @Inject constructor(
                     ParentFileItem(
                         count = oldList.count,
                         isAllSelected = isAllSelected(oldList, selectedImage, isSelected),
-                        files = updateSelectedFileInList(oldList, selectedImage, isSelected)
+                        files = updateSelectedFileInList(oldList, selectedImage, isSelected).sortedBy { it.filePath }
                     )
                 )
             } else {
@@ -119,7 +119,7 @@ class DuplicateFilesViewModel @Inject constructor(
                     ParentFileItem(
                         count = oldList.count,
                         isAllSelected = isSelected,
-                        files = updateAllImagesInList(oldList, isSelected)
+                        files = updateAllImagesInList(oldList, isSelected).sortedBy { it.filePath }
                     )
                 )
             } else {
@@ -220,23 +220,6 @@ class DuplicateFilesViewModel @Inject constructor(
         return listForDelete
     }
 
-//    private fun map(list: List<List<File>>): List<ParentFileItem> {
-//        return list.map { duplicates ->
-//            ParentFileItem(
-//                count = duplicates.size,
-//                isAllSelected = false,
-//                files = duplicates.map {
-//                    ChildFileItem(
-//                        isSelected = false,
-//                        filePath = it.path,
-//                        fileName = it.name,
-//                        size = it.size
-//                    )
-//                }
-//            )
-//        }
-//    }
-
     private fun mapUiModel(duplicates: List<List<File>>): List<ParentFileItem> {
         return duplicates.map { groupDuplicates ->
             val files = groupDuplicates.map { fileInfo ->
@@ -258,13 +241,13 @@ class DuplicateFilesViewModel @Inject constructor(
                     size = fileInfo.size,
                     fileName = fileInfo.name
                 )
-            }
+            }.sortedBy { it.filePath }
             ParentFileItem(
                 isAllSelected = files.none { !it.isSelected },
                 count = groupDuplicates.size,
                 files = files
             )
-        }
+        }.sortedBy { it.count }.reversed()
     }
 
 }
