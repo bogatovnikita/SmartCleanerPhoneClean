@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_are_you_sure_you_want_to_delete">Are you sure you want to delete the selected files? The files will be permanently deleted</string>
+    <string name="duplicates_allow_string_allow">Allow</string>
+    <string name="duplicates_files">Files</string>
+    <string name="duplicates_recommendation">We recommend running these features</string>
+    <string name="duplicate_requires_storage_permission">Our application requires storage permission so that you can view and delete duplicates</string>
+    <string name="duplicates_select_all">Select all</string>
+    <string name="duplicates_image">Image</string>
+    <string name="duplicates_desc_done">The phone has been successfully cleared of duplicates</string>
+    <string name="duplicates_we_need_permission">We need permission</string>
+    <string name="duplicates_number_of_duplicate">%d duplicate(s)</string>
+    <string name="duplicates_delete">Delete</string>
+    <string name="duplicates_size_and_path">%s kb • %s</string>
+    <string name="duplicates_deletion">Deletion…</string>
+    <string name="duplicates_deleting_files">Deleting Files</string>
+    <string name="duplicates_close">Close</string>
+    <string name="duplicates_please_wait">Please, wait, we are scanning photos and files…</string>
+    <string name="duplicates_no_duplicates_found">No duplicates found</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_are_you_sure_you_want_to_delete">¿Estás seguro de que quieres eliminar los archivos seleccionados? Los archivos se eliminarán permanentemente</string>
+    <string name="duplicates_allow_string_allow">Permitir</string>
+    <string name="duplicates_files">Archivos</string>
+    <string name="duplicates_recommendation">Recomendamos ejecutar estas características</string>
+    <string name="duplicate_requires_storage_permission">Nuestra aplicación requiere permiso de almacenamiento para que pueda ver y eliminar duplicados</string>
+    <string name="duplicates_select_all">Seleccionar todo</string>
+    <string name="duplicates_image">Imagen</string>
+    <string name="duplicates_desc_done">El teléfono ha sido autorizado con éxito de duplicados</string>
+    <string name="duplicates_we_need_permission">Necesitamos permiso</string>
+    <string name="duplicates_number_of_duplicate">%d duplicado (s)</string>
+    <string name="duplicates_delete">Borrar</string>
+    <string name="duplicates_size_and_path">%s KB • %s</string>
+    <string name="duplicates_deletion">Supresión…</string>
+    <string name="duplicates_deleting_files">Eliminar archivos</string>
+    <string name="duplicates_close">Cerca</string>
+    <string name="duplicates_please_wait">Por favor, espera, estamos escaneando fotos y archivos ...</string>
+    <string name="duplicates_no_duplicates_found">No se encontraron duplicados</string>
+</resources>

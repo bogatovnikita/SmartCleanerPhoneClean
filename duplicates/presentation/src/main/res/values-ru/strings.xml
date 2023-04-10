@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_are_you_sure_you_want_to_delete">Вы уверены, что хотите удалить выбранные файлы? Файлы будут удалены безвозвратно</string>
+    <string name="duplicates_allow_string_allow">Разрешить</string>
+    <string name="duplicates_files">Файлы</string>
+    <string name="duplicates_recommendation">Мы рекомендуем запустить эти функции</string>
+    <string name="duplicate_requires_storage_permission">Наше приложение требует разрешения на хранение, чтобы вы могли просматривать и удалять дубликаты</string>
+    <string name="duplicates_select_all">Выбрать все</string>
+    <string name="duplicates_image">Изображение</string>
+    <string name="duplicates_desc_done">Телефон успешно очищен от дубликатов</string>
+    <string name="duplicates_we_need_permission">Нам нужно разрешение</string>
+    <string name="duplicates_number_of_duplicate">%d дубликат(ов)</string>
+    <string name="duplicates_delete">Удалить</string>
+    <string name="duplicates_size_and_path">%s Кб - %s</string>
+    <string name="duplicates_deletion">Удаление...</string>
+    <string name="duplicates_deleting_files">Удаление файлов</string>
+    <string name="duplicates_close">Закрыть</string>
+    <string name="duplicates_please_wait">Пожалуйста, подождите, мы\ сканируем фотографии и файлы...</string>
+    <string name="duplicates_no_duplicates_found">Дубликатов не найдено</string>
+</resources>

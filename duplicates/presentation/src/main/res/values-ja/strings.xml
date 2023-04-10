@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_are_you_sure_you_want_to_delete">選択したファイルを削除したいですか？ファイルは永続的に削除されます</string>
+    <string name="duplicates_allow_string_allow">許可する</string>
+    <string name="duplicates_files">ファイル</string>
+    <string name="duplicates_recommendation">これらの機能を実行することをお勧めします</string>
+    <string name="duplicate_requires_storage_permission">当社のアプリケーションには、複製を表示および削除できるように、ストレージの許可が必要です</string>
+    <string name="duplicates_select_all">すべて選択</string>
+    <string name="duplicates_image">画像</string>
+    <string name="duplicates_desc_done">電話は重複を正常にクリアされています</string>
+    <string name="duplicates_we_need_permission">許可が必要です</string>
+    <string name="duplicates_number_of_duplicate">%d複製</string>
+    <string name="duplicates_delete">消去</string>
+    <string name="duplicates_size_and_path">%s KB•%s</string>
+    <string name="duplicates_deletion">消す…</string>
+    <string name="duplicates_deleting_files">ファイルの削除</string>
+    <string name="duplicates_close">近い</string>
+    <string name="duplicates_please_wait">お願いします、待ってください、私たちは写真やファイルをスキャンします…</string>
+    <string name="duplicates_no_duplicates_found">複製は見つかりません</string>
+</resources>

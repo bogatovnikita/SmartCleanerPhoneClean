@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_are_you_sure_you_want_to_delete">Êtes-vous sûr de vouloir supprimer les fichiers sélectionnés? Les fichiers seront supprimés en permanence</string>
+    <string name="duplicates_allow_string_allow">Permettre</string>
+    <string name="duplicates_files">Des dossiers</string>
+    <string name="duplicates_recommendation">Nous vous recommandons d\'exécuter ces fonctionnalités</string>
+    <string name="duplicate_requires_storage_permission">Notre application nécessite une autorisation de stockage afin que vous puissiez afficher et supprimer des doublons</string>
+    <string name="duplicates_select_all">Tout sélectionner</string>
+    <string name="duplicates_image">Image</string>
+    <string name="duplicates_desc_done">Le téléphone a été éliminé avec succès des doublons</string>
+    <string name="duplicates_we_need_permission">Nous avons besoin de permission</string>
+    <string name="duplicates_number_of_duplicate">%d Duplicate (S)</string>
+    <string name="duplicates_delete">Supprimer</string>
+    <string name="duplicates_size_and_path">%s Ko • %s</string>
+    <string name="duplicates_deletion">Effacement…</string>
+    <string name="duplicates_deleting_files">Suppression de fichiers</string>
+    <string name="duplicates_close">Fermer</string>
+    <string name="duplicates_please_wait">S\'il vous plaît, attendez, nous révisons des photos et des fichiers…</string>
+    <string name="duplicates_no_duplicates_found">Pas de doublons trouvés</string>
+</resources>
