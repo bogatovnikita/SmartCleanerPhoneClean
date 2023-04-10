@@ -40,7 +40,12 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
             }
 
             override fun selectImage(image: ChildImageItem, isSelected: Boolean) {
-                imageViewModel.obtainEvent(ImagesStateScreen.ImageEvent.SelectImage(image, isSelected))
+                imageViewModel.obtainEvent(
+                    ImagesStateScreen.ImageEvent.SelectImage(
+                        image,
+                        isSelected
+                    )
+                )
             }
 
         })
@@ -60,7 +65,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     private fun initObserverScreenState() {
         lifecycleScope.launchWhenResumed {
             imageViewModel.screenState.collect { state ->
-                adapter.submitList(state.duplicates)
+                adapter.setItems(state.duplicates)
                 navigate(state.event)
                 render(state)
             }
@@ -69,7 +74,8 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
 
     private fun render(state: ImagesStateScreen) {
         with(binding) {
-            btnDelete.isEnabled = (state.totalSize + fileViewModel.screenState.value.totalSize) != 0L
+            btnDelete.isEnabled =
+                (state.totalSize + fileViewModel.screenState.value.totalSize) != 0L
             groupStartLoading.isVisible = state.isLoading && state.hasPermission
             groupNotFound.isVisible = state.isNotFound
             groupStopLoading.isVisible = !state.isLoading && state.hasPermission

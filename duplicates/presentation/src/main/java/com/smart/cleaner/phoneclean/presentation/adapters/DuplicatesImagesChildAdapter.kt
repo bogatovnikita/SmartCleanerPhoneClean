@@ -3,8 +3,6 @@ package com.smart.cleaner.phoneclean.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
@@ -12,9 +10,9 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ChildImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemImageBinding
 
 class DuplicatesImagesChildAdapter(private val listener: OnImageChangeSelectListener) :
-    ListAdapter<ChildImageItem, DuplicatesImagesChildAdapter.ChildViewHolder>(
-        ChildImageItemDiffCallback()
-    ) {
+    RecyclerView.Adapter<DuplicatesImagesChildAdapter.ChildViewHolder>() {
+
+    private val items: MutableList<ChildImageItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildViewHolder {
         val binding =
@@ -23,11 +21,19 @@ class DuplicatesImagesChildAdapter(private val listener: OnImageChangeSelectList
     }
 
     override fun onBindViewHolder(holder: ChildViewHolder, position: Int) {
-        val image = getItem(position)
+        val image = items[position]
         holder.bind(image)
     }
 
-    class ChildViewHolder(
+    override fun getItemCount() = items.size
+
+    fun setItems(newItems: List<ChildImageItem>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
+    inner class ChildViewHolder(
         private val listener: OnImageChangeSelectListener,
         private val binding: ItemImageBinding,
     ) :
@@ -49,18 +55,6 @@ class DuplicatesImagesChildAdapter(private val listener: OnImageChangeSelectList
                 }
             }
         }
-
-    }
-
-    class ChildImageItemDiffCallback : DiffUtil.ItemCallback<ChildImageItem>() {
-
-        override fun areItemsTheSame(oldItem: ChildImageItem, newItem: ChildImageItem) =
-            oldItem.imagePath == newItem.imagePath
-
-        override fun areContentsTheSame(
-            oldItem: ChildImageItem,
-            newItem: ChildImageItem
-        ) = oldItem == newItem
-
     }
 }
+

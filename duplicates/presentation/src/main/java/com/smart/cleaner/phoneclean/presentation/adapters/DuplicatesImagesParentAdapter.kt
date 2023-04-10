@@ -3,9 +3,7 @@ package com.smart.cleaner.phoneclean.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.smart.cleaner.phoneclean.presentation.R
 import com.smart.cleaner.phoneclean.presentation.adapters.listeners.OnImageChangeSelectListener
@@ -13,9 +11,9 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.ItemDuplicatesImageBinding
 
 class DuplicatesImagesParentAdapter(private val listener: OnImageChangeSelectListener) :
-    ListAdapter<ParentImageItem, DuplicatesImagesParentAdapter.ParentViewHolder>(
-        ParentImageItemDiffCallback()
-    ) {
+    RecyclerView.Adapter<DuplicatesImagesParentAdapter.ParentViewHolder>() {
+
+    private val items: MutableList<ParentImageItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParentViewHolder {
         val binding =
@@ -24,15 +22,22 @@ class DuplicatesImagesParentAdapter(private val listener: OnImageChangeSelectLis
     }
 
     override fun onBindViewHolder(holder: ParentViewHolder, position: Int) {
-        val imageGroup = getItem(position)
+        val imageGroup = items[position]
         holder.bind(imageGroup, position)
+    }
+
+    override fun getItemCount() = items.size
+
+    fun setItems(newItems: List<ParentImageItem>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
     }
 
     inner class ParentViewHolder(
         private val listener: OnImageChangeSelectListener,
-        private val binding: ItemDuplicatesImageBinding,
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+        private val binding: ItemDuplicatesImageBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         private val adapter = DuplicatesImagesChildAdapter(listener)
 
@@ -54,8 +59,8 @@ class DuplicatesImagesParentAdapter(private val listener: OnImageChangeSelectLis
                 btnSwitchOnAll.setOnClickListener {
                     listener.selectAll(state, true)
                 }
-                adapter.submitList(state.images)
-                separationLine.isVisible = position != currentList.lastIndex
+                adapter.setItems(state.images)
+                separationLine.isVisible = position != items.lastIndex
             }
         }
 
@@ -67,18 +72,4 @@ class DuplicatesImagesParentAdapter(private val listener: OnImageChangeSelectLis
         }
 
     }
-
-    class ParentImageItemDiffCallback : DiffUtil.ItemCallback<ParentImageItem>() {
-
-        override fun areItemsTheSame(oldItem: ParentImageItem, newItem: ParentImageItem) =
-            oldItem.images == newItem.images
-
-        override fun areContentsTheSame(
-            oldItem: ParentImageItem,
-            newItem: ParentImageItem
-        ) = oldItem == newItem
-
-
-    }
-
 }
