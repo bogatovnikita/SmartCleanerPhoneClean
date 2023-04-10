@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="ads_off">Anzeigen aus</string>
+    <string name="look_at_what_a_cool_app">Schauen Sie sich an, was für eine coole App:</string>
+    <string name="share">Aktie</string>
+    <string name="information">Information</string>
+    <string name="restore_purchase">Kauf wiederherstellen</string>
+</resources>
