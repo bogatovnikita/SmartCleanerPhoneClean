@@ -1,6 +1,7 @@
 package yin_kio.garbage_clean.domain.ui_out
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
+import yin_kio.garbage_clean.domain.use_cases.UpdateState
 import java.io.File
 
 interface UiOuter {
@@ -20,6 +21,8 @@ interface UiOuter {
 
     fun showPermissionRequired()
     fun hidePermissionRequired()
+
+    fun updageLanguage(updateState: UpdateState, garbage: List<Garbage>, wasClean: Boolean)
 
 
 }

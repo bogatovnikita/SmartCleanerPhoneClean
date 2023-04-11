@@ -1,1 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="duplicates_danger_desc">Remove duplicate elements</string><string name="allow">Allow</string><string name="duplicate_title">Duplicate cleaner</string><string name="boosting">Quick optimize</string><string name="value_percents">%d %%</string><string name="boost_danger_desc">Optimize your device</string><string name="battery_danger_desc">Activate the convenient mode</string><string name="battery_title">Energy saver</string><string name="permission_required">Permission required</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_danger_desc">Remove duplicate elements</string>
+    <string name="allow">Allow</string>
+    <string name="duplicate_title">Duplicate cleaner</string>
+    <string name="boosting">Quick optimize</string>
+    <string name="value_percents">%d %%</string>
+    <string name="boost_danger_desc">Optimize your device</string>
+    <string name="battery_danger_desc">Activate the convenient mode</string>
+    <string name="battery_title">Energy saver</string>
+    <string name="permission_required">Permission required</string>
+
+    <string name="done">Done</string>
+</resources>

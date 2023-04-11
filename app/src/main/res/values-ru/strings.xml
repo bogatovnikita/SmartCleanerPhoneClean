@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="cancel">Закрыть</string>
-    <string name="ads_off">ADS выключен</string>
+    <string name="ads_off">ADS</string>
     <string name="boosted_desc">Телефон был успешно оптимизирован</string>
-    <string name="used">Использованный</string>
+    <string name="used">Использовано</string>
     <string name="gb_one_after_dot">%.2f Гб</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">Отправлена команда на закрытие приложений, работающих в фоновом режиме</string>
-    <string name="ultra">Ultra\nmode</string>
+    <string name="ultra">Ultra</string>
     <string name="normal_mode_activated">Активирован нормальный режим</string>
     <string name="gb_fraction">/%.2f ГБ</string>
     <string name="type_description_extra">Дополнительный режим активирует ограничения:</string>
@@ -20,8 +20,7 @@
     <string name="fun_battery">Экономия заряда батареи</string>
     <string name="please_wait_the_download_is_in_progress">Пожалуйста, подождите, идет загрузка</string>
     <string name="get_permission">Нам нужно разрешение</string>
-    <string name="duplicate">Дублировать</string>
-    <string name="done">Готово</string>
+    <string name="duplicate">Дубликаты</string>
     <string name="extra_mode_activated">Активирован дополнительный режим</string>
     <string name="device_information">Информация об устройстве</string>
     <string name="usage_state_description">Наше приложение требует разрешения, чтобы вы могли просмотреть количество приложений, запущенных в фоновом режиме</string>
@@ -37,7 +36,7 @@
     <string name="type_description_ultra">Ультрарежим активирует ограничения:</string>
     <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы увеличить время работы вашего устройства</string>
     <string name="ram_usage">Использование оперативной памяти</string>
-    <string name="extra">Режим Extra\n</string>
+    <string name="extra">Extra</string>
     <string name="ram_unboosted">Рекомендуется оптимизация</string>
     <string name="gb">%.2f ГБ</string>
     <string name="ram_boosted">Приложения, работающие в фоновом режиме, закрыты! Телефон успешно оптимизирован!</string>
@@ -46,7 +45,7 @@
     <string name="go_settings_description">Для выполнения этой функции необходимо самостоятельно дать разрешение в настройках</string>
     <string name="apps">Приложения</string>
     <string name="cleaning">Очистка</string>
-    <string name="normal">Режим Normal\nmode</string>
+    <string name="normal">Normal</string>
     <string name="send_command_to_close_applications_running_in_the_background">Отправка команды на закрытие приложений, работающих в фоновом режиме</string>
     <string name="boost_description">Закрытие приложений, работающих в фоновом режиме, для освобождения памяти на вашем устройстве</string>
     <string name="title_dialog_bluetooth">Для работы в режиме Extra необходим доступ к настройкам bluetooth</string>

@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">S\'il vous plaît, attendez, le téléchargement est en cours</string>
     <string name="get_permission">Nous avons besoin de permission</string>
     <string name="duplicate">Dupliquer</string>
-    <string name="done">Fait</string>
     <string name="extra_mode_activated">Mode supplémentaire activé</string>
     <string name="device_information">Informations sur l\'appareil</string>
     <string name="usage_state_description">Notre application nécessite des autorisations afin que vous puissiez afficher le nombre d\'applications en arrière-plan</string>

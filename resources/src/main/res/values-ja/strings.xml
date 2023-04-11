@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="duplicates_danger_desc">重複要素を削除します</string><string name="allow">許可する</string><string name="duplicate_title">複製クリーナー</string><string name="boosting">Quick Optimize</string><string name="value_percents">%d %%</string><string name="boost_danger_desc">デバイスを最適化します</string><string name="battery_danger_desc">便利なモードをアクティブにします</string><string name="battery_title">エネルギーセーバー</string><string name="permission_required">許可が必要です</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_danger_desc">重複要素を削除します</string>
+    <string name="allow">許可する</string>
+    <string name="duplicate_title">複製クリーナー</string>
+    <string name="boosting">Quick Optimize</string>
+    <string name="value_percents">%d %%</string>
+    <string name="boost_danger_desc">デバイスを最適化します</string>
+    <string name="battery_danger_desc">便利なモードをアクティブにします</string>
+    <string name="battery_title">エネルギーセーバー</string>
+    <string name="permission_required">許可が必要です</string>
+    <string name="done">終わり</string>
+</resources>

@@ -3,6 +3,7 @@ package yin_kio.garbage_clean.presentation.garbage_list
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import yin_kio.garbage_clean.domain.use_cases.UpdateState
 import java.io.File
 
 class UIOuterImpl(
@@ -105,5 +106,14 @@ class UIOuterImpl(
         viewModel?.update { it.copy(
             isShowPermissionRequired = false
         ) }
+    }
+
+    override fun updageLanguage(updateState: UpdateState, garbage: List<Garbage>, wasClean: Boolean) {
+        presenter.updateLanguage()
+        when(updateState){
+            UpdateState.Error -> showPermissionRequired()
+            UpdateState.Progress -> showUpdateProgress(wasClean)
+            UpdateState.Successful -> outGarbage(garbage, wasClean)
+        }
     }
 }

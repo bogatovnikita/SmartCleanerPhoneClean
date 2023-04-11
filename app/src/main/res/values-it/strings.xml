@@ -6,7 +6,7 @@
     <string name="used">Usato</string>
     <string name="gb_one_after_dot">%.2f GB</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">È stato inviato il comando di chiudere le applicazioni in esecuzione in background</string>
-    <string name="ultra">Ultra\nMode</string>
+    <string name="ultra">Ultra\nmode</string>
     <string name="normal_mode_activated">Modalità normale attivata</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">La modalità extra attiva le restrizioni:</string>
@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">Per favore, aspetta, il download è in corso</string>
     <string name="get_permission">Abbiamo bisogno del permesso</string>
     <string name="duplicate">Duplicare</string>
-    <string name="done">Fatto</string>
     <string name="extra_mode_activated">Modalità extra attivata</string>
     <string name="device_information">Informazioni sul dispositivo</string>
     <string name="usage_state_description">La nostra applicazione richiede autorizzazioni in modo da poter visualizzare il conteggio delle app in esecuzione in background</string>
@@ -37,7 +36,7 @@
     <string name="type_description_ultra">La modalità Ultra attiva le restrizioni:</string>
     <string name="dialog_write_setting_description">Abbiamo bisogno dell\'autorizzazione per modificare le impostazioni del sistema in modo da poter aumentare il tempo operativo del dispositivo</string>
     <string name="ram_usage">Utilizzo di RAM</string>
-    <string name="extra">Extra\nMode</string>
+    <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">Si consiglia l\'ottimizzazione</string>
     <string name="gb">%.2f GB</string>
     <string name="ram_boosted">Le app in esecuzione in background sono chiuse! Il telefono è stato ottimizzato con successo!</string>
@@ -46,7 +45,7 @@
     <string name="go_settings_description">Per eseguire questa funzione, devi dare il permesso alle impostazioni da solo</string>
     <string name="apps">App</string>
     <string name="cleaning">Ripulire</string>
-    <string name="normal">Normale\nMode</string>
+    <string name="normal">Normale\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Invia comando per chiudere le applicazioni in esecuzione in background</string>
     <string name="boost_description">Chiudi le app in esecuzione in background per liberare la memoria sul dispositivo</string>
     <string name="title_dialog_bluetooth">Per una modalità extra, è necessario accedere alle impostazioni Bluetooth</string>

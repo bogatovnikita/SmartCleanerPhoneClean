@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
     <string name="get_permission">We need permission</string>
     <string name="duplicate">Duplicate</string>
-    <string name="done">Done</string>
     <string name="extra_mode_activated">Extra mode activated</string>
     <string name="device_information">Device Information</string>
     <string name="usage_state_description">Our application requires permissions so that you can view count of apps running in the background</string>

@@ -6,7 +6,7 @@
     <string name="used">Usado</string>
     <string name="gb_one_after_dot">%.2f GB</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">Se ha enviado el comando para cerrar aplicaciones que se ejecutan en segundo plano</string>
-    <string name="ultra">Ultra\nMode</string>
+    <string name="ultra">Ultra\nmode</string>
     <string name="normal_mode_activated">Modo normal activado</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">El modo adicional activa las restricciones:</string>
@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">Por favor, espera, la descarga está en progreso</string>
     <string name="get_permission">Necesitamos permiso</string>
     <string name="duplicate">Duplicar</string>
-    <string name="done">Hecho</string>
     <string name="extra_mode_activated">Modo extra activado</string>
     <string name="device_information">Información del dispositivo</string>
     <string name="usage_state_description">Nuestra aplicación requiere permisos para que pueda ver el recuento de aplicaciones que se ejecutan en segundo plano</string>
@@ -46,7 +45,7 @@
     <string name="go_settings_description">Para realizar esta función, debe dar permiso en la configuración usted mismo</string>
     <string name="apps">Aplicaciones</string>
     <string name="cleaning">Limpiar</string>
-    <string name="normal">Normal\nMode</string>
+    <string name="normal">Normal\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Enviar comando para cerrar aplicaciones que se ejecutan en segundo plano</string>
     <string name="boost_description">Cerrar aplicaciones que se ejecutan en segundo plano para liberar la memoria en su dispositivo</string>
     <string name="title_dialog_bluetooth">Para el modo adicional, necesita acceso a la configuración de Bluetooth</string>

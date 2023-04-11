@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="junk_clean_empty_filders">Carpetas vacías</string><string name="junk_clean_residual_files">Archivos residuales</string><string name="junk_clean_scan">Escanear</string><string name="junk_clean_title">Limpiador de basura</string><string name="junk_clean_close">Cerca</string><string name="junk_clean_storage_permission_description">Nuestra aplicación requiere permiso de almacenamiento para que pueda ver y eliminar archivos innecesarios</string><string name="junk_clean_progress">Limpio...</string><string name="junk_clean_amount_message">La cantidad de basura en su dispositivo</string><string name="junk_clean_recomendation">Se recomienda limpiar el teléfono de archivos innecesarios</string><string name="junk_clean_we_need_permission">Necesitamos permiso</string><string name="junk_clean_button">Limpio</string><string name="junk_clean_miniatures">Miniaturas</string><string name="junk_clean_temp_files">Archivos temporales</string><string name="junk_clean_cleaning_result_message">El teléfono ha sido aclarado con éxito de archivos innecesarios</string><string name="junk_clean_result_recommendation">Recomendamos ejecutar estas características</string><string name="junk_clean_apk">Apk</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="junk_clean_empty_filders">Carpetas vacías</string>
+    <string name="junk_clean_residual_files">Archivos residuales</string>
+    <string name="junk_clean_scan">Escanear</string>
+    <string name="junk_clean_title">Limpiador de basura</string>
+    <string name="junk_clean_close">Cerca</string>
+    <string name="junk_clean_storage_permission_description">Nuestra aplicación requiere permiso de almacenamiento para que pueda ver y eliminar archivos innecesarios</string>
+    <string name="junk_clean_progress">Limpio...</string>
+    <string name="junk_clean_amount_message">La cantidad de basura en su dispositivo</string>
+    <string name="junk_clean_recomendation">Se recomienda limpiar el teléfono de archivos innecesarios</string>
+    <string name="junk_clean_we_need_permission">Necesitamos permiso</string>
+    <string name="junk_clean_button">Limpio</string>
+    <string name="junk_clean_miniatures">Miniaturas</string>
+    <string name="junk_clean_temp_files">Archivos temporales</string>
+    <string name="junk_clean_cleaning_result_message">El teléfono ha sido aclarado con éxito de archivos innecesarios</string>
+    <string name="junk_clean_result_recommendation">Recomendamos ejecutar estas características</string>
+    <string name="junk_clean_apk">Apk</string>
+</resources>

@@ -5,15 +5,18 @@ import kotlinx.coroutines.launch
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
+import yin_kio.garbage_clean.domain.services.CleanTracker
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
+import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import java.io.File
 import kotlin.coroutines.CoroutineContext
 
 internal class GarbageFilesUseCasesImpl(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
+    private val garbageOutCreator: GarbageOutCreator,
     private val permissions: Permissions,
     private val updateUseCase: UpdateUseCase,
     private val storageInfo: StorageInfo,
@@ -21,7 +24,8 @@ internal class GarbageFilesUseCasesImpl(
     private val dispatcher: CoroutineContext,
     private val cleanUseCase: CleanUseCase,
     private val scanUseCase: ScanUseCase,
-    private val updateState: UpdateStateHolder
+    private val updateState: UpdateStateHolder,
+    private val cleanTracker: CleanTracker
 ) : GarbageFilesUseCases {
 
     override fun closePermissionDialog(){
@@ -75,12 +79,18 @@ internal class GarbageFilesUseCasesImpl(
 
     }
 
-    override fun checkPermission() {
+    override fun checkPermissionAndLanguage() {
         if (permissions.hasPermission){
             uiOuter.hidePermissionRequired()
         } else {
             uiOuter.showPermissionRequired()
         }
+        uiOuter.updageLanguage(
+            updateState.updateState,
+            garbageOutCreator.create(
+                garbageSelector.getGarbage()),
+            cleanTracker.wasClean
+        )
     }
 
     override fun closeInter(){

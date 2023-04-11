@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="duplicates_danger_desc">Удаление дублирующихся элементов</string><string name="allow">Разрешить</string><string name="duplicate_title">Очиститель дубликатов</string><string name="boosting">Быстрая оптимизация</string><string name="value_percents">%d %%</string><string name="boost_danger_desc">Оптимизируйте ваше устройство</string><string name="battery_danger_desc">Активируйте удобный режим</string><string name="battery_title">Экономия энергии</string><string name="permission_required">Требуется разрешение</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="duplicates_danger_desc">Удаление дублирующихся элементов</string>
+    <string name="allow">Разрешить</string>
+    <string name="duplicate_title">Очиститель дубликатов</string>
+    <string name="boosting">Быстрая оптимизация</string>
+    <string name="value_percents">%d %%</string>
+    <string name="boost_danger_desc">Оптимизируйте ваше устройство</string>
+    <string name="battery_danger_desc">Активируйте удобный режим</string>
+    <string name="battery_title">Экономия энергии</string>
+    <string name="permission_required">Требуется разрешение</string>
+    <string name="done">Готово</string>
+</resources>

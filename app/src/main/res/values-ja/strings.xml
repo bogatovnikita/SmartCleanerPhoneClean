@@ -6,7 +6,7 @@
     <string name="used">使用済み</string>
     <string name="gb_one_after_dot">%.2f GB</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">バックグラウンドで実行されているアプリケーションを閉じるコマンドが送信されました</string>
-    <string name="ultra">ultra\nmode</string>
+    <string name="ultra">ウルトラモード</string>
     <string name="normal_mode_activated">通常モードがアクティブ化されています</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">追加モードは制限をアクティブにします：</string>
@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">待ってください、ダウンロードが進行中です</string>
     <string name="get_permission">許可が必要です</string>
     <string name="duplicate">複製</string>
-    <string name="done">終わり</string>
     <string name="extra_mode_activated">エクストラモードがアクティブ化されています</string>
     <string name="device_information">デバイス情報</string>
     <string name="usage_state_description">私たちのアプリケーションでは、バックグラウンドで実行されているアプリの数を表示できるようにアクセス許可が必要です</string>
@@ -37,7 +36,7 @@
     <string name="type_description_ultra">ウルトラモードは制限をアクティブにします：</string>
     <string name="dialog_write_setting_description">デバイスの動作時間を増やすことができるように、システム設定を変更する許可が必要です</string>
     <string name="ram_usage">ラムの使用</string>
-    <string name="extra">Extra\nMode</string>
+    <string name="extra">エクストラモード</string>
     <string name="ram_unboosted">最適化をお勧めします</string>
     <string name="gb">%.2f GB</string>
     <string name="ram_boosted">バックグラウンドで実行されているアプリは閉じられています！電話は正常に最適化されています！</string>
@@ -46,7 +45,7 @@
     <string name="go_settings_description">この関数を実行するには、設定で自分で許可を与える必要があります</string>
     <string name="apps">アプリ</string>
     <string name="cleaning">掃除</string>
-    <string name="normal">Normal\nMode</string>
+    <string name="normal">ノーマルモード</string>
     <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためにコマンドを送信します</string>
     <string name="boost_description">バックグラウンドで実行されているアプリを閉じて、デバイスでメモリを解放します</string>
     <string name="title_dialog_bluetooth">追加モードの場合、Bluetooth設定にアクセスする必要があります</string>

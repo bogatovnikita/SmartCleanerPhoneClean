@@ -184,7 +184,7 @@ class GarbageFilesUseCasesImplTest {
     private fun assertHidePermission(){
         coEvery { permissions.hasPermission } returns false
 
-        useCases.checkPermission()
+        useCases.checkPermissionAndLanguage()
 
         coVerify { uiOuter.showPermissionRequired() }
     }
@@ -192,7 +192,7 @@ class GarbageFilesUseCasesImplTest {
     private fun assertShowPermission(){
         coEvery { permissions.hasPermission } returns true
 
-        useCases.checkPermission()
+        useCases.checkPermissionAndLanguage()
 
         coVerify { uiOuter.hidePermissionRequired() }
     }

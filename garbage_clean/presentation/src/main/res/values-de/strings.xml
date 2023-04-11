@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="junk_clean_empty_filders">Leere Ordner</string><string name="junk_clean_residual_files">Übrig gebliebene Dateien</string><string name="junk_clean_scan">Scan</string><string name="junk_clean_title">Müllmann</string><string name="junk_clean_close">Schließen</string><string name="junk_clean_storage_permission_description">Unsere Anwendung erfordert die Speicherberechtigung, damit Sie unnötige Dateien anzeigen und löschen können</string><string name="junk_clean_progress">Sauber...</string><string name="junk_clean_amount_message">Die Menge an Müll auf Ihrem Gerät</string><string name="junk_clean_recomendation">Es wird empfohlen, das Telefon von unnötigen Dateien zu reinigen</string><string name="junk_clean_we_need_permission">Wir brauchen Erlaubnis</string><string name="junk_clean_button">Sauber</string><string name="junk_clean_miniatures">Miniaturen</string><string name="junk_clean_temp_files">Temporäre Dateien</string><string name="junk_clean_cleaning_result_message">Das Telefon wurde erfolgreich von unnötigen Dateien gelöscht</string><string name="junk_clean_result_recommendation">Wir empfehlen, diese Funktionen auszuführen</string><string name="junk_clean_apk">Apk</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="junk_clean_empty_filders">Leere Ordner</string>
+    <string name="junk_clean_residual_files">Übrig gebliebene Dateien</string>
+    <string name="junk_clean_scan">Scan</string>
+    <string name="junk_clean_title">Müllmann</string>
+    <string name="junk_clean_close">Schließen</string>
+    <string name="junk_clean_storage_permission_description">Unsere Anwendung erfordert die Speicherberechtigung, damit Sie unnötige Dateien anzeigen und löschen können</string>
+    <string name="junk_clean_progress">Sauber...</string>
+    <string name="junk_clean_amount_message">Die Menge an Müll auf Ihrem Gerät</string>
+    <string name="junk_clean_recomendation">Es wird empfohlen, das Telefon von unnötigen Dateien zu reinigen</string>
+    <string name="junk_clean_we_need_permission">Wir brauchen Erlaubnis</string>
+    <string name="junk_clean_button">Sauber</string>
+    <string name="junk_clean_miniatures">Miniaturen</string>
+    <string name="junk_clean_temp_files">Temporäre Dateien</string>
+    <string name="junk_clean_cleaning_result_message">Das Telefon wurde erfolgreich von unnötigen Dateien gelöscht</string>
+    <string name="junk_clean_result_recommendation">Wir empfehlen, diese Funktionen auszuführen</string>
+    <string name="junk_clean_apk">Apk</string>
+</resources>

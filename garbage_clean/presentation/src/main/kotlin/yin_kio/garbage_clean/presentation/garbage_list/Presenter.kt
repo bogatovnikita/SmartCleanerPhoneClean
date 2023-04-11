@@ -2,6 +2,7 @@ package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.content.Context
 import android.text.format.Formatter.formatFileSize
+import com.bogatovnikita.language_dialog.language.Language
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
@@ -10,8 +11,15 @@ import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGro
 import java.io.File
 
 class Presenter(
-    private val context: Context
+    context: Context
 ) {
+
+    private val language = Language(context)
+    private var context = language.changeLanguage()
+
+    fun updateLanguage(){
+        this.context = language.changeLanguage()
+    }
 
     fun presentSize(size: Long) : String{
         return formatFileSize(context, size)
@@ -167,12 +175,14 @@ class Presenter(
     }
 
 
-    private fun wasCleanColor() = context.getColor(general.R.color.secondary)
 
     fun presentProgressSizeMessageColor(wasClean: Boolean) : Int{
         if (wasClean) return wasCleanColor()
 
         return context.getColor(general.R.color.error)
     }
+
+
+    private fun wasCleanColor() = context.getColor(general.R.color.secondary)
 
 }

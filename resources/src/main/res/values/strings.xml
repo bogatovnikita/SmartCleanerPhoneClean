@@ -9,4 +9,5 @@
     <string name="battery_danger_desc">Activate the convenient mode</string>
     <string name="permission_required">Permission required</string>
     <string name="allow">Allow</string>
+    <string name="done">Done</string>
 </resources>

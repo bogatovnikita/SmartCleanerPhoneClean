@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="junk_clean_empty_filders">Пустые папки</string><string name="junk_clean_residual_files">Остаточные файлы</string><string name="junk_clean_scan">Сканирование</string><string name="junk_clean_title">Очистка от мусора</string><string name="junk_clean_close">Закрыть</string><string name="junk_clean_storage_permission_description">Наше приложение требует разрешения на хранение, чтобы вы могли просматривать и удалять ненужные файлы</string><string name="junk_clean_progress">Очистить...</string><string name="junk_clean_amount_message">Количество мусора на вашем устройстве</string><string name="junk_clean_recomendation">Рекомендуется очистить телефон от ненужных файлов</string><string name="junk_clean_we_need_permission">Нам нужно разрешение</string><string name="junk_clean_button">Очистить</string><string name="junk_clean_miniatures">Миниатюры</string><string name="junk_clean_temp_files">Временные файлы</string><string name="junk_clean_cleaning_result_message">Телефон был успешно очищен от ненужных файлов</string><string name="junk_clean_result_recommendation">Мы рекомендуем запустить эти функции</string><string name="junk_clean_apk">APK</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="junk_clean_empty_filders">Пустые папки</string>
+    <string name="junk_clean_residual_files">Остаточные файлы</string>
+    <string name="junk_clean_scan">Сканирование</string>
+    <string name="junk_clean_title">Очистка от мусора</string>
+    <string name="junk_clean_close">Закрыть</string>
+    <string name="junk_clean_storage_permission_description">Наше приложение требует разрешения на хранение, чтобы вы могли просматривать и удалять ненужные файлы</string>
+    <string name="junk_clean_progress">Очистить...</string>
+    <string name="junk_clean_amount_message">Количество мусора на вашем устройстве</string>
+    <string name="junk_clean_recomendation">Рекомендуется очистить телефон от ненужных файлов</string>
+    <string name="junk_clean_we_need_permission">Нам нужно разрешение</string>
+    <string name="junk_clean_button">Очистить</string>
+    <string name="junk_clean_miniatures">Миниатюры</string>
+    <string name="junk_clean_temp_files">Временные файлы</string>
+    <string name="junk_clean_cleaning_result_message">Телефон был успешно очищен от ненужных файлов</string>
+    <string name="junk_clean_result_recommendation">Мы рекомендуем запустить эти функции</string>
+    <string name="junk_clean_apk">APK</string>
+</resources>

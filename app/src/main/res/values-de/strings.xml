@@ -6,7 +6,7 @@
     <string name="used">Gebraucht</string>
     <string name="gb_one_after_dot">%.2f GB</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">Der Befehl zum Schließen von Anwendungen im Hintergrund wurde gesendet</string>
-    <string name="ultra">Ultra\nMode</string>
+    <string name="ultra">Ultra\nmode</string>
     <string name="normal_mode_activated">Normaler Modus aktiviert</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">Der zusätzliche Modus aktiviert Einschränkungen:</string>
@@ -21,7 +21,6 @@
     <string name="please_wait_the_download_is_in_progress">Bitte warte, der Download ist im Gange</string>
     <string name="get_permission">Wir brauchen Erlaubnis</string>
     <string name="duplicate">Duplikat</string>
-    <string name="done">Erledigt</string>
     <string name="extra_mode_activated">Zusätzlicher Modus aktiviert</string>
     <string name="device_information">Geräteinformation</string>
     <string name="usage_state_description">Unsere Bewerbung erfordert Berechtigungen, damit Sie die Anzahl der im Hintergrund ausgeführten Apps anzeigen können</string>
@@ -46,7 +45,7 @@
     <string name="go_settings_description">Um diese Funktion auszuführen, müssen Sie in den Einstellungen selbst die Erlaubnis geben</string>
     <string name="apps">Apps</string>
     <string name="cleaning">Aufräumen</string>
-    <string name="normal">NORMAL\nMODE</string>
+    <string name="normal">Normal\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Befehl senden, um Anwendungen zu schließen, die im Hintergrund ausgeführt werden</string>
     <string name="boost_description">Schließen Sie Apps, die im Hintergrund ausgeführt werden, um den Speicher auf Ihrem Gerät freizugeben</string>
     <string name="title_dialog_bluetooth">Für den zusätzlichen Modus benötigen Sie Zugriff auf die Bluetooth -Einstellungen</string>
@@ -58,11 +57,11 @@
     <string name="junk">Junk</string>
     <array name="battery_ultra">
         <item>Reduziert die Helligkeit um 80%</item>
-        <item>Schließt Hintergrund -Apps</item>
+        <item>Schließt Hintergrund Apps</item>
     </array>
     <array name="battery_extra">
         <item>Reduziert die Helligkeit um 90%</item>
-        <item>Schließt Hintergrund -Apps</item>
+        <item>Schließt Hintergrund Apps</item>
         <item>Deaktiviere WiFi</item>
         <item>Deaktivieren Sie Bluetooth</item>
     </array>

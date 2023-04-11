@@ -31,13 +31,16 @@ object GarbageFilesFactory {
 
         val updateState = UpdateStateHolder()
 
+        val garbageOutCreator = GarbageOutCreatorImpl()
+        val cleanTracker = CleanTracker(cleanTime)
+
         val updateUseCase = UpdateUseCase(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             garbageFormsProvider = GarbageFormsProviderImpl(files),
-            garbageOutCreator = GarbageOutCreatorImpl(),
+            garbageOutCreator = garbageOutCreator,
             updateState = updateState,
-            cleanTracker = CleanTracker(cleanTime)
+            cleanTracker = cleanTracker
         )
 
         val cleanUseCase = CleanUseCase(
@@ -65,7 +68,9 @@ object GarbageFilesFactory {
             dispatcher = Dispatchers.IO,
             cleanUseCase = cleanUseCase,
             scanUseCase = scanUseCase,
-            updateState = updateState
+            updateState = updateState,
+            garbageOutCreator = garbageOutCreator,
+            cleanTracker = cleanTracker
         )
 
     }
