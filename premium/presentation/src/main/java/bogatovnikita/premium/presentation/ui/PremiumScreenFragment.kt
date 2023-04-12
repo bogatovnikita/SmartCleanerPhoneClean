@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.WebViewActivity
 import bogatovnikita.premium.presentation.WebViewActivity.Companion.PRIVACY_POLICY
+import bogatovnikita.premium.presentation.WebViewActivity.Companion.TERMS_AND_CONDITIONS
 import bogatovnikita.premium.presentation.databinding.FragmentPremiumScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.ads.setOnSetupFinished
@@ -38,12 +39,8 @@ class PremiumScreenFragment : DialogFragment(R.layout.fragment_premium_screen) {
             startActivity(WebViewActivity.getIntent(requireContext(), PRIVACY_POLICY))
         }
 
-        binding.restorePurchases.setOnClickListener {
-            // TODO добавить переход
-        }
-
         binding.termsOfUse.setOnClickListener {
-            // TODO добавить переход
+            startActivity(WebViewActivity.getIntent(requireContext(), TERMS_AND_CONDITIONS))
         }
     }
 
