@@ -18,6 +18,8 @@ android {
 
         archivesBaseName = "${rootProject.name}-${applicationId}-v${versionName}(${versionCode})"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "APP_METRICS_KEY", '"ae7b232f-3aeb-4c2c-bb73-8321d07171b3"'
     }
 
     buildTypes {
