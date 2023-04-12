@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="restore_purchases"><u> Restaurar compras </u></string><string name="five_days_for_free">5 días gratis. Después del final de la versión gratuita, el precio es gratuito por mes. Cancelado en cualquier momento.</string><string name="no_banner_ads">Sin anuncios de banner</string><string name="privacy_policy_not_U">política de privacidad</string><string name="no_pop_up_ads">No hay anuncios emergentes</string><string name="terms_of_use"><u> Términos de uso </u></string><string name="start_free_trial">Empiza la prueba gratuita</string><string name="priority_service">Servicio prioritario</string><string name="how_to_cancel_subscription">Cómo cancelar la suscripción</string><string name="version_code_S">V %s</string><string name="terms_conditions">Términos &amp; amp; Condiciones</string><string name="privacy_policy">Política de privacidad <u> </u></string><string name="description_subscribe">Esta suscripción deshabilita todo tipo de publicidad en nuestra solicitud de entretenimiento, y también brinda un servicio de prioridad por correo electrónico si nos escribe por correo. Después de que finalice la prueba, se le facturará $ 3.99 por una suscripción de 1 mes, que se renovará automáticamente por $ 3.99 cada mes. Al registrarse, usted acepta nuestros Términos y Condiciones y Política de privacidad. Cómo cancelar una suscripción, puede averiguar en el menú: información.</string><string name="information">Información</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="restore_purchases"><u> Restaurar compras </u></string>
+    <string name="five_days_for_free">5 días gratis. Después del final de la versión gratuita, el precio es gratuito por mes. Cancelado en cualquier momento.</string>
+    <string name="no_banner_ads">Sin anuncios de banner</string>
+    <string name="privacy_policy_not_U">política de privacidad</string>
+    <string name="no_pop_up_ads">No hay anuncios emergentes</string>
+    <string name="terms_of_use"><u> Términos de uso </u></string>
+    <string name="start_free_trial">Empiza la prueba gratuita</string>
+    <string name="priority_service">Servicio prioritario</string>
+    <string name="how_to_cancel_subscription">Cómo cancelar la suscripción</string>
+    <string name="version_code_S">V %s</string>
+    <string name="terms_conditions">Condiciones de uso</string>
+    <string name="privacy_policy">Política de privacidad <u> </u></string>
+    <string name="description_subscribe">Esta suscripción deshabilita todo tipo de publicidad en nuestra solicitud de entretenimiento, y también brinda un servicio de prioridad por correo electrónico si nos escribe por correo. Después de que finalice la prueba, se le facturará $ 3.99 por una suscripción de 1 mes, que se renovará automáticamente por $ 3.99 cada mes. Al registrarse, usted acepta nuestros Términos y Condiciones y Política de privacidad. Cómo cancelar una suscripción, puede averiguar en el menú: información.</string>
+    <string name="information">Información</string>
+</resources>

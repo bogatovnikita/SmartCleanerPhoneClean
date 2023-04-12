@@ -13,7 +13,7 @@
     <string name="app_name" translatable="false">Smart Cleaner:\nPro Clean</string>
     <string name="version_code_S">v %s</string>
     <string name="how_to_cancel_subscription">How to cancel subscription</string>
-    <string name="terms_conditions">Terms &amp; Conditions</string>
+    <string name="terms_conditions">Terms of Use</string>
     <string name="privacy_policy_not_U">Privacy Policy</string>
 
 </resources>

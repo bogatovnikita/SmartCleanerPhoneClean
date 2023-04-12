@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><resources><string name="restore_purchases"><u>購入購入</u></string><string name="five_days_for_free">5日間無料。無料版の終了後、価格は1か月あたり無料です。いつでもキャンセルされます。</string><string name="no_banner_ads">バナー広告はありません</string><string name="privacy_policy_not_U">プライバシーポリシー</string><string name="no_pop_up_ads">ポップアップ広告はありません</string><string name="terms_of_use"><u>使用条件</u></string><string name="start_free_trial">無料トライアルを開始</string><string name="priority_service">優先サービス</string><string name="how_to_cancel_subscription">サブスクリプションをキャンセルする方法</string><string name="version_code_S">V %s</string><string name="terms_conditions">用語 &amp; 条件</string><string name="privacy_policy"><u>プライバシーポリシー</u></string><string name="description_subscribe">このサブスクリプションは、エンターテインメントアプリケーションであらゆる種類の広告を無効にし、メールで書いた場合に電子メールで優先サービスを提供します。トライアルが終了した後、1か月のサブスクリプションに対して3.99ドル請求され、毎月3.99ドルで自動的に更新されます。サインアップすることにより、当社の契約条件とプライバシーポリシーに同意します。サブスクリプションをキャンセルする方法メニューで確認できます - 情報。</string><string name="information">情報</string></resources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="restore_purchases"><u>購入購入</u></string>
+    <string name="five_days_for_free">5日間無料。無料版の終了後、価格は1か月あたり無料です。いつでもキャンセルされます。</string>
+    <string name="no_banner_ads">バナー広告はありません</string>
+    <string name="privacy_policy_not_U">プライバシーポリシー</string>
+    <string name="no_pop_up_ads">ポップアップ広告はありません</string>
+    <string name="terms_of_use"><u>使用条件</u></string>
+    <string name="start_free_trial">無料トライアルを開始</string>
+    <string name="priority_service">優先サービス</string>
+    <string name="how_to_cancel_subscription">サブスクリプションをキャンセルする方法</string>
+    <string name="version_code_S">V %s</string>
+    <string name="terms_conditions">利用規約</string>
+    <string name="privacy_policy"><u>プライバシーポリシー</u></string>
+    <string name="description_subscribe">このサブスクリプションは、エンターテインメントアプリケーションであらゆる種類の広告を無効にし、メールで書いた場合に電子メールで優先サービスを提供します。トライアルが終了した後、1か月のサブスクリプションに対して3.99ドル請求され、毎月3.99ドルで自動的に更新されます。サインアップすることにより、当社の契約条件とプライバシーポリシーに同意します。サブスクリプションをキャンセルする方法メニューで確認できます - 情報。</string>
+    <string name="information">情報</string>
+</resources>
