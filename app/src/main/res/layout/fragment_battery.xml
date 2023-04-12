@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.smartcleaner.pro.clean.ui.battery.BatteryFragment">
+    tools:context=".ui.battery.BatteryFragment">
 
     <bogatovnikita.toolbar.ui.ToolbarView
         android:id="@+id/custom_toolbar"
@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_battery_status"
                 tools:text="@string/battery_unboosted" />
 
-            <com.smartcleaner.pro.clean.custom.ChoosingTypeBatteryBar
+            <com.smart.cleaner.phone.clean.custom.ChoosingTypeBatteryBar
                 android:id="@+id/choosing_type_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

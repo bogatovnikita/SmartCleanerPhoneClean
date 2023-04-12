@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.smartcleaner.pro.clean.ui.splash.SplashFragment">
+    tools:context=".ui.splash.SplashFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
