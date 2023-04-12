@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ui.boost.BoostFragment">
+    tools:context="com.smartcleaner.pro.clean.ui.boost.BoostFragment">
 
     <bogatovnikita.toolbar.ui.ToolbarView
         android:id="@+id/custom_toolbar"

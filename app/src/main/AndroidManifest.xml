@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.smart.cleaner.phoneclean">
+    package="com.smartcleaner.pro.clean">
 
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
 
     <application
-        android:name="com.smart.cleaner.phoneclean.App"
+        android:name="com.smartcleaner.pro.clean.App"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,7 +29,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.smartcleaner.pro.clean.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

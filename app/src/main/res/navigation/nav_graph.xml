@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/batteryFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryFragment"
+        android:name="com.smartcleaner.pro.clean.ui.battery.BatteryFragment"
         android:label="fragment_battery"
         tools:layout="@layout/fragment_battery">
         <deepLink app:uri="myApp://Battery" />
@@ -17,7 +17,7 @@
         app:destination="@id/batteryOptimizingFragment" />
     <dialog
         android:id="@+id/boostOptimizingFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.boost.BoostOptimizingFragment"
+        android:name="com.smartcleaner.pro.clean.ui.boost.BoostOptimizingFragment"
         android:label="BoostOptimizingFragment"
         tools:layout="@layout/fragment_base_optimizing" />
     <action
@@ -30,7 +30,7 @@
         app:destination="@id/boostFragment" />
     <fragment
         android:id="@+id/boostFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.boost.BoostFragment"
+        android:name="com.smartcleaner.pro.clean.ui.boost.BoostFragment"
         android:label="fragment_boost"
         tools:layout="@layout/fragment_boost">
         <deepLink app:uri="myApp://Boost" />
@@ -43,22 +43,22 @@
         app:destination="@id/batteryFragment" />
     <dialog
         android:id="@+id/batteryResultFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryResultFragment"
+        android:name="com.smartcleaner.pro.clean.ui.battery.BatteryResultFragment"
         android:label="BatteryResultFragment"
         tools:layout="@layout/fragment_battery_result" />
     <dialog
         android:id="@+id/boostResultFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.boost.BoostResultFragment"
+        android:name="com.smartcleaner.pro.clean.ui.boost.BoostResultFragment"
         android:label="BoostResultFragment"
         tools:layout="@layout/fragment_boost_result" />
     <dialog
         android:id="@+id/splashFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.splash.SplashFragment"
+        android:name="com.smartcleaner.pro.clean.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
     <dialog
         android:id="@+id/batteryOptimizingFragment"
-        android:name="com.smart.cleaner.phoneclean.ui.battery.BatteryOptimizingFragment"
+        android:name="com.smartcleaner.pro.clean.ui.battery.BatteryOptimizingFragment"
         android:label="BatteryOptimizingFragment"
         tools:layout="@layout/fragment_base_optimizing" />
     <action
