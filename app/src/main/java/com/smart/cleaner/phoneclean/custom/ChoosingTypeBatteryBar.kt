@@ -12,8 +12,8 @@ import com.smart.cleaner.phoneclean.databinding.ChoosingTypeBatteryBarViewBindin
 
 class ChoosingTypeBatteryBar @JvmOverloads constructor(
     context: Context,
-    private val attr: AttributeSet? = null,
-    private val defStyleAttr: Int = 0
+    attr: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attr, defStyleAttr) {
 
     private val _binding: ChoosingTypeBatteryBarViewBinding =

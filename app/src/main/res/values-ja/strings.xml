@@ -63,7 +63,7 @@
         <item>明るさを90％減らす</item>
         <item>背景アプリを閉じます</item>
         <item>Wi-Fiを無効にします</item>
-        <item>Bluetoothを無効にします</item>
+        <item>ブルートゥースを無効にします</item>
     </array>
     <array name="optimization">
         <item>背景プロセスの削除...</item>
