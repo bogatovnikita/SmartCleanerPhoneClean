@@ -52,7 +52,12 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
 
     private fun initClickListener() {
         binding.cancelSubscription.setOnClickListener {
-            //TODO add link
+            startActivity(
+                WebViewActivity.getIntent(
+                    requireContext(),
+                    WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION
+                )
+            )
         }
 
         binding.termsAndConditions.setOnClickListener {
