@@ -53,7 +53,7 @@
     <string name="dialog_bluetooth_description">アプリがBluetoothの設定にアクセスしてバッテリー寿命を延ばすことを許可します</string>
     <string name="btn_continue">次</string>
     <string name="description_start_first_language_dialog">デバイスの言語はアプリケーションによってサポートされていません。英語はデフォルトで設定されます。\n\nは、アプリ内の言語を変更できます。</string>
-    <string name="privacy_policy"><u>Privacy Policy</u></string>
+    <string name="privacy_policy"><u>プライバシーポリシー</u></string>
     <string name="junk">ジャンク</string>
     <array name="battery_ultra">
         <item>明るさを80％減らす</item>
