@@ -5,8 +5,7 @@
     android:id="@+id/container_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.smart.cleaner.phoneclean.сom.smartcleaner.pro.clean.MainActivity">
+    android:orientation="vertical">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -132,6 +131,13 @@
 <!--            app:layout_constraintEnd_toEndOf="@id/btn_paywall"-->
 <!--            app:layout_constraintStart_toStartOf="@id/btn_paywall"-->
 <!--            app:layout_constraintTop_toBottomOf="@id/btn_paywall" />-->
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/ads_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="title_paywall,btn_paywall" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
