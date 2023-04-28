@@ -66,17 +66,17 @@
         app:destination="@id/batteryResultFragment"
         app:popUpTo="@id/batteryFragment"
         app:popUpToInclusive="false" />
-    <action
-        android:id="@+id/action_to_premiumScreenFragment"
-        app:destination="@id/premiumScreenFragment" />
+<!--    <action  //TODO реклама-->
+<!--        android:id="@+id/action_to_premiumScreenFragment"-->
+<!--        app:destination="@id/premiumScreenFragment" />-->
 
-    <dialog
-        android:id="@+id/premiumScreenFragment"
-        android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"
-        android:label="PremiumScreenFragment"
-        tools:layout="@layout/fragment_premium_screen">
-        <deepLink app:uri="myApp://toPremiumScreenFragment" />
-    </dialog>
+<!--    <dialog-->
+<!--        android:id="@+id/premiumScreenFragment"  //TODO реклама-->
+<!--        android:name="bogatovnikita.premium.presentation.ui.PremiumScreenFragment"-->
+<!--        android:label="PremiumScreenFragment"-->
+<!--        tools:layout="@layout/fragment_premium_screen">-->
+<!--        <deepLink app:uri="myApp://toPremiumScreenFragment" />-->
+<!--    </dialog>-->
     <dialog
         android:id="@+id/localDialog"
         android:name="com.bogatovnikita.language_dialog.ui.LocalDialog"

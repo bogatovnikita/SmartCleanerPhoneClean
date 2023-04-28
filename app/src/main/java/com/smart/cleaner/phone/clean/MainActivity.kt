@@ -11,8 +11,6 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
-import com.example.ads.initAds
-import com.example.ads.initSubscription
 import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
 import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
@@ -37,8 +35,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-        initSubscription()
-        initAds()
+//        initSubscription() // TODO реклама
+//        initAds() //TODO реклама
         initListeners()
         initChangeDestinationListener()
     }
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         binding.btnClean.setOnClickListener(this)
         binding.btnDuplicate.setOnClickListener(this)
         binding.btnBattery.setOnClickListener(this)
-        binding.btnPaywall.setOnClickListener(this)
+//        binding.btnPaywall.setOnClickListener(this) // TODO реклама
     }
 
     override fun onClick(view: View) {
@@ -58,7 +56,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
             R.id.btn_clean -> navigate(R.id.action_to_garbage_clean_graph)
             R.id.btn_duplicate -> navigate(R.id.action_to_duplicates_graph)
             R.id.btn_battery -> navigate(R.id.action_to_batteryFragment)
-            R.id.btn_paywall -> navigate(R.id.action_to_premiumScreenFragment)
+//            R.id.btn_paywall -> navigate(R.id.action_to_premiumScreenFragment) // TODO реклама
         }
     }
 
@@ -80,7 +78,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                     checkShowFirstLanguageDialog()
                 }
                 R.id.batteryFragment -> renderNavBar(binding.btnBattery.id, binding.titleBattery.id)
-                R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id)
+//                R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id) // TODO реклама
                 com.smart.cleaner.phoneclean.presentation.R.id.duplicateImagesFragment,
                 com.smart.cleaner.phoneclean.presentation.R.id.duplicateFilesFragment -> renderNavBar(
                     binding.btnDuplicate.id,
@@ -110,7 +108,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 binding.btnClean,
                 binding.btnDuplicate,
                 binding.btnBattery,
-                binding.btnPaywall
+//                binding.btnPaywall // TODO реклама
             )
         listButton.forEach { image ->
             image.setImageDrawable(
@@ -129,7 +127,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
             binding.titleClean,
             binding.titleDuplicate,
             binding.titleBattery,
-            binding.titlePaywall
+//            binding.titlePaywall // TODO реклама
         )
         titleList.forEach {
             if (currentTitleDestination == it.id) {
@@ -148,7 +146,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 R.id.btn_clean -> general.R.drawable.ic_clean_danger
                 R.id.btn_duplicate -> general.R.drawable.ic_duplicate_danger
                 R.id.btn_battery -> general.R.drawable.ic_battery_danger
-                R.id.btn_paywall -> R.drawable.ic_paywall_off
+//                R.id.btn_paywall -> R.drawable.ic_paywall_off // TODO реклама
                 else -> general.R.drawable.ic_clean_danger
             }
         } else {
@@ -158,7 +156,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
                 R.id.btn_clean -> R.drawable.ic_grey_trash
                 R.id.btn_duplicate -> R.drawable.ic_grey_duplicate
                 R.id.btn_battery -> R.drawable.ic_grey_battery
-                R.id.btn_paywall -> R.drawable.ic_paywall_off
+//                R.id.btn_paywall -> R.drawable.ic_paywall_off // TODO реклама
                 else -> R.drawable.ic_grey_light_bulb
             }
         }

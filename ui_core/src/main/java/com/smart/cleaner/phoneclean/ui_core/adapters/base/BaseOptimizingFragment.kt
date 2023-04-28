@@ -9,8 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.ads.preloadAd
-import com.example.ads.showInter
 import com.smart.cleaner.phoneclean.ui_core.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.HintDecoration
 import com.smart.cleaner.phoneclean.ui_core.adapters.OptimizingAdapter
@@ -54,7 +52,7 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
         startOptimization()
         startOptimizationFun()
         dialog.apply { isCancelable = false }
-        preloadAd()
+//        preloadAd() // TODO реклама
     }
 
     abstract fun getArrayOptimization()
@@ -97,9 +95,11 @@ abstract class BaseOptimizingFragment : DialogFragment(R.layout.fragment_base_op
     private fun navigateNext() {
         lifecycleScope.launch {
             delay(700)
-            showInter(
-                onClosed = { findNavController().navigate(nextScreenId) }
-            )
+//            showInter(
+//                onClosed = {  // TODO реклама
+                    findNavController().navigate(nextScreenId)
+//                }
+//            )
         }
     }
 

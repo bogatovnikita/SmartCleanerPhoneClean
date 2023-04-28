@@ -18,7 +18,7 @@ buildscript {
         presentation = [
                 'lifecycle_aware'   : project(':lifecycle_aware'),
                 'recycler_adapter'  : project(':recycler_adapter'),
-                'ads'               : project(':ads'),
+//                'ads'               : project(':ads'), //TODO реклама
                 'resources'         : project(':resources'),
                 'vb'                : "com.github.kirich1409:viewbindingpropertydelegate:${versions.vbProperty}",
                 'lottie'            : "com.airbnb.android:lottie:${versions.lottie}",

@@ -9,10 +9,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.ads.addAdsLoadedListener
-import com.example.ads.preloadAd
-import com.example.ads.removeAdsLoadedListener
-import com.example.ads.showInter
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phone.clean.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
@@ -25,9 +21,9 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
 
     private val adsListener = {
         isInterLoaded = true
-        showInter(onClosed = {
+//        showInter(onClosed = {  //TODO реклама
             findNavController().navigate(R.id.action_to_boostFragment)
-        })
+//        })
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -48,12 +44,12 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     override fun onResume() {
         super.onResume()
         render()
-        addAdsLoadedListener(adsListener)
+//        addAdsLoadedListener(adsListener) //TODO реклама
     }
 
     override fun onPause() {
         super.onPause()
-        removeAdsLoadedListener(adsListener)
+//        removeAdsLoadedListener(adsListener) //TODO реклама
     }
 
     private fun render() {
@@ -62,7 +58,7 @@ class SplashFragment : DialogFragment(R.layout.fragment_splash) {
     }
 
     private fun preloadAndShowInter() {
-        preloadAd()
+//        preloadAd()  //TODO реклама
         lifecycleScope.launchWhenResumed {
             delay(8000L)
             if (!isInterLoaded) {

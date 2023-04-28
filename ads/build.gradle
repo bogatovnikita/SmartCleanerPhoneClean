@@ -13,7 +13,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
-        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-1921940385206553~4671682370" //TODO поменять на корректный
+//        resValue "string", "ADMOB_APP_KEY", "ca-app-pub-1921940385206553~4671682370" //TODO поменять на корректный
     }
 
     buildTypes {
@@ -21,16 +21,16 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+//            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'  //TODO реклама
+//            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
+//            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
         }
 
         debug {
-            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
-            buildConfigField "String", "ADMOB_REWARD", '"ca-app-pub-3940256099942544/5224354917"'
-            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+//            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'  //TODO реклама
+//            buildConfigField "String", "ADMOB_REWARD", '"ca-app-pub-3940256099942544/5224354917"'
+//            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'
+//            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
         }
     }
     compileOptions {
@@ -48,17 +48,13 @@ android {
 
 dependencies {
 
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.google.firebase:firebase-config-ktx:21.1.2'
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-    implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
-    implementation 'com.google.android.gms:play-services-ads:21.2.0'
-    implementation "com.android.billingclient:billing:5.1.0"
+//    implementation fileTree(dir: 'libs', include: ['*.aar'])
+//    implementation 'com.google.firebase:firebase-config-ktx:21.1.2'
+//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+//    implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
+//    implementation 'com.google.android.gms:play-services-ads:21.2.0'
+//    implementation "com.android.billingclient:billing:5.1.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-
-    //AppMetrica
-    implementation 'com.yandex.android:mobmetricalib:5.2.0'
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
 }

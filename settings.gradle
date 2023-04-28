@@ -27,7 +27,7 @@ include ':garbage_clean:data'
 include ':garbage_clean:presentation'
 include ':garbage_clean:test'
 
-include ':ads'
+//include ':ads'  //TODO реклама 
 include ':permissions'
 include ':file_utils'
 include ':storage_info_provider'

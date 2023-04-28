@@ -37,7 +37,7 @@ android {
 
 dependencies {
 
-    implementation project(':ads')
+//    implementation project(':ads')  //TODO реклама
     implementation project(':garbage_clean:presentation')
 
     implementation project(':permissions')

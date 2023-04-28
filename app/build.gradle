@@ -43,7 +43,7 @@ android {
 dependencies {
 
     implementation project(":resources")
-    implementation project(":ads")
+//    implementation project(":ads")  //TODO реклама
     implementation project(":premium:presentation")
     implementation project(":language_dialog")
     implementation project(":toolbar")

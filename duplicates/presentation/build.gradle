@@ -40,7 +40,7 @@ dependencies {
 
     implementation project(':resources')
     implementation project(':file_utils')
-    implementation project(':ads')
+//    implementation project(':ads')   //TODO реклама
     implementation project(':duplicates:data')
     implementation project(':duplicates:domain')
     implementation project(':ui_core')
