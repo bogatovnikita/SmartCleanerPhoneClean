@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_share"
         android:title="@string/share" />
     <item
-        android:id="@+id/ads_off_menu"
-        android:icon="@drawable/ic_no_ads"
-        android:title="@string/ads_off" />
-    <item
         android:id="@+id/information_menu"
         android:icon="@drawable/ic_information"
         android:title="@string/information" />

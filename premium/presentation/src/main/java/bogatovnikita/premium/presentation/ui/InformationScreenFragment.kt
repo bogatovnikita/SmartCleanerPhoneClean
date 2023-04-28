@@ -6,11 +6,13 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.WebViewActivity
 import bogatovnikita.premium.presentation.databinding.FragmentInformationScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.ads.hasSubscription
 
 class InformationScreenFragment : DialogFragment(R.layout.fragment_information_screen) {
 
@@ -26,6 +28,7 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
         setVersionCode()
         setGradientColor()
         initClickListener()
+        binding.cancelSubscription.isVisible = !requireContext().hasSubscription()
     }
 
     private fun setVersionCode() {

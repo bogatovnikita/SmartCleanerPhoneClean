@@ -53,7 +53,7 @@
     <string name="dialog_bluetooth_description">Consenti all\'app di accedere alle impostazioni Bluetooth per aumentare la durata della batteria</string>
     <string name="btn_continue">Prossimo</string>
     <string name="description_start_first_language_dialog">La lingua del dispositivo non è supportata dalla nostra applicazione, l\'inglese è impostato per impostazione predefinita.\n\n Puoi cambiare la lingua direttamente all\'interno dell\'app.</string>
-    <string name="privacy_policy"><u> PRIVITAZIONE PRIVIDAZIONE</u></string>
+    <string name="privacy_policy"><u>Informativa sulla privacy</u></string>
     <string name="junk">Robaccia</string>
     <array name="battery_ultra">
         <item>Riduce la luminosità dell\'80%</item>

@@ -24,7 +24,7 @@
         <item>Disconnect from unnecessary GPS towers...</item>
     </array>
 
-    <string name="app_name" translatable="false">Smart Cleaner:\nPro Clean</string>
+    <string name="app_name" translatable="false">Smart Cleaner:\nPhone Clean</string>
     <string name="type_description_normal">Normal mode activates restrictions:</string>
     <string name="type_description_ultra">Ultra mode activates restrictions:</string>
     <string name="type_description_extra">Extra mode activates restrictions:</string>

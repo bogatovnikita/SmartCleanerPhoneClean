@@ -140,6 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_24sdp"
         android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
         android:text="@string/five_days_for_free"
         android:textColor="@color/primary"
         android:textAppearance="@style/Text.Regular.14"

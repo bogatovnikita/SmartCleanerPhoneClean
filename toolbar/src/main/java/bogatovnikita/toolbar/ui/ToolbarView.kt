@@ -23,6 +23,7 @@ import androidx.navigation.fragment.findNavController
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
+import com.example.ads.hasSubscription
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -120,7 +121,8 @@ class ToolbarView @JvmOverloads constructor(
 
     private fun showMenu(it: View) {
         val popupMenu = PopupMenu(context, it)
-        popupMenu.inflate(R.menu.menu)
+        val menu = if (context.hasSubscription()) R.menu.menu_no_ads else R.menu.menu
+        popupMenu.inflate(menu)
         popupMenu.setOnMenuItemClickListener(onMenuItemClickListener())
         popupMenu.setOnDismissListener { }
         popupMenu.setForceShowIcon(true)
@@ -143,10 +145,6 @@ class ToolbarView @JvmOverloads constructor(
                     R.id.information_menu -> {
                         val uri = Uri.parse(DEEP_LINK_TO_INFORMATION_DIALOG)
                         findNavController()?.navigate(uri)
-                        return true
-                    }
-                    R.id.restore_purchase_menu -> {
-                        //TODO добавить ссылку
                         return true
                     }
                 }

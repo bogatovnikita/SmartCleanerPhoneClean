@@ -21,9 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'
-            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'
-            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"
+            buildConfigField "String", "SUBSCRIPTION_ID", '"smart.ads.off.13"'//TODO поменять на корректный
+            buildConfigField "String", "ADMOB_INTERSTITIAL", '"ca-app-pub-3940256099942544/1033173712"'//TODO поменять на корректный
+            resValue "string", "ADMOB_BANNER", "ca-app-pub-3940256099942544/6300978111"//TODO поменять на корректный
         }
 
         debug {

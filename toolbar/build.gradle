@@ -39,6 +39,7 @@ dependencies {
 
     implementation project(':resources')
     implementation project(':language_dialog')
+    implementation project(':ads')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

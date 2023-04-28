@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
+import com.example.ads.emulateSubscription
+import com.example.ads.hasSubscription
 import com.example.ads.initAds
-import com.example.ads.initSubscription
 import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
 import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
@@ -37,11 +39,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-        initSubscription()
-        initAds()
+        initAdsAndSubscription()
         initListeners()
         initChangeDestinationListener()
     }
+
+    private fun initAdsAndSubscription() {
+        initAds()
+        emulateSubscription()//TODO убрать когда выйдет из беты
+        checkSubscriptionAndShowTab(hasSubscription())
+//        if (hasSubscription()) {
+//            emulateSubscription()
+//        } else {
+//            initSubscription()
+//        }
+    }
+
+    private fun checkSubscriptionAndShowTab(result: Boolean) {
+        binding.adsGroup.isVisible = !result
+    }
+
 
     private fun initListeners() {
         binding.btnBoost.setOnClickListener(this)

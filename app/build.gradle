@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.smart.cleaner.phoneclean"
+        applicationId "com.smart.cleaner.phone.clean"
         minSdk 23
         targetSdk 33
         versionCode 12
