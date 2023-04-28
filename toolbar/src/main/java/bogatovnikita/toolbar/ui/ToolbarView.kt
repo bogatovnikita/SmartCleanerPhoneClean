@@ -21,7 +21,6 @@ import androidx.navigation.fragment.findNavController
 import bogatovnikita.toolbar.R
 import bogatovnikita.toolbar.databinding.ViewToolbarBinding
 import com.bogatovnikita.language_dialog.utils.LocaleProvider
-import com.example.ads.hasSubscription
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -119,7 +118,8 @@ class ToolbarView @JvmOverloads constructor(
 
     private fun showMenu(it: View) {
         val popupMenu = PopupMenu(context, it)
-        val menu = if (context.hasSubscription()) R.menu.menu_no_ads else R.menu.menu
+//        val menu = if (context.hasSubscription()) R.menu.menu_no_ads else R.menu.menu //TODO реклама
+        val menu = R.menu.menu_no_ads // убрать при добавлении рекламы
         popupMenu.inflate(menu)
         popupMenu.setOnMenuItemClickListener(onMenuItemClickListener())
         popupMenu.setOnDismissListener { }

@@ -36,23 +36,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-        initAdsAndSubscription()
-//        initSubscription() // TODO реклама
-//        initAds() //TODO реклама
+//        initAdsAndSubscription() //TODO реклама
         initListeners()
         initChangeDestinationListener()
     }
 
-    private fun initAdsAndSubscription() {
-        initAds()
-        emulateSubscription()//TODO убрать когда выйдет из беты
-        checkSubscriptionAndShowTab(hasSubscription())
+//    private fun initAdsAndSubscription() {
+//        initAds()
+//        emulateSubscription()//TODO убрать когда выйдет из беты
+//        checkSubscriptionAndShowTab(hasSubscription())
 //        if (hasSubscription()) {
 //            emulateSubscription()
 //        } else {
 //            initSubscription()
 //        }
-    }
+//    }
 
     private fun checkSubscriptionAndShowTab(result: Boolean) {
         binding.adsGroup.isVisible = !result
