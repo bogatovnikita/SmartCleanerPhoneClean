@@ -26,9 +26,13 @@ import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companio
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE_SUCCESS
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.TAG_USAGE_STATE
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class BoostFragment : Fragment(R.layout.fragment_boost) {
+
+    @Inject
+    lateinit var settings: com.smart.cleaner.phoneclean.settings.Settings
 
     private val binding: FragmentBoostBinding by viewBinding()
 
@@ -65,6 +69,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun checkPermission() {
+        if (settings.getOpenInformationDialog()) return
         if (checkPackageUsageStatePermission()) {
             viewModel.setUsageStatePermission(checkPackageUsageStatePermission())
         } else {

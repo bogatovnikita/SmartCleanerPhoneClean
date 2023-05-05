@@ -71,8 +71,8 @@
     <array name="battery_normal">
         <item>Снижение яркости на 70%</item>
     </array>
-    <string name="please_wait_the_download_is_in_progress">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
-    <string name="dialog_write_setting_description">Загрузка</string>
-    <string name="dialog_bluetooth_description">Дополнительный режим требует доступа</string>
-    <string name="title_dialog_bluetooth">Нашему приложению требуется доступ к настройкам Bluetooth для дополнительного режима</string>
+    <string name="dialog_write_setting_description">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
+    <string name="please_wait_the_download_is_in_progress">Загрузка</string>
+    <string name="title_dialog_bluetooth">Дополнительный режим требует доступа</string>
+    <string name="dialog_bluetooth_description">Нашему приложению требуется доступ к настройкам Bluetooth для дополнительного режима</string>
 </resources>

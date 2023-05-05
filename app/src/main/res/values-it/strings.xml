@@ -71,8 +71,8 @@
     <array name="battery_normal">
         <item>Riduce la luminosità del 70%</item>
     </array>
-    <string name="please_wait_the_download_is_in_progress">La nostra applicazione richiede autorizzazioni in modo da poter scegliere la modalità per risparmiare energia</string>
-    <string name="dialog_write_setting_description">Caricamento</string>
-    <string name="dialog_bluetooth_description">Modalità extra richiede l\'accesso</string>
-    <string name="title_dialog_bluetooth">La nostra applicazione richiede l\'accesso alle impostazioni Bluetooth per la modalità Extra</string>
+    <string name="dialog_write_setting_description">La nostra applicazione richiede autorizzazioni in modo da poter scegliere la modalità per risparmiare energia</string>
+    <string name="please_wait_the_download_is_in_progress">Caricamento</string>
+    <string name="title_dialog_bluetooth">Modalità extra richiede l\'accesso</string>
+    <string name="dialog_bluetooth_description">La nostra applicazione richiede l\'accesso alle impostazioni Bluetooth per la modalità Extra</string>
 </resources>

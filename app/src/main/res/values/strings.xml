@@ -81,5 +81,4 @@
     <string name="please_wait_the_download_is_in_progress">Loading</string>
     <string name="title_dialog_bluetooth">Extra mode requires access</string>
     <string name="dialog_bluetooth_description">Our application requires access to Bluetooth settings for the Extra mode</string>
-
 </resources>

@@ -71,8 +71,9 @@
     <array name="battery_normal">
         <item>明るさを70％減らす</item>
     </array>
-    <string name="please_wait_the_download_is_in_progress">あなたがエネルギーを節約するためのモードを選択できるように、私たちのアプリケーションは権限を必要とします</string>
-    <string name="dialog_write_setting_description">積み込み</string>
-    <string name="dialog_bluetooth_description">エクストラモードにはアクセスが必要です</string>
-    <string name="title_dialog_bluetooth">私たちのアプリケーションは、余分なモードのBluetooth設定へのアクセスが必要です</string>
+
+    <string name="dialog_write_setting_description">あなたがエネルギーを節約するためのモードを選択できるように、私たちのアプリケーションは権限を必要とします</string>
+    <string name="please_wait_the_download_is_in_progress">積み込み</string>
+    <string name="title_dialog_bluetooth">エクストラモードにはアクセスが必要です</string>
+    <string name="dialog_bluetooth_description">私たちのアプリケーションは、余分なモードのBluetooth設定へのアクセスが必要です</string>
 </resources>

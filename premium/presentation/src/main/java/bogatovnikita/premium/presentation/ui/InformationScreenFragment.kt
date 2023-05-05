@@ -12,12 +12,20 @@ import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.WebViewActivity
 import bogatovnikita.premium.presentation.databinding.FragmentInformationScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.smart.cleaner.phoneclean.settings.Settings
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class InformationScreenFragment : DialogFragment(R.layout.fragment_information_screen) {
+
+    @Inject
+    lateinit var settings: Settings
 
     private val binding: FragmentInformationScreenBinding by viewBinding()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        settings.saveOpenInformation(true)
         setStyle(STYLE_NO_FRAME, general.R.style.Dialog)
         return super.onCreateDialog(savedInstanceState)
     }
@@ -81,5 +89,10 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
                 )
             )
         }
+    }
+
+    override fun onDestroy() {
+        settings.saveOpenInformation(false)
+        super.onDestroy()
     }
 }

@@ -75,6 +75,7 @@ internal class GarbageFilesUseCasesImpl(
             updateUseCase.update()
         } else {
             uiOuter.showPermissionRequired()
+            uiOuter.showPermissionDialog()
         }
 
     }

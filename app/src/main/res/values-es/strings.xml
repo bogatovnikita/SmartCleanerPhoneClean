@@ -71,8 +71,8 @@
     <array name="battery_normal">
         <item>Reduce el brillo en un 70%</item>
     </array>
-    <string name="please_wait_the_download_is_in_progress">Nuestra aplicación requiere permisos para que pueda elegir el modo para ahorrar energía</string>
-    <string name="dialog_write_setting_description">Cargando</string>
-    <string name="dialog_bluetooth_description">El modo extra requiere acceso</string>
-    <string name="title_dialog_bluetooth">Nuestra aplicación requiere acceso a la configuración de Bluetooth para el modo Extra</string>
+    <string name="dialog_write_setting_description">Nuestra aplicación requiere permisos para que pueda elegir el modo para ahorrar energía</string>
+    <string name="please_wait_the_download_is_in_progress">Cargando</string>
+    <string name="title_dialog_bluetooth">El modo extra requiere acceso</string>
+    <string name="dialog_bluetooth_description">Nuestra aplicación requiere acceso a la configuración de Bluetooth para el modo Extra</string>
 </resources>

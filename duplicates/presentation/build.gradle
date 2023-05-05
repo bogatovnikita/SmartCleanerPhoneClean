@@ -45,6 +45,7 @@ dependencies {
     implementation project(':duplicates:domain')
     implementation project(':ui_core')
     implementation project(':toolbar')
+    implementation project(':settings')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

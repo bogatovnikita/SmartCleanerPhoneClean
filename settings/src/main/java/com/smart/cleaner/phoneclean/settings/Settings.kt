@@ -37,7 +37,7 @@ class Settings @Inject constructor(
 
     fun isBatteryBoosted(): Boolean {
         val saveTime = sharedPreferences.getLong(TIME_BATTERY_BOOST, 0L)
-        return isCanBoostAgain(saveTime, TimeUnit.HOURS.toMillis(2) )
+        return isCanBoostAgain(saveTime, TimeUnit.HOURS.toMillis(2))
     }
 
     fun saveTimeDuplicateDelete() {
@@ -60,12 +60,21 @@ class Settings @Inject constructor(
         return currentTime / day == time / day
     }
 
+    fun getOpenInformationDialog(): Boolean {
+        return sharedPreferences.getBoolean(OPEN_INFORMATION_DIALOG, false)
+    }
+
+    fun saveOpenInformation(state: Boolean) {
+        sharedPreferences.edit().putBoolean(OPEN_INFORMATION_DIALOG, state).apply()
+    }
+
     companion object {
         private const val SETTINGS = "SETTINGS"
         private const val FIRST_LAUNCH = "FIRST_LAUNCH"
         private const val TIME_RAM_BOOST = "TIME_RAM_BOOST"
         private const val TIME_DUPLICATES_DELETE = "TIME_DUPLICATES_DELETE"
         private const val TIME_BATTERY_BOOST = "TIME_BATTERY_BOOST"
+        private const val OPEN_INFORMATION_DIALOG = "OPEN_INFORMATION_DIALOG"
     }
 
 }
