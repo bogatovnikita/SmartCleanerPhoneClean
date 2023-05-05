@@ -18,7 +18,6 @@
     <string name="ram">RAMの総量</string>
     <string name="settings">設定</string>
     <string name="fun_battery">バッテリーセーバー</string>
-    <string name="please_wait_the_download_is_in_progress">待ってください、ダウンロードが進行中です</string>
     <string name="get_permission">許可が必要です</string>
     <string name="duplicate">複製</string>
     <string name="extra_mode_activated">エクストラモードがアクティブ化されています</string>
@@ -34,7 +33,6 @@
     <string name="clean_done">ガベージファイルが削除されました。</string>
     <string name="battery_unboosted">電話の作業時間を増やす必要があります！</string>
     <string name="type_description_ultra">ウルトラモードは制限をアクティブにします：</string>
-    <string name="dialog_write_setting_description">デバイスの動作時間を増やすことができるように、システム設定を変更する許可が必要です</string>
     <string name="ram_usage">ラムの使用</string>
     <string name="extra">エクストラモード</string>
     <string name="ram_unboosted">最適化をお勧めします</string>
@@ -48,9 +46,7 @@
     <string name="normal">ノーマルモード</string>
     <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためにコマンドを送信します</string>
     <string name="boost_description">バックグラウンドで実行されているアプリを閉じて、デバイスでメモリを解放します</string>
-    <string name="title_dialog_bluetooth">追加モードの場合、Bluetooth設定にアクセスする必要があります</string>
     <string name="clean">掃除</string>
-    <string name="dialog_bluetooth_description">アプリがBluetoothの設定にアクセスしてバッテリー寿命を延ばすことを許可します</string>
     <string name="btn_continue">次</string>
     <string name="description_start_first_language_dialog">デバイスの言語はアプリケーションによってサポートされていません。英語はデフォルトで設定されます。\n\nは、アプリ内の言語を変更できます。</string>
     <string name="privacy_policy"><u>プライバシーポリシー</u></string>
@@ -75,4 +71,8 @@
     <array name="battery_normal">
         <item>明るさを70％減らす</item>
     </array>
+    <string name="please_wait_the_download_is_in_progress">あなたがエネルギーを節約するためのモードを選択できるように、私たちのアプリケーションは権限を必要とします</string>
+    <string name="dialog_write_setting_description">積み込み</string>
+    <string name="dialog_bluetooth_description">エクストラモードにはアクセスが必要です</string>
+    <string name="title_dialog_bluetooth">私たちのアプリケーションは、余分なモードのBluetooth設定へのアクセスが必要です</string>
 </resources>

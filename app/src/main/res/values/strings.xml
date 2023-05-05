@@ -44,11 +44,8 @@
     <string name="battery_boosted">Optimized!</string>
     <string name="battery_unboosted">You need to increase the working time of the phone!</string>
     <string name="optimization">Optimization…</string>
-    <string name="title_dialog_bluetooth">For Extra mode, you need access to the bluetooth settings</string>
-    <string name="dialog_bluetooth_description">Allow the app to access bluetooth settings to increase battery life</string>
     <string name="btn_continue">Next</string>
     <string name="get_permission">We need permission</string>
-    <string name="dialog_write_setting_description">We need permission to change the system settings so that we can increase the operating time of your device</string>
     <string name="cancel">Close</string>
     <string name="done">Done</string>
     <string name="advice">We recommend running these features</string>
@@ -71,7 +68,6 @@
     <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
     <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
-    <string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
     <string name="mb">%dMb</string>
     <string name="normal_mode">Normal mode:</string>
     <string name="cleared">Cleaned</string>
@@ -81,4 +77,9 @@
     <string name="privacy_policy"><u>Privacy policy</u></string>
     <string name="cleaning">Cleanup</string>
     <string name="clean">Clean up</string>
+    <string name="dialog_write_setting_description">Our application requires permissions so that you can choose the mode to save energy</string>
+    <string name="please_wait_the_download_is_in_progress">Loading</string>
+    <string name="title_dialog_bluetooth">Extra mode requires access</string>
+    <string name="dialog_bluetooth_description">Our application requires access to Bluetooth settings for the Extra mode</string>
+
 </resources>

@@ -18,7 +18,6 @@
     <string name="ram">Cantidad total de RAM</string>
     <string name="settings">Configuración</string>
     <string name="fun_battery">Ahorro de batería</string>
-    <string name="please_wait_the_download_is_in_progress">Por favor, espera, la descarga está en progreso</string>
     <string name="get_permission">Necesitamos permiso</string>
     <string name="duplicate">Duplicar</string>
     <string name="extra_mode_activated">Modo extra activado</string>
@@ -34,7 +33,6 @@
     <string name="clean_done">Archivos de basura eliminados.</string>
     <string name="battery_unboosted">¡Necesitas aumentar el tiempo de trabajo del teléfono!</string>
     <string name="type_description_ultra">Ultra Mode activa las restricciones:</string>
-    <string name="dialog_write_setting_description">Necesitamos permiso para cambiar la configuración del sistema para que podamos aumentar el tiempo de funcionamiento de su dispositivo</string>
     <string name="ram_usage">Uso de ram</string>
     <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">Se recomienda la optimización</string>
@@ -48,9 +46,7 @@
     <string name="normal">Normal\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Enviar comando para cerrar aplicaciones que se ejecutan en segundo plano</string>
     <string name="boost_description">Cerrar aplicaciones que se ejecutan en segundo plano para liberar la memoria en su dispositivo</string>
-    <string name="title_dialog_bluetooth">Para el modo adicional, necesita acceso a la configuración de Bluetooth</string>
     <string name="clean">Limpiar</string>
-    <string name="dialog_bluetooth_description">Permita que la aplicación acceda a la configuración de Bluetooth para aumentar la duración de la batería</string>
     <string name="btn_continue">Próximo</string>
     <string name="description_start_first_language_dialog">El idioma de su dispositivo no es compatible con nuestra aplicación, el inglés se establece de forma predeterminada. 1\n\n puede cambiar el idioma directamente dentro de la aplicación.</string>
     <string name="privacy_policy">Política de privacidad <u></u></string>
@@ -75,4 +71,8 @@
     <array name="battery_normal">
         <item>Reduce el brillo en un 70%</item>
     </array>
+    <string name="please_wait_the_download_is_in_progress">Nuestra aplicación requiere permisos para que pueda elegir el modo para ahorrar energía</string>
+    <string name="dialog_write_setting_description">Cargando</string>
+    <string name="dialog_bluetooth_description">El modo extra requiere acceso</string>
+    <string name="title_dialog_bluetooth">Nuestra aplicación requiere acceso a la configuración de Bluetooth para el modo Extra</string>
 </resources>
