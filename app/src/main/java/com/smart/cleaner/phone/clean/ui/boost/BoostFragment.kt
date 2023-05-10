@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phone.clean.databinding.FragmentBoostBinding
+import com.smart.cleaner.phone.clean.ui.boost.BoostResultFragment.Companion.BOOST_FRAGMENT_KEY
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE_KEY
@@ -52,9 +53,16 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        callBackCloseDialog()
         setOnDialogCallback()
         initScreenStateObserver()
         setBtnListeners()
+    }
+
+    private fun callBackCloseDialog() {
+        parentFragmentManager.setFragmentResultListener(BOOST_FRAGMENT_KEY, this) { _, _ ->
+            viewModel.getParams()
+        }
     }
 
     private fun setOnDialogCallback() {
@@ -66,11 +74,12 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun requestUsageStatePermission() {
-        try {
-            startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).apply {
-                data = Uri.parse("package:" + requireActivity().packageName)
-            })
-        } catch (e: Exception) {
+        val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+        val packageUri = Uri.parse("package:" + requireActivity().packageName)
+        intent.data = packageUri
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivityForResultUsageState.launch(intent)
+        } else {
             startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
         }
     }
