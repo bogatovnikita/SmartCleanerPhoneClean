@@ -1,5 +1,6 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -22,6 +23,7 @@ class ViewModel(
 
     private val _commands = MutableSharedFlow<Command>()
     val commands = _commands.asSharedFlow()
+
 
 
     fun update(newState: (oldState: ScreenState) -> ScreenState){

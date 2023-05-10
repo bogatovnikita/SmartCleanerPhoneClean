@@ -24,5 +24,7 @@ interface UiOuter {
 
     fun updageLanguage(updateState: UpdateState, garbage: List<Garbage>, wasClean: Boolean)
 
+    fun showAttentionMessagesColors()
+
 
 }
