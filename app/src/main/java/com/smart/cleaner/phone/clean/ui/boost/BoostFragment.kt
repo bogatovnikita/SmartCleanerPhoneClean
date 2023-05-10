@@ -5,6 +5,7 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
@@ -65,7 +66,13 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun requestUsageStatePermission() {
-        startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        try {
+            startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).apply {
+                data = Uri.parse("package:" + requireActivity().packageName)
+            })
+        } catch (e: Exception) {
+            startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        }
     }
 
     private fun checkPermission() {
