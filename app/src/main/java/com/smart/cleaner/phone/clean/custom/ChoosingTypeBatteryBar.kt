@@ -21,15 +21,15 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
 
     fun setOnChangeTypeListener(block: (type: String) -> Unit) {
         with(_binding) {
-            btnNormalOff.setOnClickListener {
+            containerNormal.setOnClickListener {
                 block(NORMAL)
                 renderSaveTypeBattery(btnNormalOn, containerNormal)
             }
-            btnUltraOff.setOnClickListener {
+            containerUltra.setOnClickListener {
                 block(ULTRA)
                 renderSaveTypeBattery(btnUltraOn, containerUltra)
             }
-            btnExtraOff.setOnClickListener {
+            containerExtra.setOnClickListener {
                 block(EXTRA)
                 renderSaveTypeBattery(btnExtraOn, containerExtra)
             }
