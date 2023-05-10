@@ -70,11 +70,13 @@ internal class GarbageFilesUseCasesImpl(
     }
 
     override fun update() = async{
+        val hasPermission = permissions.hasPermission
 
-        if (permissions.hasPermission){
+        if (hasPermission){
             updateUseCase.update()
         } else {
             uiOuter.showPermissionRequired()
+            uiOuter.showAttentionMessagesColors()
             uiOuter.showPermissionDialog()
         }
 

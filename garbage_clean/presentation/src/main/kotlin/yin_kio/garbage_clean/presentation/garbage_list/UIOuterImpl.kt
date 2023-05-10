@@ -1,5 +1,6 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
+import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
@@ -45,6 +46,7 @@ class UIOuterImpl(
     }
 
     override fun showUpdateProgress(wasClean: Boolean) {
+
         viewModel?.update { it.copy(
             size = presenter.persentProgressSize(),
             buttonText = presenter.presentButtonText(true),
@@ -64,8 +66,6 @@ class UIOuterImpl(
             garbageGroups = presenter.presentGarbageWithoutPermission(),
             isShowPermissionRequired = true,
             message = presenter.presentMessage(false),
-            messageColor = presenter.presentNoPermissionMessageColor(),
-            sizeMessageColor = presenter.presentNoPermissionSizeMessageColor()
         ) }
     }
 
@@ -111,9 +111,17 @@ class UIOuterImpl(
     override fun updageLanguage(updateState: UpdateState, garbage: List<Garbage>, wasClean: Boolean) {
         presenter.updateLanguage()
         when(updateState){
-            UpdateState.Error -> showPermissionRequired()
+            UpdateState.Error -> {showPermissionRequired()}
             UpdateState.Progress -> showUpdateProgress(wasClean)
             UpdateState.Successful -> outGarbage(garbage, wasClean)
         }
+    }
+
+    override fun showAttentionMessagesColors() {
+        viewModel?.update { it.copy(
+            messageColor = presenter.presentNoPermissionMessageColor(),
+            sizeMessageColor = presenter.presentNoPermissionSizeMessageColor()
+        ) }
+
     }
 }

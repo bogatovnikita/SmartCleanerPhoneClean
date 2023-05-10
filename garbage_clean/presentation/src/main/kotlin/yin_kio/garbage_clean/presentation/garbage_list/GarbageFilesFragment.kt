@@ -81,9 +81,11 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                     permissionRequired.isInvisible = !it.isShowPermissionRequired
                     button.alpha = it.buttonOpacity
                     message.text = it.message
+
                     message.setTextColor(it.messageColor)
                     size.setTextColor(it.sizeMessageColor)
                     sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
+
                     adapter.onExpandListenerEnabled = it.isExpandEnabled
                 }
 
