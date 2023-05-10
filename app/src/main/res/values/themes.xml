@@ -40,4 +40,22 @@
         <item name="android:textSize">@dimen/_14ssp</item>
         <item name="fontFamily">@font/heraclito_medium</item>
     </style>
+
+    <style name="BottomNavigationTextStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="fontFamily">@font/heraclito_light</item>
+
+    </style>
+
+    <style name="BottomNavigationMenuItem1" parent="@style/BottomNavigationTextStyle">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="fontFamily">@font/heraclito_light</item>
+
+    </style>
+
+    <style name="BottomNavigationMenuItem2" parent="@style/BottomNavigationTextStyle">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="fontFamily">@font/heraclito_light</item>
+
+    </style>
 </resources>

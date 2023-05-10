@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btn_boost"
+        android:icon="@drawable/optimize_selector"
+        android:title="@string/optimize" />
+    <item
+        android:id="@+id/btn_clean"
+        android:icon="@drawable/junk_selector"
+        android:title="@string/junk" />
+    <item
+        android:id="@+id/btn_duplicate"
+        android:icon="@drawable/duplicate_selector"
+        android:title="@string/duplicate" />
+    <item
+        android:id="@+id/btn_battery"
+        android:icon="@drawable/energy_selector"
+        android:title="@string/energy" />
+    <item
+        android:id="@+id/btn_paywall"
+        android:icon="@drawable/ads_selector"
+        android:title="@string/ads_off" />
+</menu>
