@@ -75,4 +75,8 @@
     <string name="please_wait_the_download_is_in_progress">Загрузка</string>
     <string name="title_dialog_bluetooth">Дополнительный режим требует доступа</string>
     <string name="dialog_bluetooth_description">Нашему приложению требуется доступ к настройкам Bluetooth для дополнительного режима</string>
+
+    <string name="check_recommended">Рекомендуется проверить!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Проверьте свое устройство на наличие ненужных файлов и открывайте приложения в фоновом режиме</string>
+    <string name="let_s_go">Открыть</string>
 </resources>

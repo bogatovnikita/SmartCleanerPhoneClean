@@ -75,4 +75,8 @@
     <string name="please_wait_the_download_is_in_progress">Cargando</string>
     <string name="title_dialog_bluetooth">El modo extra requiere acceso</string>
     <string name="dialog_bluetooth_description">Nuestra aplicación requiere acceso a la configuración de Bluetooth para el modo Extra</string>
+
+    <string name="check_recommended">Cheque recomendado!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Revise su dispositivo en busca de archivos basura y aplicaciones abiertas en segundo plano</string>
+    <string name="let_s_go">Vámonos</string>
 </resources>

@@ -76,4 +76,8 @@
     <string name="please_wait_the_download_is_in_progress">積み込み</string>
     <string name="title_dialog_bluetooth">エクストラモードにはアクセスが必要です</string>
     <string name="dialog_bluetooth_description">私たちのアプリケーションは、余分なモードのBluetooth設定へのアクセスが必要です</string>
+
+    <string name="check_recommended">チェックおすすめ！</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">デバイスのジャンクファイルを確認し、バックグラウンドでアプリを開く</string>
+    <string name="let_s_go">レッツゴー</string>
 </resources>

@@ -75,4 +75,8 @@
     <string name="please_wait_the_download_is_in_progress">Chargement</string>
     <string name="title_dialog_bluetooth">Le mode supplémentaire nécessite un accès</string>
     <string name="dialog_bluetooth_description">Notre application nécessite l\'accès aux paramètres Bluetooth pour le mode Supplémentaire</string>
+
+    <string name="check_recommended">Chèque recommandé!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Recherchez les fichiers indésirables sur votre appareil et ouvrez des applications en arrière-plan</string>
+    <string name="let_s_go">Allons-y</string>
 </resources>
