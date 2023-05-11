@@ -12,6 +12,7 @@ import bogatovnikita.premium.presentation.R
 import bogatovnikita.premium.presentation.WebViewActivity
 import bogatovnikita.premium.presentation.databinding.FragmentInformationScreenBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bogatovnikita.language_dialog.utils.LocaleProvider
 import com.smart.cleaner.phoneclean.settings.Settings
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -21,6 +22,9 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
 
     @Inject
     lateinit var settings: Settings
+
+    @Inject
+    lateinit var localeProvider: LocaleProvider
 
     private val binding: FragmentInformationScreenBinding by viewBinding()
 
@@ -63,12 +67,15 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
 
     private fun initClickListener() {
         binding.cancelSubscription.setOnClickListener {
-            startActivity(
-                WebViewActivity.getIntent(
-                    requireContext(),
-                    WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION
-                )
-            )
+            when (localeProvider.getCurrentLocaleModel().country) {
+                "ru" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_RU)
+                "de", "at" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_DE)
+                "fr" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_FR)
+                "es" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_SP)
+                "it" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_IT)
+                "ja-jp" -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_JP)
+                else -> startHowCancelSubscription(WebViewActivity.HOW_TO_CANCEL_SUBSCRIPTION_EN)
+            }
         }
 
         binding.termsAndConditions.setOnClickListener {
@@ -90,6 +97,9 @@ class InformationScreenFragment : DialogFragment(R.layout.fragment_information_s
             )
         }
     }
+
+    private fun startHowCancelSubscription(language: String) =
+        startActivity(WebViewActivity.getIntent(requireContext(), language))
 
     override fun onDestroy() {
         settings.saveOpenInformation(false)
