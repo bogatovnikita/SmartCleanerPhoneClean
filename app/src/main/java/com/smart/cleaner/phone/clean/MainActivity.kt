@@ -13,11 +13,12 @@ import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
 import com.smart.cleaner.phone.clean.receiver.AlarmManagerReceiver
 import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
+import com.smart.cleaner.phoneclean.ui_core.adapters.GetIdForNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity(R.layout.activity_main), GetIdForNavigation {
 
     @Inject
     lateinit var settings: Settings
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //        initAdsAndSubscription() //TODO реклама
         initMenu()
         initClickListenerMenu()
+//        testNav()
     }
 
     private fun registerAlarmManagerAndCancelNotification() {
@@ -107,6 +109,22 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             ShowStartLanguageDialog().show(supportFragmentManager, "")
             settings.saveFirstLaunch()
         }
+    }
+
+    override fun openBoostMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_boost
+    }
+
+    override fun openCleanMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_clean
+    }
+
+    override fun openDuplicatesMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_duplicate
+    }
+
+    override fun openBatteryMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_battery
     }
 
 }
