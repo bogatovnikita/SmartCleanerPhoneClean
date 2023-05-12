@@ -1,5 +1,6 @@
 package com.smart.cleaner.phone.clean
 
+import android.app.NotificationManager
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
 import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
+import com.smart.cleaner.phone.clean.receiver.AlarmManagerReceiver
 import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,9 +34,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
+        registerAlarmManagerAndCancelNotification()
 //        initAdsAndSubscription() //TODO реклама
         initMenu()
         initClickListenerMenu()
+    }
+
+    private fun registerAlarmManagerAndCancelNotification() {
+        val notificationManager =
+            this.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancel(123)
+        AlarmManagerReceiver(this)
     }
 
 //    private fun initAdsAndSubscription() {
