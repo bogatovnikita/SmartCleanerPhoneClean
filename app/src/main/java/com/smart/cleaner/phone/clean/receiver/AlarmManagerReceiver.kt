@@ -5,28 +5,36 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 
-class AlarmManagerReceiver(context: Context) {
+class AlarmManagerReceiver(private val context: Context) {
 
-    init {
-        val alarmManager =
-            context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val alarmIntent = Intent(context, NotificationReceiver::class.java)
+    private val alarmManager by lazy {
+        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    }
 
-        val pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0)
+    private val alarmIntent by lazy {
+        Intent(context, NotificationReceiver::class.java)
+    }
 
-        alarmManager.cancel(pendingIntent)
+    private val pendingIntent by lazy {
+        PendingIntent.getBroadcast(context, 0, alarmIntent, 0)
+    }
 
+    fun startAlarmManager() {
         val triggerAtMillis = System.currentTimeMillis() + INTERVAL_MILLIS
-        val updatedPendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0)
 
         alarmManager.setAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
             triggerAtMillis,
-            updatedPendingIntent
+            pendingIntent
         )
     }
 
-    companion object{
+    fun cancelAlarmManager() {
+        alarmManager.cancel(pendingIntent)
+    }
+
+
+    companion object {
         const val INTERVAL_MILLIS = 2 * 60 * 60 * 1000L
     }
 }

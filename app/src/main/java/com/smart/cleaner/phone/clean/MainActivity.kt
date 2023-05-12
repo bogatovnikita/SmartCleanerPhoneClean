@@ -44,7 +44,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val notificationManager =
             this.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.cancel(123)
-        AlarmManagerReceiver(this)
+        AlarmManagerReceiver(this).apply {
+            cancelAlarmManager()
+            startAlarmManager()
+        }
     }
 
 //    private fun initAdsAndSubscription() {
