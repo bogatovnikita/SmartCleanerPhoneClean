@@ -16,7 +16,7 @@ class AlarmManagerReceiver(private val context: Context) {
     }
 
     private val pendingIntent by lazy {
-        PendingIntent.getBroadcast(context, 0, alarmIntent, 0)
+        PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_IMMUTABLE)
     }
 
     fun startAlarmManager() {
