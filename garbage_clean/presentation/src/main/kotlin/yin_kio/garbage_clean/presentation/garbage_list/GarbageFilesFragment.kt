@@ -47,10 +47,10 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     }
 
     private val adapter = GarbageAdapter(
-        onItemUpdate = {a, b, c -> viewModel.updateItemSelection(a, b, c)},
-        onGroupUpdate = {a, b,-> viewModel.updateGroupSelection(a, b)},
-        onGroupClick = {a,b -> viewModel.switchGroupSelection(a, b)},
-        onItemClick = {a,b,c -> viewModel.switchItemSelection(a, b, c)}
+        onItemUpdate = {garbageType, file, checkable -> viewModel.updateItemSelection(garbageType, file, checkable)},
+        onGroupUpdate = {garbageType, checkable,-> viewModel.updateGroupSelection(garbageType, checkable)},
+        onGroupClick = {garbageType,checkable -> viewModel.switchGroupSelection(garbageType, checkable)},
+        onItemClick = {garbageType,file,checkable -> viewModel.switchItemSelection(garbageType, file, checkable)}
     )
 
     override fun onStart() {
