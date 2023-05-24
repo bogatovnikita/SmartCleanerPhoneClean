@@ -203,20 +203,10 @@
         android:gravity="center"
         android:text="@string/send_command_to_close_applications_running_in_the_background"
         android:textColor="@color/primary"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/btn_boost_battery"
         app:layout_constraintEnd_toEndOf="@id/btn_boost_battery"
         app:layout_constraintStart_toStartOf="@id/btn_boost_battery" />
-
-    <ImageView
-        android:id="@+id/boost_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:src="@drawable/ic_boost_done"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/background_description" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"
@@ -250,14 +240,7 @@
         app:layout_constraintTop_toBottomOf="@id/btn_boost_battery" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/load_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description,permission_required,description_optimize_btn" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/loader_group"
+        android:id="@+id/group_loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -290,5 +273,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loader_icon" />
+
+    <ImageView
+        android:id="@+id/boost_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:src="@drawable/ic_boost_done"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
