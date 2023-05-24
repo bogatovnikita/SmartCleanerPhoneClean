@@ -11,10 +11,11 @@ import yin_kio.garbage_clean.domain.services.CleanTracker
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProviderImpl
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreatorImpl
-import yin_kio.garbage_clean.domain.use_cases.*
-import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_case.*
+import yin_kio.garbage_clean.domain.actions.CleanAction
+import yin_kio.garbage_clean.domain.actions.ScanAction
+import yin_kio.garbage_clean.domain.use_case.GarbageFilesUseCaseImpl
+import yin_kio.garbage_clean.domain.actions.UpdateAction
 
 object GarbageFilesFactory {
 
@@ -25,7 +26,7 @@ object GarbageFilesFactory {
         storageInfo: StorageInfo,
         cleanTime: CleanTime,
         coroutineScope: CoroutineScope,
-    ) : GarbageFilesUseCases{
+    ) : GarbageFilesUseCase{
 
         val garbageSelector = GarbageSelectorImpl()
 
@@ -34,7 +35,7 @@ object GarbageFilesFactory {
         val garbageOutCreator = GarbageOutCreatorImpl()
         val cleanTracker = CleanTracker(cleanTime)
 
-        val updateUseCase = UpdateUseCase(
+        val updateAction = UpdateAction(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             garbageFormsProvider = GarbageFormsProviderImpl(files),
@@ -43,7 +44,7 @@ object GarbageFilesFactory {
             cleanTracker = cleanTracker
         )
 
-        val cleanUseCase = CleanUseCase(
+        val cleanAction = CleanAction(
             storageInfo = storageInfo,
             uiOuter = uiOuter,
             files = files,
@@ -52,22 +53,22 @@ object GarbageFilesFactory {
         )
 
 
-        val scanUseCase = ScanUseCase(
+        val scanAction = ScanAction(
             permissions = permissions,
-            updateUseCase = updateUseCase,
+            updateAction = updateAction,
             uiOuter = uiOuter,
         )
 
-        return GarbageFilesUseCasesImpl(
+        return GarbageFilesUseCaseImpl(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             permissions = permissions,
-            updateUseCase = updateUseCase,
+            updateAction = updateAction,
             storageInfo = storageInfo,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.IO,
-            cleanUseCase = cleanUseCase,
-            scanUseCase = scanUseCase,
+            cleanAction = cleanAction,
+            scanAction = scanAction,
             updateState = updateState,
             garbageOutCreator = garbageOutCreator,
             cleanTracker = cleanTracker

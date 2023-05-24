@@ -1,4 +1,4 @@
-package yin_kio.garbage_clean.domain.use_cases
+package yin_kio.garbage_clean.domain.actions
 
 import kotlinx.coroutines.delay
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
@@ -7,7 +7,7 @@ import yin_kio.garbage_clean.domain.gateways.Files
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 
-internal class CleanUseCase(
+internal class CleanAction(
     private val storageInfo: StorageInfo,
     private val uiOuter: UiOuter,
     private val files: Files,

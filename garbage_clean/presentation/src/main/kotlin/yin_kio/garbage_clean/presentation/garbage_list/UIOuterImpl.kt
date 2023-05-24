@@ -1,10 +1,9 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
-import yin_kio.garbage_clean.domain.use_cases.UpdateState
+import yin_kio.garbage_clean.domain.use_case.UpdateState
 import java.io.File
 
 class UIOuterImpl(
@@ -13,6 +12,18 @@ class UIOuterImpl(
 
 
     var viewModel: ViewModel? = null
+        set(value) {
+            field = value
+
+            viewModel?.update { it.copy(
+                size = presenter.presentUnknownSize(),
+                buttonText = presenter.presentButtonText(false),
+                garbageGroups = presenter.presentGarbageWithoutPermission(),
+                isShowPermissionRequired = false
+            ) }
+
+            viewModel?.update()
+        }
 
     override fun closePermissionDialog() {
         viewModel?.sendCommand(Command.ClosePermissionDialog)

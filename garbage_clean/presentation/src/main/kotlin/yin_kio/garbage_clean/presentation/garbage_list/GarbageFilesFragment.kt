@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -180,14 +179,12 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val viewModel = ViewModel(
             useCases = useCases,
-            coroutineScope = viewModelScope,
-            presenter = presenter
+            coroutineScope = viewModelScope
         )
 
         uiOuter.viewModel = viewModel
 
 
-        viewModel.update()
 
         return viewModel
     }

@@ -1,7 +1,10 @@
-package yin_kio.garbage_clean.domain.use_cases
+package yin_kio.garbage_clean.domain.use_case
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import yin_kio.garbage_clean.domain.actions.CleanAction
+import yin_kio.garbage_clean.domain.actions.ScanAction
+import yin_kio.garbage_clean.domain.actions.UpdateAction
 import yin_kio.garbage_clean.domain.entities.GarbageSelector
 import yin_kio.garbage_clean.domain.gateways.Permissions
 import yin_kio.garbage_clean.domain.gateways.StorageInfo
@@ -13,20 +16,20 @@ import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import java.io.File
 import kotlin.coroutines.CoroutineContext
 
-internal class GarbageFilesUseCasesImpl(
+internal class GarbageFilesUseCaseImpl(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
     private val garbageOutCreator: GarbageOutCreator,
     private val permissions: Permissions,
-    private val updateUseCase: UpdateUseCase,
+    private val updateAction: UpdateAction,
     private val storageInfo: StorageInfo,
     private val coroutineScope: CoroutineScope,
     private val dispatcher: CoroutineContext,
-    private val cleanUseCase: CleanUseCase,
-    private val scanUseCase: ScanUseCase,
+    private val cleanAction: CleanAction,
+    private val scanAction: ScanAction,
     private val updateState: UpdateStateHolder,
     private val cleanTracker: CleanTracker
-) : GarbageFilesUseCases {
+) : GarbageFilesUseCase {
 
     override fun closePermissionDialog(){
         uiOuter.closePermissionDialog()
@@ -63,9 +66,9 @@ internal class GarbageFilesUseCasesImpl(
 
     override fun scanOrClean() = async {
         if (updateState.updateState == UpdateState.Successful){
-            cleanUseCase.clean()
+            cleanAction.clean()
         } else {
-            scanUseCase.scan()
+            scanAction.scan()
         }
     }
 
@@ -73,7 +76,7 @@ internal class GarbageFilesUseCasesImpl(
         val hasPermission = permissions.hasPermission
 
         if (hasPermission){
-            updateUseCase.update()
+            updateAction.update()
         } else {
             uiOuter.showPermissionRequired()
             uiOuter.showAttentionMessagesColors()

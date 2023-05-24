@@ -1,7 +1,7 @@
 package yin_kio.garbage_clean.domain.ui_out
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
-import yin_kio.garbage_clean.domain.use_cases.UpdateState
+import yin_kio.garbage_clean.domain.use_case.UpdateState
 import java.io.File
 
 interface UiOuter {
