@@ -18,128 +18,106 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title_text="@string/fun_battery" />
 
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/iv_battery_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/battery_low"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="0dp"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
 
-        <LinearLayout
+    <TextView
+        android:id="@+id/tv_battery_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:textAppearance="@style/Text.Medium.14"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_battery_status"
+        tools:text="@string/battery_unboosted" />
+
+    <com.smart.cleaner.phone.clean.custom.ChoosingTypeBatteryBar
+        android:id="@+id/choosing_type_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_battery_status" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_description_type_list"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
+        app:layout_constraintTop_toBottomOf="@+id/choosing_type_bar"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:id="@+id/title_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="@string/type_description_normal"
+            android:textAppearance="@style/Text.Medium.14" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            app:layout_constraintTop_toBottomOf="@+id/title_list"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_battery_save_fun" />
 
-            <ImageView
-                android:id="@+id/iv_battery_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
-                android:background="@drawable/battery_low"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_battery_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textAppearance="@style/Text.Medium.14"
-                android:textColor="@color/green"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_battery_status"
-                tools:text="@string/battery_unboosted" />
+    <LinearLayout
+        android:id="@+id/description_go_settings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/bg_go_settings"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_boost_battery"
+        app:layout_constraintStart_toStartOf="@+id/btn_boost_battery">
 
-            <com.smart.cleaner.phone.clean.custom.ChoosingTypeBatteryBar
-                android:id="@+id/choosing_type_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_battery_status" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:text="@string/go_settings_description"
+            android:textAppearance="@style/Text.Regular.14" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_description_type_list"
-                android:elevation="2dp"
-                android:orientation="vertical"
-                android:layout_marginBottom="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_boost_battery"
-                app:layout_constraintTop_toBottomOf="@+id/choosing_type_bar"
-                app:layout_constraintVertical_bias="0">
-
-                <TextView
-                    android:id="@+id/title_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:text="@string/type_description_normal"
-                    android:textAppearance="@style/Text.Medium.14" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_4sdp"
-                    app:layout_constraintTop_toBottomOf="@+id/title_list"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_battery_save_fun" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/description_go_settings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_go_settings"
-                android:elevation="2dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btn_boost_battery"
-                app:layout_constraintStart_toStartOf="@+id/btn_boost_battery">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/go_settings_description"
-                    android:textAppearance="@style/Text.Regular.14" />
-
-                <TextView
-                    android:id="@+id/btn_go_bluetooth_settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/settings"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
+        <TextView
+            android:id="@+id/btn_go_bluetooth_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/settings"
+            android:textColor="@color/primary"
+            android:textSize="14sp" />
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_boost_battery"
@@ -150,7 +128,7 @@
         android:background="@drawable/bg_main_button"
         android:gravity="center"
         android:paddingHorizontal="15dp"
-        android:text="@string/activate"
+        android:text="@string/optimize"
         android:textAppearance="@style/Text.Medium.18"
         android:textColor="@color/white"
         android:visibility="visible"
