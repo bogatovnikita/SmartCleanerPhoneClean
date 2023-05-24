@@ -27,4 +27,8 @@ interface UiOuter {
     fun showAttentionMessagesColors()
 
 
+    fun out(uiOut: UiOut)
+    fun changeLanguage(uiOut: UiOut)
+
+
 }

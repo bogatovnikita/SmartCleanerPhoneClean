@@ -20,7 +20,7 @@ internal class UpdateAction(
     suspend fun update() {
         if (updateState.updateState == UpdateState.Progress) return
         updateState.updateState = UpdateState.Progress
-        val wasClean = cleanTracker.wasClean
+        val wasClean = cleanTracker.isCleaned
 
         uiOuter.showUpdateProgress(wasClean)
 

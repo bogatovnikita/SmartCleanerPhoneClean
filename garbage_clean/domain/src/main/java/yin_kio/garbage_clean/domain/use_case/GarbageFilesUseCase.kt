@@ -16,4 +16,7 @@ interface GarbageFilesUseCase {
     fun update()
     fun closeInter()
     fun checkPermissionAndLanguage()
+
+    fun start()
+    fun updateLanguage()
 }

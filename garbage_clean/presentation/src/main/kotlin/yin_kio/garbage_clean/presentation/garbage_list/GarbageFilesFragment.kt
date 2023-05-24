@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -54,7 +55,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
     override fun onStart() {
         super.onStart()
-        viewModel.checkPermissionAndLanguage()
+        viewModel.updateLanguage()
     }
 
 
@@ -75,7 +76,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 binding.apply {
-                    size.text = it.size
+                    size.text = it.sizeText
                     button.text = it.buttonText
                     permissionRequired.isInvisible = !it.isShowPermissionRequired
                     button.alpha = it.buttonOpacity
@@ -165,7 +166,8 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val presenter = Presenter(context)
         val uiOuter = UIOuterImpl(
-            presenter = presenter
+            presenter = presenter,
+            context = context
         )
 
         val useCases = GarbageFilesFactory.createGarbageFilesUseCases(

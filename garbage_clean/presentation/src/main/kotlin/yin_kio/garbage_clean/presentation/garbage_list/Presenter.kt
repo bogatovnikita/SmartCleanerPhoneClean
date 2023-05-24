@@ -56,7 +56,7 @@ class Presenter(
     }
 
 
-    private fun presentGarbageName(garbageType: GarbageType) : String{
+    fun presentGarbageName(garbageType: GarbageType) : String{
 
         val resId = when(garbageType){
             GarbageType.Apk -> R.string.junk_clean_apk
@@ -183,5 +183,6 @@ class Presenter(
 
 
     private fun wasCleanColor() = context.getColor(general.R.color.secondary)
+
 
 }

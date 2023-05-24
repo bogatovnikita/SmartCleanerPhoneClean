@@ -1,28 +1,31 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
+import android.content.Context
+import android.text.format.Formatter
+import android.text.format.Formatter.formatFileSize
+import com.bogatovnikita.language_dialog.language.Language
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
+import yin_kio.garbage_clean.domain.ui_out.UiOut
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.use_case.UpdateState
+import yin_kio.garbage_clean.presentation.R
+import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGroup
 import java.io.File
 
 class UIOuterImpl(
-    private val presenter: Presenter
+    private val presenter: Presenter,
+    context: Context
 ) : UiOuter {
+
+    private val language = Language(context)
+    private var context = language.changeLanguage()
 
 
     var viewModel: ViewModel? = null
         set(value) {
             field = value
-
-            viewModel?.update { it.copy(
-                size = presenter.presentUnknownSize(),
-                buttonText = presenter.presentButtonText(false),
-                garbageGroups = presenter.presentGarbageWithoutPermission(),
-                isShowPermissionRequired = false
-            ) }
-
-            viewModel?.update()
+            viewModel?.start()
         }
 
     override fun closePermissionDialog() {
@@ -44,7 +47,7 @@ class UIOuterImpl(
 
     override fun outGarbage(garbage: List<Garbage>, wasClean: Boolean) {
         viewModel?.update { it.copy(
-            size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
+            sizeText = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
             buttonText = presenter.presentButtonText(true),
             garbageGroups = presenter.presentGarbage(garbage),
             isShowPermissionRequired = false,
@@ -59,7 +62,7 @@ class UIOuterImpl(
     override fun showUpdateProgress(wasClean: Boolean) {
 
         viewModel?.update { it.copy(
-            size = presenter.persentProgressSize(),
+            sizeText = presenter.persentProgressSize(),
             buttonText = presenter.presentButtonText(true),
             garbageGroups = presenter.presentGarbageForProgress(),
             isShowPermissionRequired = false,
@@ -72,7 +75,7 @@ class UIOuterImpl(
 
     override fun showPermissionRequired() {
         viewModel?.update { it.copy(
-            size = presenter.presentUnknownSize(),
+            sizeText = presenter.presentUnknownSize(),
             buttonText = presenter.presentButtonText(false),
             garbageGroups = presenter.presentGarbageWithoutPermission(),
             isShowPermissionRequired = true,
@@ -133,6 +136,54 @@ class UIOuterImpl(
             messageColor = presenter.presentNoPermissionMessageColor(),
             sizeMessageColor = presenter.presentNoPermissionSizeMessageColor()
         ) }
+
+    }
+
+    override fun out(uiOut: UiOut) {
+        when(uiOut){
+            UiOut.StartWithoutPermission -> showStartWithoutPermission()
+        }
+    }
+
+    override fun changeLanguage(uiOut: UiOut) {
+        context = language.changeLanguage()
+        out(uiOut)
+    }
+
+    private fun showStartWithoutPermission(){
+        viewModel?.update { it.copy(
+            sizeText = formatFileSize(context, 0L).replace("0", "(?)"),
+            buttonText = context.getString(R.string.junk_clean_scan),
+            garbageGroups = GarbageType.values().map {
+                GarbageGroup(
+                    type = it,
+                    name = presentGarbageName(it),
+                    description = ""
+                )
+            },
+            isShowPermissionRequired = true,
+            buttonOpacity = 1f,
+            message = context.getString(R.string.junk_clean_amount_message),
+            sizeMessageColor = context.getColor(general.R.color.error),
+            messageColor = context.getColor(general.R.color.primary),
+            isExpandEnabled = false
+        ) }
+
+        viewModel?.sendCommand(Command.ShowPermissionDialog)
+    }
+
+
+    fun presentGarbageName(garbageType: GarbageType) : String{
+
+        val resId = when(garbageType){
+            GarbageType.Apk -> R.string.junk_clean_apk
+            GarbageType.Temp -> R.string.junk_clean_temp_files
+            GarbageType.RestFiles -> R.string.junk_clean_residual_files
+            GarbageType.EmptyFolders -> R.string.junk_clean_empty_filders
+            GarbageType.Thumbnails -> R.string.junk_clean_miniatures
+        }
+
+        return context.getString(resId)
 
     }
 }

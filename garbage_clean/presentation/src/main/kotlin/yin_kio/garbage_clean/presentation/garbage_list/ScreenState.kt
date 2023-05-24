@@ -4,7 +4,7 @@ import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingIte
 import yin_kio.garbage_clean.presentation.garbage_list.adapter.models.GarbageGroup
 
 data class ScreenState(
-    val size: String = "",
+    val sizeText: String = "",
     val buttonText: String = "",
     val garbageGroups: List<GarbageGroup> = listOf(),
     val isShowPermissionRequired: Boolean = false,

@@ -11,6 +11,7 @@ import yin_kio.garbage_clean.domain.gateways.StorageInfo
 import yin_kio.garbage_clean.domain.services.CleanTracker
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Checkable
+import yin_kio.garbage_clean.domain.ui_out.UiOut
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
 import java.io.File
@@ -95,12 +96,25 @@ internal class GarbageFilesUseCaseImpl(
             updateState.updateState,
             garbageOutCreator.create(
                 garbageSelector.getGarbage()),
-            cleanTracker.wasClean
+            cleanTracker.isCleaned
         )
     }
 
     override fun closeInter(){
         uiOuter.showResult(storageInfo.freedVolume)
+    }
+
+
+    override fun start() = async {
+        if (permissions.hasPermission){
+            updateAction.update()
+        } else {
+            uiOuter.out(UiOut.StartWithoutPermission)
+        }
+    }
+
+    override fun updateLanguage() {
+        uiOuter.changeLanguage(garbageSelector.uiOut)
     }
 
     private fun async(block: suspend () -> Unit){
