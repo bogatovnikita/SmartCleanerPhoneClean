@@ -79,4 +79,7 @@
     <string name="check_recommended">Cheque recomendado!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Revise su dispositivo en busca de archivos basura y aplicaciones abiertas en segundo plano</string>
     <string name="let_s_go">Vámonos</string>
+
+    <string name="activate">Activar</string>
+    <string name="activation">Activación…</string>
 </resources>

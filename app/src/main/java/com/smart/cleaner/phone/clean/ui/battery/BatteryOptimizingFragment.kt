@@ -56,7 +56,7 @@ class BatteryOptimizingFragment(
         }
     }
 
-    override fun getFunName(): String = requireContext().getString(R.string.optimization)
+    override fun getFunName(): String = requireContext().getString(R.string.activation)
 
     private fun toGeneralOptimizingItemList(list: Array<String>): MutableList<OptimizingItem> {
         val newList = mutableListOf<OptimizingItem>()
