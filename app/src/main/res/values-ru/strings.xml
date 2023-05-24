@@ -17,7 +17,7 @@
     <string name="energy">Энергия</string>
     <string name="ram">Общий объем оперативной памяти</string>
     <string name="settings">Настройка</string>
-    <string name="fun_battery">Экономия заряда батареи</string>
+    <string name="fun_battery">Экономия энергии</string>
     <string name="get_permission">Нам нужно разрешение</string>
     <string name="duplicate">Дубликаты</string>
     <string name="extra_mode_activated">Активирован дополнительный режим</string>

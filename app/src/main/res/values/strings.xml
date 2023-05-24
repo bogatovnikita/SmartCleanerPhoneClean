@@ -49,7 +49,7 @@
     <string name="cancel">Close</string>
     <string name="done">Done</string>
     <string name="advice">We recommend running these features</string>
-    <string name="fun_battery">Battery saver</string>
+    <string name="fun_battery">Energy saver</string>
     <string name="ram_unboosted">Optimization is recommended</string>
     <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
     <string name="ram_usage">RAM Usage</string>

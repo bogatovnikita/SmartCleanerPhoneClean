@@ -17,7 +17,7 @@
     <string name="energy">Energía</string>
     <string name="ram">Cantidad total de RAM</string>
     <string name="settings">Configuración</string>
-    <string name="fun_battery">Ahorro de batería</string>
+    <string name="fun_battery">Ahorrador de energía</string>
     <string name="get_permission">Necesitamos permiso</string>
     <string name="duplicate">Duplicar</string>
     <string name="extra_mode_activated">Modo extra activado</string>
