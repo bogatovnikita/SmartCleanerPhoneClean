@@ -43,28 +43,18 @@ class Presenter(
     }
 
     fun presentGarbageWithoutPermission() : List<GarbageGroup>{
-        return GarbageType.values().map {
-            GarbageGroup(
-                type = it,
-                name = presentGarbageName(it),
-                files = listOf(),
-                isEnabled = false
-            )
-        }
+        return getEmptyGarbageGroups()
     }
 
+
+
     fun presentGarbageForProgress() : List<GarbageGroup>{
-        return GarbageType.values().map {
-            GarbageGroup(
-                type = it,
-                name = presentGarbageName(it),
-                files = listOf(),
-                isInProgress = true,
-                alpha = 1.0f,
-                isEnabled = false
-            )
-        }
+        return getEmptyGarbageGroups(
+            isInProgress = true,
+            alpha = 1.0f
+        )
     }
+
 
     private fun presentGarbageName(garbageType: GarbageType) : String{
 
@@ -82,15 +72,7 @@ class Presenter(
 
     fun presentGarbage(garbage: List<Garbage>) : List<GarbageGroup>{
         if (garbage.isEmpty()){
-            return GarbageType.values().map {
-                GarbageGroup(
-                    type = it,
-                    name = presentGarbageName(it),
-                    files = emptyList(),
-                    alpha = 0.5f,
-                    isEnabled = false
-                )
-            }
+            return getEmptyGarbageGroups()
         }
 
         return garbage.map {
@@ -99,10 +81,27 @@ class Presenter(
                 name = presentGarbageName(it.type),
                 files = it.files,
                 alpha = 1.0f,
-                isEnabled = true
+                isEnabled = true,
+                description = formatFileSize(context, it.files.sumOf { it.length() })
             )
         }
     }
+
+    private fun getEmptyGarbageGroups(
+        isInProgress: Boolean = false,
+        alpha: Float = 0.5f,
+    ) : List<GarbageGroup>{
+        return GarbageType.values().map {
+            GarbageGroup(
+                type = it,
+                name = presentGarbageName(it),
+                isInProgress = isInProgress,
+                alpha = alpha,
+                description = formatFileSize(context, 0L)
+            )
+        }
+    }
+
 
     fun presentButtonOpacity(hasSelected: Boolean) : Float{
         return if (hasSelected) 1f else 0.5f
