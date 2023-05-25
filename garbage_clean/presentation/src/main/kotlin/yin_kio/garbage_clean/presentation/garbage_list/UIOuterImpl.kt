@@ -1,7 +1,6 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
 import android.content.Context
-import android.text.format.Formatter
 import android.text.format.Formatter.formatFileSize
 import com.bogatovnikita.language_dialog.language.Language
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
@@ -142,11 +141,13 @@ class UIOuterImpl(
     override fun out(uiOut: UiOut) {
         when(uiOut){
             UiOut.StartWithoutPermission -> showStartWithoutPermission()
+            is UiOut.UpdateProgress -> showUpdateProgress(uiOut.isCleaned)
         }
     }
 
     override fun changeLanguage(uiOut: UiOut) {
         context = language.changeLanguage()
+        presenter.updateLanguage()
         out(uiOut)
     }
 
@@ -173,7 +174,7 @@ class UIOuterImpl(
     }
 
 
-    fun presentGarbageName(garbageType: GarbageType) : String{
+    private fun presentGarbageName(garbageType: GarbageType) : String{
 
         val resId = when(garbageType){
             GarbageType.Apk -> R.string.junk_clean_apk
@@ -184,6 +185,11 @@ class UIOuterImpl(
         }
 
         return context.getString(resId)
-
     }
+
+
+
+
+
+
 }
