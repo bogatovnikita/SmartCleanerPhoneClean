@@ -6,21 +6,17 @@ import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageForms
 import yin_kio.garbage_clean.domain.ui_out.UiOut
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreator
-import yin_kio.garbage_clean.domain.use_case.UpdateState
-import yin_kio.garbage_clean.domain.use_case.UpdateStateHolder
 
 internal class UpdateAction(
     private val uiOuter: UiOuter,
     private val garbageSelector: GarbageSelector,
     private val garbageFormsProvider: GarbageFormsProvider,
     private val garbageOutCreator: GarbageOutCreator,
-    private val updateState: UpdateStateHolder,
     private val cleanTracker: CleanTracker
 ) {
 
     suspend fun update() {
-        if (updateState.updateState == UpdateState.Progress) return
-        updateState.updateState = UpdateState.Progress
+        if ( garbageSelector.uiOut is UiOut.UpdateProgress) return
         val isCleaned = cleanTracker.isCleaned
 
         garbageSelector.uiOut = UiOut.UpdateProgress(isCleaned)
@@ -38,7 +34,6 @@ internal class UpdateAction(
 
         garbageSelector.uiOut = UiOut.Updated(isCleaned, garbageOut)
         uiOuter.out(garbageSelector.uiOut)
-        updateState.updateState = UpdateState.Successful
     }
 
 }

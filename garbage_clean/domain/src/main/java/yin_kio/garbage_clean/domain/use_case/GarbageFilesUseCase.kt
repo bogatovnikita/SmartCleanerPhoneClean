@@ -12,10 +12,7 @@ interface GarbageFilesUseCase {
     fun updateItemSelection(group: GarbageType, file: File, itemCheckable: Checkable)
     fun updateGroupSelection(group: GarbageType, groupCheckable: Checkable)
 
-    fun scanOrClean()
-    fun update()
     fun closeInter()
-    fun checkPermissionAndLanguage()
 
     fun start()
     fun updateLanguage()

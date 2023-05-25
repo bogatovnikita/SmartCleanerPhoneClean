@@ -37,7 +37,7 @@ class CleaningResultFragment : BaseFragmentResult(R.layout.fragment_cleaning_res
 
         binding.toolbar.binding.btnCrossExit.setOnClickListener {
             findNavController().navigateUp()
-            viewModel.update()
+            viewModel.start()
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {

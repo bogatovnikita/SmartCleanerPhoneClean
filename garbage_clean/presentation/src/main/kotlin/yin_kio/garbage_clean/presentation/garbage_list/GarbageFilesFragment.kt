@@ -41,7 +41,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     ){
         if (it[Manifest.permission.READ_EXTERNAL_STORAGE]!!
             && it[Manifest.permission.WRITE_EXTERNAL_STORAGE]!!){
-            viewModel.scanOrClean()
+            viewModel.start()
         }
     }
 
@@ -62,7 +62,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         binding.recycler.adapter = adapter
 
-        binding.button.setOnClickListener { viewModel.scanOrClean() }
+        binding.button.setOnClickListener { viewModel.start() }
 
         setupStateObserver()
         setupCommandsObserver()
@@ -166,8 +166,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val presenter = Presenter(context)
         val uiOuter = UIOuterImpl(
-            presenter = presenter,
-            context = context
+            presenter = presenter
         )
 
         val useCases = GarbageFilesFactory.createGarbageFilesUseCases(
