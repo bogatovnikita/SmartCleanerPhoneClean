@@ -115,16 +115,19 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         }
     }
 
+    private fun setEnableBtn(state: BoostScreenState) {
+        binding.btnBoostBattery.isClickable = !state.isRamBoosted
+        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
+    }
+
     private fun BoostScreenState.setVisibility(state: BoostScreenState) {
-        if (state.isRamBoosted) {
-            binding.boostDone.isVisible = isRamBoosted
-            binding.groupNotOptimized.isVisible = !isRamBoosted
-            binding.loaderGroup.isVisible = !isRamBoosted
-            binding.loadGroup.isVisible = !isRamBoosted
-        } else {
-            binding.loaderGroup.isVisible = !isLoadUseCase
-            binding.loadGroup.isVisible = isLoadUseCase
-        }
+        binding.groupLoader.isVisible = !state.isLoadUseCase
+        binding.descriptionOptimizeBtn.isVisible = state.isLoadUseCase
+        if (!state.isLoadUseCase) return
+
+        binding.boostDone.isVisible = isRamBoosted
+        binding.groupNotOptimized.isVisible = !isRamBoosted
+        binding.permissionRequired.isVisible = !state.permissionGiven
     }
 
     private fun setCountApp(state: BoostScreenState) {
@@ -136,11 +139,6 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun getPhoneModel() = Build.MANUFACTURER.toString() + " " + Build.MODEL.toString()
-
-    private fun setEnableBtn(state: BoostScreenState) {
-        binding.btnBoostBattery.isClickable = !state.isRamBoosted
-        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
-    }
 
     private fun setPermissionDescription(state: BoostScreenState) {
         binding.permissionRequired.isVisible = !state.permissionGiven

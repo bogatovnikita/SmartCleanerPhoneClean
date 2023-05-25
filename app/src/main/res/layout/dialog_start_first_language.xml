@@ -6,13 +6,23 @@
     android:background="@drawable/bg_dialog_big_corners">
 
     <ImageView
-        android:id="@+id/btn_cancel_dialog"
+        android:id="@+id/cancel_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/cancel_dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_cancel_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@id/cancel_dialog"
+        app:layout_constraintEnd_toEndOf="@id/cancel_dialog"
+        app:layout_constraintStart_toStartOf="@id/cancel_dialog"
+        app:layout_constraintTop_toTopOf="@id/cancel_dialog" />
 
     <ImageView
         android:id="@+id/icon"

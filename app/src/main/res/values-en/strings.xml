@@ -17,7 +17,7 @@
     <string name="energy">Energy</string>
     <string name="ram">Total amount of RAM</string>
     <string name="settings">Setting</string>
-    <string name="fun_battery">Battery saver</string>
+    <string name="fun_battery">Energy saver</string>
     <string name="get_permission">We need permission</string>
     <string name="duplicate">Duplicate</string>
     <string name="extra_mode_activated">Extra mode activated</string>
@@ -79,4 +79,6 @@
     <string name="check_recommended">Check recommended!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Check your device for junk files and open apps in the background</string>
     <string name="let_s_go">Let’s go</string>
+    <string name="activate">Activate</string>
+    <string name="activation">Activation…</string>
 </resources>

@@ -17,7 +17,7 @@
     <string name="energy">エネルギー</string>
     <string name="ram">RAMの総量</string>
     <string name="settings">設定</string>
-    <string name="fun_battery">バッテリーセーバー</string>
+    <string name="fun_battery">エネルギーセーバー</string>
     <string name="get_permission">許可が必要です</string>
     <string name="duplicate">複製</string>
     <string name="extra_mode_activated">エクストラモードがアクティブ化されています</string>
@@ -80,4 +80,7 @@
     <string name="check_recommended">チェックおすすめ！</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">デバイスのジャンクファイルを確認し、バックグラウンドでアプリを開く</string>
     <string name="let_s_go">レッツゴー</string>
+
+    <string name="activate">アクティブ化</string>
+    <string name="activation">アクティベーション…</string>
 </resources>
