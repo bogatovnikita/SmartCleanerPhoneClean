@@ -21,6 +21,10 @@ class ViewModel(
     private val _commands = MutableSharedFlow<Command>()
     val commands = _commands.asSharedFlow()
 
+    init {
+        start()
+    }
+
 
 
     fun update(newState: (oldState: ScreenState) -> ScreenState){

@@ -55,5 +55,5 @@ internal class GarbageSelectorImpl : GarbageSelector {
             return false
         }
 
-    override var uiOut: UiOut = UiOut.StartWithoutPermission
+    override var uiOut: UiOut = UiOut.Init
 }

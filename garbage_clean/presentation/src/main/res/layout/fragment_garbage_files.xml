@@ -14,10 +14,12 @@
         app:title_text="@string/junk_clean_title"/>
 
     <LinearLayout
+        android:id="@+id/info_plate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="invisible">
 
         <ImageView
             android:id="@+id/size_icon"

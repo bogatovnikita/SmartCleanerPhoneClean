@@ -22,10 +22,6 @@ class UIOuterImpl(
 
 
     var viewModel: ViewModel? = null
-        set(value) {
-            field = value
-            viewModel?.start()
-        }
 
     override fun closePermissionDialog() {
         viewModel?.sendCommand(Command.ClosePermissionDialog)
@@ -54,7 +50,8 @@ class UIOuterImpl(
             message = presenter.presentMessage(garbage),
             messageColor = presenter.presentProgressMessageColor(garbage, wasClean),
             sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean),
-            isExpandEnabled = garbage.isNotEmpty()
+            isExpandEnabled = garbage.isNotEmpty(),
+            isInfoVisible = true
         ) }
     }
 
@@ -68,7 +65,8 @@ class UIOuterImpl(
             buttonOpacity = 0.5f,
             message = presenter.presentMessage(true),
             messageColor = presenter.presentProgressMessageColor(wasClean),
-            sizeMessageColor = presenter.presentProgressSizeMessageColor(wasClean)
+            sizeMessageColor = presenter.presentProgressSizeMessageColor(wasClean),
+            isInfoVisible = true
         ) }
     }
 
@@ -140,8 +138,10 @@ class UIOuterImpl(
 
     override fun out(uiOut: UiOut) {
         when(uiOut){
+            UiOut.Init -> {}
             UiOut.StartWithoutPermission -> showStartWithoutPermission()
             is UiOut.UpdateProgress -> showUpdateProgress(uiOut.isCleaned)
+            is UiOut.Updated -> outGarbage(uiOut.garbageOuts, uiOut.isCleaned)
         }
     }
 
@@ -167,7 +167,8 @@ class UIOuterImpl(
             message = context.getString(R.string.junk_clean_amount_message),
             sizeMessageColor = context.getColor(general.R.color.error),
             messageColor = context.getColor(general.R.color.primary),
-            isExpandEnabled = false
+            isExpandEnabled = false,
+            isInfoVisible = true
         ) }
 
         viewModel?.sendCommand(Command.ShowPermissionDialog)

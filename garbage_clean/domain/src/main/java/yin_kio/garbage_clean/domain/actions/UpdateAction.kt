@@ -21,10 +21,12 @@ internal class UpdateAction(
     suspend fun update() {
         if (updateState.updateState == UpdateState.Progress) return
         updateState.updateState = UpdateState.Progress
-        val wasClean = cleanTracker.isCleaned
+        val isCleaned = cleanTracker.isCleaned
 
-        garbageSelector.uiOut = UiOut.UpdateProgress(wasClean)
+        garbageSelector.uiOut = UiOut.UpdateProgress(isCleaned)
         uiOuter.out(garbageSelector.uiOut)
+
+
 
         val forms = garbageFormsProvider.provide()
 
@@ -33,7 +35,9 @@ internal class UpdateAction(
 
         val garbage = garbageSelector.getGarbage()
         val garbageOut = garbageOutCreator.create(garbage)
-        uiOuter.outGarbage(garbageOut, wasClean)
+
+        garbageSelector.uiOut = UiOut.Updated(isCleaned, garbageOut)
+        uiOuter.out(garbageSelector.uiOut)
         updateState.updateState = UpdateState.Successful
     }
 

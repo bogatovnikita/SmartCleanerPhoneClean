@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -87,6 +86,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                     sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
 
                     adapter.onExpandListenerEnabled = it.isExpandEnabled
+                    infoPlate.isInvisible = !it.isInfoVisible
                 }
 
                 adapter.garbage = it.garbageGroups

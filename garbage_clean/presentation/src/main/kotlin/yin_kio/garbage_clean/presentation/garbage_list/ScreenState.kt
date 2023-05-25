@@ -14,6 +14,7 @@ data class ScreenState(
     val message: String = "",
     val messageColor: Int = 0x000000,
     val sizeMessageColor: Int = 0x00000,
-    val isExpandEnabled: Boolean = false
+    val isExpandEnabled: Boolean = false,
+    val isInfoVisible: Boolean = false
 
 )
