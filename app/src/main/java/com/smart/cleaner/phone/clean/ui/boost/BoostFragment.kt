@@ -41,8 +41,8 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getParams()
         checkPermission()
+        viewModel.getParams()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -103,11 +103,13 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         } else {
             binding.loaderGroup.isVisible = !isLoadUseCase
             binding.loadGroup.isVisible = isLoadUseCase
+            binding.loadGroupEmpty.isVisible = isLoadUseCase && isNothingToKill
+            binding.loadGroupNotEmpty.isVisible = isLoadUseCase && !isNothingToKill
         }
     }
 
     private fun setCountApp(state: BoostScreenState) {
-        if (state.permissionGiven && state.isLoadUseCase) {
+        if (state.isPermissionGiven && state.isLoadUseCase) {
             binding.countApps.text = state.listBackgroundApp.size.toString()
         } else {
             binding.countApps.text = "?"
@@ -122,7 +124,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun setPermissionDescription(state: BoostScreenState) {
-        binding.permissionRequired.isVisible = !state.permissionGiven
+        binding.permissionRequired.isVisible = !state.isPermissionGiven
     }
 
     private fun setBtnListeners() {

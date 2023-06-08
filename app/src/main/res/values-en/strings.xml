@@ -18,7 +18,6 @@
     <string name="ram">Total amount of RAM</string>
     <string name="settings">Setting</string>
     <string name="fun_battery">Battery saver</string>
-    <string name="please_wait_the_download_is_in_progress">Please, wait, the download is in progress</string>
     <string name="get_permission">We need permission</string>
     <string name="duplicate">Duplicate</string>
     <string name="extra_mode_activated">Extra mode activated</string>
@@ -46,7 +45,7 @@
     <string name="apps">Apps</string>
     <string name="cleaning">Cleanup</string>
     <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
     <string name="boost_description">Close apps running in the background to free up memory on your device</string>
     <string name="title_dialog_bluetooth">For Extra mode, you need access to the bluetooth settings</string>
     <string name="clean">Clean up</string>

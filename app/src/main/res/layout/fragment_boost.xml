@@ -7,16 +7,6 @@
     android:background="@color/background"
     tools:context=".ui.boost.BoostFragment">
 
-    <bogatovnikita.toolbar.ui.ToolbarView
-        android:id="@+id/custom_toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
-        app:is_load_language="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title_text="@string/boosting" />
 
     <View
         android:id="@+id/background_description"
@@ -28,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/custom_toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/device_info"
@@ -170,6 +160,23 @@
         tools:text="10" />
 
     <TextView
+        android:id="@+id/count_apps_empty"
+        style="@style/Text.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="top"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_24ssp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/background_apps"
+        app:layout_constraintEnd_toStartOf="@id/text_apps_duplicate"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/background_apps"
+        app:layout_constraintTop_toTopOf="@id/background_apps"
+        android:text="0" />
+
+    <TextView
         android:id="@+id/text_apps"
         style="@style/Text.Medium.18"
         android:layout_width="wrap_content"
@@ -182,6 +189,18 @@
         app:layout_constraintVertical_bias="0.6" />
 
     <TextView
+        android:id="@+id/text_apps_duplicate"
+        style="@style/Text.Medium.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apps"
+        app:layout_constraintBottom_toBottomOf="@id/background_apps"
+        app:layout_constraintEnd_toEndOf="@id/background_apps"
+        app:layout_constraintStart_toEndOf="@id/count_apps_empty"
+        app:layout_constraintTop_toTopOf="@id/background_apps"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
         android:id="@+id/count_description"
         style="@style/Text.Regular.14"
         android:layout_width="0dp"
@@ -190,6 +209,21 @@
         android:gravity="center"
         android:text="@string/count_of_applications_running_in_the_background"
         android:textColor="@color/primary"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background_apps" />
+
+    <TextView
+        android:id="@+id/count_description_empty_apps"
+        style="@style/Text.Regular.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:text="@string/count_of_applications_running"
+        android:textColor="@color/primary"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_apps" />
@@ -253,8 +287,25 @@
         android:id="@+id/load_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="background_apps,
+        permission_required, btn_boost_battery,description_optimize_btn" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/load_group_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="text_apps_duplicate,
+        count_apps_empty, count_description_empty_apps" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/load_group_not_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description,permission_required,btn_boost_battery,description_optimize_btn" />
+        app:constraint_referenced_ids="text_apps,
+        count_apps,count_description" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/loader_group"
@@ -284,7 +335,7 @@
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:gravity="center"
-        android:text="@string/please_wait_the_download_is_in_progress"
+        android:text="@string/please_wait"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
