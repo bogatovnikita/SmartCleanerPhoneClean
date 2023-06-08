@@ -28,7 +28,7 @@ class Settings @Inject constructor(
     fun isRamBoosted(): Boolean {
         val currentTime = System.currentTimeMillis()
         val saveTime = sharedPreferences.getLong(TIME_RAM_BOOST, 0L)
-        return saveTime + TimeUnit.HOURS.toMillis(2) > currentTime
+        return saveTime + TimeUnit.MINUTES.toMillis(30) > currentTime
     }
 
     fun saveTimeBatteryBoost() {
