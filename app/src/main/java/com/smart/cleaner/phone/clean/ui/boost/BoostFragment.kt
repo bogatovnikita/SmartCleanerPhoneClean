@@ -152,6 +152,9 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
                 DialogRequestUsageState().show(parentFragmentManager, TAG_USAGE_STATE)
             }
         }
+        binding.btnGoToTimeOutDialog.setOnClickListener {
+            findNavController().navigate(R.id.action_to_dialogTimeOut)
+        }
     }
 
     private fun checkPackageUsageStatePermission(): Boolean {

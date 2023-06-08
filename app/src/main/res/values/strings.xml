@@ -66,7 +66,6 @@
     <string name="device_information">Device Information</string>
     <string name="apps">Apps</string>
     <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
     <string name="mb">%dMb</string>
     <string name="normal_mode">Normal mode:</string>
@@ -88,7 +87,11 @@
 
     <string name="activate">Activate</string>
     <string name="activation">Activation…</string>
+
+<!--                 new                       -->
+    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
     <string name="please_wait">Checking…</string>
     <string name="count_of_applications_running">Count of applications running in the background (according to information from the system)</string>
     <string name="time_out">Time out</string>
+    <string name="boost_time_out_dialog">Our application has a restriction on sending a command to close applications running in the background - no more than once every 30 minutes, in order to avoid errors.\n \n Thanks for understanding</string>
 </resources>

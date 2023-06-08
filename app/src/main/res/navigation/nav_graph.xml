@@ -36,6 +36,9 @@
         <deepLink app:uri="myApp://Boost" />
     </fragment>
     <action
+        android:id="@+id/action_to_dialogTimeOut"
+        app:destination="@id/dialogTimeOut" />
+    <action
         android:id="@+id/action_homeFragment_to_boostOptimizingFragment"
         app:destination="@id/boostOptimizingFragment" />
     <action
@@ -102,4 +105,8 @@
         app:destination="@id/garbage_clean_graph" />
 
     <include app:graph="@navigation/garbage_clean_graph"/>
+    <dialog
+        android:id="@+id/dialogTimeOut"
+        android:name="com.smart.cleaner.phone.clean.ui.dialogs.DialogTimeOut"
+        android:label="DialogTimeOut" />
 </navigation>

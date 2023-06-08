@@ -345,6 +345,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_description" />
 
+    <FrameLayout
+        android:id="@+id/btn_go_to_time_out_dialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="-10dp"
+        app:layout_constraintStart_toStartOf="@id/tv_time_out"
+        app:layout_constraintEnd_toEndOf="@id/iv_information_logotype"
+        app:layout_constraintTop_toBottomOf="@id/btn_boost_battery"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <TextView
         android:id="@+id/tv_time_out"
         style="@style/Text.Regular.11"
@@ -374,6 +384,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="iv_information_logotype,
-        tv_time_out, boost_done, btn_boost_battery, description_optimize_btn" />
+        tv_time_out, boost_done, btn_boost_battery,
+        description_optimize_btn, btn_go_to_time_out_dialog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
