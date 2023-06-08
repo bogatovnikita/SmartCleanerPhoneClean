@@ -155,6 +155,9 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         binding.btnGoToTimeOutDialog.setOnClickListener {
             findNavController().navigate(R.id.action_to_dialogTimeOut)
         }
+        binding.btnGoToTimeOutDialogDuplicate.setOnClickListener {
+            findNavController().navigate(R.id.action_to_dialogTimeOut)
+        }
     }
 
     private fun checkPackageUsageStatePermission(): Boolean {

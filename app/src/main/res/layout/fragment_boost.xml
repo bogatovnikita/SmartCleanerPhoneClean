@@ -355,6 +355,15 @@
         app:layout_constraintTop_toBottomOf="@id/btn_boost_battery"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <FrameLayout
+        android:id="@+id/btn_go_to_time_out_dialog_duplicate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/btn_boost_battery"
+        app:layout_constraintEnd_toEndOf="@id/btn_boost_battery"
+        app:layout_constraintTop_toTopOf="@id/btn_boost_battery"
+        app:layout_constraintBottom_toBottomOf="@id/btn_boost_battery"/>
+
     <TextView
         android:id="@+id/tv_time_out"
         style="@style/Text.Regular.11"
