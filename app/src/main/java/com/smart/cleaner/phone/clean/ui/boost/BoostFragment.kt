@@ -104,7 +104,7 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     private fun renderState(state: BoostScreenState) {
         with(state) {
             setEnableBtn(state)
-            setVisibility(state)
+            setVisibility()
             setCountApp(state)
             setPermissionDescription(state)
             with(binding) {
@@ -116,22 +116,18 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun setEnableBtn(state: BoostScreenState) {
-        binding.btnBoostBattery.isClickable = !state.isRamBoosted
-        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
+        val isVisible = if (state.isRamBoosted) false else !state.isNothingToKill
+        binding.btnBoostBattery.isClickable = isVisible
+        binding.btnBoostBattery.isEnabled = isVisible
     }
 
-    private fun BoostScreenState.setVisibility(state: BoostScreenState) {
-        if (state.isRamBoosted) {
-            binding.boostDone.isVisible = isRamBoosted
-            binding.groupNotOptimized.isVisible = !isRamBoosted
-            binding.loaderGroup.isVisible = !isRamBoosted
-            binding.loadGroup.isVisible = !isRamBoosted
-        } else {
-            binding.loaderGroup.isVisible = !isLoadUseCase
-            binding.loadGroup.isVisible = isLoadUseCase
-            binding.loadGroupEmpty.isVisible = isLoadUseCase && isNothingToKill
-            binding.loadGroupNotEmpty.isVisible = isLoadUseCase && !isNothingToKill
-        }
+    private fun BoostScreenState.setVisibility() {
+        binding.groupBoosted.isVisible = isRamBoosted
+        binding.loaderGroup.isVisible = !isLoadUseCase && !isRamBoosted
+        if (isRamBoosted) return
+        binding.loadGroup.isVisible = isLoadUseCase
+        binding.loadGroupEmpty.isVisible = isLoadUseCase && isNothingToKill
+        binding.loadGroupNotEmpty.isVisible = isLoadUseCase && !isNothingToKill
     }
 
     private fun setCountApp(state: BoostScreenState) {

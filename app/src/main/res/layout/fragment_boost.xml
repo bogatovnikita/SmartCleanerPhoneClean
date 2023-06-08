@@ -133,13 +133,6 @@
         app:layout_constraintTop_toTopOf="@id/used_ram_tv"
         tools:text="@string/gb_one_after_dot" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_not_optimized"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="background_apps,text_apps,count_apps,count_description" />
-
     <View
         android:id="@+id/background_apps"
         android:layout_width="0dp"
@@ -176,6 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
         android:gravity="top"
+        android:text="0"
         android:textColor="@color/green"
         android:textSize="@dimen/_24ssp"
         android:visibility="visible"
@@ -183,8 +177,7 @@
         app:layout_constraintEnd_toStartOf="@id/text_apps_duplicate"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/background_apps"
-        app:layout_constraintTop_toTopOf="@id/background_apps"
-        android:text="0" />
+        app:layout_constraintTop_toTopOf="@id/background_apps" />
 
     <TextView
         android:id="@+id/text_apps"
@@ -215,11 +208,11 @@
         style="@style/Text.Regular.14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:gravity="center"
         android:text="@string/count_of_applications_running_in_the_background"
         android:textColor="@color/primary"
-        android:layout_marginHorizontal="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_apps" />
@@ -229,11 +222,11 @@
         style="@style/Text.Regular.14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:gravity="center"
         android:text="@string/count_of_applications_running"
         android:textColor="@color/primary"
-        android:layout_marginHorizontal="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_apps" />
@@ -351,5 +344,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background_description" />
+
+    <TextView
+        android:id="@+id/tv_time_out"
+        style="@style/Text.Regular.11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_information_logotype"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/btn_boost_battery"
+        app:layout_constraintTop_toBottomOf="@id/btn_boost_battery" />
+
+    <ImageView
+        android:id="@+id/iv_information_logotype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:background="@drawable/ic_information_logotype"
+        app:layout_constraintBottom_toBottomOf="@id/tv_time_out"
+        app:layout_constraintEnd_toEndOf="@id/btn_boost_battery"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/tv_time_out" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_boosted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="iv_information_logotype,
+        tv_time_out, boost_done, btn_boost_battery, description_optimize_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
