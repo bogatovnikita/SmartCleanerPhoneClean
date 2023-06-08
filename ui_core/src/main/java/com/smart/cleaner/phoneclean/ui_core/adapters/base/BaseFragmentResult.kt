@@ -1,16 +1,12 @@
 package com.smart.cleaner.phoneclean.ui_core.adapters.base
 
-import Const.DEEP_LINK_TO_BATTERY
-import Const.DEEP_LINK_TO_BOOST
-import Const.DEEP_LINK_TO_DUPLICATES
 import android.app.Dialog
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.smart.cleaner.phoneclean.ui_core.adapters.GetIdForNavigation
 import com.smart.cleaner.phoneclean.ui_core.adapters.ResultFunAdapter
 import com.smart.cleaner.phoneclean.ui_core.adapters.ResultList
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
@@ -38,10 +34,10 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
         val adapter = ResultFunAdapter(object : ResultFunAdapter.ClickOnFunResultListener {
             override fun onFunClick(item: FunResult) {
                 when (item.type) {
-                    OptimizingType.Boost -> navigateWithDeppLink(DEEP_LINK_TO_BOOST)
-                    OptimizingType.Clean -> {}
-                    OptimizingType.Duplicates -> navigateWithDeppLink(DEEP_LINK_TO_DUPLICATES)
-                    OptimizingType.Battery -> navigateWithDeppLink(DEEP_LINK_TO_BATTERY)
+                    OptimizingType.Boost -> (requireActivity() as GetIdForNavigation).openBoostMenu()
+                    OptimizingType.Clean -> (requireActivity() as GetIdForNavigation).openCleanMenu()
+                    OptimizingType.Duplicates -> (requireActivity() as GetIdForNavigation).openDuplicatesMenu()
+                    OptimizingType.Battery -> (requireActivity() as GetIdForNavigation).openBatteryMenu()
                 }
             }
 
@@ -50,10 +46,4 @@ abstract class BaseFragmentResult(layout: Int) : DialogFragment(layout) {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter.submitList(resultList.getList(typeResult))
     }
-
-    private fun navigateWithDeppLink(deepLink: String) {
-        val uri = Uri.parse(deepLink)
-        findNavController().navigate(uri)
-    }
-
 }

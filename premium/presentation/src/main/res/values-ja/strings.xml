@@ -14,4 +14,6 @@
     <string name="privacy_policy"><u>プライバシーポリシー</u></string>
     <string name="description_subscribe">このサブスクリプションは、エンターテインメントアプリケーションであらゆる種類の広告を無効にし、メールで書いた場合に電子メールで優先サービスを提供します。トライアルが終了した後、1か月のサブスクリプションに対して3.99ドル請求され、毎月3.99ドルで自動的に更新されます。サインアップすることにより、当社の契約条件とプライバシーポリシーに同意します。サブスクリプションをキャンセルする方法メニューで確認できます - 情報。</string>
     <string name="information">情報</string>
+    <string name="ok">OK</string>
+
 </resources>

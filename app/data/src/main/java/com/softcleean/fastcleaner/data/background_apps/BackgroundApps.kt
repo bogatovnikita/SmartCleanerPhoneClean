@@ -9,7 +9,6 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
 import com.softcleean.fastcleaner.domain.models.BackgroundApp
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class BackgroundApps @Inject constructor(private val context: Application) {
@@ -27,12 +26,25 @@ class BackgroundApps @Inject constructor(private val context: Application) {
     private fun getStats(): List<UsageStats> {
         val usageStatsManager =
             context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
-        val currentTime = System.currentTimeMillis()
-        return usageStatsManager.queryUsageStats(
-            UsageStatsManager.INTERVAL_DAILY,
-            currentTime - TimeUnit.MINUTES.toMillis(1),
-            currentTime
-        ) ?: listOf()
+        val endTime = System.currentTimeMillis()
+        val startTime = endTime - 15 * 60 * 1000
+
+        val usageStatsList =
+            usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime)
+        val appStatsList = mutableListOf<UsageStats>()
+        val appNamesSet = HashSet<String>()
+
+        for (usageStats in usageStatsList) {
+            val lastEventTime = usageStats.lastTimeUsed
+            if (endTime - lastEventTime < 5 * 60 * 1000) {
+                val appName = usageStats.packageName
+                if (!appNamesSet.contains(appName)) {
+                    appStatsList.add(usageStats)
+                    appNamesSet.add(appName)
+                }
+            }
+        }
+        return appStatsList
     }
 
     private fun getApp(it: UsageStats): BackgroundApp {
@@ -43,7 +55,7 @@ class BackgroundApps @Inject constructor(private val context: Application) {
                 icon = getIcon(it.packageName)
             )
         } catch (ex: Exception) {
-            BackgroundApp() // emptyApp
+            BackgroundApp()
         }
     }
 

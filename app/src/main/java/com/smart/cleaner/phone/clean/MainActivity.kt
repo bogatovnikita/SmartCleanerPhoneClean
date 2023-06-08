@@ -1,25 +1,24 @@
 package com.smart.cleaner.phone.clean
 
+import android.app.NotificationManager
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
 import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
+import com.smart.cleaner.phone.clean.receiver.AlarmManagerReceiver
 import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
+import com.smart.cleaner.phoneclean.ui_core.adapters.GetIdForNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
+class MainActivity : AppCompatActivity(R.layout.activity_main), GetIdForNavigation {
 
     @Inject
     lateinit var settings: Settings
@@ -36,15 +35,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
+        registerAlarmManagerAndCancelNotification()
 //        initAdsAndSubscription() //TODO реклама
-        initListeners()
-        initChangeDestinationListener()
+        initMenu()
+        initClickListenerMenu()
+//        testNav()
+    }
+
+    private fun registerAlarmManagerAndCancelNotification() {
+        val notificationManager =
+            this.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancel(123)
+        AlarmManagerReceiver(this).apply {
+            cancelAlarmManager()
+            startAlarmManager()
+        }
     }
 
 //    private fun initAdsAndSubscription() {
 //        initAds()
 //        emulateSubscription()//TODO убрать когда выйдет из беты
-//        checkSubscriptionAndShowTab(hasSubscription())
 //        if (hasSubscription()) {
 //            emulateSubscription()
 //        } else {
@@ -52,27 +62,38 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 //        }
 //    }
 
-    private fun checkSubscriptionAndShowTab(result: Boolean) {
-        binding.adsGroup.isVisible = !result
+    private fun initMenu() {
+        //TODO сделать проверку на рекламу и установить нужное меню
+        binding.bottomNavigationView.inflateMenu(R.menu.menu_without_ads)
+        binding.bottomNavigationView.itemIconTintList = null
     }
 
-
-    private fun initListeners() {
-        binding.btnBoost.setOnClickListener(this)
-        binding.btnClean.setOnClickListener(this)
-        binding.btnDuplicate.setOnClickListener(this)
-        binding.btnBattery.setOnClickListener(this)
-//        binding.btnPaywall.setOnClickListener(this) // TODO реклама
-    }
-
-    override fun onClick(view: View) {
-        renderNavBar(view.id)
-        when (view.id) {
-            R.id.btn_boost -> navigate(R.id.action_to_boostFragment)
-            R.id.btn_clean -> navigate(R.id.action_to_garbage_clean_graph)
-            R.id.btn_duplicate -> navigate(R.id.action_to_duplicates_graph)
-            R.id.btn_battery -> navigate(R.id.action_to_batteryFragment)
-//            R.id.btn_paywall -> navigate(R.id.action_to_premiumScreenFragment) // TODO реклама
+    private fun initClickListenerMenu() {
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.btn_boost -> {
+                    navigate(R.id.action_to_boostFragment)
+                    checkShowFirstLanguageDialog()
+                    true
+                }
+                R.id.btn_clean -> {
+                    navigate(R.id.action_to_garbage_clean_graph)
+                    true
+                }
+                R.id.btn_duplicate -> {
+                    navigate(R.id.action_to_duplicates_graph)
+                    true
+                }
+                R.id.btn_battery -> {
+                    navigate(R.id.action_to_batteryFragment)
+                    true
+                }
+//                R.id.btn_paywall -> {
+//                    navigate(R.id.action_to_premiumScreenFragment)
+//                    true
+//                } // TODO реклама
+                else -> false
+            }
         }
     }
 
@@ -83,33 +104,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         navController.navigate(navigateId)
     }
 
-    private fun initChangeDestinationListener() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.boostFragment -> {
-                    renderNavBar(binding.btnBoost.id, binding.titleBoost.id)
-                    checkShowFirstLanguageDialog()
-                }
-                R.id.batteryFragment -> renderNavBar(binding.btnBattery.id, binding.titleBattery.id)
-//                R.id.premiumScreenFragment -> renderNavBar(binding.btnPaywall.id) // TODO реклама
-                com.smart.cleaner.phoneclean.presentation.R.id.duplicateImagesFragment,
-                com.smart.cleaner.phoneclean.presentation.R.id.duplicateFilesFragment -> renderNavBar(
-                    binding.btnDuplicate.id,
-                    binding.titleDuplicate.id
-                )
-                yin_kio.garbage_clean.presentation.R.id.garbageFilesFragment -> {
-                    renderNavBar(
-                        binding.btnClean.id,
-                        binding.titleClean.id
-                    )
-                }
-            }
-        }
-    }
-
     private fun checkShowFirstLanguageDialog() {
         if (settings.getFirstLaunch() && language.checkLanguage()) {
             ShowStartLanguageDialog().show(supportFragmentManager, "")
@@ -117,64 +111,20 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
         }
     }
 
-    private fun renderNavBar(currentDestination: Int, currentTitleDestination: Int? = null) {
-        val listButton =
-            listOf(
-                binding.btnBoost,
-                binding.btnClean,
-                binding.btnDuplicate,
-                binding.btnBattery,
-//                binding.btnPaywall // TODO реклама
-            )
-        listButton.forEach { image ->
-            image.setImageDrawable(
-                AppCompatResources.getDrawable(
-                    this,
-                    iconId(image.id, currentDestination)
-                )
-            )
-        }
-        if (currentTitleDestination != null) renderTextColor(currentTitleDestination)
+    override fun openBoostMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_boost
     }
 
-    private fun renderTextColor(currentTitleDestination: Int) {
-        val titleList = listOf(
-            binding.titleBoost,
-            binding.titleClean,
-            binding.titleDuplicate,
-            binding.titleBattery,
-//            binding.titlePaywall // TODO реклама
-        )
-        titleList.forEach {
-            if (currentTitleDestination == it.id) {
-                it.setTextColor(ContextCompat.getColor(this, general.R.color.primary))
-            } else {
-                it.setTextColor(ContextCompat.getColor(this, general.R.color.grey_light))
-            }
-        }
+    override fun openCleanMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_clean
     }
 
-    private fun iconId(destination: Int, currentDestination: Int): Int {
-        val isActive = destination == currentDestination
-        return if (isActive) {
-            when (destination) {
-                R.id.btn_boost -> general.R.drawable.ic_boost_danger
-                R.id.btn_clean -> general.R.drawable.ic_clean_danger
-                R.id.btn_duplicate -> general.R.drawable.ic_duplicate_danger
-                R.id.btn_battery -> general.R.drawable.ic_battery_danger
-//                R.id.btn_paywall -> R.drawable.ic_paywall_off // TODO реклама
-                else -> general.R.drawable.ic_clean_danger
-            }
-        } else {
-
-            when (destination) {
-                R.id.btn_boost -> R.drawable.ic_grey_light_bulb
-                R.id.btn_clean -> R.drawable.ic_grey_trash
-                R.id.btn_duplicate -> R.drawable.ic_grey_duplicate
-                R.id.btn_battery -> R.drawable.ic_grey_battery
-//                R.id.btn_paywall -> R.drawable.ic_paywall_off // TODO реклама
-                else -> R.drawable.ic_grey_light_bulb
-            }
-        }
+    override fun openDuplicatesMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_duplicate
     }
+
+    override fun openBatteryMenu() {
+        binding.bottomNavigationView.selectedItemId = R.id.btn_battery
+    }
+
 }

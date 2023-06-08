@@ -17,7 +17,7 @@
     <string name="energy">Энергия</string>
     <string name="ram">Общий объем оперативной памяти</string>
     <string name="settings">Настройка</string>
-    <string name="fun_battery">Экономия заряда батареи</string>
+    <string name="fun_battery">Экономия энергии</string>
     <string name="get_permission">Нам нужно разрешение</string>
     <string name="duplicate">Дубликаты</string>
     <string name="extra_mode_activated">Активирован дополнительный режим</string>
@@ -33,7 +33,6 @@
     <string name="clean_done">Удалены мусорные файлы.</string>
     <string name="battery_unboosted">Необходимо увеличить время работы телефона!</string>
     <string name="type_description_ultra">Ультрарежим активирует ограничения:</string>
-    <string name="dialog_write_setting_description">Нам нужно разрешение на изменение системных настроек, чтобы увеличить время работы вашего устройства</string>
     <string name="ram_usage">Использование оперативной памяти</string>
     <string name="extra">Extra</string>
     <string name="ram_unboosted">Рекомендуется оптимизация</string>
@@ -47,9 +46,7 @@
     <string name="normal">Normal</string>
     <string name="send_command_to_close_applications_running_in_the_background">Отправка команды на закрытие приложений, работающих в фоновом режиме</string>
     <string name="boost_description">Закрытие приложений, работающих в фоновом режиме, для освобождения памяти на вашем устройстве</string>
-    <string name="title_dialog_bluetooth">Для работы в режиме Extra необходим доступ к настройкам bluetooth</string>
     <string name="clean">Очистка</string>
-    <string name="dialog_bluetooth_description">Разрешите приложению доступ к настройкам bluetooth, чтобы увеличить время работы от батареи</string>
     <string name="btn_continue">Далее</string>
     <string name="description_start_first_language_dialog">Язык вашего устройства не поддерживается нашим приложением, по умолчанию установлен английский.\n\nВы можете изменить язык прямо в приложении.</string>
     <string name="privacy_policy"><u>Политика конфиденциальности</u></string>
@@ -74,4 +71,15 @@
     <array name="battery_normal">
         <item>Снижение яркости на 70%</item>
     </array>
+    <string name="dialog_write_setting_description">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
+    <string name="please_wait_the_download_is_in_progress">Загрузка</string>
+    <string name="title_dialog_bluetooth">Дополнительный режим требует доступа</string>
+    <string name="dialog_bluetooth_description">Нашему приложению требуется доступ к настройкам Bluetooth для дополнительного режима</string>
+
+    <string name="check_recommended">Рекомендуется проверить!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Проверьте свое устройство на наличие ненужных файлов и открывайте приложения в фоновом режиме</string>
+    <string name="let_s_go">Открыть</string>
+
+    <string name="activate">Активировать</string>
+    <string name="activation">Активация…</string>
 </resources>

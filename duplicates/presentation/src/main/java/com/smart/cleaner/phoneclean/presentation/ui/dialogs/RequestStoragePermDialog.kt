@@ -61,14 +61,26 @@ class RequestStoragePermDialog : DialogFragment(R.layout.fragment_request_storag
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             requestThroughSettings(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
         } else {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ),
-                1111
-            )
+            val readPermission = Manifest.permission.READ_EXTERNAL_STORAGE
+            val writePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE
+
+            if (shouldShowRequestPermissionRationale(readPermission) ||
+                shouldShowRequestPermissionRationale(writePermission)
+            ) {
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                val uri = Uri.fromParts("package", requireContext().packageName, null)
+                intent.data = uri
+                startActivity(intent)
+            } else {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(
+                        readPermission,
+                        writePermission
+                    ),
+                    1111
+                )
+            }
         }
     }
 

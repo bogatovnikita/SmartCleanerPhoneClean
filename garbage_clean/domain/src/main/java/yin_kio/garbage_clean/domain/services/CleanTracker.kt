@@ -7,7 +7,7 @@ internal class CleanTracker(
     private val cleanTime: CleanTime
 ) {
 
-    val wasClean: Boolean get() {
+    val isCleaned: Boolean get() {
         val delta = System.currentTimeMillis() - cleanTime.getLastCleanTime()
         return delta < TimeUnit.DAYS.toMillis(1)
     }

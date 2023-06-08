@@ -26,7 +26,7 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="@dimen/_150sdp"
+        app:cardCornerRadius="@dimen/_24sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,29 +67,37 @@
         app:layout_constraintTop_toBottomOf="@id/title_name"
         tools:text="@string/version_code_S" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_for_links"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.73" />
+
     <TextView
         android:id="@+id/cancel_subscription"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
-        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center"
         android:text="@string/how_to_cancel_subscription"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/terms_and_conditions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/version_code" />
+        app:layout_constraintTop_toBottomOf="@id/guideline_for_links"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/terms_and_conditions"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
+        android:layout_marginTop="@dimen/_16sdp"
         android:text="@string/terms_conditions"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/privacy_policy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cancel_subscription" />
@@ -97,12 +105,13 @@
     <TextView
         android:id="@+id/privacy_policy"
         style="@style/Text.Medium.16"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
         android:text="@string/privacy_policy_not_U"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/terms_and_conditions" />

@@ -17,7 +17,7 @@
     <string name="energy">Énergie</string>
     <string name="ram">Quantité totale de RAM</string>
     <string name="settings">Paramètre</string>
-    <string name="fun_battery">Économiseur de batterie</string>
+    <string name="fun_battery">Économiseur d`énergie</string>
     <string name="get_permission">Nous avons besoin de permission</string>
     <string name="duplicate">Dupliquer</string>
     <string name="extra_mode_activated">Mode supplémentaire activé</string>
@@ -33,7 +33,6 @@
     <string name="clean_done">Fichiers à ordures supprimés.</string>
     <string name="battery_unboosted">Vous devez augmenter le temps de travail du téléphone!</string>
     <string name="type_description_ultra">Le mode ultra active les restrictions:</string>
-    <string name="dialog_write_setting_description">Nous avons besoin de l\'autorisation pour modifier les paramètres du système afin que nous puissions augmenter le temps de fonctionnement de votre appareil</string>
     <string name="ram_usage">Utilisation de la RAM</string>
     <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">L\'optimisation est recommandée</string>
@@ -47,9 +46,7 @@
     <string name="normal">Normal\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Envoyer la commande pour fermer les applications en cours d\'exécution</string>
     <string name="boost_description">Fermer les applications en arrière-plan pour libérer de la mémoire sur votre appareil</string>
-    <string name="title_dialog_bluetooth">Pour le mode supplémentaire, vous avez besoin d\'accéder aux paramètres Bluetooth</string>
     <string name="clean">Nettoyer</string>
-    <string name="dialog_bluetooth_description">Permettez à l\'application d\'accéder aux paramètres Bluetooth pour augmenter la durée de vie de la batterie</string>
     <string name="btn_continue">Suivant</string>
     <string name="description_start_first_language_dialog">La langue de votre appareil n\'est pas prise en charge par notre application, l\'anglais est défini par défaut.</string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
@@ -74,4 +71,15 @@
     <array name="battery_normal">
         <item>Réduit la luminosité de 70%</item>
     </array>
+    <string name="dialog_write_setting_description">Notre application nécessite des autorisations pour que vous puissiez choisir le mode d\'économie d\'énergie</string>
+    <string name="please_wait_the_download_is_in_progress">Chargement</string>
+    <string name="title_dialog_bluetooth">Le mode supplémentaire nécessite un accès</string>
+    <string name="dialog_bluetooth_description">Notre application nécessite l\'accès aux paramètres Bluetooth pour le mode Supplémentaire</string>
+
+    <string name="check_recommended">Chèque recommandé!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Recherchez les fichiers indésirables sur votre appareil et ouvrez des applications en arrière-plan</string>
+    <string name="let_s_go">Allons-y</string>
+
+    <string name="activate">Activer</string>
+    <string name="activation">Activation…</string>
 </resources>

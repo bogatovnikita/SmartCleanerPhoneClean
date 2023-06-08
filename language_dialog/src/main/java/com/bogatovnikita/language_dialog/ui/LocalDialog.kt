@@ -39,6 +39,9 @@ class LocalDialog : DialogFragment(R.layout.dialog_local) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initLocales()
+        binding.btnCancelDialog.setOnClickListener {
+            dismiss()
+        }
     }
 
     private fun initLocales() {

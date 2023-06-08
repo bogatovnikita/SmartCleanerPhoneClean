@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/head_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_toEndOf="@id/icon"
+        android:fontFamily="@font/heraclito_medium"
+        android:text="@string/check_recommended"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp" />
+
+    <TextView
+        android:textSize="@dimen/_10ssp"
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/head_title"
+        android:layout_alignStart="@id/head_title"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:fontFamily="@font/heraclito_regular"
+        android:text="@string/check_your_device_for_junk_files_and_open_apps_in_the_background"
+        android:textColor="@color/grey" />
+
+    <Button
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/btn_open_app"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_below="@id/description"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/bg_main_button"
+        android:text="@string/let_s_go"
+        android:textAppearance="@style/Text.Regular.12"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

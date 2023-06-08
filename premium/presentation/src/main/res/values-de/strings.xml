@@ -14,4 +14,6 @@
     <string name="privacy_policy"><u> Datenschutzrichtlinie </u></string>
     <string name="description_subscribe">Dieses Abonnement deaktiviert alle Arten von Werbung in unserer Unterhaltungsanwendung und bietet auch Priority Service per E -Mail, wenn Sie uns per Post schreiben. Nach dem Ende des Tests werden Ihnen 3,99 US-Dollar für ein 1-Monats-Abonnement in Rechnung gestellt, das automatisch für 3,99 USD pro Monat verlängert wird. Durch die Anmeldung stimmen Sie unseren Allgemeinen Geschäftsbedingungen und Datenschutzrichtlinien zu. So stornieren Sie ein Abonnement, Sie finden es im Menü - Informationen.</string>
     <string name="information">Information</string>
+    <string name="ok">OK</string>
+
 </resources>

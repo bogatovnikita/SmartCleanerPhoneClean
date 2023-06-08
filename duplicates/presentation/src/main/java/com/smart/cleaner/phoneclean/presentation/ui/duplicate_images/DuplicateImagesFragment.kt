@@ -17,10 +17,15 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentImageItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateImagesBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicates_files.DuplicateFilesViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.models.ImagesStateScreen
+import com.smart.cleaner.phoneclean.settings.Settings
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
+
+    @Inject
+    lateinit var settings: Settings
 
     private val imageViewModel: DuplicateImagesViewModel by activityViewModels()
 
@@ -90,6 +95,7 @@ class DuplicateImagesFragment : Fragment(R.layout.fragment_duplicate_images) {
     }
 
     private fun navigate(event: ImagesStateScreen.ImageEvent) {
+        if (settings.getOpenInformationDialog()) return
         when (event) {
             is ImagesStateScreen.ImageEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_requestStoragePermDialog)
             is ImagesStateScreen.ImageEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)

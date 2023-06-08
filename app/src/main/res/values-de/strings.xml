@@ -17,7 +17,7 @@
     <string name="energy">Energie</string>
     <string name="ram">Gesamtmenge an RAM</string>
     <string name="settings">Einstellung</string>
-    <string name="fun_battery">Batteriesparer</string>
+    <string name="fun_battery">Energiesparer</string>
     <string name="get_permission">Wir brauchen Erlaubnis</string>
     <string name="duplicate">Duplikat</string>
     <string name="extra_mode_activated">Zusätzlicher Modus aktiviert</string>
@@ -33,7 +33,6 @@
     <string name="clean_done">Mülldateien gelöscht.</string>
     <string name="battery_unboosted">Sie müssen die Arbeitszeit des Telefons erhöhen!</string>
     <string name="type_description_ultra">Der Ultra -Modus aktiviert Einschränkungen:</string>
-    <string name="dialog_write_setting_description">Wir benötigen die Erlaubnis, die Systemeinstellungen zu ändern, damit wir die Betriebszeit Ihres Geräts erhöhen können</string>
     <string name="ram_usage">RAM -Nutzung</string>
     <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">Die Optimierung wird empfohlen</string>
@@ -47,9 +46,7 @@
     <string name="normal">Normal\nmode</string>
     <string name="send_command_to_close_applications_running_in_the_background">Befehl senden, um Anwendungen zu schließen, die im Hintergrund ausgeführt werden</string>
     <string name="boost_description">Schließen Sie Apps, die im Hintergrund ausgeführt werden, um den Speicher auf Ihrem Gerät freizugeben</string>
-    <string name="title_dialog_bluetooth">Für den zusätzlichen Modus benötigen Sie Zugriff auf die Bluetooth -Einstellungen</string>
     <string name="clean">Aufräumen</string>
-    <string name="dialog_bluetooth_description">Ermöglichen Sie der App, auf Bluetooth -Einstellungen zuzugreifen, um die Akkulaufzeit zu steigern</string>
     <string name="btn_continue">Nächste</string>
     <string name="description_start_first_language_dialog">Die Sprache Ihres Geräts wird nicht von unserer Anwendung unterstützt. Das Englisch wird standardmäßig festgelegt.</string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
@@ -74,4 +71,15 @@
     <array name="battery_normal">
         <item>Reduziert die Helligkeit um 70%</item>
     </array>
+    <string name="dialog_write_setting_description">Unsere Anwendung benötigt Berechtigungen, damit Sie den Modus zum Energiesparen auswählen können</string>
+    <string name="please_wait_the_download_is_in_progress">Laden</string>
+    <string name="title_dialog_bluetooth">Zusätzlicher Modus erfordert Zugriff</string>
+    <string name="dialog_bluetooth_description">Unsere Anwendung benötigt Zugriff auf Bluetooth-Einstellungen für den Extra-Modus</string>
+
+    <string name="check_recommended">Check empfohlen!</string>
+    <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Überprüfen Sie Ihr Gerät auf Junk-Dateien und öffnen Sie Apps im Hintergrund</string>
+    <string name="let_s_go">Lass uns gehen</string>
+
+    <string name="activate">Aktivieren</string>
+    <string name="activation">Aktivierung…</string>
 </resources>

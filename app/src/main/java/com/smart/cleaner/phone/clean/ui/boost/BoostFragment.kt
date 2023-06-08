@@ -5,6 +5,7 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Process
@@ -20,15 +21,20 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phone.clean.databinding.FragmentBoostBinding
+import com.smart.cleaner.phone.clean.ui.boost.BoostResultFragment.Companion.BOOST_FRAGMENT_KEY
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE_KEY
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.RESULT_USAGE_STATE_SUCCESS
 import com.smart.cleaner.phone.clean.ui.dialogs.DialogRequestUsageState.Companion.TAG_USAGE_STATE
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class BoostFragment : Fragment(R.layout.fragment_boost) {
+
+    @Inject
+    lateinit var settings: com.smart.cleaner.phoneclean.settings.Settings
 
     private val binding: FragmentBoostBinding by viewBinding()
 
@@ -47,9 +53,16 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        callBackCloseDialog()
         setOnDialogCallback()
         initScreenStateObserver()
         setBtnListeners()
+    }
+
+    private fun callBackCloseDialog() {
+        parentFragmentManager.setFragmentResultListener(BOOST_FRAGMENT_KEY, this) { _, _ ->
+            viewModel.getParams()
+        }
     }
 
     private fun setOnDialogCallback() {
@@ -61,10 +74,18 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun requestUsageStatePermission() {
-        startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+        val packageUri = Uri.parse("package:" + requireActivity().packageName)
+        intent.data = packageUri
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivityForResultUsageState.launch(intent)
+        } else {
+            startActivityForResultUsageState.launch(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+        }
     }
 
     private fun checkPermission() {
+        if (settings.getOpenInformationDialog()) return
         if (checkPackageUsageStatePermission()) {
             viewModel.setUsageStatePermission(checkPackageUsageStatePermission())
         } else {
@@ -94,6 +115,11 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
         }
     }
 
+    private fun setEnableBtn(state: BoostScreenState) {
+        binding.btnBoostBattery.isClickable = !state.isRamBoosted
+        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
+    }
+
     private fun BoostScreenState.setVisibility(state: BoostScreenState) {
         if (state.isRamBoosted) {
             binding.boostDone.isVisible = isRamBoosted
@@ -117,11 +143,6 @@ class BoostFragment : Fragment(R.layout.fragment_boost) {
     }
 
     private fun getPhoneModel() = Build.MANUFACTURER.toString() + " " + Build.MODEL.toString()
-
-    private fun setEnableBtn(state: BoostScreenState) {
-        binding.btnBoostBattery.isClickable = !state.isRamBoosted
-        binding.btnBoostBattery.isEnabled = !state.isRamBoosted
-    }
 
     private fun setPermissionDescription(state: BoostScreenState) {
         binding.permissionRequired.isVisible = !state.isPermissionGiven

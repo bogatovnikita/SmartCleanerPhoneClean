@@ -14,4 +14,6 @@
     <string name="privacy_policy"><u>Informativa sulla privacy</u></string>
     <string name="description_subscribe">Questa abbonamento disabilita tutti i tipi di pubblicità nella nostra applicazione di intrattenimento e fornisce anche un servizio prioritario via e -mail se ci scrivi per posta. Dopo la fine della prova, ti verrà fatturato $ 3,99 per un abbonamento a 1 mese, che verrà automaticamente rinnovato per $ 3,99 ogni mese. Iscrivendosi, accetti i nostri termini e condizioni e politica sulla privacy. Come annullare un abbonamento, è possibile scoprire nel menu - informazioni.</string>
     <string name="information">Informazione</string>
+    <string name="ok">OK</string>
+
 </resources>

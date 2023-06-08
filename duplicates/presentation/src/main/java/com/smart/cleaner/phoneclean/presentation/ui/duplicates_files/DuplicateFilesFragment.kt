@@ -18,10 +18,15 @@ import com.smart.cleaner.phoneclean.presentation.adapters.models.ParentFileItem
 import com.smart.cleaner.phoneclean.presentation.databinding.FragmentDuplicateFilesBinding
 import com.smart.cleaner.phoneclean.presentation.ui.duplicate_images.DuplicateImagesViewModel
 import com.smart.cleaner.phoneclean.presentation.ui.models.FilesStateScreen
+import com.smart.cleaner.phoneclean.settings.Settings
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
+
+    @Inject
+    lateinit var settings: Settings
 
     private val binding: FragmentDuplicateFilesBinding by viewBinding()
 
@@ -69,9 +74,12 @@ class DuplicateFilesFragment : Fragment(R.layout.fragment_duplicate_files) {
     }
 
     private fun navigate(event: FilesStateScreen.FileEvent) {
+        if (settings.getOpenInformationDialog()) return
         when (event) {
             is FilesStateScreen.FileEvent.OpenPermissionDialog -> findNavController().navigate(R.id.action_to_requestStoragePermDialog)
-            is FilesStateScreen.FileEvent.OpenConfirmationDialog -> findNavController().navigate(R.id.action_to_deletionRequestDialog)
+            is FilesStateScreen.FileEvent.OpenConfirmationDialog -> findNavController().navigate(
+                R.id.action_to_deletionRequestDialog
+            )
             is FilesStateScreen.FileEvent.OpenDuplicatesImages -> findNavController().navigate(R.id.action_to_duplicateImagesFragment)
             else -> {}
         }

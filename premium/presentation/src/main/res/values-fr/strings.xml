@@ -14,4 +14,6 @@
     <string name="privacy_policy"><u> Politique de confidentialité </u></string>
     <string name="description_subscribe">Cet abonnement désactive tous les types de publicité dans notre application de divertissement et donne également un service prioritaire par e-mail si vous nous écrivez par courrier. Après la fin de l\'essai, vous serez facturé 3,99 $ pour un abonnement à 1 mois, qui sera automatiquement renouvelé pour 3,99 $ chaque mois. En vous inscrivant, vous acceptez nos conditions générales et nos politiques de confidentialité. Comment annuler un abonnement, vous pouvez le découvrir dans le menu - Informations.</string>
     <string name="information">Information</string>
+    <string name="ok">D\'ACCORD</string>
+
 </resources>

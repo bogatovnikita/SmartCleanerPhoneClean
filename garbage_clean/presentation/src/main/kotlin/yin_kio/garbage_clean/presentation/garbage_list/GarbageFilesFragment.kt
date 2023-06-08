@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -42,20 +41,20 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     ){
         if (it[Manifest.permission.READ_EXTERNAL_STORAGE]!!
             && it[Manifest.permission.WRITE_EXTERNAL_STORAGE]!!){
-            viewModel.scanOrClean()
+            viewModel.start()
         }
     }
 
     private val adapter = GarbageAdapter(
-        onItemUpdate = {a, b, c -> viewModel.updateItemSelection(a, b, c)},
-        onGroupUpdate = {a, b,-> viewModel.updateGroupSelection(a, b)},
-        onGroupClick = {a,b -> viewModel.switchGroupSelection(a, b)},
-        onItemClick = {a,b,c -> viewModel.switchItemSelection(a, b, c)}
+        onItemUpdate = {garbageType, file, checkable -> viewModel.updateItemSelection(garbageType, file, checkable)},
+        onGroupUpdate = {garbageType, checkable,-> viewModel.updateGroupSelection(garbageType, checkable)},
+        onGroupClick = {garbageType,checkable -> viewModel.switchGroupSelection(garbageType, checkable)},
+        onItemClick = {garbageType,file,checkable -> viewModel.switchItemSelection(garbageType, file, checkable)}
     )
 
     override fun onStart() {
         super.onStart()
-        viewModel.checkPermissionAndLanguage()
+        viewModel.updateLanguage()
     }
 
 
@@ -63,7 +62,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         binding.recycler.adapter = adapter
 
-        binding.button.setOnClickListener { viewModel.scanOrClean() }
+        binding.button.setOnClickListener { viewModel.start() }
 
         setupStateObserver()
         setupCommandsObserver()
@@ -76,15 +75,18 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 binding.apply {
-                    size.text = it.size
+                    size.text = it.sizeText
                     button.text = it.buttonText
                     permissionRequired.isInvisible = !it.isShowPermissionRequired
                     button.alpha = it.buttonOpacity
                     message.text = it.message
+
                     message.setTextColor(it.messageColor)
                     size.setTextColor(it.sizeMessageColor)
                     sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
+
                     adapter.onExpandListenerEnabled = it.isExpandEnabled
+                    infoPlate.isInvisible = !it.isInfoVisible
                 }
 
                 adapter.garbage = it.garbageGroups
@@ -178,14 +180,12 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val viewModel = ViewModel(
             useCases = useCases,
-            coroutineScope = viewModelScope,
-            presenter = presenter
+            coroutineScope = viewModelScope
         )
 
         uiOuter.viewModel = viewModel
 
 
-        viewModel.update()
 
         return viewModel
     }

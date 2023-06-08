@@ -26,6 +26,8 @@ class GarbageViewHolder private constructor(
         onUpdate(garbage.type, checkboxWrapper)
 
         binding.name.text = garbage.name
+        binding.description.text = garbage.description
+        binding.description.isVisible = garbage.description.isNotEmpty()
         binding.root.alpha = garbage.alpha
 
         binding.progress.isVisible = garbage.isInProgress
