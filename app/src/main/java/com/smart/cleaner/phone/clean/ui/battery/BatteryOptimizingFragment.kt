@@ -1,7 +1,6 @@
 package com.smart.cleaner.phone.clean.ui.battery
 
 import android.os.Build
-import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
@@ -9,8 +8,6 @@ import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.smart.cleaner.phone.clean.custom.ChoosingTypeBatteryBar
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -50,15 +47,6 @@ class BatteryOptimizingFragment(
                 batteryUseCase.disableBluetooth()
                 batteryUseCase.disableWiFi()
             }
-        }
-    }
-
-    private fun killBackgroundProcess() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            batteryUseCase.killBackgroundProcessInstalledApps()
-        }
-        lifecycleScope.launch(Dispatchers.IO) {
-            batteryUseCase.killBackgroundProcessSystemApps()
         }
     }
 

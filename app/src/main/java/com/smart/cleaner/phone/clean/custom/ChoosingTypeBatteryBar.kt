@@ -52,7 +52,7 @@ class ChoosingTypeBatteryBar @JvmOverloads constructor(
     }
 
 
-    fun setSaveTypeBattery(type: String) {
+    fun setTypeBattery(type: String) {
         with(_binding) {
             when (type) {
                 NORMAL -> {

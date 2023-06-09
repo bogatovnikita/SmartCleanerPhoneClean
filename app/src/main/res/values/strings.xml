@@ -79,6 +79,7 @@
     <string name="type_description_normal">Normal mode actions:</string>
     <string name="type_description_ultra">Ultra mode actions:</string>
     <string name="type_description_extra">Extra mode actions:</string>
+    <string name="set_brightness_to_80">Set brightness to 80%</string>
 
     <array name="battery_normal">
         <item>Sets brightness to 30%</item>

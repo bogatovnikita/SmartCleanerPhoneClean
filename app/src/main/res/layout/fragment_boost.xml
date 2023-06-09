@@ -170,7 +170,7 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:gravity="top"
         android:text="0"
-        android:textColor="@color/green"
+        android:textColor="@color/secondary"
         android:textSize="@dimen/_24ssp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/background_apps"
