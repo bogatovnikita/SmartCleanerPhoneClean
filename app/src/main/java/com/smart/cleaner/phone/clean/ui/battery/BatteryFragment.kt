@@ -183,9 +183,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             ULTRA -> {
                 renderTypeStatus(R.array.battery_ultra, R.string.type_description_ultra)
                 binding.descriptionGoSettings.isVisible = false
+                showDialogOrRequestBLEPermission()
             }
             EXTRA -> {
-                renderTypeStatus(R.array.battery_extra, R.string.type_description_extra)
+                val array =
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) R.array.battery_extra_manually else R.array.battery_extra
+                renderTypeStatus(array, R.string.type_description_extra)
                 showDialogOrRequestBLEPermission()
             }
         }

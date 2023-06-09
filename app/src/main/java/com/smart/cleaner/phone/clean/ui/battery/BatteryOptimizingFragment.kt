@@ -1,5 +1,6 @@
 package com.smart.cleaner.phone.clean.ui.battery
 
+import android.os.Build
 import androidx.lifecycle.lifecycleScope
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
@@ -24,7 +25,13 @@ class BatteryOptimizingFragment(
         listOptions = when (batteryUseCase.getBatteryType()) {
             ChoosingTypeBatteryBar.NORMAL -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_normal))
             ChoosingTypeBatteryBar.ULTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_ultra))
-            ChoosingTypeBatteryBar.EXTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra))
+            ChoosingTypeBatteryBar.EXTRA -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra_without_wifi))
+                } else {
+                    toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra))
+                }
+            }
             else -> mutableListOf()
         }
     }
@@ -36,13 +43,12 @@ class BatteryOptimizingFragment(
             }
             ChoosingTypeBatteryBar.ULTRA -> {
                 batteryUseCase.setScreenBrightness(51)
-                killBackgroundProcess()
+                batteryUseCase.disableBluetooth()
             }
             ChoosingTypeBatteryBar.EXTRA -> {
                 batteryUseCase.setScreenBrightness(26)
-                batteryUseCase.disableWiFi()
                 batteryUseCase.disableBluetooth()
-                killBackgroundProcess()
+                batteryUseCase.disableWiFi()
             }
         }
     }
