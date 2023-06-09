@@ -279,7 +279,7 @@
         android:id="@+id/load_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="background_apps,
         permission_required, btn_boost_battery,description_optimize_btn" />
 
@@ -287,7 +287,7 @@
         android:id="@+id/load_group_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="text_apps_duplicate,
         count_apps_empty, count_description_empty_apps" />
 
