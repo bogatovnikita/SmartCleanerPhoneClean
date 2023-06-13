@@ -72,7 +72,7 @@
     <string name="please_wait">Comprobación…</string>
     <string name="count_of_applications_running">Recuento de aplicaciones que se ejecutan en segundo plano (según la información del sistema)</string>
     <string name="time_out">Tiempo fuera</string>
-    <string name="boost_time_out_dialog">Nuestra aplicación tiene una restricción para enviar un comando para cerrar aplicaciones que se ejecutan en segundo plano, no más de una vez cada 30 minutos, para evitar errores.\ n \ n Gracias por su comprensión</string>
+    <string name="boost_time_out_dialog">Nuestra aplicación tiene una restricción para enviar un comando para cerrar aplicaciones que se ejecutan en segundo plano, no más de una vez cada 30 minutos, para evitar errores.\n \n Gracias por su comprensión</string>
     <string name="type_description_normal">Acciones de modo normal:</string>
     <string name="type_description_ultra">Acciones en modo ultra:</string>
     <string name="type_description_extra">Acciones de modo extra:</string>

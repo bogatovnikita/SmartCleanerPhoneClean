@@ -71,7 +71,7 @@
     <string name="please_wait">Überprüfung…</string>
     <string name="count_of_applications_running">Anzahl der Anwendungen, die im Hintergrund ausgeführt werden (gemäß Informationen aus dem System)</string>
     <string name="time_out">Auszeit</string>
-    <string name="boost_time_out_dialog">Unsere Anwendung hat eine Einschränkung beim Senden eines Befehls zum Schließen von Anwendungen, die im Hintergrund ausgeführt werden - höchstens einmal alle 30 Minuten, um Fehler zu vermeiden.\n \ n Danke für Ihr Verständnis</string>
+    <string name="boost_time_out_dialog">Unsere Anwendung hat eine Einschränkung beim Senden eines Befehls zum Schließen von Anwendungen, die im Hintergrund ausgeführt werden - höchstens einmal alle 30 Minuten, um Fehler zu vermeiden.\n \n Danke für Ihr Verständnis</string>
     <string name="type_description_normal">Aktionen im normalen Modus:</string>
     <string name="type_description_ultra">Ultra-Modus-Aktionen:</string>
     <string name="type_description_extra">Extra-Modus-Aktionen:</string>

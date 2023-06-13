@@ -73,7 +73,7 @@
     <string name="please_wait">Vérification…</string>
     <string name="count_of_applications_running">Nombre d`applications exécutées en arrière-plan (selon les informations du système)</string>
     <string name="time_out">Temps mort</string>
-    <string name="boost_time_out_dialog">Notre application a une restriction sur l`envoi d`une commande pour fermer les applications exécutées en arrière - plan-pas plus d`une fois toutes les 30 minutes, afin d`éviter les erreurs.\ n \ n Merci de votre compréhension</string>
+    <string name="boost_time_out_dialog">Notre application a une restriction sur l`envoi d`une commande pour fermer les applications exécutées en arrière - plan-pas plus d`une fois toutes les 30 minutes, afin d`éviter les erreurs.\n \n Merci de votre compréhension</string>
     <string name="type_description_normal">Actions en mode normal:</string>
     <string name="type_description_ultra">Actions du mode Ultra:</string>
     <string name="type_description_extra">Actions supplémentaires en mode:</string>

@@ -72,7 +72,7 @@
     <string name="please_wait">Verificare…</string>
     <string name="count_of_applications_running">Conteggio delle applicazioni in esecuzione in background (in base alle informazioni del sistema)</string>
     <string name="time_out">Time out</string>
-    <string name="boost_time_out_dialog">La nostra applicazione ha una restrizione sull`invio di un comando per chiudere le applicazioni in esecuzione in background - non più di una volta ogni 30 minuti, al fine di evitare errori.\n \ n Grazie per la comprensione</string>
+    <string name="boost_time_out_dialog">La nostra applicazione ha una restrizione sull`invio di un comando per chiudere le applicazioni in esecuzione in background - non più di una volta ogni 30 minuti, al fine di evitare errori.\n \n Grazie per la comprensione</string>
     <string name="type_description_normal">Azioni in modalità normale:</string>
     <string name="type_description_ultra">Azioni modalità Ultra:</string>
     <string name="type_description_extra">Azioni modalità extra:</string>
