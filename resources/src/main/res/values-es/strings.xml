@@ -10,4 +10,6 @@
     <string name="battery_title">Ahorrador de energía</string>
     <string name="permission_required">Se requiere permiso</string>
     <string name="done">Hecho</string>
+    <string name="junk_clean_title">Limpiador de basura</string>
+    <string name="junk_clean_desc">Eliminar el exceso de basura</string>
 </resources>

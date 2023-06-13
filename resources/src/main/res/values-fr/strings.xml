@@ -9,6 +9,7 @@
     <string name="battery_danger_desc">Activer le mode pratique</string>
     <string name="battery_title">Économie d\'énergie</string>
     <string name="permission_required">Permission requise</string>
-
+    <string name="junk_clean_title">Nettoyeur de déchets</string>
+    <string name="junk_clean_desc">Enlevez l`excès de déchets</string>
     <string name="done">Fait</string>
 </resources>

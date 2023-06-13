@@ -9,6 +9,7 @@
     <string name="battery_danger_desc">Activate the convenient mode</string>
     <string name="battery_title">Energy saver</string>
     <string name="permission_required">Permission required</string>
-
+    <string name="junk_clean_title">Junk cleaner</string>
+    <string name="junk_clean_desc">Remove excess garbage</string>
     <string name="done">Done</string>
 </resources>

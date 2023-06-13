@@ -10,4 +10,6 @@
     <string name="battery_title">エネルギーセーバー</string>
     <string name="permission_required">許可が必要です</string>
     <string name="done">終わり</string>
+    <string name="junk_clean_title">ジャンククリーナー</string>
+    <string name="junk_clean_desc">余分なゴミを取り除く</string>
 </resources>
