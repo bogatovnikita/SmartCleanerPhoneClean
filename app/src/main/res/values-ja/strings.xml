@@ -9,7 +9,6 @@
     <string name="ultra">ウルトラモード</string>
     <string name="normal_mode_activated">通常モードがアクティブ化されています</string>
     <string name="gb_fraction">/%.2f GB</string>
-    <string name="type_description_extra">追加モードは制限をアクティブにします：</string>
     <string name="optimize">最適化</string>
     <string name="optimization">最適化…</string>
     <string name="mb">%dMB</string>
@@ -25,14 +24,12 @@
     <string name="usage_state_description">私たちのアプリケーションでは、バックグラウンドで実行されているアプリの数を表示できるようにアクセス許可が必要です</string>
     <string name="cleared">掃除</string>
     <string name="ultra_mode_activated">ウルトラモードがアクティブ化されています</string>
-    <string name="type_description_normal">通常モードは制限をアクティブにします：</string>
     <string name="advice">これらの機能を実行することをお勧めします</string>
     <string name="count_of_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションのカウント</string>
     <string name="battery_boosted">最適化されました！</string>
     <string name="storage">保管所</string>
     <string name="clean_done">ガベージファイルが削除されました。</string>
     <string name="battery_unboosted">電話の作業時間を増やす必要があります！</string>
-    <string name="type_description_ultra">ウルトラモードは制限をアクティブにします：</string>
     <string name="ram_usage">ラムの使用</string>
     <string name="extra">エクストラモード</string>
     <string name="ram_unboosted">最適化をお勧めします</string>
@@ -44,32 +41,19 @@
     <string name="apps">アプリ</string>
     <string name="cleaning">掃除</string>
     <string name="normal">ノーマルモード</string>
-    <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためにコマンドを送信します</string>
     <string name="boost_description">バックグラウンドで実行されているアプリを閉じて、デバイスでメモリを解放します</string>
     <string name="clean">掃除</string>
     <string name="btn_continue">次</string>
     <string name="description_start_first_language_dialog">デバイスの言語はアプリケーションによってサポートされていません。英語はデフォルトで設定されます。\n\nは、アプリ内の言語を変更できます。</string>
     <string name="privacy_policy"><u>プライバシーポリシー</u></string>
     <string name="junk">ジャンク</string>
-    <array name="battery_ultra">
-        <item>明るさを80％減らす</item>
-        <item>背景アプリを閉じます</item>
-    </array>
-    <array name="battery_extra">
-        <item>明るさを90％減らす</item>
-        <item>背景アプリを閉じます</item>
-        <item>Wi-Fiを無効にします</item>
-        <item>ブルートゥースを無効にします</item>
-    </array>
+
     <array name="optimization">
         <item>背景プロセスの削除...</item>
         <item>システムパスのクリア...</item>
         <item>システムキーの調整...</item>
         <item>未使用のコンポーネントのチェック...</item>
         <item>不要なGPSタワーから切断します...</item>
-    </array>
-    <array name="battery_normal">
-        <item>明るさを70％減らす</item>
     </array>
 
     <string name="dialog_write_setting_description">あなたがエネルギーを節約するためのモードを選択できるように、私たちのアプリケーションは権限を必要とします</string>
@@ -83,4 +67,40 @@
 
     <string name="activate">アクティブ化</string>
     <string name="activation">アクティベーション…</string>
+
+    <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためのコマンドを送信します</string>
+    <string name="please_wait">チェック…</string>
+    <string name="count_of_applications_running">バックグラウンドで実行されているアプリケーションの数（システムからの情報による）</string>
+    <string name="time_out">タイムアウト</string>
+    <string name="boost_time_out_dialog">私たちのアプリケーションは、エラーを避けるために、バックグラウンドで実行されているアプリケーションを閉じるためのコマンドを送信することに制限があります-30分ごとに1回以下。\n\n理解のためのおかげで</string>
+    <string name="type_description_normal">通常モードの動作:</string>
+    <string name="type_description_ultra">ウルトラモードアクション:</string>
+    <string name="type_description_extra">エクストラモードアクション:</string>
+    <string name="set_brightness_to_80">明るさを80に設定する%</string>
+
+    <array name="battery_normal">
+        <item>明るさを30に設定します%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>明るさを20に設定します%</item>
+        <item>ブルートゥースを無効にする（有効になっている場合）</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>明るさを10に設定します%</item>
+        <item>Wi-Fiを無効にする（有効になっている場合）</item>
+        <item>ブルートゥースを無効にする（有効になっている場合）</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>明るさを10に設定します%</item>
+        <item>ブルートゥースを無効にする（有効になっている場合）</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>明るさを10に設定します%</item>
+        <item>Wi-Fiを無効にする（手動で）</item>
+        <item>ブルートゥースを無効にする（有効になっている場合）</item>
+    </array>
 </resources>

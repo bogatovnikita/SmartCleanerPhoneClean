@@ -9,7 +9,6 @@
     <string name="ultra">Ultra\nmode</string>
     <string name="normal_mode_activated">Mode normal activé</string>
     <string name="gb_fraction">/ %.2f Go</string>
-    <string name="type_description_extra">Le mode supplémentaire active les restrictions:</string>
     <string name="optimize">Optimiser</string>
     <string name="optimization">Optimisation…</string>
     <string name="mb">%d Mo</string>
@@ -25,14 +24,12 @@
     <string name="usage_state_description">Notre application nécessite des autorisations afin que vous puissiez afficher le nombre d\'applications en arrière-plan</string>
     <string name="cleared">Nettoyé</string>
     <string name="ultra_mode_activated">Ultra Mode activé</string>
-    <string name="type_description_normal">Le mode normal active les restrictions:</string>
     <string name="advice">Nous vous recommandons d\'exécuter ces fonctionnalités</string>
     <string name="count_of_applications_running_in_the_background">Compte d\'applications exécutées en arrière-plan</string>
     <string name="battery_boosted">Optimisé!</string>
     <string name="storage">Stockage</string>
     <string name="clean_done">Fichiers à ordures supprimés.</string>
     <string name="battery_unboosted">Vous devez augmenter le temps de travail du téléphone!</string>
-    <string name="type_description_ultra">Le mode ultra active les restrictions:</string>
     <string name="ram_usage">Utilisation de la RAM</string>
     <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">L\'optimisation est recommandée</string>
@@ -44,23 +41,13 @@
     <string name="apps">applications</string>
     <string name="cleaning">Nettoyer</string>
     <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Envoyer la commande pour fermer les applications en cours d\'exécution</string>
     <string name="boost_description">Fermer les applications en arrière-plan pour libérer de la mémoire sur votre appareil</string>
     <string name="clean">Nettoyer</string>
     <string name="btn_continue">Suivant</string>
     <string name="description_start_first_language_dialog">La langue de votre appareil n\'est pas prise en charge par notre application, l\'anglais est défini par défaut.</string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
     <string name="junk">Jonque</string>
-    <array name="battery_ultra">
-        <item>Réduit la luminosité de 80%</item>
-        <item>Ferme les applications d\'arrière-plan</item>
-    </array>
-    <array name="battery_extra">
-        <item>Réduit la luminosité de 90%</item>
-        <item>Ferme les applications d\'arrière-plan</item>
-        <item>Désactiver le Wi-Fi</item>
-        <item>Désactiver Bluetooth</item>
-    </array>
+
     <array name="optimization">
         <item>Suppression des processus d\'arrière-plan ...</item>
         <item>Effacer les chemins du système ...</item>
@@ -68,9 +55,7 @@
         <item>Vérification des composants inutilisés ...</item>
         <item>Se déconnecter des tours GPS inutiles ...</item>
     </array>
-    <array name="battery_normal">
-        <item>Réduit la luminosité de 70%</item>
-    </array>
+
     <string name="dialog_write_setting_description">Notre application nécessite des autorisations pour que vous puissiez choisir le mode d\'économie d\'énergie</string>
     <string name="please_wait_the_download_is_in_progress">Chargement</string>
     <string name="title_dialog_bluetooth">Le mode supplémentaire nécessite un accès</string>
@@ -82,4 +67,42 @@
 
     <string name="activate">Activer</string>
     <string name="activation">Activation…</string>
+
+
+    <string name="send_command_to_close_applications_running_in_the_background">Envoie une commande pour fermer les applications exécutées en arrière-plan</string>
+    <string name="please_wait">Vérification…</string>
+    <string name="count_of_applications_running">Nombre d`applications exécutées en arrière-plan (selon les informations du système)</string>
+    <string name="time_out">Temps mort</string>
+    <string name="boost_time_out_dialog">Notre application a une restriction sur l`envoi d`une commande pour fermer les applications exécutées en arrière - plan-pas plus d`une fois toutes les 30 minutes, afin d`éviter les erreurs.\ n \ n Merci de votre compréhension</string>
+    <string name="type_description_normal">Actions en mode normal:</string>
+    <string name="type_description_ultra">Actions du mode Ultra:</string>
+    <string name="type_description_extra">Actions supplémentaires en mode:</string>
+    <string name="set_brightness_to_80">Réglez la luminosité sur 80%</string>
+
+    <array name="battery_normal">
+        <item>Règle la luminosité sur 30%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Définit la luminosité sur 20%</item>
+        <item>Désactiver Bluetooth (si activé)</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Définit la luminosité sur 10%</item>
+        <item>Désactiver le Wi-Fi (si activé)</item>
+        <item>Désactiver Bluetooth (si activé)</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>Définit la luminosité sur 10%</item>
+        <item>Désactiver Bluetooth (si activé)</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>Définit la luminosité sur 10%</item>
+        <item>Désactiver le Wi-Fi (manuellement)</item>
+        <item>Désactiver Bluetooth (si activé)</item>
+    </array>
+
 </resources>

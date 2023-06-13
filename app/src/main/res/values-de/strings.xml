@@ -9,7 +9,6 @@
     <string name="ultra">Ultra\nmode</string>
     <string name="normal_mode_activated">Normaler Modus aktiviert</string>
     <string name="gb_fraction">/%.2f GB</string>
-    <string name="type_description_extra">Der zusätzliche Modus aktiviert Einschränkungen:</string>
     <string name="optimize">Optimieren</string>
     <string name="optimization">Optimierung…</string>
     <string name="mb">%dMB</string>
@@ -25,14 +24,12 @@
     <string name="usage_state_description">Unsere Bewerbung erfordert Berechtigungen, damit Sie die Anzahl der im Hintergrund ausgeführten Apps anzeigen können</string>
     <string name="cleared">Gereinigt</string>
     <string name="ultra_mode_activated">Ultra -Modus aktiviert</string>
-    <string name="type_description_normal">Der Normalmodus aktiviert Einschränkungen:</string>
     <string name="advice">Wir empfehlen, diese Funktionen auszuführen</string>
     <string name="count_of_applications_running_in_the_background">Anzahl der im Hintergrund ausgeführten Anwendungen</string>
     <string name="battery_boosted">Optimiert!</string>
     <string name="storage">Lagerung</string>
     <string name="clean_done">Mülldateien gelöscht.</string>
     <string name="battery_unboosted">Sie müssen die Arbeitszeit des Telefons erhöhen!</string>
-    <string name="type_description_ultra">Der Ultra -Modus aktiviert Einschränkungen:</string>
     <string name="ram_usage">RAM -Nutzung</string>
     <string name="extra">Extra\nmode</string>
     <string name="ram_unboosted">Die Optimierung wird empfohlen</string>
@@ -44,23 +41,13 @@
     <string name="apps">Apps</string>
     <string name="cleaning">Aufräumen</string>
     <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Befehl senden, um Anwendungen zu schließen, die im Hintergrund ausgeführt werden</string>
     <string name="boost_description">Schließen Sie Apps, die im Hintergrund ausgeführt werden, um den Speicher auf Ihrem Gerät freizugeben</string>
     <string name="clean">Aufräumen</string>
     <string name="btn_continue">Nächste</string>
     <string name="description_start_first_language_dialog">Die Sprache Ihres Geräts wird nicht von unserer Anwendung unterstützt. Das Englisch wird standardmäßig festgelegt.</string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
     <string name="junk">Junk</string>
-    <array name="battery_ultra">
-        <item>Reduziert die Helligkeit um 80%</item>
-        <item>Schließt Hintergrund Apps</item>
-    </array>
-    <array name="battery_extra">
-        <item>Reduziert die Helligkeit um 90%</item>
-        <item>Schließt Hintergrund Apps</item>
-        <item>Deaktiviere WiFi</item>
-        <item>Deaktivieren Sie Bluetooth</item>
-    </array>
+
     <array name="optimization">
         <item>Hintergrundprozesse löschen ...</item>
         <item>Löschen von Systempfaden ...</item>
@@ -68,9 +55,7 @@
         <item>Überprüfung unbenutzte Komponenten ...</item>
         <item>Trennen Sie von unnötigen GPS -Türmen ...</item>
     </array>
-    <array name="battery_normal">
-        <item>Reduziert die Helligkeit um 70%</item>
-    </array>
+
     <string name="dialog_write_setting_description">Unsere Anwendung benötigt Berechtigungen, damit Sie den Modus zum Energiesparen auswählen können</string>
     <string name="please_wait_the_download_is_in_progress">Laden</string>
     <string name="title_dialog_bluetooth">Zusätzlicher Modus erfordert Zugriff</string>
@@ -82,4 +67,39 @@
 
     <string name="activate">Aktivieren</string>
     <string name="activation">Aktivierung…</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Sendet einen Befehl zum Schließen von Anwendungen, die im Hintergrund ausgeführt werden</string>
+    <string name="please_wait">Überprüfung…</string>
+    <string name="count_of_applications_running">Anzahl der Anwendungen, die im Hintergrund ausgeführt werden (gemäß Informationen aus dem System)</string>
+    <string name="time_out">Auszeit</string>
+    <string name="boost_time_out_dialog">Unsere Anwendung hat eine Einschränkung beim Senden eines Befehls zum Schließen von Anwendungen, die im Hintergrund ausgeführt werden - höchstens einmal alle 30 Minuten, um Fehler zu vermeiden.\n \ n Danke für Ihr Verständnis</string>
+    <string name="type_description_normal">Aktionen im normalen Modus:</string>
+    <string name="type_description_ultra">Ultra-Modus-Aktionen:</string>
+    <string name="type_description_extra">Extra-Modus-Aktionen:</string>
+    <string name="set_brightness_to_80">Helligkeit auf 80 einstellen%</string>
+
+    <array name="battery_normal">
+        <item>Setzt die Helligkeit auf 30%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Setzt die Helligkeit auf 20%</item>
+        <item>Bluetooth deaktivieren (falls aktiviert)</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Setzt die Helligkeit auf 10%</item>
+        <item>WLAN deaktivieren (falls aktiviert)</item>
+        <item>Bluetooth deaktivieren (falls aktiviert)</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>Setzt die Helligkeit auf 10%</item>
+        <item>Bluetooth deaktivieren (falls aktiviert)</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>Setzt die Helligkeit auf 10%</item>
+        <item>WLAN deaktivieren (manuell)</item>
+        <item>Bluetooth deaktivieren (falls aktiviert)</item>
+    </array>
 </resources>

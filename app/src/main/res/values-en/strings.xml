@@ -70,7 +70,6 @@
     <string name="activate">Activate</string>
     <string name="activation">Activation…</string>
 
-    <!--                 new                       -->
     <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
     <string name="please_wait">Checking…</string>
     <string name="count_of_applications_running">Count of applications running in the background (according to information from the system)</string>
@@ -79,6 +78,7 @@
     <string name="type_description_normal">Normal mode actions:</string>
     <string name="type_description_ultra">Ultra mode actions:</string>
     <string name="type_description_extra">Extra mode actions:</string>
+    <string name="set_brightness_to_80">Set brightness to 80%</string>
 
     <array name="battery_normal">
         <item>Sets brightness to 30%</item>
