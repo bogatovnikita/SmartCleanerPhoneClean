@@ -2,6 +2,7 @@ package com.smart.cleaner.phoneclean.ui_core.adapters
 
 import android.content.Context
 import com.smart.cleaner.phoneclean.settings.Settings
+import com.smart.cleaner.phoneclean.ui_core.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.FunResult
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingType
 
@@ -12,7 +13,7 @@ class ResultList constructor(
     private val settings: Settings by lazy { Settings(context) }
 
     fun getList(typeResult: OptimizingType): List<FunResult> {
-        return when(typeResult) {
+        return when (typeResult) {
             OptimizingType.Boost -> getList().filter { it.type != OptimizingType.Boost }
             OptimizingType.Clean -> getList().filter { it.type != OptimizingType.Clean }
             OptimizingType.Duplicates -> getList().filter { it.type != OptimizingType.Duplicates }
@@ -42,6 +43,13 @@ class ResultList constructor(
             icon = general.R.drawable.ic_duplicate_danger,
             type = OptimizingType.Duplicates,
         ),
+        FunResult(
+            isOptimized = settings.isJunkCleanBoosted(),
+            funName = general.R.string.junk_clean_title,
+            funDangerDescription = general.R.string.junk_clean_desc,
+            icon = general.R.drawable.ic_clean_danger,
+            type = OptimizingType.Clean
+        )
     )
 
 }
