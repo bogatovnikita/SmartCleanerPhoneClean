@@ -34,7 +34,7 @@ class NotificationUtils(context: Context) {
         remoteView: RemoteViews
     ): Notification {
         return NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_android_black_24dp)
+            .setSmallIcon(R.drawable.ic_small_app_icon)
             .setWhen(System.currentTimeMillis())
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(remoteView)
