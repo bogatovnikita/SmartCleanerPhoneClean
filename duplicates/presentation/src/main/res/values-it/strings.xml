@@ -10,11 +10,11 @@
     <string name="duplicates_desc_done">Il telefono è stato cancellato con successo dai duplicati</string>
     <string name="duplicates_we_need_permission">Abbiamo bisogno del permesso</string>
     <string name="duplicates_number_of_duplicate">%d duplicati (s)</string>
-    <string name="duplicates_delete">Eliminare</string>
+    <string name="duplicates_delete">Pulire</string>
     <string name="duplicates_size_and_path">%s KB • %s</string>
-    <string name="duplicates_deletion">Delezione ...</string>
+    <string name="duplicates_deletion">Delezione …</string>
     <string name="duplicates_deleting_files">Eliminazione di file</string>
     <string name="duplicates_close">Vicino</string>
-    <string name="duplicates_please_wait">Per favore, aspetta, stiamo scansionando foto e file ...</string>
+    <string name="duplicates_please_wait">Per favore, aspetta, stiamo scansionando foto e file …</string>
     <string name="duplicates_no_duplicates_found">Nessun duplicato trovato</string>
 </resources>

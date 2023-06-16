@@ -10,7 +10,7 @@
     <string name="normal_mode_activated">Mode normal activé</string>
     <string name="gb_fraction">/ %.2f Go</string>
     <string name="type_description_extra">Le mode supplémentaire active les restrictions:</string>
-    <string name="optimize">Optimiser</string>
+    <string name="optimize">Activer</string>
     <string name="optimization">Optimisation…</string>
     <string name="mb">%d Mo</string>
     <string name="normal_mode">Mode normal:</string>
@@ -44,7 +44,7 @@
     <string name="apps">applications</string>
     <string name="cleaning">Nettoyer</string>
     <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Envoyer la commande pour fermer les applications en cours d\'exécution</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Envíe un comando para cerrar las aplicaciones que se ejecutan en segundo plano</string>
     <string name="boost_description">Fermer les applications en arrière-plan pour libérer de la mémoire sur votre appareil</string>
     <string name="clean">Nettoyer</string>
     <string name="btn_continue">Suivant</string>
@@ -73,8 +73,8 @@
     </array>
     <string name="dialog_write_setting_description">Notre application nécessite des autorisations pour que vous puissiez choisir le mode d\'économie d\'énergie</string>
     <string name="please_wait_the_download_is_in_progress">Chargement</string>
-    <string name="title_dialog_bluetooth">Le mode supplémentaire nécessite un accès</string>
-    <string name="dialog_bluetooth_description">Notre application nécessite l\'accès aux paramètres Bluetooth pour le mode Supplémentaire</string>
+    <string name="title_dialog_bluetooth">Le mode actuel nécessite un accès</string>
+    <string name="dialog_bluetooth_description">Notre application nécessite l'accès aux paramètres Bluetooth pour le mode actuel</string>
 
     <string name="check_recommended">Chèque recommandé!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Recherchez les fichiers indésirables sur votre appareil et ouvrez des applications en arrière-plan</string>

@@ -10,7 +10,7 @@
     <string name="normal_mode_activated">Normaler Modus aktiviert</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">Der zusätzliche Modus aktiviert Einschränkungen:</string>
-    <string name="optimize">Optimieren</string>
+    <string name="optimize">Aktivieren sie</string>
     <string name="optimization">Optimierung…</string>
     <string name="mb">%dMB</string>
     <string name="normal_mode">Normaler Modus:</string>
@@ -44,7 +44,7 @@
     <string name="apps">Apps</string>
     <string name="cleaning">Aufräumen</string>
     <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Befehl senden, um Anwendungen zu schließen, die im Hintergrund ausgeführt werden</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Senden Sie einen Befehl, um im Hintergrund laufende Anwendungen zu schließen</string>
     <string name="boost_description">Schließen Sie Apps, die im Hintergrund ausgeführt werden, um den Speicher auf Ihrem Gerät freizugeben</string>
     <string name="clean">Aufräumen</string>
     <string name="btn_continue">Nächste</string>
@@ -73,8 +73,8 @@
     </array>
     <string name="dialog_write_setting_description">Unsere Anwendung benötigt Berechtigungen, damit Sie den Modus zum Energiesparen auswählen können</string>
     <string name="please_wait_the_download_is_in_progress">Laden</string>
-    <string name="title_dialog_bluetooth">Zusätzlicher Modus erfordert Zugriff</string>
-    <string name="dialog_bluetooth_description">Unsere Anwendung benötigt Zugriff auf Bluetooth-Einstellungen für den Extra-Modus</string>
+    <string name="title_dialog_bluetooth">Der aktuelle Modus erfordert Zugriff</string>
+    <string name="dialog_bluetooth_description">Unsere Anwendung benötigt Zugriff auf die Bluetooth Einstellungen für den aktuellen Modus</string>
 
     <string name="check_recommended">Check empfohlen!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Überprüfen Sie Ihr Gerät auf Junk-Dateien und öffnen Sie Apps im Hintergrund</string>

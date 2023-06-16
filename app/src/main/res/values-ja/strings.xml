@@ -10,7 +10,7 @@
     <string name="normal_mode_activated">通常モードがアクティブ化されています</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">追加モードは制限をアクティブにします：</string>
-    <string name="optimize">最適化</string>
+    <string name="optimize">活性化</string>
     <string name="optimization">最適化…</string>
     <string name="mb">%dMB</string>
     <string name="normal_mode">ノーマルモード：</string>
@@ -44,7 +44,7 @@
     <string name="apps">アプリ</string>
     <string name="cleaning">掃除</string>
     <string name="normal">ノーマルモード</string>
-    <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行されているアプリケーションを閉じるためにコマンドを送信します</string>
+    <string name="send_command_to_close_applications_running_in_the_background">バックグラウンドで実行中のアプリケーションを閉じるコマンドを送信します。</string>
     <string name="boost_description">バックグラウンドで実行されているアプリを閉じて、デバイスでメモリを解放します</string>
     <string name="clean">掃除</string>
     <string name="btn_continue">次</string>
@@ -74,8 +74,8 @@
 
     <string name="dialog_write_setting_description">あなたがエネルギーを節約するためのモードを選択できるように、私たちのアプリケーションは権限を必要とします</string>
     <string name="please_wait_the_download_is_in_progress">積み込み</string>
-    <string name="title_dialog_bluetooth">エクストラモードにはアクセスが必要です</string>
-    <string name="dialog_bluetooth_description">私たちのアプリケーションは、余分なモードのBluetooth設定へのアクセスが必要です</string>
+    <string name="title_dialog_bluetooth">現在のモードにはアクセスが必要です</string>
+    <string name="dialog_bluetooth_description">私たちのアプリケーションは、現在のモードの Bluetooth 設定にアクセスする必要があります</string>
 
     <string name="check_recommended">チェックおすすめ！</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">デバイスのジャンクファイルを確認し、バックグラウンドでアプリを開く</string>

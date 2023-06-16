@@ -10,8 +10,8 @@
     <string name="normal_mode_activated">Активирован нормальный режим</string>
     <string name="gb_fraction">/%.2f ГБ</string>
     <string name="type_description_extra">Дополнительный режим активирует ограничения:</string>
-    <string name="optimize">Оптимизация</string>
-    <string name="optimization">Оптимизация...</string>
+    <string name="optimize">Запустить</string>
+    <string name="optimization">Оптимизация…</string>
     <string name="mb">%d Мб</string>
     <string name="normal_mode">Обычный режим:</string>
     <string name="energy">Энергия</string>
@@ -73,8 +73,8 @@
     </array>
     <string name="dialog_write_setting_description">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
     <string name="please_wait_the_download_is_in_progress">Загрузка</string>
-    <string name="title_dialog_bluetooth">Дополнительный режим требует доступа</string>
-    <string name="dialog_bluetooth_description">Нашему приложению требуется доступ к настройкам Bluetooth для дополнительного режима</string>
+    <string name="title_dialog_bluetooth">Текущий режим требует доступа</string>
+    <string name="dialog_bluetooth_description">Нашему приложению требуется доступ к настройкам Bluetooth для текущего режима</string>
 
     <string name="check_recommended">Рекомендуется проверить!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Проверьте свое устройство на наличие ненужных файлов и открывайте приложения в фоновом режиме</string>

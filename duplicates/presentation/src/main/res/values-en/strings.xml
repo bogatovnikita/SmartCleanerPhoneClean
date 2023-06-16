@@ -10,7 +10,7 @@
     <string name="duplicates_desc_done">The phone has been successfully cleared of duplicates</string>
     <string name="duplicates_we_need_permission">We need permission</string>
     <string name="duplicates_number_of_duplicate">%d duplicate(s)</string>
-    <string name="duplicates_delete">Delete</string>
+    <string name="duplicates_delete">Clean</string>
     <string name="duplicates_size_and_path">%s kb • %s</string>
     <string name="duplicates_deletion">Deletion…</string>
     <string name="duplicates_deleting_files">Deleting Files</string>

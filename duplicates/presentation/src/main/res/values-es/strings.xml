@@ -10,7 +10,7 @@
     <string name="duplicates_desc_done">El teléfono ha sido autorizado con éxito de duplicados</string>
     <string name="duplicates_we_need_permission">Necesitamos permiso</string>
     <string name="duplicates_number_of_duplicate">%d duplicado (s)</string>
-    <string name="duplicates_delete">Borrar</string>
+    <string name="duplicates_delete">Limpiar</string>
     <string name="duplicates_size_and_path">%s KB • %s</string>
     <string name="duplicates_deletion">Supresión…</string>
     <string name="duplicates_deleting_files">Eliminar archivos</string>

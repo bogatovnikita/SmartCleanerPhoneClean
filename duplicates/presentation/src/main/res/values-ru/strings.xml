@@ -10,11 +10,11 @@
     <string name="duplicates_desc_done">Телефон успешно очищен от дубликатов</string>
     <string name="duplicates_we_need_permission">Нам нужно разрешение</string>
     <string name="duplicates_number_of_duplicate">%d дубликат(ов)</string>
-    <string name="duplicates_delete">Удалить</string>
+    <string name="duplicates_delete">Очистить</string>
     <string name="duplicates_size_and_path">%s Кб - %s</string>
-    <string name="duplicates_deletion">Удаление...</string>
+    <string name="duplicates_deletion">Удаление…</string>
     <string name="duplicates_deleting_files">Удаление файлов</string>
     <string name="duplicates_close">Закрыть</string>
-    <string name="duplicates_please_wait">Пожалуйста, подождите, мы\ сканируем фотографии и файлы...</string>
+    <string name="duplicates_please_wait">Пожалуйста, подождите, мы\ сканируем фотографии и файлы…</string>
     <string name="duplicates_no_duplicates_found">Дубликатов не найдено</string>
 </resources>

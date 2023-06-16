@@ -10,7 +10,7 @@
     <string name="duplicates_desc_done">電話は重複を正常にクリアされています</string>
     <string name="duplicates_we_need_permission">許可が必要です</string>
     <string name="duplicates_number_of_duplicate">%d複製</string>
-    <string name="duplicates_delete">消去</string>
+    <string name="duplicates_delete">綺麗</string>
     <string name="duplicates_size_and_path">%s KB•%s</string>
     <string name="duplicates_deletion">消す…</string>
     <string name="duplicates_deleting_files">ファイルの削除</string>
