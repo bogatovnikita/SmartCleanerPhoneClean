@@ -49,6 +49,7 @@ class NotificationUtils(context: Context) {
     ): RemoteViews {
         val remoteView = RemoteViews(context.packageName, R.layout.item_notification)
         remoteView.setOnClickPendingIntent(R.id.btn_open_app, appPendingIntent)
+        remoteView.setOnClickPendingIntent(R.id.notification_plate, appPendingIntent)
         return remoteView
     }
 

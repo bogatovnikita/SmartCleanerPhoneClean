@@ -1,8 +1,11 @@
 package com.smart.cleaner.phone.clean
 
+import android.Manifest
 import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
@@ -10,9 +13,10 @@ import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bogatovnikita.language_dialog.language.Language
 import com.smart.cleaner.phone.clean.databinding.ActivityMainBinding
+import com.smart.cleaner.phone.clean.notification.NotificationUtils
 import com.smart.cleaner.phone.clean.receiver.AlarmManagerReceiver
-import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phone.clean.ui.dialogs.ShowStartLanguageDialog
+import com.smart.cleaner.phoneclean.settings.Settings
 import com.smart.cleaner.phoneclean.ui_core.adapters.GetIdForNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GetIdForNavigati
     private lateinit var language: Language
 
     private val binding: ActivityMainBinding by viewBinding()
+    private val launcher = registerForActivityResult(ActivityResultContracts.RequestPermission()){}
 
     override fun attachBaseContext(newBase: Context) {
         language = Language(newBase)
@@ -40,6 +45,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GetIdForNavigati
         initMenu()
         initClickListenerMenu()
 //        testNav()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+
     }
 
     private fun registerAlarmManagerAndCancelNotification() {
