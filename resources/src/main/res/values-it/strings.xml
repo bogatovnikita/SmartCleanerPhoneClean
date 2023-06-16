@@ -9,6 +9,7 @@
     <string name="battery_danger_desc">Attiva la modalità conveniente</string>
     <string name="battery_title">Risparmio energetico</string>
     <string name="permission_required">Autorizzazione richiesta</string>
-
+    <string name="junk_clean_title">Junk cleaner</string>
+    <string name="junk_clean_desc">Rimuovere la spazzatura in eccesso</string>
     <string name="done">Fatto</string>
 </resources>

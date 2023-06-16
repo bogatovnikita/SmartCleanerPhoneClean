@@ -81,6 +81,9 @@
 
 
 
+    <style name="Text.Regular.11">
+        <item name="android:textSize">11sp</item>
+    </style>
 
     <style name="Text.Regular.12">
         <item name="android:textSize">12sp</item>

@@ -9,15 +9,14 @@
     <string name="ultra">Ultra</string>
     <string name="normal_mode_activated">Активирован нормальный режим</string>
     <string name="gb_fraction">/%.2f ГБ</string>
-    <string name="type_description_extra">Дополнительный режим активирует ограничения:</string>
-    <string name="optimize">Запустить</string>
-    <string name="optimization">Оптимизация…</string>
+    <string name="optimize">Оптимизация</string>
+    <string name="optimization">Оптимизация...</string>
     <string name="mb">%d Мб</string>
     <string name="normal_mode">Обычный режим:</string>
     <string name="energy">Энергия</string>
     <string name="ram">Общий объем оперативной памяти</string>
     <string name="settings">Настройка</string>
-    <string name="fun_battery">Экономия заряда батареи</string>
+    <string name="fun_battery">Экономия энергии</string>
     <string name="get_permission">Нам нужно разрешение</string>
     <string name="duplicate">Дубликаты</string>
     <string name="extra_mode_activated">Активирован дополнительный режим</string>
@@ -68,9 +67,7 @@
         <item>Проверка неиспользуемых компонентов...</item>
         <item>Отключение от ненужных GPS-вышек...</item>
     </array>
-    <array name="battery_normal">
-        <item>Снижение яркости на 70%</item>
-    </array>
+
     <string name="dialog_write_setting_description">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
     <string name="please_wait_the_download_is_in_progress">Загрузка</string>
     <string name="title_dialog_bluetooth">Текущий режим требует доступа</string>

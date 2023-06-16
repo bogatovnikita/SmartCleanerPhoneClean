@@ -10,4 +10,7 @@
     <string name="permission_required">Permission required</string>
     <string name="allow">Allow</string>
     <string name="done">Done</string>
+    <string name="junk_clean_title">Junk cleaner</string>
+    <string name="junk_clean_desc">Remove excess garbage</string>
+
 </resources>

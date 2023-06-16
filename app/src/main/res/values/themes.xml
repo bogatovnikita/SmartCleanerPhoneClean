@@ -22,6 +22,12 @@
         <item name="android:windowMinWidthMinor">90%</item>
     </style>
 
+    <style name="DialogTimeOut" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="Dialog" parent="AppTheme">
         <item name="android:dialogTheme">@style/FullScreenDialog</item>
     </style>

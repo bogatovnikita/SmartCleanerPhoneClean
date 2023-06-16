@@ -1,28 +1,29 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCases
+import yin_kio.garbage_clean.domain.use_case.GarbageFilesUseCase
 
 class ViewModel(
-    private val useCases: GarbageFilesUseCases,
+    private val useCases: GarbageFilesUseCase,
     private val coroutineScope: CoroutineScope,
-    presenter: Presenter
-) : GarbageFilesUseCases by useCases{
+) : GarbageFilesUseCase by useCases{
 
 
-    private val _state = MutableStateFlow(ScreenState(
-        size = presenter.presentUnknownSize(),
-        buttonText = presenter.presentButtonText(false),
-        garbageGroups = presenter.presentGarbageWithoutPermission(),
-        isShowPermissionRequired = false
-    ))
+    private val _state = MutableStateFlow(ScreenState())
     val state: StateFlow<ScreenState> = _state.asStateFlow()
 
     private val _commands = MutableSharedFlow<Command>()
     val commands = _commands.asSharedFlow()
+
+    init {
+        start()
+    }
 
 
 

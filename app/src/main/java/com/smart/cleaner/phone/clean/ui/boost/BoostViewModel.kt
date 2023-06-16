@@ -19,12 +19,14 @@ class BoostViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val usedRam = toGb(boostUseCase.getRamUsage())
             val totalRam = toGb(boostUseCase.getTotalRam())
+            val apps = boostUseCase.getRunningApps()
             updateState {
                 it.copy(
                     usedRam = usedRam,
                     totalRam = totalRam,
                     isRamBoosted = boostUseCase.isRamBoosted(),
-                    listBackgroundApp = mapToBackgroundApp(boostUseCase.getRunningApps()),
+                    listBackgroundApp = mapToBackgroundApp(apps),
+                    isNothingToKill = apps.isEmpty() && screenState.value.isPermissionGiven,
                     isLoadUseCase = true
                 )
             }
@@ -39,7 +41,7 @@ class BoostViewModel @Inject constructor(
     fun setUsageStatePermission(permissionGiven: Boolean) {
         updateState {
             it.copy(
-                permissionGiven = permissionGiven
+                isPermissionGiven = permissionGiven
             )
         }
     }

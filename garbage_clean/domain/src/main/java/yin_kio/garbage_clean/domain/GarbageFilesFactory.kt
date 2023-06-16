@@ -2,6 +2,8 @@ package yin_kio.garbage_clean.domain
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import yin_kio.garbage_clean.domain.actions.CleanAction
+import yin_kio.garbage_clean.domain.actions.UpdateAction
 import yin_kio.garbage_clean.domain.entities.GarbageSelectorImpl
 import yin_kio.garbage_clean.domain.gateways.CleanTime
 import yin_kio.garbage_clean.domain.gateways.Files
@@ -11,10 +13,8 @@ import yin_kio.garbage_clean.domain.services.CleanTracker
 import yin_kio.garbage_clean.domain.services.garbage_forms_provider.GarbageFormsProviderImpl
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
 import yin_kio.garbage_clean.domain.ui_out.garbage_out_creator.GarbageOutCreatorImpl
-import yin_kio.garbage_clean.domain.use_cases.*
-import yin_kio.garbage_clean.domain.use_cases.CleanUseCase
-import yin_kio.garbage_clean.domain.use_cases.GarbageFilesUseCasesImpl
-import yin_kio.garbage_clean.domain.use_cases.UpdateUseCase
+import yin_kio.garbage_clean.domain.use_case.GarbageFilesUseCase
+import yin_kio.garbage_clean.domain.use_case.GarbageFilesUseCaseImpl
 
 object GarbageFilesFactory {
 
@@ -25,25 +25,23 @@ object GarbageFilesFactory {
         storageInfo: StorageInfo,
         cleanTime: CleanTime,
         coroutineScope: CoroutineScope,
-    ) : GarbageFilesUseCases{
+    ) : GarbageFilesUseCase{
 
         val garbageSelector = GarbageSelectorImpl()
 
-        val updateState = UpdateStateHolder()
 
         val garbageOutCreator = GarbageOutCreatorImpl()
         val cleanTracker = CleanTracker(cleanTime)
 
-        val updateUseCase = UpdateUseCase(
+        val updateAction = UpdateAction(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             garbageFormsProvider = GarbageFormsProviderImpl(files),
             garbageOutCreator = garbageOutCreator,
-            updateState = updateState,
             cleanTracker = cleanTracker
         )
 
-        val cleanUseCase = CleanUseCase(
+        val cleanAction = CleanAction(
             storageInfo = storageInfo,
             uiOuter = uiOuter,
             files = files,
@@ -52,25 +50,15 @@ object GarbageFilesFactory {
         )
 
 
-        val scanUseCase = ScanUseCase(
-            permissions = permissions,
-            updateUseCase = updateUseCase,
-            uiOuter = uiOuter,
-        )
-
-        return GarbageFilesUseCasesImpl(
+        return GarbageFilesUseCaseImpl(
             uiOuter = uiOuter,
             garbageSelector = garbageSelector,
             permissions = permissions,
-            updateUseCase = updateUseCase,
+            updateAction = updateAction,
             storageInfo = storageInfo,
             coroutineScope = coroutineScope,
             dispatcher = Dispatchers.IO,
-            cleanUseCase = cleanUseCase,
-            scanUseCase = scanUseCase,
-            updateState = updateState,
-            garbageOutCreator = garbageOutCreator,
-            cleanTracker = cleanTracker
+            cleanAction = cleanAction,
         )
 
     }

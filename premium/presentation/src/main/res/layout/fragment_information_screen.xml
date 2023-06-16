@@ -27,11 +27,11 @@
         android:layout_height="@dimen/_150sdp"
         android:layout_centerHorizontal="true"
         app:cardCornerRadius="@dimen/_24sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/title_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38">
+        app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <ImageView
             android:id="@+id/imageView1"
@@ -46,10 +46,11 @@
         style="@style/Text.Medium.24"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/version_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_view" />
@@ -59,37 +60,45 @@
         style="@style/Text.Medium.12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:gravity="center"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/guideline_for_links"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_name"
         tools:text="@string/version_code_S" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_for_links"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
     <TextView
         android:id="@+id/cancel_subscription"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
-        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center"
         android:text="@string/how_to_cancel_subscription"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/terms_and_conditions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/version_code" />
+        app:layout_constraintTop_toBottomOf="@id/guideline_for_links"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/terms_and_conditions"
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
         android:text="@string/terms_conditions"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/privacy_policy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cancel_subscription" />
@@ -99,10 +108,10 @@
         style="@style/Text.Medium.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
         android:gravity="center"
         android:text="@string/privacy_policy_not_U"
         android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/terms_and_conditions" />

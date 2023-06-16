@@ -21,40 +21,55 @@ class Presenter(
         this.context = language.changeLanguage()
     }
 
-    fun presentSize(size: Long) : String{
-        return formatFileSize(context, size)
+
+    fun presentButtonOpacity(hasSelected: Boolean) : Float{
+        return if (hasSelected) 1f else 0.5f
     }
 
-    fun presentUnknownSize() : String{
-        return formatFileSize(context, 0L).replace("0", "(?)")
+    fun presentCleanProgressMessages(files: List<File>) : List<GeneralOptimizingItem>{
+        return files.map { GeneralOptimizingItem(it.absolutePath) }
     }
 
-    fun persentProgressSize() : String{
-        return formatFileSize(context, 10_000_000).replace("10,00", "...")
-            .replace("10.00", "...")
+    fun presentFreedSpace(space: Long) : String{
+        return formatFileSize(context, space)
     }
 
-    fun presentButtonText(hasPermission: Boolean) : String{
-        return if (hasPermission){
-            context.getString(R.string.junk_clean_button)
-        } else {
-            context.getString(R.string.junk_clean_scan)
-        }
+    fun presentNoPermissionMessageColor() : Int{
+        return context.getColor(general.R.color.primary)
     }
 
-    fun presentGarbageWithoutPermission() : List<GarbageGroup>{
-        return getEmptyGarbageGroups()
+
+    fun presentNoPermissionSizeMessageColor() : Int {
+        return context.getColor(general.R.color.error)
     }
 
 
 
-    fun presentGarbageForProgress() : List<GarbageGroup>{
-        return getEmptyGarbageGroups(
-            isInProgress = true,
-            alpha = 1.0f
+
+
+
+
+    fun presentStartWithoutPermissionScreen() : ScreenState{
+
+        return ScreenState(
+            sizeText = formatFileSize(context, 0L).replace("0", "(?)"),
+            buttonText = context.getString(R.string.junk_clean_scan),
+            garbageGroups = GarbageType.values().map {
+                GarbageGroup(
+                    type = it,
+                    name = presentGarbageName(it),
+                    description = ""
+                )
+            },
+            isShowPermissionRequired = true,
+            buttonOpacity = 1f,
+            message = context.getString(R.string.junk_clean_amount_message),
+            sizeMessageColor = context.getColor(general.R.color.error),
+            messageColor = context.getColor(general.R.color.primary),
+            isExpandEnabled = false,
+            isInfoVisible = true,
         )
     }
-
 
     private fun presentGarbageName(garbageType: GarbageType) : String{
 
@@ -70,7 +85,41 @@ class Presenter(
 
     }
 
-    fun presentGarbage(garbage: List<Garbage>) : List<GarbageGroup>{
+    fun presentUpdatedScreen(oldState: ScreenState, garbage: List<Garbage>, isCleaned: Boolean) : ScreenState{
+
+        return oldState.copy(
+            sizeText = formatFileSize(context, garbage.sumOf { it.files.sumOf { it.length() } }),
+            buttonText = context.getString(R.string.junk_clean_button),
+            garbageGroups = presentGarbage(garbage),
+            isShowPermissionRequired = false,
+            buttonOpacity = 0.5f,
+            message = presentMessage(garbage),
+            messageColor = presentProgressMessageColor(garbage, isCleaned),
+            sizeMessageColor = presentProgressMessageColor(garbage, isCleaned),
+            isExpandEnabled = garbage.isNotEmpty(),
+            isInfoVisible = true,
+        )
+
+    }
+
+
+    private fun presentProgressMessageColor(garbage: List<Garbage>, isCleaned: Boolean) : Int{
+        if (garbage.isEmpty()) return context.getColor(general.R.color.secondary)
+        return presentProgressMessageColor(isCleaned)
+    }
+
+
+    private fun presentMessage(garbage: List<Garbage>) : String{
+        val id = if (garbage.isEmpty()){
+            R.string.junk_clean_cleaning_result_message
+        } else {
+            R.string.junk_clean_recomendation
+        }
+        return context.getString(id)
+    }
+
+
+    private fun presentGarbage(garbage: List<Garbage>) : List<GarbageGroup>{
         if (garbage.isEmpty()){
             return getEmptyGarbageGroups()
         }
@@ -86,6 +135,37 @@ class Presenter(
             )
         }
     }
+
+    fun presentUpdateProgressScreen(oldState: ScreenState, isCleaned: Boolean) : ScreenState{
+
+        return oldState.copy(
+            sizeText = presentProgressSize(),
+            buttonText = context.getString(R.string.junk_clean_button),
+            garbageGroups = getEmptyGarbageGroups(
+                isInProgress = true,
+                alpha = 1.0f
+            ),
+            isShowPermissionRequired = false,
+            buttonOpacity = 0.5f,
+            message = context.getString(R.string.junk_clean_recomendation),
+            messageColor = presentProgressMessageColor(isCleaned),
+            sizeMessageColor = presentProgressMessageColor(isCleaned),
+            isInfoVisible = true
+        )
+
+    }
+
+
+
+    private fun presentProgressMessageColor(isCleaned: Boolean) : Int{
+        val id = if (isCleaned){
+            general.R.color.secondary
+        } else {
+            general.R.color.error
+        }
+        return context.getColor(id)
+    }
+
 
     private fun getEmptyGarbageGroups(
         isInProgress: Boolean = false,
@@ -103,85 +183,11 @@ class Presenter(
     }
 
 
-    fun presentButtonOpacity(hasSelected: Boolean) : Float{
-        return if (hasSelected) 1f else 0.5f
+
+    private fun presentProgressSize() : String{
+        return formatFileSize(context, 10_000_000).replace("10,00", "...")
+            .replace("10.00", "...")
     }
 
-    fun presentCleanProgressMessages(files: List<File>) : List<GeneralOptimizingItem>{
-        return files.map { GeneralOptimizingItem(it.absolutePath) }
-    }
-
-    fun presentFreedSpace(space: Long) : String{
-        return formatFileSize(context, space)
-    }
-
-    fun presentMessage(hasPermission: Boolean) : String{
-        val id = if (hasPermission){
-            R.string.junk_clean_recomendation
-        } else {
-            R.string.junk_clean_amount_message
-        }
-        return context.getString(id)
-    }
-
-    fun presentMessage(garbage: List<Garbage>) : String{
-        val id = if (garbage.isEmpty()){
-            R.string.junk_clean_cleaning_result_message
-        } else {
-            R.string.junk_clean_recomendation
-        }
-        return context.getString(id)
-    }
-
-    fun presentProgressMessageColor(garbage: List<Garbage>, wasClean: Boolean) : Int{
-        if (wasClean) return wasCleanColor()
-
-        val id = if (garbage.isEmpty()){
-            general.R.color.secondary
-        } else {
-            general.R.color.error
-        }
-        return context.getColor(id)
-    }
-
-
-    fun presentProgressMessageColor(wasClean: Boolean) : Int{
-        val id = if (wasClean){
-            general.R.color.secondary
-        } else {
-            general.R.color.error
-        }
-        return context.getColor(id)
-    }
-
-    fun presentNoPermissionMessageColor() : Int{
-        return context.getColor(general.R.color.primary)
-    }
-
-    fun presentSizeMessageColor(garbage: List<Garbage>, wasClean: Boolean) : Int{
-        if (wasClean) return wasCleanColor()
-
-        val id = if (garbage.isEmpty()){
-            general.R.color.secondary
-        } else {
-            general.R.color.error
-        }
-        return context.getColor(id)
-    }
-
-    fun presentNoPermissionSizeMessageColor() : Int {
-        return context.getColor(general.R.color.error)
-    }
-
-
-
-    fun presentProgressSizeMessageColor(wasClean: Boolean) : Int{
-        if (wasClean) return wasCleanColor()
-
-        return context.getColor(general.R.color.error)
-    }
-
-
-    private fun wasCleanColor() = context.getColor(general.R.color.secondary)
 
 }

@@ -1,6 +1,6 @@
 package com.smart.cleaner.phone.clean.ui.battery
 
-import androidx.lifecycle.lifecycleScope
+import android.os.Build
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phoneclean.ui_core.adapters.base.BaseOptimizingFragment
 import com.smart.cleaner.phoneclean.ui_core.adapters.models.GeneralOptimizingItem
@@ -8,8 +8,6 @@ import com.smart.cleaner.phoneclean.ui_core.adapters.models.OptimizingItem
 import com.smart.cleaner.phone.clean.custom.ChoosingTypeBatteryBar
 import com.softcleean.fastcleaner.domain.battery.BatteryUseCase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,7 +22,13 @@ class BatteryOptimizingFragment(
         listOptions = when (batteryUseCase.getBatteryType()) {
             ChoosingTypeBatteryBar.NORMAL -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_normal))
             ChoosingTypeBatteryBar.ULTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_ultra))
-            ChoosingTypeBatteryBar.EXTRA -> toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra))
+            ChoosingTypeBatteryBar.EXTRA -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra_without_wifi))
+                } else {
+                    toGeneralOptimizingItemList(resources.getStringArray(R.array.battery_extra))
+                }
+            }
             else -> mutableListOf()
         }
     }
@@ -36,27 +40,17 @@ class BatteryOptimizingFragment(
             }
             ChoosingTypeBatteryBar.ULTRA -> {
                 batteryUseCase.setScreenBrightness(51)
-                killBackgroundProcess()
+                batteryUseCase.disableBluetooth()
             }
             ChoosingTypeBatteryBar.EXTRA -> {
                 batteryUseCase.setScreenBrightness(26)
-                batteryUseCase.disableWiFi()
                 batteryUseCase.disableBluetooth()
-                killBackgroundProcess()
+                batteryUseCase.disableWiFi()
             }
         }
     }
 
-    private fun killBackgroundProcess() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            batteryUseCase.killBackgroundProcessInstalledApps()
-        }
-        lifecycleScope.launch(Dispatchers.IO) {
-            batteryUseCase.killBackgroundProcessSystemApps()
-        }
-    }
-
-    override fun getFunName(): String = requireContext().getString(R.string.optimization)
+    override fun getFunName(): String = requireContext().getString(R.string.activation)
 
     private fun toGeneralOptimizingItemList(list: Array<String>): MutableList<OptimizingItem> {
         val newList = mutableListOf<OptimizingItem>()

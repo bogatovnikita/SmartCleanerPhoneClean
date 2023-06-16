@@ -50,7 +50,7 @@ dependencies {
     implementation project(':permissions')
     implementation project(':toolbar')
     implementation project(':ui_core')
-
+    implementation project(":settings")
 
     implementation 'com.github.pokercc:ExpandableRecyclerView:0.9.3'
 

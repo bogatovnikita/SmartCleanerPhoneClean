@@ -14,7 +14,6 @@ class BatteryViewModel @Inject constructor(
 
     fun getParams() {
         getIsBoostedBattery()
-        getBatterySaveType()
     }
 
     private fun getIsBoostedBattery() {
@@ -22,16 +21,6 @@ class BatteryViewModel @Inject constructor(
             updateState {
                 it.copy(
                     isBoostedBattery = batteryUseCase.isBatteryBoosted(),
-                    currentBatteryType = batteryUseCase.getBatteryType()
-                )
-            }
-        }
-    }
-
-    private fun getBatterySaveType() {
-        viewModelScope.launch {
-            updateState {
-                it.copy(
                     batterySaveType = batteryUseCase.getBatteryType()
                 )
             }
@@ -40,15 +29,20 @@ class BatteryViewModel @Inject constructor(
 
     fun boostBattery() {
         viewModelScope.launch {
-            batteryUseCase.saveBatteryType(screenState.value.batterySaveType)
+            batteryUseCase.saveBatteryType(screenState.value.currentBatteryType)
             batteryUseCase.saveTimeBatteryBoost()
+            updateState {
+                it.copy(
+                    isNeedShowBtnSetBrightness = true
+                )
+            }
         }
     }
 
-    fun setBatterySaveType(type: String) {
+    fun setCurrentBatteryType(type: String) {
         updateState {
             it.copy(
-                batterySaveType = type
+                currentBatteryType = type
             )
         }
     }
@@ -65,6 +59,15 @@ class BatteryViewModel @Inject constructor(
         updateState {
             it.copy(
                 hasBluetoothPerm = hasBluetoothPerm
+            )
+        }
+    }
+
+    fun setBrightnessTo80() {
+        batteryUseCase.setScreenBrightness(204)
+        updateState {
+            it.copy(
+                isNeedShowBtnSetBrightness = false
             )
         }
     }

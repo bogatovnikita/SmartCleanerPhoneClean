@@ -9,6 +9,7 @@
     <string name="battery_danger_desc">Aktivieren Sie den praktischen Modus</string>
     <string name="battery_title">Energiesparer</string>
     <string name="permission_required">Erlaubnis erforderlich</string>
-
+    <string name="junk_clean_title">Müllreiniger</string>
+    <string name="junk_clean_desc">Überschüssigen Müll entfernen</string>
     <string name="done">Erledigt</string>
 </resources>

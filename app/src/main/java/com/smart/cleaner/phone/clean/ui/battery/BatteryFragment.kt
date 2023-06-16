@@ -12,8 +12,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +40,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
-    private val viewModel: BatteryViewModel by viewModels()
+    private val viewModel: BatteryViewModel by activityViewModels()
 
     private val binding: FragmentBatteryBinding by viewBinding()
 
@@ -123,8 +123,8 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun setTypeBoostBattery() {
         binding.choosingTypeBar.setOnChangeTypeListener { type ->
+            viewModel.setCurrentBatteryType(type)
             checkPermissions()
-            viewModel.setBatterySaveType(type)
         }
     }
 
@@ -146,25 +146,31 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
 
     private fun renderState(batteryStateScreen: BatteryStateScreen) {
         with(batteryStateScreen) {
-            setBatteryStatus(isBoostedBattery, currentBatteryType)
-            batterySavingTypeProcessing(batterySaveType)
+            setBatteryStatus(isBoostedBattery, batterySaveType)
+            setBatteryTypeProcessing(currentBatteryType)
             with(binding) {
-                choosingTypeBar.setSaveTypeBattery(batterySaveType)
                 if (hasBluetoothPerm) {
                     descriptionGoSettings.isVisible = false
                 }
                 permissionRequired.isVisible = !isCanWriteSettings
             }
-            renderBtnBoostingBattery(isBoostedBattery, isCanWriteSettings, hasBluetoothPerm)
+            renderBtnBoostingBattery(isCanWriteSettings, hasBluetoothPerm, currentBatteryType)
+            renderBtnSetBrightness(batteryStateScreen)
         }
     }
 
-    private fun setBatteryStatus(isBoostedBattery: Boolean, currentBatteryType: String) {
+    private fun renderBtnSetBrightness(state: BatteryStateScreen) {
+        val isVisible = state.currentBatteryType == state.batterySaveType && state.isNeedShowBtnSetBrightness
+        binding.btnBoostBattery.isVisible = !isVisible
+        binding.btnSetBrightness.isVisible = isVisible
+    }
+
+    private fun setBatteryStatus(isBoostedBattery: Boolean, batterySaveType: String) {
         val ivId = if (isBoostedBattery) R.drawable.battery_normal else R.drawable.battery_low
         binding.ivBatteryStatus.setImageResource(ivId)
         binding.tvBatteryStatus.isVisible = isBoostedBattery
         if (isBoostedBattery) {
-            val descriptionStrId = when (currentBatteryType) {
+            val descriptionStrId = when (batterySaveType) {
                 NORMAL -> R.string.normal_mode_activated
                 ULTRA -> R.string.ultra_mode_activated
                 EXTRA -> R.string.extra_mode_activated
@@ -174,8 +180,9 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         }
     }
 
-    private fun batterySavingTypeProcessing(type: String) {
-        when (type) {
+    private fun setBatteryTypeProcessing(currentBatteryType: String) {
+        binding.choosingTypeBar.setTypeBattery(currentBatteryType)
+        when (currentBatteryType) {
             NORMAL -> {
                 renderTypeStatus(R.array.battery_normal, R.string.type_description_normal)
                 binding.descriptionGoSettings.isVisible = false
@@ -183,9 +190,12 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             ULTRA -> {
                 renderTypeStatus(R.array.battery_ultra, R.string.type_description_ultra)
                 binding.descriptionGoSettings.isVisible = false
+                showDialogOrRequestBLEPermission()
             }
             EXTRA -> {
-                renderTypeStatus(R.array.battery_extra, R.string.type_description_extra)
+                val array =
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) R.array.battery_extra_manually else R.array.battery_extra
+                renderTypeStatus(array, R.string.type_description_extra)
                 showDialogOrRequestBLEPermission()
             }
         }
@@ -216,24 +226,27 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     private fun setBtnListeners() {
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boostBattery()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && viewModel.screenState.value.batterySaveType == EXTRA) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && viewModel.screenState.value.currentBatteryType == EXTRA) {
                 openActivityToDisableWifi()
             } else {
                 findNavController().navigate(R.id.action_batteryFragment_to_batteryOptimizingFragment)
                 updateState()
             }
         }
+        binding.btnSetBrightness.setOnClickListener {
+            viewModel.setBrightnessTo80()
+        }
     }
 
     private fun renderBtnBoostingBattery(
-        isBoostedBattery: Boolean,
         isCanWriteSettings: Boolean,
-        hasBluetoothPerm: Boolean
+        hasBluetoothPerm: Boolean,
+        currentBatteryType: String
     ) {
-        if (isBoostedBattery || !isCanWriteSettings) {
+        if (!isCanWriteSettings) {
             makeAvailableBtn(false)
             binding.btnBoostBattery.isVisible = true
-        } else if (!hasBluetoothPerm && viewModel.screenState.value.batterySaveType == EXTRA) {
+        } else if (!hasBluetoothPerm && (currentBatteryType == EXTRA || currentBatteryType == ULTRA)) {
             makeAvailableBtn(false)
             if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT))
                 binding.btnBoostBattery.isVisible = false

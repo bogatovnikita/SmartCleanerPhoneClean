@@ -1,15 +1,15 @@
 package yin_kio.garbage_clean.presentation.garbage_list
 
-import android.util.Log
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.ui_out.Garbage
+import yin_kio.garbage_clean.domain.ui_out.UiOut
 import yin_kio.garbage_clean.domain.ui_out.UiOuter
-import yin_kio.garbage_clean.domain.use_cases.UpdateState
 import java.io.File
 
 class UIOuterImpl(
-    private val presenter: Presenter
+    private val presenter: Presenter,
 ) : UiOuter {
+
 
 
     var viewModel: ViewModel? = null
@@ -31,43 +31,13 @@ class UIOuterImpl(
         viewModel?.sendCommand(Command.ShowPermissionDialog)
     }
 
-    override fun outGarbage(garbage: List<Garbage>, wasClean: Boolean) {
-        viewModel?.update { it.copy(
-            size = presenter.presentSize(garbage.sumOf { it.files.sumOf { it.length() } }),
-            buttonText = presenter.presentButtonText(true),
-            garbageGroups = presenter.presentGarbage(garbage),
-            isShowPermissionRequired = false,
-            buttonOpacity = 0.5f,
-            message = presenter.presentMessage(garbage),
-            messageColor = presenter.presentProgressMessageColor(garbage, wasClean),
-            sizeMessageColor = presenter.presentSizeMessageColor(garbage, wasClean),
-            isExpandEnabled = garbage.isNotEmpty()
-        ) }
+    override fun changeLanguage(uiOut: UiOut) {
+        presenter.updateLanguage()
+        out(uiOut)
     }
 
-    override fun showUpdateProgress(wasClean: Boolean) {
 
-        viewModel?.update { it.copy(
-            size = presenter.persentProgressSize(),
-            buttonText = presenter.presentButtonText(true),
-            garbageGroups = presenter.presentGarbageForProgress(),
-            isShowPermissionRequired = false,
-            buttonOpacity = 0.5f,
-            message = presenter.presentMessage(true),
-            messageColor = presenter.presentProgressMessageColor(wasClean),
-            sizeMessageColor = presenter.presentProgressSizeMessageColor(wasClean)
-        ) }
-    }
 
-    override fun showPermissionRequired() {
-        viewModel?.update { it.copy(
-            size = presenter.presentUnknownSize(),
-            buttonText = presenter.presentButtonText(false),
-            garbageGroups = presenter.presentGarbageWithoutPermission(),
-            isShowPermissionRequired = true,
-            message = presenter.presentMessage(false),
-        ) }
-    }
 
     override fun showCleanProgress(files: List<File>) {
         viewModel?.update { it.copy(
@@ -96,26 +66,7 @@ class UIOuterImpl(
         }
     }
 
-    override fun removeCleanProgressItem() {
-        viewModel?.update { it.copy(
-            cleanMessages = it.cleanMessages
-        ) }
-    }
 
-    override fun hidePermissionRequired() {
-        viewModel?.update { it.copy(
-            isShowPermissionRequired = false
-        ) }
-    }
-
-    override fun updageLanguage(updateState: UpdateState, garbage: List<Garbage>, wasClean: Boolean) {
-        presenter.updateLanguage()
-        when(updateState){
-            UpdateState.Error -> {showPermissionRequired()}
-            UpdateState.Progress -> showUpdateProgress(wasClean)
-            UpdateState.Successful -> outGarbage(garbage, wasClean)
-        }
-    }
 
     override fun showAttentionMessagesColors() {
         viewModel?.update { it.copy(
@@ -124,4 +75,37 @@ class UIOuterImpl(
         ) }
 
     }
+
+
+
+    override fun out(uiOut: UiOut) {
+        when(uiOut){
+            UiOut.Init -> {}
+            UiOut.StartWithoutPermission -> showStartWithoutPermission()
+            is UiOut.UpdateProgress -> showUpdateProgress(uiOut.isCleaned)
+            is UiOut.Updated -> outGarbage(uiOut.garbageOuts, uiOut.isCleaned)
+        }
+    }
+
+
+
+    private fun showUpdateProgress(isCleaned: Boolean) {
+        viewModel?.update { presenter.presentUpdateProgressScreen(it, isCleaned) }
+    }
+
+
+    private fun showStartWithoutPermission(){
+        viewModel?.update { presenter.presentStartWithoutPermissionScreen() }
+        viewModel?.sendCommand(Command.ShowPermissionDialog)
+    }
+
+
+    private fun outGarbage(garbage: List<Garbage>, isCleaned: Boolean) {
+        viewModel?.update { presenter.presentUpdatedScreen(it, garbage, isCleaned)}
+    }
+
+
+
+
+
 }

@@ -9,6 +9,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Build
 import com.softcleean.fastcleaner.domain.models.BackgroundApp
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class BackgroundApps @Inject constructor(private val context: Application) {
@@ -27,7 +28,7 @@ class BackgroundApps @Inject constructor(private val context: Application) {
         val usageStatsManager =
             context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
         val endTime = System.currentTimeMillis()
-        val startTime = endTime - 15 * 60 * 1000
+        val startTime = endTime - TimeUnit.MINUTES.toMillis(30)
 
         val usageStatsList =
             usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime)

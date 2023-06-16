@@ -2,6 +2,7 @@ package yin_kio.garbage_clean.domain.entities
 
 import yin_kio.garbage_clean.domain.services.garbage_files.GarbageType
 import yin_kio.garbage_clean.domain.services.selectable_form.SelectableForm
+import yin_kio.garbage_clean.domain.ui_out.UiOut
 import java.io.File
 
 internal class GarbageSelectorImpl : GarbageSelector {
@@ -53,4 +54,6 @@ internal class GarbageSelectorImpl : GarbageSelector {
             }
             return false
         }
+
+    override var uiOut: UiOut = UiOut.Init
 }

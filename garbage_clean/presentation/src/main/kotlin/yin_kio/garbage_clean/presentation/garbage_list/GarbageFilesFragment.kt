@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
@@ -42,7 +41,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
     ){
         if (it[Manifest.permission.READ_EXTERNAL_STORAGE]!!
             && it[Manifest.permission.WRITE_EXTERNAL_STORAGE]!!){
-            viewModel.scanOrClean()
+            viewModel.start()
         }
     }
 
@@ -55,7 +54,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
     override fun onStart() {
         super.onStart()
-        viewModel.checkPermissionAndLanguage()
+        viewModel.updateLanguage()
     }
 
 
@@ -63,7 +62,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         binding.recycler.adapter = adapter
 
-        binding.button.setOnClickListener { viewModel.scanOrClean() }
+        binding.button.setOnClickListener { viewModel.start() }
 
         setupStateObserver()
         setupCommandsObserver()
@@ -76,7 +75,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 binding.apply {
-                    size.text = it.size
+                    size.text = it.sizeText
                     button.text = it.buttonText
                     permissionRequired.isInvisible = !it.isShowPermissionRequired
                     button.alpha = it.buttonOpacity
@@ -87,6 +86,7 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
                     sizeIcon.imageTintList = ColorStateList.valueOf(it.sizeMessageColor)
 
                     adapter.onExpandListenerEnabled = it.isExpandEnabled
+                    infoPlate.isInvisible = !it.isInfoVisible
                 }
 
                 adapter.garbage = it.garbageGroups
@@ -180,14 +180,12 @@ class GarbageFilesFragment : Fragment(R.layout.fragment_garbage_files) {
 
         val viewModel = ViewModel(
             useCases = useCases,
-            coroutineScope = viewModelScope,
-            presenter = presenter
+            coroutineScope = viewModelScope
         )
 
         uiOuter.viewModel = viewModel
 
 
-        viewModel.update()
 
         return viewModel
     }

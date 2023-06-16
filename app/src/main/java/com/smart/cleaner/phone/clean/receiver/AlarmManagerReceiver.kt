@@ -35,6 +35,7 @@ class AlarmManagerReceiver(private val context: Context) {
 
 
     companion object {
-        const val INTERVAL_MILLIS = 2 * 60 * 60 * 1000L
+        //        const val INTERVAL_MILLIS = 2 * 60 * 60 * 1000L //TODO поставить 2 часа, остальное для теста
+        const val INTERVAL_MILLIS = 3 * 60 * 1000L
     }
 }

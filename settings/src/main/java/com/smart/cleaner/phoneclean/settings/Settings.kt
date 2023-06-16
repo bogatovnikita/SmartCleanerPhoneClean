@@ -28,7 +28,7 @@ class Settings @Inject constructor(
     fun isRamBoosted(): Boolean {
         val currentTime = System.currentTimeMillis()
         val saveTime = sharedPreferences.getLong(TIME_RAM_BOOST, 0L)
-        return saveTime + TimeUnit.HOURS.toMillis(2) > currentTime
+        return saveTime + TimeUnit.MINUTES.toMillis(30) > currentTime
     }
 
     fun saveTimeBatteryBoost() {
@@ -68,6 +68,16 @@ class Settings @Inject constructor(
         sharedPreferences.edit().putBoolean(OPEN_INFORMATION_DIALOG, state).apply()
     }
 
+    fun saveTimeJunkClean() {
+        sharedPreferences.edit().putLong(JUNK_CLEAN_BOOST, System.currentTimeMillis()).apply()
+    }
+
+    fun isJunkCleanBoosted(): Boolean {
+        val saveTime = sharedPreferences.getLong(JUNK_CLEAN_BOOST, 0L)
+        val currentTime = System.currentTimeMillis()
+        return saveTime + TimeUnit.DAYS.toMillis(1) > currentTime
+    }
+
     companion object {
         private const val SETTINGS = "SETTINGS"
         private const val FIRST_LAUNCH = "FIRST_LAUNCH"
@@ -75,6 +85,7 @@ class Settings @Inject constructor(
         private const val TIME_DUPLICATES_DELETE = "TIME_DUPLICATES_DELETE"
         private const val TIME_BATTERY_BOOST = "TIME_BATTERY_BOOST"
         private const val OPEN_INFORMATION_DIALOG = "OPEN_INFORMATION_DIALOG"
+        private const val JUNK_CLEAN_BOOST = "JUNK_CLEAN_BOOST"
     }
 
 }

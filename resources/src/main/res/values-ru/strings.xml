@@ -10,4 +10,6 @@
     <string name="battery_title">Экономия энергии</string>
     <string name="permission_required">Требуется разрешение</string>
     <string name="done">Готово</string>
+    <string name="junk_clean_title">Очиститель мусора</string>
+    <string name="junk_clean_desc">Удалите лишний мусор</string>
 </resources>

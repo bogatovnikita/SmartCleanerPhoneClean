@@ -34,7 +34,7 @@ class NotificationUtils(context: Context) {
         remoteView: RemoteViews
     ): Notification {
         return NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_android_black_24dp)
+            .setSmallIcon(R.drawable.ic_small_app_icon)
             .setWhen(System.currentTimeMillis())
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(remoteView)
@@ -49,6 +49,7 @@ class NotificationUtils(context: Context) {
     ): RemoteViews {
         val remoteView = RemoteViews(context.packageName, R.layout.item_notification)
         remoteView.setOnClickPendingIntent(R.id.btn_open_app, appPendingIntent)
+        remoteView.setOnClickPendingIntent(R.id.notification_plate, appPendingIntent)
         return remoteView
     }
 

@@ -6,13 +6,23 @@
     android:background="@drawable/bg_dialog">
 
     <ImageView
-        android:id="@+id/btn_cancel_dialog"
+        android:id="@+id/cancel_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/cancel_dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_cancel_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@id/cancel_dialog"
+        app:layout_constraintEnd_toEndOf="@id/cancel_dialog"
+        app:layout_constraintStart_toStartOf="@id/cancel_dialog"
+        app:layout_constraintTop_toTopOf="@id/cancel_dialog" />
 
     <TextView
         android:id="@+id/title"
@@ -23,9 +33,9 @@
         android:layout_marginEnd="16dp"
         android:text="@string/duplicates_we_need_permission"
         android:textAppearance="@style/Text.Semi_Bold.18"
-        app:layout_constraintEnd_toStartOf="@+id/btn_cancel_dialog"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_dialog"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_cancel_dialog" />
+        app:layout_constraintTop_toBottomOf="@id/cancel_dialog" />
 
     <TextView
         android:id="@+id/dialog_description"
