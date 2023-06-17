@@ -34,7 +34,7 @@
     <string name="normal_mode_activated">Normal mode activated</string>
     <string name="ultra_mode_activated">Ultra mode activated</string>
     <string name="extra_mode_activated">Extra mode activated</string>
-    <string name="optimize">Activate</string>
+    <string name="optimize">Optimize</string>
     <string name="junk">Junk</string>
     <string name="duplicate">Duplicate</string>
     <string name="energy">Energy</string>
@@ -49,7 +49,7 @@
     <string name="cancel">Close</string>
     <string name="done">Done</string>
     <string name="advice">We recommend running these features</string>
-    <string name="fun_battery">Energy saver</string>
+    <string name="fun_battery">Battery saver</string>
     <string name="ram_unboosted">Optimization is recommended</string>
     <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
     <string name="ram_usage">RAM Usage</string>
@@ -79,50 +79,11 @@
     <string name="clean">Clean up</string>
     <string name="dialog_write_setting_description">Our application requires permissions so that you can choose the mode to save energy</string>
     <string name="please_wait_the_download_is_in_progress">Loading</string>
-    <string name="title_dialog_bluetooth">The current mode requires access</string>
-    <string name="dialog_bluetooth_description">Our application requires access to Bluetooth settings for the current mode</string>
+    <string name="title_dialog_bluetooth">Extra mode requires access</string>
+    <string name="dialog_bluetooth_description">Our application requires access to Bluetooth settings for the Extra mode</string>
 
     <string name="check_recommended">Check recommended!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Check your device for junk files and open apps in the background</string>
-    <string name="let_s_go">Check</string>
-
-    <string name="activate">Activate</string>
-    <string name="activation">Activation…</string>
-
-    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
-    <string name="please_wait">Checking…</string>
-    <string name="count_of_applications_running">Count of applications running in the background (according to information from the system)</string>
-    <string name="time_out">Time out</string>
-    <string name="boost_time_out_dialog">Our application has a restriction on sending a command to close applications running in the background - no more than once every 30 minutes, in order to avoid errors.\n \n Thanks for understanding</string>
-    <string name="type_description_normal">Normal mode actions:</string>
-    <string name="type_description_ultra">Ultra mode actions:</string>
-    <string name="type_description_extra">Extra mode actions:</string>
-    <string name="set_brightness_to_80">Set brightness to 80%</string>
-
-    <array name="battery_normal">
-        <item>Sets brightness to 30%</item>
-    </array>
-
-    <array name="battery_ultra">
-        <item>Sets brightness to 20%</item>
-        <item>Disable Bluetooth (If enabled)</item>
-    </array>
-
-    <array name="battery_extra">
-        <item>Sets brightness to 10%</item>
-        <item>Disable Wi-Fi (If enabled)</item>
-        <item>Disable Bluetooth (If enabled)</item>
-    </array>
-
-    <array name="battery_extra_without_wifi">
-        <item>Sets brightness to 10%</item>
-        <item>Disable Bluetooth (If enabled)</item>
-    </array>
-
-    <array name="battery_extra_manually">
-        <item>Sets brightness to 10%</item>
-        <item>Disable Wi-Fi (Manually)</item>
-        <item>Disable Bluetooth (If enabled)</item>
-    </array>
+    <string name="let_s_go">Let’s go</string>
 
 </resources>

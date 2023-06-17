@@ -12,7 +12,8 @@
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="8dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_optimizing_name"

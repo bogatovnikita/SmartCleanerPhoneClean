@@ -10,7 +10,7 @@
     <string name="normal_mode_activated">Modalità normale attivata</string>
     <string name="gb_fraction">/%.2f GB</string>
     <string name="type_description_extra">La modalità extra attiva le restrizioni:</string>
-    <string name="optimize">Attivare</string>
+    <string name="optimize">Ottimizzare</string>
     <string name="optimization">Ottimizzazione…</string>
     <string name="mb">%d MB</string>
     <string name="normal_mode">Modalità normale:</string>
@@ -44,7 +44,7 @@
     <string name="apps">App</string>
     <string name="cleaning">Ripulire</string>
     <string name="normal">Normale\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Invia un comando per chiudere le applicazioni in esecuzione in background</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Invia comando per chiudere le applicazioni in esecuzione in background</string>
     <string name="boost_description">Chiudi le app in esecuzione in background per liberare la memoria sul dispositivo</string>
     <string name="clean">Ripulire</string>
     <string name="btn_continue">Prossimo</string>
@@ -73,8 +73,8 @@
     </array>
     <string name="dialog_write_setting_description">La nostra applicazione richiede autorizzazioni in modo da poter scegliere la modalità per risparmiare energia</string>
     <string name="please_wait_the_download_is_in_progress">Caricamento</string>
-    <string name="title_dialog_bluetooth">La modalità corrente richiede l'accesso</string>
-    <string name="dialog_bluetooth_description">La nostra applicazione richiede l'accesso alle impostazioni Bluetooth per la modalità corrente</string>
+    <string name="title_dialog_bluetooth">Modalità extra richiede l\'accesso</string>
+    <string name="dialog_bluetooth_description">La nostra applicazione richiede l\'accesso alle impostazioni Bluetooth per la modalità Extra</string>
 
     <string name="check_recommended">Controllare consigliato!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Controlla il tuo dispositivo per i file spazzatura e apri le app in background</string>
