@@ -1,66 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cancel">Close</string>
-    <string name="ads_off">ADS off</string>
-    <string name="boosted_desc">The phone has been successfully optimized</string>
-    <string name="used">Used</string>
-    <string name="gb_one_after_dot">%.2f Gb</string>
-    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
-    <string name="ultra">Ultra\nmode</string>
-    <string name="normal_mode_activated">Normal mode activated</string>
-    <string name="gb_fraction">/%.2f GB</string>
-    <string name="type_description_extra">Extra mode activates restrictions:</string>
-    <string name="optimize">Optimize</string>
-    <string name="optimization">Optimization…</string>
-    <string name="mb">%dMb</string>
-    <string name="normal_mode">Normal mode:</string>
-    <string name="energy">Energy</string>
-    <string name="ram">Total amount of RAM</string>
-    <string name="settings">Setting</string>
-    <string name="fun_battery">Battery saver</string>
-    <string name="get_permission">We need permission</string>
-    <string name="duplicate">Duplicate</string>
-    <string name="extra_mode_activated">Extra mode activated</string>
-    <string name="device_information">Device Information</string>
-    <string name="usage_state_description">Our application requires permissions so that you can view count of apps running in the background</string>
-    <string name="cleared">Cleaned</string>
-    <string name="ultra_mode_activated">Ultra mode activated</string>
-    <string name="type_description_normal">Normal mode activates restrictions:</string>
-    <string name="advice">We recommend running these features</string>
-    <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
-    <string name="battery_boosted">Optimized!</string>
-    <string name="storage">Storage</string>
-    <string name="clean_done">Garbage files deleted.</string>
-    <string name="battery_unboosted">You need to increase the working time of the phone!</string>
-    <string name="type_description_ultra">Ultra mode activates restrictions:</string>
-    <string name="ram_usage">RAM Usage</string>
-    <string name="extra">Extra\nmode</string>
-    <string name="ram_unboosted">Optimization is recommended</string>
-    <string name="gb">%.2f GB</string>
-    <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
-    <string name="free">Free RAM</string>
-    <string name="boosted">Apps running in the background are closed!</string>
-    <string name="go_settings_description">To perform this function, you need to give permission in the settings yourself</string>
-    <string name="apps">Apps</string>
-    <string name="cleaning">Cleanup</string>
-    <string name="normal">Normal\nmode</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
-    <string name="boost_description">Close apps running in the background to free up memory on your device</string>
-    <string name="clean">Clean up</string>
-    <string name="btn_continue">Next</string>
-    <string name="description_start_first_language_dialog">The language of your device is not supported by our application, English is set by default.\n\nYou can change the language right inside the app.</string>
-    <string name="privacy_policy"><u>Privacy policy</u></string>
-    <string name="junk">Junk</string>
-    <array name="battery_ultra">
-        <item>Reduces brightness by 80%</item>
-        <item>Closes background apps</item>
-    </array>
-    <array name="battery_extra">
-        <item>Reduces brightness by 90%</item>
-        <item>Closes background apps</item>
-        <item>Disable Wi-Fi</item>
-        <item>Disable Bluetooth</item>
-    </array>
+
     <array name="optimization">
         <item>Deleting background processes...</item>
         <item>Clearing system paths...</item>
@@ -68,15 +8,102 @@
         <item>Checking unused components...</item>
         <item>Disconnect from unnecessary GPS towers...</item>
     </array>
-    <array name="battery_normal">
-        <item>Reduces brightness by 70%</item>
-    </array>
 
+    <string name="app_name" translatable="false">Smart Cleaner:\nPhone Clean</string>
+    <string name="normal">Normal\nmode</string>
+    <string name="ultra">Ultra\nmode</string>
+    <string name="extra">Extra\nmode</string>
+    <string name="normal_mode_activated">Normal mode activated</string>
+    <string name="ultra_mode_activated">Ultra mode activated</string>
+    <string name="extra_mode_activated">Extra mode activated</string>
+    <string name="optimize">Optimize</string>
+    <string name="junk">Junk</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="energy">Energy</string>
+    <string name="ads_off">ADS off</string>
+    <string name="settings">Setting</string>
+    <string name="go_settings_description">To perform this function, you need to give permission in the settings yourself</string>
+    <string name="battery_boosted">Optimized!</string>
+    <string name="battery_unboosted">You need to increase the working time of the phone!</string>
+    <string name="optimization">Optimization…</string>
+    <string name="btn_continue">Next</string>
+    <string name="get_permission">We need permission</string>
+    <string name="cancel">Close</string>
+    <string name="done">Done</string>
+    <string name="advice">We recommend running these features</string>
+    <string name="fun_battery">Energy saver</string>
+    <string name="ram_unboosted">Optimization is recommended</string>
+    <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
+    <string name="ram_usage">RAM Usage</string>
+    <string name="used">Used</string>
+    <string name="gb_one_after_dot">%.2f Gb</string>
+    <string name="gb_fraction">/%.2f GB</string>
+    <string name="free">Free RAM</string>
+    <string name="ram">Total amount of RAM</string>
+    <string name="boosted">Apps running in the background are closed!</string>
+    <string name="boosted_desc">The phone has been successfully optimized</string>
+    <string name="boost_description">Close apps running in the background to free up memory on your device</string>
+    <string name="description_start_first_language_dialog">The language of your device is not supported by our application, English is set by default.\n\nYou can change the language right inside the app.</string>
+    <string name="usage_state_description">Our application requires permissions so that you can view count of apps running in the background</string>
+    <string name="device_information">Device Information</string>
+    <string name="apps">Apps</string>
+    <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
+    <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
+    <string name="mb">%dMb</string>
+    <string name="normal_mode">Normal mode:</string>
+    <string name="cleared">Cleaned</string>
+    <string name="storage">Storage</string>
+    <string name="clean_done">Garbage files deleted.</string>
+    <string name="gb">%.2f GB</string>
+    <string name="privacy_policy"><u>Privacy policy</u></string>
+    <string name="cleaning">Cleanup</string>
+    <string name="clean">Clean up</string>
     <string name="dialog_write_setting_description">Our application requires permissions so that you can choose the mode to save energy</string>
     <string name="please_wait_the_download_is_in_progress">Loading</string>
     <string name="title_dialog_bluetooth">Extra mode requires access</string>
     <string name="dialog_bluetooth_description">Our application requires access to Bluetooth settings for the Extra mode</string>
+
     <string name="check_recommended">Check recommended!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Check your device for junk files and open apps in the background</string>
-    <string name="let_s_go">Let’s go</string>
+    <string name="let_s_go">Check</string>
+
+    <string name="activate">Activate</string>
+    <string name="activation">Activation…</string>
+
+    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
+    <string name="please_wait">Checking…</string>
+    <string name="count_of_applications_running">Count of applications running in the background (according to information from the system)</string>
+    <string name="time_out">Time out</string>
+    <string name="boost_time_out_dialog">Our application has a restriction on sending a command to close applications running in the background - no more than once every 30 minutes, in order to avoid errors.\n \n Thanks for understanding</string>
+    <string name="type_description_normal">Normal mode actions:</string>
+    <string name="type_description_ultra">Ultra mode actions:</string>
+    <string name="type_description_extra">Extra mode actions:</string>
+    <string name="set_brightness_to_80">Set brightness to 80%</string>
+
+    <array name="battery_normal">
+        <item>Sets brightness to 30%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Sets brightness to 20%</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Wi-Fi (If enabled)</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Wi-Fi (Manually)</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
 </resources>

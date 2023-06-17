@@ -9,7 +9,6 @@
     <string name="ultra">Ultra</string>
     <string name="normal_mode_activated">Активирован нормальный режим</string>
     <string name="gb_fraction">/%.2f ГБ</string>
-    <string name="type_description_extra">Дополнительный режим активирует ограничения:</string>
     <string name="optimize">Оптимизация</string>
     <string name="optimization">Оптимизация...</string>
     <string name="mb">%d Мб</string>
@@ -17,7 +16,7 @@
     <string name="energy">Энергия</string>
     <string name="ram">Общий объем оперативной памяти</string>
     <string name="settings">Настройка</string>
-    <string name="fun_battery">Экономия заряда батареи</string>
+    <string name="fun_battery">Экономия энергии</string>
     <string name="get_permission">Нам нужно разрешение</string>
     <string name="duplicate">Дубликаты</string>
     <string name="extra_mode_activated">Активирован дополнительный режим</string>
@@ -25,14 +24,12 @@
     <string name="usage_state_description">Наше приложение требует разрешения, чтобы вы могли просмотреть количество приложений, запущенных в фоновом режиме</string>
     <string name="cleared">Очищено</string>
     <string name="ultra_mode_activated">Активирован ультрарежим</string>
-    <string name="type_description_normal">В обычном режиме активированы ограничения:</string>
     <string name="advice">Мы рекомендуем запустить эти функции</string>
     <string name="count_of_applications_running_in_the_background">Подсчет приложений, запущенных в фоновом режиме</string>
     <string name="battery_boosted">Оптимизировано!</string>
     <string name="storage">Хранилище</string>
     <string name="clean_done">Удалены мусорные файлы.</string>
     <string name="battery_unboosted">Необходимо увеличить время работы телефона!</string>
-    <string name="type_description_ultra">Ультрарежим активирует ограничения:</string>
     <string name="ram_usage">Использование оперативной памяти</string>
     <string name="extra">Extra</string>
     <string name="ram_unboosted">Рекомендуется оптимизация</string>
@@ -44,23 +41,13 @@
     <string name="apps">Приложения</string>
     <string name="cleaning">Очистка</string>
     <string name="normal">Normal</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Отправка команды на закрытие приложений, работающих в фоновом режиме</string>
     <string name="boost_description">Закрытие приложений, работающих в фоновом режиме, для освобождения памяти на вашем устройстве</string>
     <string name="clean">Очистка</string>
     <string name="btn_continue">Далее</string>
     <string name="description_start_first_language_dialog">Язык вашего устройства не поддерживается нашим приложением, по умолчанию установлен английский.\n\nВы можете изменить язык прямо в приложении.</string>
     <string name="privacy_policy"><u>Политика конфиденциальности</u></string>
     <string name="junk">Мусор</string>
-    <array name="battery_ultra">
-        <item>Уменьшает яркость на 80%</item>
-        <item>Закрывает фоновые приложения</item>
-    </array>
-    <array name="battery_extra">
-        <item>Уменьшает яркость на 90%</item>
-        <item>Закрывает фоновые приложения</item>
-        <item>Отключить Wi-Fi</item>
-        <item>Отключить Bluetooth</item>
-    </array>
+
     <array name="optimization">
         <item>Удаление фоновых процессов...</item>
         <item>Очистка системных путей...</item>
@@ -68,9 +55,7 @@
         <item>Проверка неиспользуемых компонентов...</item>
         <item>Отключение от ненужных GPS-вышек...</item>
     </array>
-    <array name="battery_normal">
-        <item>Снижение яркости на 70%</item>
-    </array>
+
     <string name="dialog_write_setting_description">Нашему приложению требуются разрешения, чтобы вы могли выбрать режим экономии энергии</string>
     <string name="please_wait_the_download_is_in_progress">Загрузка</string>
     <string name="title_dialog_bluetooth">Дополнительный режим требует доступа</string>
@@ -79,4 +64,42 @@
     <string name="check_recommended">Рекомендуется проверить!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Проверьте свое устройство на наличие ненужных файлов и открывайте приложения в фоновом режиме</string>
     <string name="let_s_go">Открыть</string>
+
+    <string name="activate">Активировать</string>
+    <string name="activation">Активация…</string>
+    <string name="send_command_to_close_applications_running_in_the_background">Отправляет команду для закрытия приложений, работающих в фоновом режиме</string>
+    <string name="please_wait">Проверка…</string>
+    <string name="count_of_applications_running">Количество приложений, запущенных в фоновом режиме (согласно информации из системы)</string>
+    <string name="time_out">Ожидание</string>
+    <string name="boost_time_out_dialog">В нашем приложении есть ограничение на отправку команды для закрытия приложений, работающих в фоновом режиме, - не чаще одного раза в 30 минут, во избежание ошибок.\n \n Спасибо за понимание</string>
+    <string name="type_description_normal">Действия в обычном режиме:</string>
+    <string name="type_description_ultra">Действия в сверхрежимном режиме:</string>
+    <string name="type_description_extra">Действия в дополнительном режиме:</string>
+    <string name="set_brightness_to_80">Установите яркость на 80%</string>
+
+    <array name="battery_normal">
+        <item>Устанавливает яркость на 30%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Устанавливает яркость на 20%</item>
+        <item>Отключите Bluetooth (если включен)</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Устанавливает яркость на 10%</item>
+        <item>Отключите Wi-Fi (если включен)</item>
+        <item>Отключите Bluetooth (если включен)</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>Устанавливает яркость на 10%</item>
+        <item>Отключите Bluetooth (если включен)</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>Устанавливает яркость на 10%</item>
+        <item>Отключите Wi-Fi (вручную)</item>
+        <item>Отключите Bluetooth (если включен)</item>
+    </array>
 </resources>

@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="battery_normal">
-        <item>Reduces brightness by 70%</item>
-    </array>
-
-    <array name="battery_ultra">
-        <item>Reduces brightness by 80%</item>
-        <item>Closes background apps</item>
-    </array>
-
-    <array name="battery_extra">
-        <item>Reduces brightness by 90%</item>
-        <item>Closes background apps</item>
-        <item>Disable Wi-Fi</item>
-        <item>Disable Bluetooth</item>
-    </array>
 
     <array name="optimization">
         <item>Deleting background processes...</item>
@@ -25,9 +10,6 @@
     </array>
 
     <string name="app_name" translatable="false">Smart Cleaner:\nPhone Clean</string>
-    <string name="type_description_normal">Normal mode activates restrictions:</string>
-    <string name="type_description_ultra">Ultra mode activates restrictions:</string>
-    <string name="type_description_extra">Extra mode activates restrictions:</string>
     <string name="normal">Normal\nmode</string>
     <string name="ultra">Ultra\nmode</string>
     <string name="extra">Extra\nmode</string>
@@ -49,7 +31,7 @@
     <string name="cancel">Close</string>
     <string name="done">Done</string>
     <string name="advice">We recommend running these features</string>
-    <string name="fun_battery">Battery saver</string>
+    <string name="fun_battery">Energy saver</string>
     <string name="ram_unboosted">Optimization is recommended</string>
     <string name="ram_boosted">Apps running in the background are closed!The phone has been successfully optimized!</string>
     <string name="ram_usage">RAM Usage</string>
@@ -66,7 +48,6 @@
     <string name="device_information">Device Information</string>
     <string name="apps">Apps</string>
     <string name="count_of_applications_running_in_the_background">Count of applications running in the background</string>
-    <string name="send_command_to_close_applications_running_in_the_background">Send command to close applications running in the background</string>
     <string name="the_command_to_close_applications_running_in_the_background_has_been_sent">The command to close applications running in the background has been sent</string>
     <string name="mb">%dMb</string>
     <string name="normal_mode">Normal mode:</string>
@@ -84,6 +65,45 @@
 
     <string name="check_recommended">Check recommended!</string>
     <string name="check_your_device_for_junk_files_and_open_apps_in_the_background">Check your device for junk files and open apps in the background</string>
-    <string name="let_s_go">Let’s go</string>
+    <string name="let_s_go">Check</string>
+
+    <string name="activate">Activate</string>
+    <string name="activation">Activation…</string>
+
+    <string name="send_command_to_close_applications_running_in_the_background">Sends command to close applications running in the background</string>
+    <string name="please_wait">Checking…</string>
+    <string name="count_of_applications_running">Count of applications running in the background (according to information from the system)</string>
+    <string name="time_out">Time out</string>
+    <string name="boost_time_out_dialog">Our application has a restriction on sending a command to close applications running in the background - no more than once every 30 minutes, in order to avoid errors.\n \n Thanks for understanding</string>
+    <string name="type_description_normal">Normal mode actions:</string>
+    <string name="type_description_ultra">Ultra mode actions:</string>
+    <string name="type_description_extra">Extra mode actions:</string>
+    <string name="set_brightness_to_80">Set brightness to 80%</string>
+
+    <array name="battery_normal">
+        <item>Sets brightness to 30%</item>
+    </array>
+
+    <array name="battery_ultra">
+        <item>Sets brightness to 20%</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Wi-Fi (If enabled)</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra_without_wifi">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
+
+    <array name="battery_extra_manually">
+        <item>Sets brightness to 10%</item>
+        <item>Disable Wi-Fi (Manually)</item>
+        <item>Disable Bluetooth (If enabled)</item>
+    </array>
 
 </resources>
