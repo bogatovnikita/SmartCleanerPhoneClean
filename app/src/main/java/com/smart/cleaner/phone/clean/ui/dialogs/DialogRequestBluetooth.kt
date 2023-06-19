@@ -1,5 +1,6 @@
 package com.smart.cleaner.phone.clean.ui.dialogs
 
+import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,7 +12,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.smart.cleaner.phone.clean.R
 import com.smart.cleaner.phone.clean.databinding.DialogRequestBluetoothBinding
 
-class DialogRequestBluetooth : DialogFragment (R.layout.dialog_request_bluetooth) {
+class DialogRequestBluetooth : DialogFragment(R.layout.dialog_request_bluetooth) {
 
     private val binding: DialogRequestBluetoothBinding by viewBinding()
 
@@ -20,24 +21,38 @@ class DialogRequestBluetooth : DialogFragment (R.layout.dialog_request_bluetooth
         setStyle(STYLE_NO_TITLE, R.style.DialogStyle)
     }
 
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.setCanceledOnTouchOutside(false)
+        return dialog
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.btnOk.setOnClickListener {
             sendSuccessResult()
             dismiss()
         }
         binding.btnCancelDialog.setOnClickListener {
-            sendErrorResult()
+            sendSuccessResult()
+//            sendErrorResult()
             dismiss()
         }
     }
 
     private fun sendSuccessResult() {
-        setFragmentResult(RESULT_BLUETOOTH, bundleOf(RESULT_KEY_BLUETOOTH to RESULT_SUCCESS_BLUETOOTH))
+        setFragmentResult(
+            RESULT_BLUETOOTH,
+            bundleOf(RESULT_KEY_BLUETOOTH to RESULT_SUCCESS_BLUETOOTH)
+        )
     }
 
     private fun sendErrorResult() {
-        setFragmentResult(RESULT_BLUETOOTH, bundleOf(RESULT_KEY_BLUETOOTH to RESULT_ERROR_BLUETOOTH))
+        setFragmentResult(
+            RESULT_BLUETOOTH,
+            bundleOf(RESULT_KEY_BLUETOOTH to RESULT_ERROR_BLUETOOTH)
+        )
     }
 
     override fun onResume() {

@@ -61,6 +61,8 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             if (it.isNotEmpty() && !it.containsValue(false)) {
                 viewModel.setHasBluetoothPerm(true)
+            } else {
+                binding.descriptionGoSettings.isVisible = true
             }
         }
 
@@ -160,7 +162,8 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun renderBtnSetBrightness(state: BatteryStateScreen) {
-        val isVisible = state.currentBatteryType == state.batterySaveType && state.isNeedShowBtnSetBrightness
+        val isVisible =
+            state.currentBatteryType == state.batterySaveType && state.isNeedShowBtnSetBrightness
         binding.btnBoostBattery.isVisible = !isVisible
         binding.btnSetBrightness.isVisible = isVisible
     }
@@ -190,13 +193,13 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
             ULTRA -> {
                 renderTypeStatus(R.array.battery_ultra, R.string.type_description_ultra)
                 binding.descriptionGoSettings.isVisible = false
-                showDialogOrRequestBLEPermission()
+                if (hasPermCanWrite()) showDialogOrRequestBLEPermission()
             }
             EXTRA -> {
                 val array =
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) R.array.battery_extra_manually else R.array.battery_extra
                 renderTypeStatus(array, R.string.type_description_extra)
-                showDialogOrRequestBLEPermission()
+                if (hasPermCanWrite()) showDialogOrRequestBLEPermission()
             }
         }
     }
@@ -205,11 +208,6 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
         if (!checkBluetoothPermission()) {
             if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT)) {
                 binding.descriptionGoSettings.isVisible = true
-                binding.btnGoBluetoothSettings.setOnClickListener {
-                    startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                        data = Uri.parse("package:" + requireActivity().packageName)
-                    })
-                }
             } else {
                 DialogRequestBluetooth().show(parentFragmentManager, TAG_BLUETOOTH)
             }
@@ -224,6 +222,16 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     }
 
     private fun setBtnListeners() {
+        binding.btnGoBluetoothSettings.setOnClickListener {
+            startActivityForResultBluetoothSettings.launch(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                data = Uri.parse("package:" + requireActivity().packageName)
+            })
+        }
+
+        binding.btnBoostBatteryTransparent.setOnClickListener {
+            checkPermissions()
+        }
+
         binding.btnBoostBattery.setOnClickListener {
             viewModel.boostBattery()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && viewModel.screenState.value.currentBatteryType == EXTRA) {
@@ -245,13 +253,16 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     ) {
         if (!isCanWriteSettings) {
             makeAvailableBtn(false)
+            makeAvailableTransparentBtn(false)
             binding.btnBoostBattery.isVisible = true
         } else if (!hasBluetoothPerm && (currentBatteryType == EXTRA || currentBatteryType == ULTRA)) {
             makeAvailableBtn(false)
+            makeAvailableTransparentBtn(true)
             if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT))
                 binding.btnBoostBattery.isVisible = false
         } else {
             makeAvailableBtn(true)
+            makeAvailableTransparentBtn(true)
             binding.btnBoostBattery.isVisible = true
         }
     }
@@ -259,6 +270,11 @@ class BatteryFragment : Fragment(R.layout.fragment_battery) {
     private fun makeAvailableBtn(enable: Boolean) {
         binding.btnBoostBattery.isClickable = enable
         binding.btnBoostBattery.isEnabled = enable
+    }
+
+    private fun makeAvailableTransparentBtn(enable: Boolean) {
+        binding.btnBoostBatteryTransparent.isClickable = !enable
+        binding.btnBoostBatteryTransparent.isEnabled = !enable
     }
 
     private fun initAdapter() {
